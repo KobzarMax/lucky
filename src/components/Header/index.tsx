@@ -27,7 +27,17 @@ function Header() {
     }
   }
 
-  const toggleLanguage = () => {
+  const toggleLanguage = (event) => {
+    if (event.target.parentNode.classList.contains('languages')) {
+      if (event.target.innerHTML === 'en') {
+        console.log('en')
+        i18n.changeLanguage('en')
+        setLanguage('en')
+      } else if (event.target.innerHTML === 'ru') {
+        i18n.changeLanguage('ru')
+        setLanguage('ru')
+      }
+    }
     setLanguageView(!languageView)
   }
 
@@ -83,13 +93,13 @@ function Header() {
               <div className="languages absolute right-0 top-full rounded-md">
                 <p
                   className="text-dark_gray mb-2 cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
-                  onClick={() => (i18n.changeLanguage('en'), toggleLanguage)}
+                  onClick={toggleLanguage}
                 >
                   en
                 </p>
                 <p
                   className="text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
-                  onClick={() => (i18n.changeLanguage('ru'), toggleLanguage)}
+                  onClick={toggleLanguage}
                 >
                   ru
                 </p>
