@@ -55,7 +55,7 @@ export const News = () => {
               </p>
               <a
                 href="#"
-                className="text-primary flex items-center justify-start gap-[5px] text-[15px] leading-[18px]"
+                className="flex items-center justify-start gap-[5px] text-[15px] leading-[18px] text-primary"
               >
                 {t('readAll')} <img src={arrow} alt="arrow" />
               </a>

@@ -11,53 +11,49 @@ interface FAQItem {
 export const FAQ = (): JSX.Element => {
   const { t } = useTranslation(['home'])
 
-  const [openIndices, setOpenIndices] = useState<number[]>([])
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const contentRefs = useRef<(HTMLParagraphElement | null)[]>([])
 
   const toggleAccordion = (index: number): void => {
-    if (openIndices.includes(index)) {
-      setOpenIndices(openIndices.filter((i) => i !== index))
-    } else {
-      setOpenIndices([...openIndices, index])
-    }
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index))
   }
 
-  const faqItems = [
+  const faqItems: FAQItem[] = [
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     },
     {
       title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos tempora libero sunt praesentium, vitae repellat pariatur earum tempore magni.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
     }
   ]
 
@@ -76,9 +72,7 @@ export const FAQ = (): JSX.Element => {
               className="flex cursor-pointer items-center justify-between py-[17px]"
               onClick={() => toggleAccordion(index)}
               style={{
-                borderRadius: openIndices.includes(index)
-                  ? '10px 10px 0 0'
-                  : '10px'
+                borderRadius: openIndex === index ? '10px 10px 0 0' : '10px'
               }}
             >
               <div className="flex items-center justify-start gap-2.5">
@@ -90,21 +84,21 @@ export const FAQ = (): JSX.Element => {
               <img
                 src={caretDown}
                 alt="caret"
-                className={`
-                  ${
-                    openIndices.includes(index) ? 'rotate-180' : 'rotate-0'
-                  } transition-all duration-300
-                `}
+                style={{
+                  transform: openIndex === index ? 'rotate(180deg)' : 'none',
+                  transition: 'transform 0.3s ease'
+                }}
               />
             </div>
             <p
               ref={(el) => (contentRefs.current[index] = el)}
               className="text-[15px] leading-[18px] text-white"
               style={{
-                maxHeight: openIndices.includes(index)
-                  ? `${contentRefs.current[index]?.scrollHeight}px`
-                  : '0',
-                opacity: openIndices.includes(index) ? 1 : 0,
+                maxHeight:
+                  openIndex === index
+                    ? `${contentRefs.current[index]?.scrollHeight}px`
+                    : '0',
+                opacity: openIndex === index ? 1 : 0,
                 transition: 'max-height 0.3s ease, opacity 0.3s ease',
                 overflow: 'hidden'
               }}

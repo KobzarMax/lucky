@@ -70,7 +70,7 @@ function Header() {
                     src={paidOut.avatar}
                     alt="avatar"
                   />
-                  <span className="text-dark_green text-[13px] font-semibold leading-4">
+                  <span className="text-[13px] font-semibold leading-4 text-dark_green">
                     {paidOut.number}
                   </span>
                 </div>
@@ -81,14 +81,14 @@ function Header() {
         <div className="flex items-center justify-start">
           <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[15px] py-[5px]">
             <img className="mr-[5px]" src={coin} alt="coin" />
-            <span className="text-dark_gray text-[15px] font-medium uppercase leading-[18px]">
+            <span className="text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
               $2 000
             </span>
           </div>
           <div className="relative mr-6 flex items-center justify-start">
             <img className="mr-[5px]" src={globe} alt="globe" />
             <p
-              className="text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
+              className="cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
               onClick={toggleLanguage}
             >
               {language}
@@ -96,13 +96,13 @@ function Header() {
             {languageView && (
               <div className="languages absolute right-0 top-full rounded-md">
                 <p
-                  className="text-dark_gray mb-2 cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
+                  className="mb-2 cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
                   onClick={toggleLanguage}
                 >
                   en
                 </p>
                 <p
-                  className="text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
+                  className="cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
                   onClick={toggleLanguage}
                 >
                   ru

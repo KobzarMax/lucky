@@ -4,4 +4,8 @@
   box-shadow: 0px 4px 20px rgba(56, 166, 219, 0.5);
   backdrop-filter: blur(10px);
   border-radius: 30px;
+  transition: 0.3s all;
+}
+.telegram-link:hover {
+  background: #66b8e1;
 }

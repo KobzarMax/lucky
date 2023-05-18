@@ -13,33 +13,54 @@ function Footer() {
         <img src={logo} alt="lucky hamster logo" />
         <div className="ml-[205px] flex w-full items-center justify-start gap-[30px]">
           <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
+            className="text-[15px] leading-[15px] text-dark_gray"
             to={'terms'}
           >
             {t('termsOfUse')}
           </Link>
           <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
+            className="text-[15px] leading-[15px] text-dark_gray"
             to={'privacy'}
           >
             {t('privacyPolicy')}
           </Link>
           <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
+            className="text-[15px] leading-[15px] text-dark_gray"
             to={'affiliate'}
           >
             {t('affiliateProgram')}
           </Link>
         </div>
         <div className="flex items-center justify-start gap-[15px]">
-          <a href="#">
-            <img src={twitter} alt="twitter link" />
+          <a
+            href="#"
+            className="flex h-[25px] w-[25px] items-center justify-center"
+          >
+            <img
+              className="h-[25px] w-[25px]"
+              src={twitter}
+              alt="twitter link"
+            />
           </a>
-          <a href="#">
-            <img src={telegram} alt="telegram link" />
+          <a
+            href="#"
+            className="flex h-[25px] w-[25px] items-center justify-center"
+          >
+            <img
+              className="h-[25px] w-[25px]"
+              src={telegram}
+              alt="telegram link"
+            />
           </a>
-          <a href="#">
-            <img src={discord} alt="discord link" />
+          <a
+            href="#"
+            className="flex h-[25px] w-[25px] items-center justify-center"
+          >
+            <img
+              className="h-[25px] w-[25px]"
+              src={discord}
+              alt="discord link"
+            />
           </a>
         </div>
       </div>
