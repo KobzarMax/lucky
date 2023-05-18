@@ -1,5 +1,5 @@
 {
-  "paidOut": "Всего выплачено:",
+  "paidOut": "Paid out:",
   "connectWallet": "Connect wallet",
   "gameStartsIn": "Game starts in:",
   "days": "days",
@@ -12,13 +12,15 @@
   "documentation": "Documentation",
   "latest": "latest",
   "games": "games",
-  "howWorks": "Как работает Capybara Swap?",
+  "howWorks": "Как работает",
+  "howWorksName": "Capybara Swap",
   "howWorksSubtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat imperdiet sed.",
   "decentralize": "Decentralize",
   "transperancy": "Transperancy",
   "safety": "Safety",
   "lowCommisions": "Low commisions",
-  "earnLikePartner": "Зарабатывайте как наш партнер",
+  "earnLikePartner": "Зарабатывайте как наш",
+  "partner": "партнер",
   "earnLikePartnerSubtitle1": "Присоединяйтесь к программе и получите до",
   "earnLikePartnerSubtitle2": "revshare! Вы опытный партнер и хотели бы установить свои собственные правила? Мы рады познакомиться с вашим предложением. Станьте нашим партнером и зарабатывайте, когда ваши рефералы начинают играть!",
   "ourTelegram": "Наш телеграм",
@@ -39,5 +41,6 @@
   "faqItem": "Lorem ipsum dolor sit amet, consectetur",
   "termsOfUse": "Terms of use",
   "privacyPolicy": "Privacy Policy",
-  "affiliateProgram": "Affiliate Program"
+  "affiliateProgram": "Affiliate Program",
+  "readAll": "Прочитать всё"
 }

@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('../components/Header/index.css');
+@import url('../components/LatestGames/index.css');
+@import url('../components/Footer/index.css');
+@import url('../components/HowItWorks/index.css');
+@import url('../components/TelegramButton/index.css');
+@import url('../components/DocumentsButton/index.css');
+@import url('../components/EarnPartner/index.css');
+@import url('../components/CTA/index.css');
+@import url('../components/News/index.css');
+@import url('../components/FAQ/index.css');
 
 * {
   padding: 0;

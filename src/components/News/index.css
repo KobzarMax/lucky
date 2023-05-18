@@ -1,0 +1,16 @@
+.news-article {
+  background-image: url('../../asset/news-article-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.news-article a img {
+  filter: invert(54%) sepia(97%) saturate(7497%) hue-rotate(331deg) brightness(101%) contrast(101%);
+  transform: rotate(90deg);
+}
+.news-article .article-text {
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4;
+   -webkit-box-orient: vertical;
+}

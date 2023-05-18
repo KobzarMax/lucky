@@ -27,13 +27,17 @@ function Header() {
     }
   }
 
-  const toggleLanguage = (event) => {
-    if (event.target.parentNode.classList.contains('languages')) {
-      if (event.target.innerHTML === 'en') {
+  const toggleLanguage = (
+    event: React.MouseEvent<HTMLParagraphElement>
+  ): void => {
+    const target = event.target as HTMLElement
+    const parentNode = target.parentNode as HTMLElement
+    if (parentNode.classList.contains('languages')) {
+      if (target.innerHTML === 'en') {
         console.log('en')
         i18n.changeLanguage('en')
         setLanguage('en')
-      } else if (event.target.innerHTML === 'ru') {
+      } else if (target.innerHTML === 'ru') {
         i18n.changeLanguage('ru')
         setLanguage('ru')
       }
@@ -46,12 +50,12 @@ function Header() {
       <header
         className={`${
           isSticky ? 'sticky' : 'unStiky'
-        } header flex w-full items-center justify-between pl-9 pr-[95px]`}
+        } header flex h-20 w-full items-center justify-between pl-[75px] pr-[131px]`}
       >
         <div className="flex items-center justify-start gap-20">
           <img src={logo} alt="lucky hamster logo" />
           <div className="flex items-center justify-start">
-            <div className="mr-2.5 flex flex-col items-start justify-start text-xs font-medium">
+            <div className="mr-4 flex flex-col items-start justify-start text-xs font-medium">
               <p className="text-white">{t('paidOut')}</p>
               <p className="text-dark_green">$1412412</p>
             </div>
@@ -75,13 +79,13 @@ function Header() {
           </div>
         </div>
         <div className="flex items-center justify-start">
-          <div className="flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[15px] py-[5px]">
+          <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[15px] py-[5px]">
             <img className="mr-[5px]" src={coin} alt="coin" />
             <span className="text-dark_gray text-[15px] font-medium uppercase leading-[18px]">
               $2 000
             </span>
           </div>
-          <div className="relative mr-5 flex items-center justify-start">
+          <div className="relative mr-6 flex items-center justify-start">
             <img className="mr-[5px]" src={globe} alt="globe" />
             <p
               className="text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px]"
@@ -106,7 +110,7 @@ function Header() {
               </div>
             )}
           </div>
-          <button className="flex items-center justify-center gap-3 p-5 py-[18px] text-[15px] font-medium leading-[18px] text-white">
+          <button className="flex h-11 max-w-[185px] items-center justify-center gap-3 whitespace-nowrap p-5 py-[18px] text-[15px] font-medium leading-[18px] text-white">
             {t('connectWallet')} <img src={creditcard} alt="credit card" />
           </button>
         </div>
