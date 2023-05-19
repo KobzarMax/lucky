@@ -31,7 +31,7 @@ function Home() {
     return () => clearInterval(timer)
   }, [days, hours, minutes])
   return (
-    <div className="relative overflow-hidden pl-[78px] pr-[28px]">
+    <div className="relative overflow-x-hidden px-[78px]">
       <div className="flex items-stretch justify-between">
         <div className="mt-[254px] w-full max-w-[665px]">
           <h1

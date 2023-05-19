@@ -9,23 +9,25 @@ function Footer() {
   const { t } = useTranslation(['home'])
   return (
     <footer className="footer">
-      <div className="flex items-center justify-between pl-[38px] pr-[17.7px]">
-        <img src={logo} alt="lucky hamster logo" />
+      <div className="flex items-center justify-between pl-[77px] pr-[74px]">
+        <Link to={'/'}>
+          <img className="max-w-[95px]" src={logo} alt="lucky hamster logo" />
+        </Link>
         <div className="ml-[205px] flex w-full items-center justify-start gap-[30px]">
           <Link
-            className="text-[15px] leading-[15px] text-dark_gray"
+            className="text-dark_gray text-[15px] leading-[15px]"
             to={'terms'}
           >
             {t('termsOfUse')}
           </Link>
           <Link
-            className="text-[15px] leading-[15px] text-dark_gray"
+            className="text-dark_gray text-[15px] leading-[15px]"
             to={'privacy'}
           >
             {t('privacyPolicy')}
           </Link>
           <Link
-            className="text-[15px] leading-[15px] text-dark_gray"
+            className="text-dark_gray text-[15px] leading-[15px]"
             to={'affiliate'}
           >
             {t('affiliateProgram')}

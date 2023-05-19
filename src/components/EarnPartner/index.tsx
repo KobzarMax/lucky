@@ -25,7 +25,7 @@ export const EarnPartner = () => {
     }
   ]
   return (
-    <div className="mt-[100px] flex items-start justify-between pl-[100px] pr-[148px]">
+    <div className="mt-[100px] flex items-start justify-between px-[100px]">
       <div>
         <h2 className="mb-[15px] text-[25px] font-bold leading-[30px] text-white">
           {t('earnLikePartner')}{' '}

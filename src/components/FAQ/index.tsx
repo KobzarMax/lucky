@@ -61,13 +61,16 @@ export const FAQ = (): JSX.Element => {
     contentRefs.current = contentRefs.current.slice(0, faqItems.length)
   }, [faqItems.length])
   return (
-    <div className="mb-[100px] mt-[60px]">
+    <div className="mb-[87px] mt-[60px]">
       <h2 className="mb-[30px] text-center text-[25px] font-bold leading-[30px] text-white">
         {t('faq')}
       </h2>
       <div className="mx-auto flex max-w-[965px] flex-col items-center justify-center gap-2.5">
         {faqItems.map((faqItem, index) => (
-          <div key={index} className="faq-item w-full rounded-[10px] px-5 pb-4">
+          <div
+            key={index}
+            className="faq-item h-[58px] w-full rounded-[10px] px-5"
+          >
             <div
               className="flex cursor-pointer items-center justify-between py-[17px]"
               onClick={() => toggleAccordion(index)}

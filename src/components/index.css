@@ -9,6 +9,9 @@
 @import url('../components/CTA/index.css');
 @import url('../components/News/index.css');
 @import url('../components/FAQ/index.css');
+@import url('../components/Chain/index.css');
+@import url('../components/TranslateControl/index.css');
+@import url('../components/Nav/index.css');
 
 * {
   padding: 0;
@@ -20,7 +23,6 @@
 #root {
   background-image: url('../asset/background.jpg');
   background-size: cover;
-  backdrop-filter: blur(10px);
 }
 .play-now {
   background: rgba(255, 27, 94, 0.6);
@@ -32,4 +34,8 @@
 .documentation {
   border: 1px solid rgba(124, 202, 63, 0.5);
   border-radius: 30px;
+}
+.sticky-outer-wrapper.active {
+  position: relative;
+  width: 100%;
 }
