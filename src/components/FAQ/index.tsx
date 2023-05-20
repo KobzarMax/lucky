@@ -69,7 +69,7 @@ export const FAQ = (): JSX.Element => {
         {faqItems.map((faqItem, index) => (
           <div
             key={index}
-            className="faq-item h-[76px] w-full rounded-[10px] px-2.5 lg:h-[58px] lg:px-5"
+            className="faq-item w-full rounded-[10px] px-2.5 lg:px-5"
           >
             <div
               className="flex cursor-pointer items-center justify-between py-[17px]"

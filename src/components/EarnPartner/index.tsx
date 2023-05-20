@@ -41,7 +41,7 @@ export const EarnPartner = () => {
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex flex-row items-center justify-center gap-[8.25rem] lg:mt-0 lg:flex-col lg:gap-5">
+      <div className="mt-[39px] flex flex-row items-center justify-center gap-[8.25rem] overflow-x-scroll lg:mt-0 lg:flex-col lg:gap-5">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}

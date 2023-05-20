@@ -42,5 +42,14 @@
   "termsOfUse": "Terms of use",
   "privacyPolicy": "Privacy Policy",
   "affiliateProgram": "Affiliate Program",
-  "readAll": "Прочитать всё"
+  "readAll": "Прочитать всё",
+  "info": "Info",
+  "IFO": "IFO",
+  "partnership": "Partnership program",
+  "vote": "Vote",
+  "ratings": "Ratings",
+  "blog": "Blog",
+  "leaderboard": "Leaderboard",
+  "liquidity": "Liquidity",
+  "exchange": "Exchange"
 }

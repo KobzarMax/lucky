@@ -37,7 +37,7 @@ export const HowItWorks = () => {
       <p className="mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[18px] text-white lg:mb-[30px]">
         {t('howWorksSubtitle')}
       </p>
-      <div className="flex items-center justify-start gap-[30px] lg:justify-center">
+      <div className="flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center">
         {descriptions.map((description, index) => (
           <div
             key={index}

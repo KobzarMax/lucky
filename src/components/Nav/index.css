@@ -1,3 +1,20 @@
 .more-link:after {
   box-shadow: 0px 0px 5px #FF1B5E;
 }
+.more-links {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), #1B1B1B;
+  display: none;
+}
+.more-link:hover .more-links {
+  display: flex;
+}
+
+.nav {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(27, 27, 27, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    background: none;
+  }
+}
