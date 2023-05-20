@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import { Nav } from './Nav'
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home isMobile={isMobile} />} />
       </Routes>
       <Footer isMobile={isMobile} />
+      {isMobile && <Nav isMobile={isMobile} />}
     </BrowserRouter>
   )
 }
