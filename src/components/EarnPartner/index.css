@@ -1,5 +1,22 @@
-.posibility {
-  background-image: url('../../asset/partner-item-bg.svg');
+.posibility::after {
   background-repeat: no-repeat;
   background-position: center;
+  content: url('../../asset/how-it-works-bg.svg');
+  transform: rotate(90deg);
+  max-width: 228px;
+  min-height: 350px;
+  left: -4px;
+  top: -71px;
+  position: absolute;
+}
+
+@media (min-width: 1024px) {
+  .posibility {
+    background-image: url('../../asset/partner-item-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .posibility::after {
+    display: none;
+  }
 }

@@ -61,15 +61,15 @@ export const FAQ = (): JSX.Element => {
     contentRefs.current = contentRefs.current.slice(0, faqItems.length)
   }, [faqItems.length])
   return (
-    <div className="mb-[87px] mt-[60px]">
-      <h2 className="mb-[30px] text-center text-[25px] font-bold leading-[30px] text-white">
+    <div className="mb-[79px] mt-[39px] lg:mb-[87px] lg:mt-[60px]">
+      <h2 className="mb-6 text-center text-xl font-bold leading-6 text-white lg:mb-[30px] lg:text-[25px] lg:leading-[30px]">
         {t('faq')}
       </h2>
       <div className="mx-auto flex max-w-[965px] flex-col items-center justify-center gap-2.5">
         {faqItems.map((faqItem, index) => (
           <div
             key={index}
-            className="faq-item h-[58px] w-full rounded-[10px] px-5"
+            className="faq-item h-[76px] w-full rounded-[10px] px-2.5 lg:h-[58px] lg:px-5"
           >
             <div
               className="flex cursor-pointer items-center justify-between py-[17px]"

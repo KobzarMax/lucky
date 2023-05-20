@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import bnb from '../../asset/bnb-logo.svg'
 import caretDown from '../../asset/CaretDown.svg'
 
@@ -7,7 +7,7 @@ interface Chain {
   icon: string
 }
 
-export const Chain: React.FC = () => {
+export const Chain = ({ isMobile }) => {
   const chains: Chain[] = [
     {
       name: 'BNB Smart Chain',
@@ -44,11 +44,13 @@ export const Chain: React.FC = () => {
       className={`relative inline-block text-left`}
       onClick={handleToggleOpen}
     >
-      <div className="mr-[30px] flex cursor-pointer items-center justify-start gap-[5px]">
+      <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
         <img src={selectedChain.icon} alt={selectedChain.name} />
-        <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
-          {selectedChain.name}
-        </span>
+        {!isMobile && (
+          <span className="text-medium text-dark_gray text-[15px] leading-[18px]">
+            {selectedChain.name}
+          </span>
+        )}
         <img
           className={`transition-all duration-300 ${
             isOpen ? 'rotate-180' : 'rotate-0'
@@ -58,17 +60,17 @@ export const Chain: React.FC = () => {
         />
       </div>
       {isOpen && (
-        <div className="options absolute -left-4 z-10 mt-4 w-56 py-1">
+        <div className="options absolute -left-4 z-10 mt-4 w-full py-1 lg:w-56">
           {chains.map((chain: Chain, index: number) => (
             <div
               key={index}
-              className={`option text-medium flex cursor-pointer items-center justify-start gap-[5px] px-4 py-2 text-[15px] leading-[18px] text-dark_gray ${
+              className={`option text-medium text-dark_gray jc flex cursor-pointer items-center justify-center gap-[5px] px-4 py-2 text-[15px] leading-[18px] lg:justify-start ${
                 selectedChain.name === chain.name ? 'selected' : ''
               }`}
               onClick={() => handleChainChange(chain)}
             >
               <img src={chain.icon} alt={chain.name} />
-              <span>{chain.name}</span>
+              {!isMobile && <span>{chain.name}</span>}
             </div>
           ))}
         </div>

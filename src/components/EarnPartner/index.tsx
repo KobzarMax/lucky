@@ -25,34 +25,38 @@ export const EarnPartner = () => {
     }
   ]
   return (
-    <div className="mt-[100px] flex items-start justify-between px-[100px]">
+    <div className="mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]">
       <div>
-        <h2 className="mb-[15px] text-[25px] font-bold leading-[30px] text-white">
+        <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span>
         </h2>
-        <p className="mb-[29px] max-w-[565px] text-[15px] leading-[18px] text-white">
+        <p className="mb-[15px] max-w-[565px] text-[15px] leading-[18px] text-white lg:mb-[29px]">
           {t('earnLikePartnerSubtitle1')}{' '}
           <span className="text-primary">{t('25%')} </span>
           {t('earnLikePartnerSubtitle2')}
         </p>
-        <div className="flex items-center justify-start gap-[15px]">
+        <div className="flex flex-col items-start justify-start gap-[15px] lg:flex-row lg:items-center">
           <TelegramButton />
           <DocumentsButton />
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center gap-5">
+      <div className="mt-[39px] flex flex-row items-center justify-center gap-[8.25rem] lg:mt-0 lg:flex-col lg:gap-5">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}
-            className="posibility flex h-[103px] w-[465px] items-center justify-start gap-3 pb-5 pl-[70px] pr-[60px] pt-[21px]"
+            className="posibility relative flex h-[228px] w-full min-w-[228px] max-w-[228px] flex-col items-center justify-start gap-3 px-0 py-5 lg:h-[103px]  lg:w-[465px] lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:pl-[70px] lg:pr-[60px] lg:pt-[58px]"
           >
-            <img src={posibility.icon} alt={posibility.title} />
-            <div>
-              <p className="mb-[5px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white">
+            <img
+              className="relative z-10"
+              src={posibility.icon}
+              alt={posibility.title}
+            />
+            <div className="relative z-10">
+              <p className="mb-[5px] pl-2.5 text-center text-[17px] font-semibold leading-[21px] text-white lg:text-left">
                 {posibility.title}
               </p>
-              <p className="max-w-[235px] pl-2.5 text-[15px] leading-[18px] text-white">
+              <p className="max-w-[235px] pl-2.5 text-center text-[15px] leading-[18px] text-white lg:text-left">
                 {posibility.text}
               </p>
             </div>

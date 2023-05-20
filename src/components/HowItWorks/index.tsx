@@ -29,19 +29,19 @@ export const HowItWorks = () => {
     }
   ]
   return (
-    <div className="mt-[97.5px]">
-      <h2 className="mb-[19px] text-center text-[25px] font-bold leading-[30px] text-white">
+    <div className="mt-[57px] lg:mt-[97.5px]">
+      <h2 className="mb-2.5  text-center text-xl font-bold leading-6 text-white lg:mb-[19px] lg:text-[25px] lg:leading-[30px]">
         {t('howWorks')}{' '}
         <span className="text-primary">{t('howWorksName')}</span> ?
       </h2>
-      <p className="mx-auto mb-[30px] max-w-[765px] text-center text-[15px] leading-[18px] text-white">
+      <p className="mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[18px] text-white lg:mb-[30px]">
         {t('howWorksSubtitle')}
       </p>
-      <div className="flex items-center justify-center gap-[30px]">
+      <div className="flex items-center justify-start gap-[30px] lg:justify-center">
         {descriptions.map((description, index) => (
           <div
             key={index}
-            className="description h-[334px] w-[265px] px-2.5 pb-[72px] pt-[30px]"
+            className="description h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[30px]"
           >
             <img
               className="mx-auto mb-[30px]"

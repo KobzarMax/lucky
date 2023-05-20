@@ -4,3 +4,17 @@
   border: 1px solid rgba(0, 0, 0, 0.78);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+.footer-nav-wrapper {
+  grid-template-areas:
+  "logo social"
+  "nav nav";
+}
+.footer-nav-wrapper .logo {
+  grid-area: logo;
+}
+.footer-nav-wrapper .footer-nav {
+  grid-area: nav;
+}
+.footer-nav-wrapper .social-links {
+  grid-area: social;
+}
