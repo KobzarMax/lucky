@@ -4,9 +4,21 @@ import startPortfolio from '../../asset/Copyright.svg'
 import { useTranslation } from 'react-i18next'
 import { TelegramButton } from 'components/TelegramButton'
 import { DocumentsButton } from 'components/DocumentsButton'
+import { useInView } from 'react-intersection-observer'
+import { useEffect } from 'react'
 
-export const EarnPartner = () => {
+export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
   const { t } = useTranslation(['home'])
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px'
+  })
+
+  useEffect(() => {
+    onEarnPartnerInViewChange(inView)
+  }, [inView, onEarnPartnerInViewChange])
+
   const partnerPosibilities = [
     {
       icon: createAccount,
@@ -25,7 +37,10 @@ export const EarnPartner = () => {
     }
   ]
   return (
-    <div className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]">
+    <div
+      ref={ref}
+      className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]"
+    >
       <div className="max-w-full">
         <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}

@@ -10,13 +10,17 @@ import { News } from 'components/News'
 import { useState, useEffect } from 'react'
 import { FAQ } from 'components/FAQ'
 
-function Home({ isMobile }) {
+function Home({ isMobile, onEarnPartnerInViewChange }) {
   const { t } = useTranslation(['home'])
 
   const [countdownDate] = useState(getRandomFutureDate())
   const [remainingTime, setRemainingTime] = useState(
     getRemainingTime(countdownDate)
   )
+  const handleEarnPartnerInViewChange = (inView) => {
+    // Pass the inView value to App.tsx or perform any other logic
+    onEarnPartnerInViewChange(inView)
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,8 +49,6 @@ function Home({ isMobile }) {
     const days = Math.floor(total / (1000 * 60 * 60 * 24))
     return { total, days, hours, minutes, seconds }
   }
-
-  console.log(remainingTime)
 
   return (
     <div className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]">
@@ -189,7 +191,7 @@ function Home({ isMobile }) {
       </div>
       <LatestGames />
       <HowItWorks />
-      <EarnPartner />
+      <EarnPartner onEarnPartnerInViewChange={handleEarnPartnerInViewChange} />
       <CTA />
       <News />
       <FAQ />

@@ -6,11 +6,19 @@ import dots from '../../asset/DotsThreeOutline.svg'
 import signOut from '../../asset/SignOut.svg'
 import play from '../../asset/Play.svg'
 import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 
-export const Nav = ({ isMobile }) => {
+export const Nav = ({ isMobile, visible }) => {
   const { t } = useTranslation(['home'])
+
+  console.log(visible)
+
   return (
-    <div className="nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative">
+    <div
+      className={`${
+        visible ? 'active' : ''
+      } nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative`}
+    >
       <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
         <NavLink
           className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
