@@ -10,8 +10,8 @@ import { useTranslation } from 'react-i18next'
 export const Nav = ({ isMobile }) => {
   const { t } = useTranslation(['home'])
   return (
-    <div className="nav fixed bottom-0 left-0 z-10 w-full lg:relative">
-      <div className="flex items-center justify-start gap-[30px] py-[15px] lg:gap-5 lg:py-0">
+    <div className="nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative">
+      <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
         <NavLink
           className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'exchange'}

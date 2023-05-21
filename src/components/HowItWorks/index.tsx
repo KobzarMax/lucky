@@ -37,11 +37,12 @@ export const HowItWorks = () => {
       <p className="mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[18px] text-white lg:mb-[30px]">
         {t('howWorksSubtitle')}
       </p>
-      <div className="flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center">
+      <div className="flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden">
         {descriptions.map((description, index) => (
           <div
             key={index}
             className="description h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[30px]"
+            onTouchStart={(event) => event.stopPropagation()}
           >
             <img
               className="mx-auto mb-[30px]"

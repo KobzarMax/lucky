@@ -25,8 +25,8 @@ export const EarnPartner = () => {
     }
   ]
   return (
-    <div className="mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]">
-      <div>
+    <div className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]">
+      <div className="max-w-full">
         <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span>
@@ -41,11 +41,11 @@ export const EarnPartner = () => {
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex flex-row items-center justify-center gap-[8.25rem] overflow-x-scroll lg:mt-0 lg:flex-col lg:gap-5">
+      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:justify-center lg:gap-5 lg:overflow-x-hidden">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}
-            className="posibility relative flex h-[228px] w-full min-w-[228px] max-w-[228px] flex-col items-center justify-start gap-3 px-0 py-5 lg:h-[103px]  lg:w-[465px] lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:pl-[70px] lg:pr-[60px] lg:pt-[58px]"
+            className="posibility relative flex h-[265px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-start gap-3 px-0 py-5 lg:h-[103px]  lg:w-[465px] lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:pl-[70px] lg:pr-[60px]"
           >
             <img
               className="relative z-10"

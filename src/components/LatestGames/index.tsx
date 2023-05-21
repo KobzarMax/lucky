@@ -79,6 +79,76 @@ const LatestGames: React.FC = () => {
       funds: '-$21.634',
       percents: '200%',
       status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '$30.1428',
+      percents: '200%',
+      status: 'up'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '$30.1428',
+      percents: '200%',
+      status: 'up'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '$30.1428',
+      percents: '200%',
+      status: 'up'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '$30.1428',
+      percents: '200%',
+      status: 'up'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
+    },
+    {
+      avatar: avatar,
+      id: '139812hud12j',
+      funds: '-$21.634',
+      percents: '200%',
+      status: 'down'
     }
   ]
   return (

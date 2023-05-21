@@ -60,7 +60,7 @@ export const News = () => {
       </div>
       <Swiper
         ref={swiperRef.current}
-        loop={true}
+        loop={false}
         spaceBetween={37}
         slidesPerView={1}
         navigation={{
