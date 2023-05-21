@@ -42,7 +42,7 @@ function Header({ isMobile }) {
           location.pathname !== '/' || isSticky ? 'sticky' : 'unStiky'
         } header w-full`}
       >
-        <div className="flex items-center justify-between px-[13px] pt-9 lg:px-[75px] lg:py-0">
+        <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
           <div className="flex items-center justify-start gap-12">
             <Link to="/" className="logo-wrapper">
               <img

@@ -45,7 +45,7 @@ export const EarnPartner = () => {
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}
-            className="posibility relative flex h-[265px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-start gap-3 px-0 py-5 lg:h-[103px]  lg:w-[465px] lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:pl-[70px] lg:pr-[60px]"
+            className="posibility relative flex h-[334px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-center gap-3 px-0 py-5 lg:h-[103px] lg:w-[465px]  lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:justify-start lg:pl-[70px] lg:pr-[60px]"
           >
             <img
               className="relative z-10"

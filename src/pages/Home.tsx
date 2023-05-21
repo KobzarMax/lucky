@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { useEffect, useState } from 'react'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import illustration from '../asset/illustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
 import LatestGames from 'components/LatestGames'
@@ -7,10 +7,12 @@ import { HowItWorks } from 'components/HowItWorks'
 import { EarnPartner } from 'components/EarnPartner'
 import { CTA } from 'components/CTA'
 import { News } from 'components/News'
+import { useState, useEffect } from 'react'
 import { FAQ } from 'components/FAQ'
 
 function Home({ isMobile }) {
   const { t } = useTranslation(['home'])
+
   const [countdownDate] = useState(getRandomFutureDate())
   const [remainingTime, setRemainingTime] = useState(
     getRemainingTime(countdownDate)
@@ -37,12 +39,15 @@ function Home({ isMobile }) {
 
   function getRemainingTime(endDate) {
     const total = Date.parse(endDate) - Date.parse(new Date())
-    const seconds = Math.floor((total / 1000) % 60)
+    const seconds = 60
     const minutes = Math.floor((total / 1000 / 60) % 60)
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
     const days = Math.floor(total / (1000 * 60 * 60 * 24))
     return { total, days, hours, minutes, seconds }
   }
+
+  console.log(remainingTime)
+
   return (
     <div className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]">
       <div className="flex flex-col items-stretch justify-between lg:flex-row">
@@ -78,30 +83,106 @@ function Home({ isMobile }) {
               {t('gameStartsIn')}
             </p>
             <div className="flex items-center justify-center gap-2.5">
-              <div className="circle-border border-b-primary border-r-primary box-border flex h-[70px] w-[70px] rotate-45 items-center justify-center rounded-full border-[5px] border-l-[#1B1B1B80] border-t-[#1B1B1B80] bg-transparent">
-                <div className="z-10 flex h-[60px] w-[60px] -rotate-45 flex-col items-center justify-center rounded-full bg-transparent text-[13px] leading-4 text-white">
-                  <span className="text-primary text-[25px] font-semibold leading-[30px]">
-                    {remainingTime.days}
-                  </span>
-                  {t('days')}
-                </div>
-              </div>
-              <div className="circle-border border-primary box-border flex h-[70px] w-[70px] -rotate-45 items-center justify-center rounded-full border-[5px] border-r-[#1B1B1B80] bg-transparent">
-                <div className="z-10 flex h-[60px] w-[60px] rotate-45 flex-col items-center justify-center rounded-full bg-transparent text-[13px] leading-4 text-white">
-                  <span className="text-primary text-[25px] font-semibold leading-[30px]">
-                    {remainingTime.hours}
-                  </span>
-                  {t('hours')}
-                </div>
-              </div>
-              <div className="circle-border border-b-primary box-border flex h-[70px] w-[70px] -rotate-45 items-center justify-center rounded-full border-[5px] border-[#1B1B1B80] bg-transparent">
-                <div className="z-10 flex h-[60px] w-[60px] rotate-45 flex-col items-center justify-center rounded-full bg-transparent text-[13px] leading-4 text-white">
-                  <span className="text-primary text-[25px] font-semibold leading-[30px]">
-                    {remainingTime.minutes}
-                  </span>
-                  {t('minutes')}
-                </div>
-              </div>
+              <CountdownCircleTimer
+                isPlaying
+                duration={remainingTime.days * 60 * 60 * 24}
+                colors={[['#FF1B5E']]}
+                trailColor={'#1B1B1B80'}
+                strokeWidth={6}
+                size={80}
+                onComplete={() => {
+                  return { shouldRepeat: true, delay: 1 } // repeat animation in 1 second
+                }}
+              >
+                {({ remainingTime }) => (
+                  <div className="timer-wrapper">
+                    <div className="timer-text flex flex-col items-center justify-center">
+                      <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                        {
+                          (remainingTime / 60 / 60 / 24)
+                            .toString()
+                            .split('.')[0]
+                        }
+                      </span>
+                      <span className="text-[13px] leading-4 text-white">
+                        {t('days')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </CountdownCircleTimer>
+              <CountdownCircleTimer
+                isPlaying
+                duration={remainingTime.hours * 60 * 60}
+                colors={[['#FF1B5E']]}
+                trailColor={'#1B1B1B80'}
+                strokeWidth={6}
+                size={80}
+                onComplete={() => {
+                  return { shouldRepeat: true, delay: 1 } // repeat animation in 1 second
+                }}
+              >
+                {({ remainingTime }) => (
+                  <div className="timer-wrapper">
+                    <div className="timer-text flex flex-col items-center justify-center">
+                      <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                        {(remainingTime / 60 / 60).toString().split('.')[0]}
+                      </span>
+                      <span className="text-[13px] leading-4 text-white">
+                        {t('hours')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </CountdownCircleTimer>
+              <CountdownCircleTimer
+                isPlaying
+                duration={remainingTime.minutes * 60}
+                colors={[['#FF1B5E']]}
+                trailColor={'#1B1B1B80'}
+                strokeWidth={6}
+                size={80}
+                onComplete={() => {
+                  return { shouldRepeat: true, delay: 1 } // repeat animation in 1 second
+                }}
+              >
+                {({ remainingTime }) => (
+                  <div className="timer-wrapper">
+                    <div className="timer-text flex flex-col items-center justify-center">
+                      <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                        {(remainingTime / 60).toString().split('.')[0]}
+                      </span>
+                      <span className="text-[13px] leading-4 text-white">
+                        {t('minutes')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </CountdownCircleTimer>
+              <CountdownCircleTimer
+                isPlaying
+                duration={remainingTime.seconds}
+                colors={[['#FF1B5E']]}
+                trailColor={'#1B1B1B80'}
+                strokeWidth={6}
+                size={80}
+                onComplete={() => {
+                  return { shouldRepeat: true, delay: 1 } // repeat animation in 1 second
+                }}
+              >
+                {({ remainingTime }) => (
+                  <div className="timer-wrapper">
+                    <div className="timer-text flex flex-col items-center justify-center">
+                      <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                        {remainingTime.toString().split('.')[0]}
+                      </span>
+                      <span className="text-[13px] leading-4 text-white">
+                        {t('seconds')}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </CountdownCircleTimer>
             </div>
           </div>
         </div>
