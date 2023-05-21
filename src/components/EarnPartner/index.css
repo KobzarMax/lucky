@@ -10,6 +10,10 @@
   position: absolute;
 }
 
+.posibility:first-child {
+  margin-left: 45px;
+}
+
 @media (min-width: 1024px) {
   .posibility {
     background-image: url('../../asset/partner-item-bg.svg');
@@ -18,5 +22,8 @@
   }
   .posibility::after {
     display: none;
+  }
+  .posibility:first-child {
+    margin-left: 0px;
   }
 }

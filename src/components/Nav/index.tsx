@@ -11,8 +11,6 @@ import { useState } from 'react'
 export const Nav = ({ isMobile, visible }) => {
   const { t } = useTranslation(['home'])
 
-  console.log(visible)
-
   return (
     <div
       className={`${
@@ -34,7 +32,7 @@ export const Nav = ({ isMobile, visible }) => {
         </NavLink>
         {isMobile && (
           <div className="play bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-full">
-            <img src={play} alt="play" />
+            <img className="relative z-20" src={play} alt="play" />
           </div>
         )}
         <NavLink
