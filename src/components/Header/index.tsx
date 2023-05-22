@@ -46,7 +46,7 @@ function Header({ isMobile }) {
           <div className="flex items-center justify-start gap-12">
             <Link to="/" className="logo-wrapper">
               <img
-                className="max-w-[68px] lg:max-w-full"
+                className="max-w-[68px] h-[68px] lg:h-full lg:max-w-full"
                 src={isMobile ? mobileLogo : logo}
                 alt="lucky hamster logo"
               />
