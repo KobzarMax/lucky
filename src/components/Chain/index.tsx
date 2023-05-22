@@ -24,6 +24,22 @@ export const Chain = ({ isMobile }) => {
     {
       name: 'Lucky Hamster',
       icon: bnb
+    },
+    {
+      name: 'BNB Smart Chain',
+      icon: bnb
+    },
+    {
+      name: 'ETH',
+      icon: bnb
+    },
+    {
+      name: 'BNB Smart Chain',
+      icon: bnb
+    },
+    {
+      name: 'Lucky Hamster',
+      icon: bnb
     }
   ]
 
@@ -60,19 +76,21 @@ export const Chain = ({ isMobile }) => {
         />
       </div>
       {isOpen && (
-        <div className="options absolute -left-4 z-10 mt-4 w-full py-1 lg:w-56">
-          {chains.map((chain: Chain, index: number) => (
-            <div
-              key={index}
-              className={`option text-medium text-dark_gray jc flex cursor-pointer items-center justify-center gap-[5px] px-4 py-2 text-[15px] leading-[18px] lg:justify-start ${
-                selectedChain.name === chain.name ? 'selected' : ''
-              }`}
-              onClick={() => handleChainChange(chain)}
-            >
-              <img src={chain.icon} alt={chain.name} />
-              {!isMobile && <span>{chain.name}</span>}
-            </div>
-          ))}
+        <div className="options absolute -left-4 z-10 mt-4 w-full py-[15px] pl-5 pr-2.5 lg:w-56">
+          <div className="options-inner">
+            {chains.map((chain: Chain, index: number) => (
+              <div
+                key={index}
+                className={`option text-medium text-dark_gray jc flex cursor-pointer items-center justify-center gap-[5px] py-2 pr-4 text-[15px] leading-[18px] lg:justify-start ${
+                  selectedChain.name === chain.name ? 'selected' : ''
+                }`}
+                onClick={() => handleChainChange(chain)}
+              >
+                <img src={chain.icon} alt={chain.name} />
+                {!isMobile && <span>{chain.name}</span>}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
