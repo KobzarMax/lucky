@@ -1,11 +1,21 @@
 import { useTranslation } from 'react-i18next'
+import { useInView } from 'react-intersection-observer'
+import { useEffect } from 'react'
 import decentralize from '../../asset/deventralize.svg'
 import transperancy from '../../asset/transperancy.svg'
 import safety from '../../asset/safety.svg'
 import tag from '../../asset/Tag.svg'
 
-export const HowItWorks = () => {
+export const HowItWorks = ({ onHowItWorksInViewChange }) => {
   const { t } = useTranslation(['home'])
+  const [ref, inHowView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px'
+  })
+
+  useEffect(() => {
+    onHowItWorksInViewChange(inHowView)
+  }, [inHowView, onHowItWorksInViewChange])
   const descriptions = [
     {
       icon: decentralize,
@@ -29,7 +39,7 @@ export const HowItWorks = () => {
     }
   ]
   return (
-    <div className="mt-[57px] lg:mt-[97.5px]">
+    <div ref={ref} className="mt-[57px] lg:mt-[97.5px]">
       <h2 className="mb-2.5  text-center text-xl font-bold leading-6 text-white lg:mb-[19px] lg:text-[25px] lg:leading-[30px]">
         {t('howWorks')}{' '}
         <span className="text-primary">{t('howWorksName')}</span> ?

@@ -25,3 +25,19 @@
 .options-inner::-webkit-scrollbar-thumb:hover {
   background: #7CCA3F;
 }
+
+.options {
+  display: none;
+}
+.chains-wrapper:hover .options {
+  display: block;
+}
+.chains-wrapper:hover .transition-all {
+  transform: rotate(180deg);
+}
+.chains-wrapper {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

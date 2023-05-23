@@ -8,6 +8,7 @@ import { Nav } from './Nav'
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
+  const [howVisible, setHowVisible] = useState<boolean>(false)
   useEffect(() => {
     const handleResize = (): void => {
       setIsMobile(window.innerWidth <= 1024)
@@ -25,15 +26,20 @@ function App() {
     setVisible(inView)
   }
 
+  const handleHowItWorksInViewChange = (inHowView) => {
+    setHowVisible(inHowView)
+  }
+
   return (
     <BrowserRouter>
-      <Header isMobile={isMobile} />
+      <Header howVisible={howVisible} isMobile={isMobile} />
       <Routes>
         <Route
           path="/"
           element={
             <Home
               onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
+              onHowItWorksInViewChange={handleHowItWorksInViewChange}
               isMobile={isMobile}
             />
           }

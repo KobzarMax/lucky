@@ -13,10 +13,10 @@ export const TranslateControls = ({ isMobile }) => {
     const target = event.target as HTMLElement
     const parentNode = target.parentNode as HTMLElement
     if (parentNode.classList.contains('languages')) {
-      if (target.innerHTML === 'en') {
+      if (target.innerHTML === 'English') {
         i18n.changeLanguage('en')
         setLanguage('en')
-      } else if (target.innerHTML === 'ru') {
+      } else if (target.innerHTML === 'Русский') {
         i18n.changeLanguage('ru')
         setLanguage('ru')
       }
@@ -26,7 +26,7 @@ export const TranslateControls = ({ isMobile }) => {
 
   return (
     <div
-      className="relative mr-[18px] flex items-center justify-start lg:mr-[30px]"
+      className="languages-wrapper relative mr-[18px] flex items-center justify-start lg:mr-[30px]"
       onClick={toggleLanguage}
     >
       <img className="mr-[5px]" src={globe} alt="globe" />
@@ -35,22 +35,22 @@ export const TranslateControls = ({ isMobile }) => {
           {language}
         </p>
       )}
-      {languageView && (
-        <div className="languages absolute -right-[5px] top-full rounded-md lg:-right-2.5">
+      <div className="languages absolute -right-[30px] top-full rounded-md p-2 lg:-right-6">
+        <div className="languages-inner">
           <p
             className="text-dark_gray mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
             onClick={toggleLanguage}
           >
-            en
+            English
           </p>
           <p
             className="text-dark_gray cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
             onClick={toggleLanguage}
           >
-            ru
+            Русский
           </p>
         </div>
-      )}
+      </div>
     </div>
   )
 }

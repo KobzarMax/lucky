@@ -9,12 +9,21 @@ import { News } from 'components/News'
 import { FAQ } from 'components/FAQ'
 import { Timer } from 'components/Timer'
 
-function Home({ isMobile, onEarnPartnerInViewChange }) {
+function Home({
+  isMobile,
+  onEarnPartnerInViewChange,
+  onHowItWorksInViewChange
+}) {
   const { t } = useTranslation(['home'])
 
   const handleEarnPartnerInViewChange = (inView) => {
     // Pass the inView value to App.tsx or perform any other logic
     onEarnPartnerInViewChange(inView)
+  }
+
+  const handleHowItWorksInViewChange = (inHowView) => {
+    // Pass the inView value to App.tsx or perform any other logic
+    onHowItWorksInViewChange(inHowView)
   }
 
   return (
@@ -51,8 +60,8 @@ function Home({ isMobile, onEarnPartnerInViewChange }) {
         </div>
       </div>
       <LatestGames />
-      <HowItWorks />
-      <EarnPartner onEarnPartnerInViewChange={handleEarnPartnerInViewChange} />
+      <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
+      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
       <CTA />
       <News />
       <FAQ />
