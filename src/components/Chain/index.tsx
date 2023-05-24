@@ -18,7 +18,7 @@ export const Chain = ({ isMobile }) => {
       icon: bnb
     },
     {
-      name: 'BNB Smart Chain',
+      name: 'Smart Chain',
       icon: bnb
     },
     {
@@ -26,19 +26,19 @@ export const Chain = ({ isMobile }) => {
       icon: bnb
     },
     {
-      name: 'BNB Smart Chain',
+      name: 'BNB Chain',
       icon: bnb
     },
     {
-      name: 'ETH',
+      name: 'ETH Smart',
       icon: bnb
     },
     {
-      name: 'BNB Smart Chain',
+      name: 'BNB Smart',
       icon: bnb
     },
     {
-      name: 'Lucky Hamster',
+      name: 'Lucky Hamster BNB',
       icon: bnb
     }
   ]
@@ -70,18 +70,26 @@ export const Chain = ({ isMobile }) => {
           alt="Caret Down"
         />
       </div>
-      <div className="options absolute -left-4 top-[50%] z-10 mt-4 w-full py-[15px] pl-5 pr-2.5 lg:w-56">
+      <div className="options absolute -left-24 top-[50%] z-10 mt-4 w-52 py-[15px] pl-5 pr-2.5 lg:-left-4 lg:w-56">
         <div className="options-inner">
           {chains.map((chain: Chain, index: number) => (
             <div
               key={index}
-              className={`option text-medium text-dark_gray jc flex cursor-pointer items-center justify-center gap-[5px] py-2 pr-4 text-[15px] leading-[18px] lg:justify-start ${
+              className={`option text-medium text-dark_gray flex cursor-pointer items-center justify-start gap-[5px] py-2 pr-4 text-[15px] leading-[18px] ${
                 selectedChain.name === chain.name ? 'selected' : ''
               }`}
               onClick={() => handleChainChange(chain)}
             >
               <img src={chain.icon} alt={chain.name} />
-              {!isMobile && <span>{chain.name}</span>}
+              <span
+                className={`${
+                  selectedChain.name === chain.name
+                    ? 'selected text-primary font-semibold'
+                    : ''
+                }`}
+              >
+                {chain.name}
+              </span>
             </div>
           ))}
         </div>

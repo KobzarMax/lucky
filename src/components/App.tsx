@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { Nav } from './Nav'
+import 'scroll-smooth'
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -28,6 +29,20 @@ function App() {
 
   const handleHowItWorksInViewChange = (inHowView) => {
     setHowVisible(inHowView)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', smoothScroll)
+    return () => {
+      window.removeEventListener('scroll', smoothScroll)
+    }
+  }, [])
+
+  const smoothScroll = () => {
+    window.scroll({
+      top: window.scrollY,
+      behavior: 'smooth'
+    })
   }
 
   return (
