@@ -82,7 +82,7 @@ export const Nav = ({ isMobile, visible }) => {
             </NavLink>
             <NavLink
               className="text-dark_gray justify-between_gray flex w-full items-center justify-between whitespace-nowrap px-5 py-2.5 text-[15px] leading-[18px]"
-              to={'docs'}
+              to={'rules'}
             >
               {t('documents')} <img src={signOut} alt="sign out" />
             </NavLink>

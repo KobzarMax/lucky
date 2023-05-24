@@ -1,4 +1,5 @@
 import Home from 'pages/Home'
+import Rules from 'pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Header from './Header'
@@ -59,6 +60,7 @@ function App() {
             />
           }
         />
+        <Route path="rules" element={<Rules />} />
       </Routes>
       <Footer isMobile={isMobile} />
       {isMobile && <Nav visible={visible} isMobile={isMobile} />}

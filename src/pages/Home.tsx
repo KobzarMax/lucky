@@ -8,6 +8,7 @@ import { CTA } from 'components/CTA'
 import { News } from 'components/News'
 import { FAQ } from 'components/FAQ'
 import { Timer } from 'components/Timer'
+import { Link } from 'react-router-dom'
 
 function Home({
   isMobile,
@@ -44,9 +45,12 @@ function Home({
             <button className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white">
               {t('playNow')}
             </button>
-            <button className="documentation flex items-center justify-center px-[13.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white">
+            <Link
+              to={'rules'}
+              className="documentation flex items-center justify-center px-[13.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white"
+            >
               {t('documentation')}
-            </button>
+            </Link>
           </div>
         </div>
         <div className="relative w-[108%] lg:w-full">
