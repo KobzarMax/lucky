@@ -64,7 +64,7 @@ export const LeaderTable = () => {
 
   return (
     <div>
-      <div>
+      <div className="overflow-x-auto">
         <table className="mx-auto my-[75.5px] w-full max-w-[1162px]">
           <thead>
             <tr>

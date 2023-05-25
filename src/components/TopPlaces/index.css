@@ -39,31 +39,6 @@
   height: 84px;
   display: block;
 }
-.rating-place.positive .total {
-  color: #7CCA3F;
-  position: relative;
-}
-.rating-place.negative .total {
-  color: #FF1B5E;
-  position: relative;
-}
-
-.rating-place.positive .total::before {
-  color: #7CCA3F;
-  content: '+';
-  position: absolute;
-  display: block;
-  left: -8px;
-  top: 1px;
-}
-.rating-place.negative .total::before {
-  color: #FF1B5E;
-  content: '-';
-  position: absolute;
-  display: block;
-  left: -7px;
-  top: 0px;
-}
 
 .rating-place:nth-child(1) .place {
   color: #FFC700;

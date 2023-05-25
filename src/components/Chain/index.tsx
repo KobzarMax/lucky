@@ -44,20 +44,14 @@ export const Chain = ({ isMobile }) => {
   ]
 
   const [selectedChain, setSelectedChain] = useState<Chain>(chains[0])
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  const handleToggleOpen = (): void => {
-    setIsOpen(!isOpen)
-  }
 
   const handleChainChange = (chain: Chain): void => {
     setSelectedChain(chain)
-    setIsOpen(false)
   }
 
   return (
     <div className={`chains-wrapper relative inline-block text-left`}>
-      <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
+      <div className="mr-[18px]  flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
         <img src={selectedChain.icon} alt={selectedChain.name} />
         {!isMobile && (
           <span className="text-medium text-dark_gray text-[15px] leading-[18px]">

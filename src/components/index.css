@@ -41,3 +41,29 @@
   position: relative;
   width: 100%;
 }
+
+.positive .total {
+  color: #7CCA3F;
+  position: relative;
+}
+.negative .total {
+  color: #FF1B5E;
+  position: relative;
+}
+
+.positive .total::before {
+  color: #7CCA3F;
+  content: '+';
+  position: absolute;
+  display: block;
+  left: -8px;
+  top: 1px;
+}
+.negative .total::before {
+  color: #FF1B5E;
+  content: '-';
+  position: absolute;
+  display: block;
+  left: -7px;
+  top: 0px;
+}
