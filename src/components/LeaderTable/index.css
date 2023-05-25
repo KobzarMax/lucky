@@ -1,0 +1,43 @@
+table .positive .total {
+  color: #7CCA3F;
+  position: relative;
+}
+table .negative .total {
+  color: #FF1B5E;
+  position: relative;
+}
+
+table .positive .total::before {
+  color: #7CCA3F;
+  content: '+';
+  position: absolute;
+  display: block;
+  left: -8px;
+  top: 1px;
+}
+table .negative .total::before {
+  color: #FF1B5E;
+  content: '-';
+  position: absolute;
+  display: block;
+  left: -7px;
+  top: 0px;
+}
+
+table {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(27, 27, 27, 0.6);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+table tbody tr {
+  border-top: 1px solid #212121;
+  border-bottom: 1px solid #212121;
+}
+table thead tr {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+table tbody tr:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}

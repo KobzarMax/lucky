@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import { Nav } from './Nav'
 import 'scroll-smooth'
+import Leaderboard from 'pages/Leaderboard'
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -61,6 +62,7 @@ function App() {
           }
         />
         <Route path="rules" element={<Rules />} />
+        <Route path="leaderboard" element={<Leaderboard />} />
       </Routes>
       <Footer isMobile={isMobile} />
       {isMobile && <Nav visible={visible} isMobile={isMobile} />}

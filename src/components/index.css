@@ -12,6 +12,8 @@
 @import url('../components/Chain/index.css');
 @import url('../components/TranslateControl/index.css');
 @import url('../components/Nav/index.css');
+@import url('../components/TopPlaces/index.css');
+@import url('../components/LeaderTable/index.css');
 
 * {
   padding: 0;

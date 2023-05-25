@@ -13,8 +13,6 @@ function Header({ isMobile, howVisible }) {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 
-  console.log(howVisible)
-
   useEffect(() => {
     // Split the sentence and extract the first word
     const firstWord: string = sentence.split(' ')[0]
