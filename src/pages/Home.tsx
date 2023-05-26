@@ -42,9 +42,12 @@ function Home({
             {t('homeSubtitle')}
           </p>
           <div className="flex flex-col items-start justify-start gap-[11px] lg:flex-row lg:items-center">
-            <button className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white">
+            <Link
+              to={'game'}
+              className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white"
+            >
               {t('playNow')}
-            </button>
+            </Link>
             <Link
               to={'rules'}
               className="documentation flex items-center justify-center px-[13.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white"

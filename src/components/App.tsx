@@ -1,4 +1,5 @@
 import Home from 'pages/Home'
+import Game from 'pages/Game'
 import Rules from 'pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -63,6 +64,7 @@ function App() {
         />
         <Route path="rules" element={<Rules />} />
         <Route path="leaderboard" element={<Leaderboard />} />
+        <Route path="game" element={<Game />} />
       </Routes>
       <Footer isMobile={isMobile} />
       {isMobile && <Nav visible={visible} isMobile={isMobile} />}

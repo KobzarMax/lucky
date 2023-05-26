@@ -18,3 +18,23 @@
 .footer-nav-wrapper .social-links {
   grid-area: social;
 }
+
+.game-footer-button img {
+  filter: invert(60%) sepia(3%) saturate(0%) hue-rotate(142deg) brightness(91%) contrast(84%);
+}
+.game-footer-button {
+  background: rgba(27, 27, 27, 0.6);
+  border-radius: 15px 15px 0px 0px;
+  backdrop-filter: blur(10px);
+}
+
+.widget-container {
+  transition: 0.3s all;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.widget-container.active {
+  max-height: 100%;
+  background-color: #2b2b2bcc;;
+}

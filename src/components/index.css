@@ -14,6 +14,7 @@
 @import url('../components/Nav/index.css');
 @import url('../components/TopPlaces/index.css');
 @import url('../components/LeaderTable/index.css');
+@import url('../components/GameTimer/index.css');
 
 * {
   padding: 0;
@@ -67,3 +68,14 @@
   left: -7px;
   top: 0px;
 }
+
+#game ~ footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.arrow-slider-button img {
+  filter: invert(80%) sepia(98%) saturate(2593%) hue-rotate(214deg) brightness(101%) contrast(92%);
+}
+

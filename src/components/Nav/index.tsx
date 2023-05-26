@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import exchange from '../../asset/ChartLineUp.svg'
 import liquidity from '../../asset/CurrencyCircleDollar.svg'
 import leaderboard from '../../asset/Trophy.svg'
@@ -6,7 +6,6 @@ import dots from '../../asset/DotsThreeOutline.svg'
 import signOut from '../../asset/SignOut.svg'
 import play from '../../asset/Play.svg'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
 
 export const Nav = ({ isMobile, visible }) => {
   const { t } = useTranslation(['home'])
@@ -17,7 +16,7 @@ export const Nav = ({ isMobile, visible }) => {
         visible ? 'active' : ''
       } nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative`}
     >
-      <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
+      <div className="flex items-center justify-center gap-[30px] py-[15px] pl-[13px] pr-3 lg:justify-start lg:gap-5 lg:py-0">
         <NavLink
           className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'exchange'}
@@ -31,12 +30,15 @@ export const Nav = ({ isMobile, visible }) => {
           <img src={liquidity} alt="liquidity" /> {t('liquidity')}
         </NavLink>
         {isMobile && (
-          <div className="play bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-full">
+          <Link
+            to={'game'}
+            className="play bg-primary flex h-[50px] min-w-[50px] items-center justify-center rounded-full"
+          >
             <img className="relative z-20" src={play} alt="play" />
-          </div>
+          </Link>
         )}
         <NavLink
-          className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
+          className="text-dark_gray  flex flex-col items-center justify-center gap-[5px] text-center text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'leaderboard'}
         >
           <img src={leaderboard} alt="leaderboard" /> {t('leaderboard')}
