@@ -1,0 +1,41 @@
+.game-card-wrapper:not(.active) {
+  background-image: url('../../asset/game-end-card-bg.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.game-card-wrapper.active {
+  background-image: url('../../asset/game-active-card-bg.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.game-card-wrapper {
+  position: relative;
+}
+.game-card-wrapper:not(.togo)::after {
+  position: absolute;
+  content: url('../../asset/game-card-down.svg');
+  bottom: -6px;
+  left: 26px;
+  width: 100%;
+}
+.game-card-wrapper.togo::after {
+  position: absolute;
+  content: url('../../asset/game-card-up.svg');
+  top: 0px;
+  left: 26px;
+  width: 100%;
+}
+
+.game-card-wrapper:not(.active) .game-card-main-inner {
+  background: rgba(32, 32, 32, 0.8);
+  border: 1px solid rgba(27, 106, 245, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.game-card-wrapper.active .game-card-main-inner {
+  background: rgba(32, 32, 32, 0.8);
+  border: 2px solid #7CCA3F;
+  backdrop-filter: blur(10px);
+}

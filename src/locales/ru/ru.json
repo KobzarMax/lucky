@@ -69,5 +69,19 @@
   "roundsWIn": "Выиграно раундов",
   "user": "Пользователь",
   "playedRounds": "сыграно раундов",
-  "TradingView": "TradingView Диаграмма"
+  "TradingView": "TradingView Диаграмма",
+  "yourReferals": "Ваши рефералы",
+  "yourBonus": "Ваш бонус:",
+  "invited": "Приглашен:",
+  "payment": "Выплата",
+  "timeFinish": "Срок истек",
+  "lastPrice": "Последняя цена",
+  "fixedPrice": "Зафиксированная цена:",
+  "presentPool": "Призовой пул:",
+  "up": "ВВЕРХ",
+  "down": "Вниз",
+  "active": "Активно",
+  "next": "Далее",
+  "takeUp": "Занять верх",
+  "takeDown": "Занять низ"
 }
