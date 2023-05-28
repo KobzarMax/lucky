@@ -54,7 +54,7 @@ export const Chain = ({ isMobile }) => {
       <div className="mr-[18px]  flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
         <img src={selectedChain.icon} alt={selectedChain.name} />
         {!isMobile && (
-          <span className="text-medium text-dark_gray text-[15px] leading-[18px]">
+          <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
             {selectedChain.name}
           </span>
         )}
@@ -69,7 +69,7 @@ export const Chain = ({ isMobile }) => {
           {chains.map((chain: Chain, index: number) => (
             <div
               key={index}
-              className={`option text-medium text-dark_gray flex cursor-pointer items-center justify-start gap-[5px] py-2 pr-4 text-[15px] leading-[18px] ${
+              className={`option text-medium flex cursor-pointer items-center justify-start gap-[5px] py-2 pr-4 text-[15px] leading-[18px] text-dark_gray ${
                 selectedChain.name === chain.name ? 'selected' : ''
               }`}
               onClick={() => handleChainChange(chain)}
@@ -78,7 +78,7 @@ export const Chain = ({ isMobile }) => {
               <span
                 className={`${
                   selectedChain.name === chain.name
-                    ? 'selected text-primary font-semibold'
+                    ? 'selected font-semibold text-primary'
                     : ''
                 }`}
               >

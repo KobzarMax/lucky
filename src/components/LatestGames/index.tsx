@@ -155,7 +155,7 @@ const LatestGames: React.FC = () => {
     <div className="mt-[27px] lg:mt-[151px]">
       <p className="mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px]">
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
-        <span className="text-primary lowercase">{t('games')}</span>
+        <span className="lowercase text-primary">{t('games')}</span>
       </p>
       <div className="ticker-wrap">
         <div className="ticker flex items-center justify-between gap-[35px]">
@@ -180,7 +180,7 @@ const LatestGames: React.FC = () => {
                   <p className="mb-[5px] text-xl font-semibold leading-6">
                     {latestGame.funds}
                   </p>
-                  <p className="text-dark_gray text-[13px] leading-[16px]">
+                  <p className="text-[13px] leading-[16px] text-dark_gray">
                     {latestGame.percents}
                   </p>
                 </div>

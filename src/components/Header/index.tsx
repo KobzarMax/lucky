@@ -4,9 +4,9 @@ import logo from '../../asset/logo.svg'
 import coin from '../../asset/coin.svg'
 import creditcard from '../../asset/creditcard.svg'
 import { Link } from 'react-router-dom'
-import { TranslateControls } from 'components/TranslateControl'
-import { Chain } from 'components/Chain'
-import { Nav } from 'components/Nav'
+import { TranslateControls } from '@/components/TranslateControl'
+import { Chain } from '@/components/Chain'
+import { Nav } from '@/components/Nav'
 import mobileLogo from '../../asset/mobile-logo.svg'
 
 function Header({ isMobile, howVisible }) {

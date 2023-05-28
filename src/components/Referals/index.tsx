@@ -142,7 +142,7 @@ export const Referals = () => {
               <div>
                 <p className="text-[13px] leading-4 text-[#5B5B5B]">
                   {t('yourBonus')}{' '}
-                  <span className="text-primary font-semibold">
+                  <span className="font-semibold text-primary">
                     {referal.bonus}$
                   </span>
                 </p>

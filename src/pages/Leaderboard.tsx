@@ -1,5 +1,5 @@
-import { LeaderTable } from 'components/LeaderTable'
-import { TopPlaces } from 'components/TopPlaces'
+import { LeaderTable } from '@/components/LeaderTable'
+import { TopPlaces } from '@/components/TopPlaces'
 import { useTranslation } from 'react-i18next'
 
 function Leaderboard() {

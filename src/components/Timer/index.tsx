@@ -70,7 +70,7 @@ export const Timer = () => {
           {({ remainingTime }) => (
             <div className="timer-wrapper">
               <div className="timer-text flex flex-col items-center justify-center">
-                <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                <span className="text-[25px] font-semibold leading-[30px] text-primary">
                   {(remainingTime / 60 / 60 / 24).toString().split('.')[0]}
                 </span>
                 <span className="text-[13px] leading-4 text-white">
@@ -97,7 +97,7 @@ export const Timer = () => {
           {({ remainingTime }) => (
             <div className="timer-wrapper">
               <div className="timer-text flex flex-col items-center justify-center">
-                <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                <span className="text-[25px] font-semibold leading-[30px] text-primary">
                   {(remainingTime / 60 / 60).toString().split('.')[0]}
                 </span>
                 <span className="text-[13px] leading-4 text-white">
@@ -124,7 +124,7 @@ export const Timer = () => {
           {({ remainingTime }) => (
             <div className="timer-wrapper">
               <div className="timer-text flex flex-col items-center justify-center">
-                <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                <span className="text-[25px] font-semibold leading-[30px] text-primary">
                   {(remainingTime / 60).toString().split('.')[0]}
                 </span>
                 <span className="text-[13px] leading-4 text-white">
@@ -148,7 +148,7 @@ export const Timer = () => {
           {({ remainingTime }) => (
             <div className="timer-wrapper">
               <div className="timer-text flex flex-col items-center justify-center">
-                <span className="text-primary text-[25px] font-semibold leading-[30px]">
+                <span className="text-[25px] font-semibold leading-[30px] text-primary">
                   {remainingTime.toString().split('.')[0]}
                 </span>
                 <span className="text-[13px] leading-4 text-white">

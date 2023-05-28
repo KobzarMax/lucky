@@ -68,20 +68,20 @@ export const LeaderTable = () => {
         <table className="mx-auto my-[75.5px] w-full max-w-[1162px]">
           <thead>
             <tr>
-              <th className="text-primary whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px]"></th>
-              <th className="text-primary py-[30px] pr-[45px] text-xs font-normal uppercase leading-[15px]">
+              <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary"></th>
+              <th className="py-[30px] pr-[45px] text-xs font-normal uppercase leading-[15px] text-primary">
                 {t('user')}
               </th>
-              <th className="text-primary whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px]">
+              <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                 {t('totalWin')}
               </th>
-              <th className="text-primary whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px]">
+              <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                 {t('winChance')}
               </th>
-              <th className="text-primary whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px]">
+              <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                 {t('roundsWIn')}
               </th>
-              <th className="text-primary whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px]">
+              <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                 {t('playedRounds')}
               </th>
             </tr>
@@ -89,7 +89,7 @@ export const LeaderTable = () => {
           <tbody>
             {users.map((user, index) => (
               <tr key={index} className={`${user.winStatus}`}>
-                <td className="text-primary pb-[15px] pt-6 text-center text-[18px] font-semibold leading-[18px]">
+                <td className="pb-[15px] pt-6 text-center text-[18px] font-semibold leading-[18px] text-primary">
                   #{user.place}
                 </td>
                 <td className="flex items-center justify-start pb-[15px] pt-6">

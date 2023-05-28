@@ -1,4 +1,4 @@
-import { TelegramButton } from 'components/TelegramButton'
+import { TelegramButton } from '@/components/TelegramButton'
 import { useTranslation } from 'react-i18next'
 
 export const CTA = () => {

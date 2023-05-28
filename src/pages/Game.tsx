@@ -3,11 +3,19 @@ import arrow from '../asset/arrowup.svg'
 import questionMark from '../asset/Question.svg'
 import trophy from '../asset/Trophy.svg'
 import clockCounter from '../asset/ClockCounterClockwise.svg'
-import { GameTimer } from 'components/GameTimer'
-import { Referals } from 'components/Referals'
-import { GameCard } from 'components/GameCard'
+import { GameTimer } from '@/components/GameTimer'
+import { Referals } from '@/components/Referals'
+import { GameCard } from '@/components/GameCard'
+import { Aside } from '@/components/Aside'
+import { useState } from 'react'
 
 function Game() {
+  const [asideView, setAsideView] = useState(true)
+
+  const toggleAside = () => {
+    setAsideView(!asideView)
+  }
+
   const games = [
     {
       status: 'ended',
@@ -33,7 +41,7 @@ function Game() {
   ]
 
   return (
-    <div id="game" className="overflow-x-hidden">
+    <div id="game" className="relative overflow-hidden">
       <div className="pt-[90px]">
         <Referals />
         <div className="mb-[33px] flex items-center justify-end gap-[152px]">
@@ -73,6 +81,7 @@ function Game() {
           ))}
         </div>
       </div>
+      {asideView && <Aside asideView={toggleAside} />}
     </div>
   )
 }

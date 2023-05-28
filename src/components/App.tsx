@@ -1,13 +1,13 @@
-import Home from 'pages/Home'
-import Game from 'pages/Game'
-import Rules from 'pages/Rules'
+import Home from '@/pages/Home'
+import Game from '@/pages/Game'
+import Rules from '@/pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { Nav } from './Nav'
 import 'scroll-smooth'
-import Leaderboard from 'pages/Leaderboard'
+import Leaderboard from '@/pages/Leaderboard'
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)

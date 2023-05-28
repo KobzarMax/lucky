@@ -16,6 +16,9 @@
 @import url('../components/LeaderTable/index.css');
 @import url('../components/GameTimer/index.css');
 @import url('../components/GameCard/index.css');
+@import url('../components/Aside/index.css');
+@import url('../components/AsideRound/index.css');
+
 
 * {
   padding: 0;
@@ -47,6 +50,10 @@
 .positive .total {
   color: #7CCA3F;
   position: relative;
+}
+.text-basic {
+  font-size: 15px !important;
+  line-height: 18px !important;
 }
 .negative .total {
   color: #FF1B5E;

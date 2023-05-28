@@ -6,7 +6,7 @@ import telegram from '../../asset/TelegramLogo.svg'
 import discord from '../../asset/DiscordLogo.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
 import { useLocation } from 'react-router-dom'
-import TradingViewWidget from 'components/TradingView'
+import TradingViewWidget from '@/components/TradingView'
 import caret from '../../asset/CaretDown.svg'
 import { useState } from 'react'
 
