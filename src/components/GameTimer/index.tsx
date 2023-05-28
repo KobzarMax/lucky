@@ -1,9 +1,10 @@
-import clock from '../../asset/Clock.svg'
-import caret from '../../asset/CaretDown.svg'
 import { useState } from 'react'
 
-export const GameTimer = () => {
-  const durations = [
+import clock from '../../asset/Clock.svg'
+import caret from '../../asset/CaretDown.svg'
+
+export const GameTimer = (): JSX.Element => {
+  const durations: string[] = [
     '1 minute',
     '5 minutes',
     '30 minutes',
@@ -12,9 +13,9 @@ export const GameTimer = () => {
     '4 hours'
   ]
 
-  const [duration, setDuration] = useState(durations[0])
+  const [duration, setDuration] = useState<string>(durations[0])
 
-  const toggleDuration = (index) => {
+  const toggleDuration = (index: number): void => {
     setDuration(durations[index])
   }
 
@@ -29,7 +30,7 @@ export const GameTimer = () => {
       </div>
       <div className="durations w-full p-4">
         <div className="durations-inner">
-          {durations.map((dur, index) => (
+          {durations.map((dur: string, index: number) => (
             <p
               onClick={() => toggleDuration(index)}
               key={index}

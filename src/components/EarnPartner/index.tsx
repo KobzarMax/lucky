@@ -7,7 +7,13 @@ import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
 
-export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
+interface EarnPartnerProps {
+  onEarnPartnerInViewChange: (inView: boolean) => void
+}
+
+export const EarnPartner = ({
+  onEarnPartnerInViewChange
+}: EarnPartnerProps): JSX.Element => {
   const { t } = useTranslation(['home'])
 
   const [ref, inView] = useInView({
@@ -19,7 +25,13 @@ export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
     onEarnPartnerInViewChange(inView)
   }, [inView, onEarnPartnerInViewChange])
 
-  const partnerPosibilities = [
+  interface PartnerPosibility {
+    icon: string
+    title: string
+    text: string
+  }
+
+  const partnerPosibilities: PartnerPosibility[] = [
     {
       icon: createAccount,
       title: 'Create your account',
@@ -36,6 +48,7 @@ export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
       text: 'Lorem ipsum dolor sit amet, consectetur'
     }
   ]
+
   return (
     <div
       ref={ref}

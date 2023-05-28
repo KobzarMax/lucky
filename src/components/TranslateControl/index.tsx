@@ -2,11 +2,18 @@ import globe from '../../asset/globe.svg'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const TranslateControls = ({ isMobile }) => {
+type TranslateControlsProps = {
+  isMobile: boolean
+}
+
+export const TranslateControls: React.FC<TranslateControlsProps> = ({
+  isMobile
+}) => {
   const { i18n } = useTranslation(['home'])
   const [languageView, setLanguageView] = useState(false)
-  const languages = ['en', 'ru']
+  const languages: string[] = ['en', 'ru']
   const [language, setLanguage] = useState(languages[0])
+
   const toggleLanguage = (
     event: React.MouseEvent<HTMLParagraphElement>
   ): void => {

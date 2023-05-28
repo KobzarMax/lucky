@@ -1,10 +1,15 @@
+import React from 'react'
 import arrow from '../../asset/arrowup.svg'
 import { useTranslation } from 'react-i18next'
 import { RoundsComponent } from '@/components/RoundsComponent'
 import { PNLComponent } from '@/components/PNLComponent'
 import Tabs from '@/components/Tab'
 
-export const Aside = ({ asideView }) => {
+interface AsideProps {
+  asideView: () => void
+}
+
+export const Aside: React.FC<AsideProps> = ({ asideView }) => {
   const { t } = useTranslation(['home'])
   const tabs = [
     {
@@ -18,6 +23,7 @@ export const Aside = ({ asideView }) => {
       component: <PNLComponent />
     }
   ]
+
   return (
     <div className="game-aside absolute right-0 top-[65px] z-20 h-[715px] min-w-[302px] overflow-y-scroll px-5 pt-[31px]">
       <div className="relative z-20 mb-4 flex items-center justify-between">

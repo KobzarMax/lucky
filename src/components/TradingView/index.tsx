@@ -1,9 +1,15 @@
 import { useEffect, useRef } from 'react'
 
-let tvScriptLoadingPromise
+declare global {
+  interface Window {
+    TradingView: any // Replace 'any' with the appropriate type for TradingView
+  }
+}
 
-export default function TradingViewWidget() {
-  const onLoadScriptRef = useRef()
+let tvScriptLoadingPromise: Promise<Event> | null
+
+export default function TradingViewWidget(): JSX.Element {
+  const onLoadScriptRef = useRef<(() => void) | null>()
 
   useEffect(() => {
     onLoadScriptRef.current = createWidget
@@ -24,7 +30,9 @@ export default function TradingViewWidget() {
       () => onLoadScriptRef.current && onLoadScriptRef.current()
     )
 
-    return () => (onLoadScriptRef.current = null)
+    return () => {
+      onLoadScriptRef.current = null
+    }
 
     function createWidget() {
       if (

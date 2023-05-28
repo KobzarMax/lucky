@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../asset/logo.svg'
-import coin from '../../asset/coin.svg'
-import creditcard from '../../asset/creditcard.svg'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
 import { Chain } from '@/components/Chain'
 import { Nav } from '@/components/Nav'
+
+import logo from '../../asset/logo.svg'
+import coin from '../../asset/coin.svg'
+import creditcard from '../../asset/creditcard.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
 
-function Header({ isMobile, howVisible }) {
+interface HeaderProps {
+  isMobile: boolean
+  howVisible: boolean
+}
+
+function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 
@@ -24,6 +30,7 @@ function Header({ isMobile, howVisible }) {
       setSentence(t('connectWallet') || '') // Reset the sentence to the original on desktop
     }
   }, [isMobile])
+
   return (
     <header className={`${howVisible ? 'sticky' : 'unStiky'} header w-full`}>
       <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">

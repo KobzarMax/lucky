@@ -9,14 +9,22 @@ import { GameCard } from '@/components/GameCard'
 import { Aside } from '@/components/Aside'
 import { useState } from 'react'
 
-function Game() {
-  const [asideView, setAsideView] = useState(true)
+interface GameData {
+  status: string
+  lastPrice: string
+  fixedPrice: string
+  presentPool: string
+  gameID: string
+}
 
-  const toggleAside = () => {
+function Game(): JSX.Element {
+  const [asideView, setAsideView] = useState<boolean>(true)
+
+  const toggleAside = (): void => {
     setAsideView(!asideView)
   }
 
-  const games = [
+  const games: GameData[] = [
     {
       status: 'ended',
       lastPrice: '$1.8848',
@@ -76,7 +84,7 @@ function Game() {
           </div>
         </div>
         <div className="mb-[52px] flex items-center justify-center gap-[41px]">
-          {games.map((game, index) => (
+          {games.map((game: GameData, index: number) => (
             <GameCard key={index} cardData={game} />
           ))}
         </div>

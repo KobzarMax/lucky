@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom'
-import logo from '../../asset/logo.svg'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
+
+import logo from '../../asset/logo.svg'
 import twitter from '../../asset/TwitterLogo.svg'
 import telegram from '../../asset/TelegramLogo.svg'
 import discord from '../../asset/DiscordLogo.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
-import { useLocation } from 'react-router-dom'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../../asset/CaretDown.svg'
-import { useState } from 'react'
 
-function Footer({ isMobile }) {
+interface FooterProps {
+  isMobile: boolean
+}
+
+function Footer({ isMobile }: FooterProps): JSX.Element {
   const { t } = useTranslation(['home'])
   const location = useLocation()
   const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
@@ -19,6 +24,7 @@ function Footer({ isMobile }) {
   const toggleWidgetVisibility = () => {
     setWidgetVisible(!isWidgetVisible)
   }
+
   return (
     <footer className="footer">
       {!isGameRoute && (
