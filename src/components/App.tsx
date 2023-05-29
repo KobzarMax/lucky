@@ -28,7 +28,12 @@ function App(): JSX.Element {
   }, [])
 
   const handleEarnPartnerInViewChange = (inView: boolean): void => {
-    setVisible(inView)
+    const scrolledHeight = window.scrollY
+    if (inView || scrolledHeight >= 1000) {
+      setVisible(true)
+    } else {
+      setVisible(false)
+    }
   }
 
   const handleHowItWorksInViewChange = (inHowView: boolean): void => {
@@ -65,7 +70,7 @@ function App(): JSX.Element {
         />
         <Route path="rules" element={<Rules />} />
         <Route path="leaderboard" element={<Leaderboard />} />
-        <Route path="game" element={<Game />} />
+        <Route path="game" element={<Game isMobile={isMobile} />} />
       </Routes>
       <Footer isMobile={isMobile} />
       {isMobile && <Nav visible={visible} isMobile={isMobile} />}

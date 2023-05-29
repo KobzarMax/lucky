@@ -18,6 +18,7 @@ interface HeaderProps {
 function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
+  const [headerView, setHeaderView] = useState<boolean>(howVisible)
 
   useEffect(() => {
     // Split the sentence and extract the first word
@@ -31,8 +32,24 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     }
   }, [isMobile])
 
+  useEffect(() => {
+    function handleScroll() {
+      const scrolledContentHeight = window.innerHeight >= 1000 // Modify this condition as needed
+      if (scrolledContentHeight) {
+        setHeaderView(true)
+      } else {
+        setHeaderView(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <header className={`${howVisible ? 'sticky' : 'unStiky'} header w-full`}>
+    <header className={`${headerView ? 'sticky' : 'unStiky'} header w-full`}>
       <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">

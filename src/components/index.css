@@ -18,6 +18,7 @@
 @import url('../components/GameCard/index.css');
 @import url('../components/Aside/index.css');
 @import url('../components/AsideRound/index.css');
+@import url('../components/Win/index.css');
 
 
 * {
