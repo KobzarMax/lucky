@@ -19,15 +19,18 @@ export const TranslateControls: React.FC<TranslateControlsProps> = ({
   ): void => {
     const target = event.target as HTMLElement
     const parentNode = target.parentNode as HTMLElement
-    if (parentNode.classList.contains('languages')) {
-      if (target.innerHTML === 'English') {
-        i18n.changeLanguage('en')
-        setLanguage('en')
-      } else if (target.innerHTML === 'Русский') {
-        i18n.changeLanguage('ru')
-        setLanguage('ru')
-      }
+
+    if (parentNode.classList.contains('languages-inner')) {
+      const selectedLanguage = target.classList.contains('en') ? 'en' : 'ru'
+
+      i18n
+        .changeLanguage(selectedLanguage)
+        .then(() => setLanguage(selectedLanguage))
+        .catch((error) => {
+          console.error('Failed to change language:', error)
+        })
     }
+
     setLanguageView(!languageView)
   }
 
@@ -45,13 +48,13 @@ export const TranslateControls: React.FC<TranslateControlsProps> = ({
       <div className="languages absolute -right-[30px] top-full rounded-md p-2 lg:-right-6">
         <div className="languages-inner">
           <p
-            className="text-dark_gray mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
+            className="text-dark_gray en mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
             onClick={toggleLanguage}
           >
             English
           </p>
           <p
-            className="text-dark_gray cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
+            className="text-dark_gray ru cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
             onClick={toggleLanguage}
           >
             Русский

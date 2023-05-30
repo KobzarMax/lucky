@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 import illustration from '../asset/mobile-illlustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
 import LatestGames from '@/components/LatestGames'
@@ -33,10 +32,6 @@ function Home({
     // Pass the inView value to App.tsx or perform any other logic
     onHowItWorksInViewChange(inView)
   }
-
-  useEffect(() => {
-    // Perform any additional logic or side effects here
-  }, [])
 
   return (
     <div className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]">

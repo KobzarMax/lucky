@@ -1,6 +1,11 @@
 .game-aside {
   background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), #1B1B1B;
   border-radius: 1px 0px 1px 1px;
+  transform: translateX(100%);
+  transition: 0.3s ease-in-out;
+}
+.game-aside.active {
+  transform: translateX(0);
 }
 .game-aside::before {
   position: absolute;

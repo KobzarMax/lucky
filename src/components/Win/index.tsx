@@ -1,12 +1,15 @@
 import trophy from '../../asset/trophy-in-hand.svg'
+import Confetti from 'react-confetti'
 
 interface WinProps {
   show: boolean
+  toggleShow: () => void
 }
 
-export const Win = ({ show }: WinProps) => {
+export const Win = ({ show, toggleShow }: WinProps) => {
   return (
     <div className={`win-overlay w-full ${show ? 'hidden' : 'flex'}`}>
+      <Confetti />
       <div className="win-item">
         <p className="text-basic text-dark_green mb-2.5 font-semibold">
           Ты выиграл!
@@ -26,7 +29,10 @@ export const Win = ({ show }: WinProps) => {
         <button className="text-basic border-dark_green mb-2.5 flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white">
           Disconnect Wallet
         </button>
-        <button className="text-basic bg-dark_green border-dark_green flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white">
+        <button
+          onClick={toggleShow}
+          className="text-basic border-dark_green bg-dark_green flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white"
+        >
           Stay on Ethereum
         </button>
       </div>

@@ -89,3 +89,10 @@
   padding: 8px 10px;
   border-radius: 15px;
 }
+
+#game .swiper-wrapper {
+  justify-content: flex-start;
+}
+#game .swiper {
+  padding: 0 139px;
+}

@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@types/react-stickynode':
@@ -16,6 +20,9 @@ dependencies:
   react:
     specifier: ^18.2.0
     version: 18.2.0
+  react-confetti:
+    specifier: ^6.1.0
+    version: 6.1.0(react@18.2.0)
   react-countdown-circle-timer:
     specifier: ^3.2.1
     version: 3.2.1(react@18.2.0)
@@ -23,7 +30,7 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-i18next:
-    specifier: ^12.2.2
+    specifier: ^12.3.1
     version: 12.3.1(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0)
   react-intersection-observer:
     specifier: ^9.4.3
@@ -34,6 +41,9 @@ dependencies:
   react-stickynode:
     specifier: ^4.1.0
     version: 4.1.0(react-dom@18.2.0)(react@18.2.0)
+  react-use-window-size:
+    specifier: ^1.0.1
+    version: 1.0.1
   scroll-smooth:
     specifier: ^1.1.1
     version: 1.1.1
@@ -4522,6 +4532,16 @@ packages:
       performance-now: 2.1.0
     dev: false
 
+  /react-confetti@6.1.0(react@18.2.0):
+    resolution: {integrity: sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw==}
+    engines: {node: '>=10.18'}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.1 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      tween-functions: 1.2.0
+    dev: false
+
   /react-countdown-circle-timer@3.2.1(react@18.2.0):
     resolution: {integrity: sha512-yBAy/9ILXOiFbLBM+3jS72TW5LeRcH8wkRC9NNqMpUkCXkGjSnaeRbJMsR9lsYF0oVXjSDbJaRbCuVMT+9HnKA==}
     peerDependencies:
@@ -4624,6 +4644,21 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       shallowequal: 1.1.0
       subscribe-ui-event: 2.0.7
+    dev: false
+
+  /react-use-window-size@1.0.1:
+    resolution: {integrity: sha512-2Rq4xP+Xy5tj6Wlxq76+i1zAhfDOVGB7t1eQuSAX+DmLrkW0VusH4XZANr+i4K1AmvwXu2Z8G9FgRvl+WT4g6w==}
+    dependencies:
+      react: 16.14.0
+    dev: false
+
+  /react@16.14.0:
+    resolution: {integrity: sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
     dev: false
 
   /react@18.2.0:
@@ -5138,6 +5173,10 @@ packages:
       tslib: 1.14.1
       typescript: 5.0.4
     dev: true
+
+  /tween-functions@1.2.0:
+    resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
+    dev: false
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}

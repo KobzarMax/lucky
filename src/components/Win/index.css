@@ -1,7 +1,7 @@
 .win-overlay {
   position: absolute;
   z-index: 1100;
-  background: url('../../asset/pngimg1.png'), rgba(28, 28, 28, 0.9);
+  background: rgba(28, 28, 28, 0.9);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

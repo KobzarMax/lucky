@@ -20,7 +20,7 @@ export const GameTimer = (): JSX.Element => {
   }
 
   return (
-    <div className="game-durations z- relative">
+    <div className="game-durations relative z-20">
       <div className="duration-picker flex cursor-pointer items-center justify-between gap-[33px] rounded-[15px] bg-[#2b2b2b99] py-[14px] pl-5 pr-4 transition-all duration-300 hover:bg-[#2b2b2bcc]">
         <p className="flex items-center justify-start gap-[5px] text-[15px] font-medium leading-[18px] text-[#BEBEBE]">
           <img src={clock} alt="clock" />

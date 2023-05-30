@@ -65,7 +65,7 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
           {!isMobile && (
             <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />
-              <span className="text-dark_gray text-[15px] font-medium uppercase leading-[18px]">
+              <span className="text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
                 $2 000
               </span>
             </div>

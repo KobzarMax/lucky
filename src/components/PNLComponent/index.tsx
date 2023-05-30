@@ -2,7 +2,7 @@ export const PNLComponent = () => {
   return (
     <div className="mt-[108px]">
       <div className="flex items-center justify-start gap-[15px]">
-        <div className="border-t-dark_green border-r-dark_green border-b-primary border-l-primary  flex h-20 w-20 rotate-45 items-center justify-center rounded-full border-[5px]">
+        <div className="flex h-20 w-20 rotate-45  items-center justify-center rounded-full border-[5px] border-b-primary border-l-primary border-r-dark_green border-t-dark_green">
           <div className="flex -rotate-45 flex-col items-center justify-center">
             <p className="text-xs font-semibold leading-[15px] text-white">
               Won
@@ -17,7 +17,7 @@ export const PNLComponent = () => {
           <p className="text-xs font-semibold leading-[15px] text-[#797979]">
             Not results
           </p>
-          <p className="text-primary text-[15px] font-semibold leading-[18px]">
+          <p className="text-[15px] font-semibold leading-[18px] text-primary">
             -0.1270 BNB
           </p>
           <p className="text-[10px] leading-3 text-[#797979]">-$38.75</p>
@@ -27,7 +27,7 @@ export const PNLComponent = () => {
         <p className="text-xs font-semibold leading-[15px] text-[#797979]">
           Average return / round
         </p>
-        <p className="text-primary text-[15px] font-semibold leading-[18px]">
+        <p className="text-[15px] font-semibold leading-[18px] text-primary">
           -0.0008 BNB
         </p>
         <p className="text-[10px] leading-3 text-[#797979]">-0.26</p>
@@ -36,7 +36,7 @@ export const PNLComponent = () => {
         <p className="text-xs font-semibold leading-[15px] text-[#797979]">
           Best round: #166178
         </p>
-        <p className="text-dark_green text-[15px] font-semibold leading-[18px]">
+        <p className="text-[15px] font-semibold leading-[18px] text-dark_green">
           +0.0191 BNB{' '}
           <span className="text-[10px] leading-3 text-[#797979]">(3.49x)</span>
         </p>
@@ -57,13 +57,13 @@ export const PNLComponent = () => {
         </p>
         <div className="mb-2.5 flex items-center justify-start gap-[60px]">
           <div>
-            <p className="text-dark_green mb-[3px] text-[15px] font-semibold leading-[18px]">
+            <p className="mb-[3px] text-[15px] font-semibold leading-[18px] text-dark_green">
               74 rounds
             </p>
             <p className="text-[10px] leading-3 text-[#797979]">49.33%</p>
           </div>
           <div>
-            <p className="text-dark_green mb-[3px] text-[15px] font-semibold leading-[18px]">
+            <p className="mb-[3px] text-[15px] font-semibold leading-[18px] text-dark_green">
               +0.3220 BNB
             </p>
             <p className="text-[10px] leading-3 text-[#797979]">$98.30</p>
@@ -74,13 +74,13 @@ export const PNLComponent = () => {
         </p>
         <div className="flex items-center justify-start gap-[60px]">
           <div>
-            <p className="text-primary mb-[3px] text-[15px] font-semibold leading-[18px]">
+            <p className="mb-[3px] text-[15px] font-semibold leading-[18px] text-primary">
               76 rounds
             </p>
             <p className="text-[10px] leading-3 text-[#797979]">49.33%</p>
           </div>
           <div>
-            <p className="text-primary mb-[3px] text-[15px] font-semibold leading-[18px]">
+            <p className="mb-[3px] text-[15px] font-semibold leading-[18px] text-primary">
               -0.4490 BNB
             </p>
             <p className="text-[10px] leading-3 text-[#797979]">$98.30</p>
