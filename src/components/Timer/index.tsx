@@ -42,7 +42,8 @@ export const Timer = () => {
           isPlaying
           duration={daysDuration}
           initialRemainingTime={remainingTime}
-          colors={[['#FF1B5E']]}
+          colors={'#FF1B5E'}
+          trailColor={'#1b1b1b80'}
           strokeWidth={6}
           size={80}
         >
@@ -63,7 +64,8 @@ export const Timer = () => {
         <CountdownCircleTimer
           isPlaying
           duration={daySeconds}
-          colors={[['#FF1B5E']]}
+          colors={'#FF1B5E'}
+          trailColor={'#1b1b1b80'}
           initialRemainingTime={remainingTime % daySeconds}
           strokeWidth={6}
           size={80}
@@ -85,7 +87,8 @@ export const Timer = () => {
         <CountdownCircleTimer
           isPlaying
           duration={hourSeconds}
-          colors={[['#FF1B5E']]}
+          colors={'#FF1B5E'}
+          trailColor={'#1b1b1b80'}
           initialRemainingTime={remainingTime % hourSeconds}
           strokeWidth={6}
           size={80}
@@ -107,8 +110,8 @@ export const Timer = () => {
           isPlaying
           duration={minuteSeconds}
           initialRemainingTime={remainingTime % minuteSeconds}
-          colors={[['#FF1B5E']]}
-          trailColor={`conic-gradient(#1B1B1B80 ${null}%, transparent 0%)`}
+          colors={'#FF1B5E'}
+          trailColor={'#1b1b1b80'}
           strokeWidth={6}
           size={80}
           onComplete={() => {
