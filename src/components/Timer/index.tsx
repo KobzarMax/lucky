@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next'
 
 export const Timer = () => {
   const { t } = useTranslation(['home'])
-  const [countdownDate] = useState(getRandomFutureDate())
+  const startDate = new Date('07/01/2023')
+  const [countdownDate] = useState(startDate)
   const [remainingTime, setRemainingTime] = useState(
     getRemainingTime(countdownDate)
   )
@@ -21,12 +22,6 @@ export const Timer = () => {
 
     return () => clearInterval(timer)
   }, [countdownDate])
-
-  function getRandomFutureDate() {
-    const now = new Date()
-    const futureDate = new Date(now.getTime() + Math.random() * 86400000 * 7) // Add random number of milliseconds within 7 days
-    return futureDate
-  }
 
   function getRemainingTime(endDate) {
     const total = Date.parse(endDate) - Date.now()
