@@ -78,7 +78,7 @@
   top: 0px;
 }
 
-.arrow-slider-button img {
+.swiper-button img {
   filter: invert(80%) sepia(98%) saturate(2593%) hue-rotate(214deg) brightness(101%) contrast(92%);
 }
 
@@ -94,5 +94,11 @@
   justify-content: flex-start;
 }
 #game .swiper {
-  padding: 0 139px;
+  padding: 0 12px 0 13px;
+}
+
+@media (min-width: 1024px) {
+  #game .swiper {
+    padding: 0 139px;
+  }
 }

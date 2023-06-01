@@ -57,8 +57,8 @@ export default function TradingViewWidget(): JSX.Element {
   }, [])
 
   return (
-    <div className="tradingview-widget-container">
-      <div id="tradingview_06401" />
+    <div className="tradingview-widget-container" style={{ height: '100%' }}>
+      <div id="tradingview_06401" style={{ height: '100%' }} />
       <div className="tradingview-widget-copyright">
         <a
           href="https://www.tradingview.com/"
