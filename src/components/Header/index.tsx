@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../asset/logo.svg'
-import coin from '../../asset/coin.svg'
-import creditcard from '../../asset/creditcard.svg'
+import logo from 'asset/logo.svg'
+import coin from 'asset/coin.svg'
+import creditcard from 'asset/creditcard.svg'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from 'components/TranslateControl'
 import { Chain } from 'components/Chain'
+import ConnectIt from 'web3/Provider'
 import { Nav } from 'components/Nav'
-import mobileLogo from '../../asset/mobile-logo.svg'
+import mobileLogo from 'asset/mobile-logo.svg'
 
-function Header({ isMobile, howVisible }) {
+import { useAppSelector } from 'redux/hooks'
+import { selectPlatform } from 'features/global/globalSlice'
+
+function Header({ howVisible }) {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 
-  console.log(howVisible)
+  const { isMobile } = useAppSelector(selectPlatform)
+
+
+  console.log('mob', isMobile)
 
   useEffect(() => {
     // Split the sentence and extract the first word
@@ -40,19 +47,18 @@ function Header({ isMobile, howVisible }) {
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">
-          {!isMobile && (
+          {/* {!isMobile && (
             <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />
               <span className="text-dark_gray text-[15px] font-medium uppercase leading-[18px]">
                 $2 000
               </span>
             </div>
-          )}
+          )} */}
           <TranslateControls isMobile={isMobile} />
-          <Chain isMobile={isMobile} />
-          <button className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]">
-            {sentence} {!isMobile && <img src={creditcard} alt="credit card" />}
-          </button>
+          {/* {isConnected && <Chain isMobile={isMobile} />}  */}
+
+          <ConnectIt isMobile={isMobile} />
         </div>
       </div>
     </header>
