@@ -4,7 +4,7 @@ import { useState } from 'react'
 import FilterComponent from '@/components/AsideFilter'
 
 export const RoundsComponent = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const rounds = [
     {
       roundID: '150,123',

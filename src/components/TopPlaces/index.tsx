@@ -2,7 +2,7 @@ import avatar from '../../asset/big-avatar.png'
 import { useTranslation } from 'react-i18next'
 
 export const TopPlaces = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const rating = [
     {
       place: 1,

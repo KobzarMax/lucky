@@ -3,7 +3,7 @@ import documents from '../../asset/Files.svg'
 import { useTranslation } from 'react-i18next'
 
 export const DocumentsButton = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   return (
     <Link
       to="rules"

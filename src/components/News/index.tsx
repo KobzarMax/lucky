@@ -10,7 +10,7 @@ import 'swiper/css/navigation'
 SwiperCore.use([Navigation])
 
 export const News = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const news = [
     {
       image: newsImage,

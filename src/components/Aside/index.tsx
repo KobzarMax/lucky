@@ -11,7 +11,7 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ asideView, toggleView }) => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const tabs = [
     {
       id: 'rounds',

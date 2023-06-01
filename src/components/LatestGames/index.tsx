@@ -8,7 +8,7 @@ import down from '../../asset/down.svg'
 import border from '../../asset/latest-games-border.svg'
 
 const LatestGames: React.FC = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const latestGames = [
     {
       avatar: avatar,

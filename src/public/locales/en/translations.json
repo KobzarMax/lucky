@@ -1,10 +1,11 @@
 {
   "paidOut": "Paid out:",
-  "connectWallet": "Подключить кошелёк",
+  "connectWallet": "Connect wallet",
   "gameStartsIn": "Game starts in:",
   "days": "days",
   "hours": "hours",
   "minutes": "minutes",
+  "seconds": "seconds",
   "luckyHamster": "Lucky Hamster",
   "playForFunEarnForProfit": "play for fun, earn for profit!",
   "homeSubtitle": "The best fully open source decentralized game. Start playing today and double your deposit!",
@@ -109,3 +110,7 @@
   "averageReturn": "Average return / round",
   "notResults": "Not results"
 }
+
+
+
+

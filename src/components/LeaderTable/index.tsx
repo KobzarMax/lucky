@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import avatar from '../../asset/avatar.png'
 
 export const LeaderTable = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   const users = [
     {

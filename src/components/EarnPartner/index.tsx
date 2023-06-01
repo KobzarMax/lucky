@@ -14,7 +14,7 @@ interface EarnPartnerProps {
 export const EarnPartner = ({
   onEarnPartnerInViewChange
 }: EarnPartnerProps): JSX.Element => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   const [ref, inView] = useInView({
     triggerOnce: true,

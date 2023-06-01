@@ -24,7 +24,7 @@ interface AsideRoundProps {
 }
 
 export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleAccordion = (): void => {

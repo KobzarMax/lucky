@@ -21,7 +21,7 @@ function Home({
   onEarnPartnerInViewChange,
   onHowItWorksInViewChange
 }: HomeProps) {
-  const { t } = useTranslation('home')
+  const { t } = useTranslation(['translations'])
 
   const handleEarnPartnerInViewChange = (inView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic

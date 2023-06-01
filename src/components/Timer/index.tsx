@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export const Timer = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [countdownDate] = useState(getRandomFutureDate())
   const [remainingTime, setRemainingTime] = useState(
     getRemainingTime(countdownDate)

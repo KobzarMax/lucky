@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 function Rules() {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   return (
     <div className="pt-[90px]">
       <div className="mx-auto max-w-[565px] pl-[13px] pr-3">

@@ -3,7 +3,7 @@ import { TopPlaces } from '@/components/TopPlaces'
 import { useTranslation } from 'react-i18next'
 
 function Leaderboard() {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   return (
     <div className="pt-[90px]">
       <div className="pl-[13px] pr-3 lg:px-[139px]">

@@ -2,7 +2,7 @@ import avatar from '../../asset/avatar.png'
 import { useTranslation } from 'react-i18next'
 
 export const Referals = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const referals = [
     {
       avatar: avatar,

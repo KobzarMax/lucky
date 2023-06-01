@@ -7,7 +7,7 @@ import safety from '../../asset/safety.svg'
 import tag from '../../asset/Tag.svg'
 
 export const HowItWorks = ({ onHowItWorksInViewChange }) => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [ref, inHowView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px'

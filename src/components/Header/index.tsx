@@ -16,7 +16,7 @@ interface HeaderProps {
 }
 
 function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
-  const { t } = useTranslation(['home'])
+  const { t, i18n } = useTranslation(['translations'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
   const [connectedWallet, setConnectedWallet] = useState<ethers.Signer | null>(
@@ -33,7 +33,7 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     } else {
       setSentence(t('connectWallet') || '') // Reset the sentence to the original on desktop
     }
-  }, [isMobile])
+  }, [isMobile, t, sentence])
 
   useEffect(() => {
     function handleScroll() {
@@ -74,6 +74,17 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
       console.error('Error connecting wallet:', error)
     }
   }
+
+  useEffect(() => {
+    const languageChanged = () => {
+      setSentence(t('connectWallet') || '')
+    }
+
+    i18n.on('languageChanged', languageChanged)
+    return () => {
+      i18n.off('languageChanged', languageChanged)
+    }
+  }, [t, i18n])
 
   return (
     <header className={`${headerView ? 'sticky' : 'unStiky'} header w-full`}>

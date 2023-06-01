@@ -5,7 +5,7 @@ import play from '../../asset/PlayCircle.svg'
 import { useEffect, useState } from 'react'
 
 export const GameCard = ({ cardData }) => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const targetDate = new Date('2023-06-01T00:00:00')
   const calculateTimeLeft = (): {
     hours: number

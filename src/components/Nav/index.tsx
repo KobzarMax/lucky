@@ -14,7 +14,7 @@ interface NavProps {
 }
 
 export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   return (
     <div

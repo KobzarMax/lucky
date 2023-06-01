@@ -13,7 +13,7 @@ interface FooterProps {
 }
 
 function Footer({ isMobile }: FooterProps): JSX.Element {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const location = useLocation()
 
   const isGameRoute = location.pathname === '/game'

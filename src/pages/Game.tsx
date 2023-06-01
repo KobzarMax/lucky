@@ -34,7 +34,7 @@ interface GameProps {
 }
 
 function Game({ isMobile }: GameProps): JSX.Element {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [asideView, setAsideView] = useState<boolean>(true)
   const [show, setShow] = useState<boolean>(true)
   const location = useLocation()
