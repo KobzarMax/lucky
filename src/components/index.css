@@ -102,3 +102,9 @@
     padding: 0 139px;
   }
 }
+
+@media (max-width: 1024px) {
+  .swiper.hidden {
+    display: none !important;
+  }
+}

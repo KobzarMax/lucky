@@ -42,10 +42,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const isGameRoute = location.pathname === '/game'
   const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
 
-  const toggleWidgetVisibility = () => {
-    setWidgetVisible(!isWidgetVisible)
-  }
-
   const toggleShow = (): void => {
     setShow(!show)
   }
@@ -109,9 +105,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
-    <div id="game" className="relative min-h-[100vh] overflow-hidden">
+    <div id="game" className="relative overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
-      <div className="pt-[90px]">
+      <div className="lg:min-h-[100vh] pt-[90px]">
         <Referals />
         <div className="mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
@@ -155,36 +151,35 @@ function Game({ isMobile }: GameProps): JSX.Element {
             )}
           </div>
         </div>
-        {!isWidgetVisible && (
-          <Swiper
-            className="mb-[126px]"
-            ref={swiperRef}
-            loop={true}
-            spaceBetween={41}
-            slidesPerView={1}
-            navigation={{
-              prevEl: '.swiper-button-prev',
-              nextEl: '.swiper-button-next',
-              disabledClass: 'swiper-button-disabled'
-            }}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 37
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 41
-              }
-            }}
-          >
-            {games.map((game: GameData, index: number) => (
-              <SwiperSlide className="w-full max-w-[360px]" key={index}>
-                <GameCard cardData={game} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+        <Swiper
+          className={`${!isWidgetVisible ? '' : 'hidden'}  mb-[126px]`}
+          ref={swiperRef}
+          loop={true}
+          spaceBetween={41}
+          slidesPerView={1}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+            disabledClass: 'swiper-button-disabled'
+          }}
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 37
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 41
+            }
+          }}
+        >
+          {games.map((game: GameData, index: number) => (
+            <SwiperSlide className="w-full max-w-[360px]" key={index}>
+              <GameCard cardData={game} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
         {isMobile && (
           <div className="fixed bottom-0 w-full pl-[13px] pr-3">
             <div className="relative flex w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
@@ -197,11 +192,11 @@ function Game({ isMobile }: GameProps): JSX.Element {
               </div>
               <div className="flex items-center justify-center gap-[22.5px] rounded-[30px] bg-[#38383899] py-[5px]">
                 <div className="flex cursor-pointer items-center justify-center rounded-[30px] bg-[#58585899] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]">
-                  <img src={gameCards} alt="game cards" />
+                  <img onClick={() => setWidgetVisible(false)} src={gameCards} alt="game cards" />
                 </div>
                 <div
                   className="flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]"
-                  onClick={toggleWidgetVisibility}
+                  onClick={() => setWidgetVisible(!isWidgetVisible)}
                 >
                   <img src={chartBar} alt="chartBar" />
                 </div>
@@ -234,7 +229,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
           {!isMobile && (
             <div
               className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-              onClick={toggleWidgetVisibility}
+              onClick={() => setWidgetVisible(!isWidgetVisible)}
             >
               {t('TradingView')}{' '}
               <img
