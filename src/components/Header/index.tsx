@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
 import { Chain } from '@/components/Chain'
 import { Nav } from '@/components/Nav'
-
+import { ethers } from 'ethers'
 import logo from '../../asset/logo.svg'
 import coin from '../../asset/coin.svg'
 import creditcard from '../../asset/creditcard.svg'
@@ -19,6 +19,9 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
+  const [connectedWallet, setConnectedWallet] = useState<ethers.Signer | null>(
+    null
+  )
 
   useEffect(() => {
     // Split the sentence and extract the first word
@@ -48,6 +51,30 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     }
   }, [])
 
+  async function connectWallet() {
+    try {
+      if (window.ethereum) {
+        // Request access to the user's accounts
+        await window.ethereum.request({ method: 'eth_requestAccounts' })
+
+        // Create an ethers.js provider using the current window.ethereum object
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+        // Get the signer (connected wallet) from the provider
+        const signer = provider.getSigner()
+        setConnectedWallet(signer)
+
+        // Perform any desired operations with the connected wallet
+        const balance = await signer.getBalance()
+        console.log('Wallet balance:', ethers.utils.formatEther(balance))
+      } else {
+        console.error('Please install MetaMask or use a Web3-enabled browser.')
+      }
+    } catch (error) {
+      console.error('Error connecting wallet:', error)
+    }
+  }
+
   return (
     <header className={`${headerView ? 'sticky' : 'unStiky'} header w-full`}>
       <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
@@ -72,7 +99,10 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
           )}
           <TranslateControls isMobile={isMobile} />
           <Chain isMobile={isMobile} />
-          <button className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]">
+          <button
+            onClick={connectWallet}
+            className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
+          >
             {sentence} {!isMobile && <img src={creditcard} alt="credit card" />}
           </button>
         </div>

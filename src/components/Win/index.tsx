@@ -11,7 +11,7 @@ export const Win = ({ show, toggleShow }: WinProps) => {
     <div className={`win-overlay w-full ${show ? 'hidden' : 'flex'}`}>
       <Confetti />
       <div className="win-item">
-        <p className="text-basic text-dark_green mb-2.5 font-semibold">
+        <p className="text-basic mb-2.5 font-semibold text-dark_green">
           Ты выиграл!
         </p>
         <p className="max-w-[157px] text-center text-[13px] font-medium leading-4 text-white">
@@ -23,15 +23,15 @@ export const Win = ({ show, toggleShow }: WinProps) => {
           features are currently available only on BNB Chain! Come over and join
           the community in the fun!
         </p>
-        <button className="text-basic border-dark_green mb-[5px] flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white">
+        <button className="text-basic mb-[5px] flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green py-[15px] font-semibold text-white">
           Switch to BNB Smart Chain
         </button>
-        <button className="text-basic border-dark_green mb-2.5 flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white">
+        <button className="text-basic mb-2.5 flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green py-[15px] font-semibold text-white">
           Disconnect Wallet
         </button>
         <button
           onClick={toggleShow}
-          className="text-basic border-dark_green bg-dark_green flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white"
+          className="text-basic flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green bg-dark_green py-[15px] font-semibold text-white"
         >
           Stay on Ethereum
         </button>
