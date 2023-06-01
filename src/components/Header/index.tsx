@@ -76,14 +76,14 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">
-          {!isMobile && (
+          {/* {!isMobile && (
             <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />
               <span className="text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
                 $2 000
               </span>
             </div>
-          )}
+          )} */}
           <TranslateControls isMobile={isMobile} />
 
           <ConnectIt isMobile={isMobile} />
