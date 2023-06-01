@@ -41,18 +41,12 @@ function Home({ isMobile, onEarnPartnerInViewChange }: any) {
             {t('homeSubtitle')}
           </p>
           <div className="flex flex-col items-start justify-start gap-[11px] lg:flex-row lg:items-center">
-            <Link
-              to={'game'}
-              className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white"
-            >
+            <button className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white hover:scale-105 ease-out duration-300">
               {t('playNow')}
-            </Link>
-            <Link
-              to={'rules'}
-              className="documentation flex items-center justify-center px-[13.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white"
-            >
+            </button>
+            <button className="documentation flex items-center justify-center px-[30px] py-[15px] text-[15px] font-semibold leading-[18px] text-white">
               {t('documentation')}
-            </Link>
+            </button>
           </div>
         </div>
         <div className="relative w-[108%] lg:w-full">
