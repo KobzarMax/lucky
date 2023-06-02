@@ -9,7 +9,7 @@ export const Timer = () => {
       <p className="mb-2.5 text-center text-[15px] leading-[18px] text-white">
         {t('gameStartsIn')}
       </p>
-      <CountDown/>
+      <CountDown />
     </div>
   )
 }
