@@ -2,19 +2,14 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import illustration from '../asset/mobile-illlustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
-import LatestGames from '../components/LatestGames'
-import { HowItWorks } from '../components/HowItWorks'
-import { EarnPartner } from '../components/EarnPartner'
-import { CTA } from '../components/CTA'
-import { News } from '../components/News'
-import { FAQ } from '../components/FAQ'
-import { Timer } from '../components/Timer'
+import LatestGames from 'components/LatestGames'
+import { HowItWorks } from 'components/HowItWorks'
+import { EarnPartner } from 'components/EarnPartner'
+import { CTA } from 'components/CTA'
+import { News } from 'components/News'
+import { FAQ } from 'components/FAQ'
+import { Timer } from 'components/Timer'
 import 'flowbite'
-// interface HomeProps {
-//   isMobile: boolean
-//   onEarnPartnerInViewChange: (inView: boolean) => void
-//   onHowItWorksInViewChange: (inView: boolean) => void
-// }
 
 function Home({ isMobile, onEarnPartnerInViewChange }: any) {
   const { t } = useTranslation(['translations'])
@@ -41,7 +36,12 @@ function Home({ isMobile, onEarnPartnerInViewChange }: any) {
             {t('homeSubtitle')}
           </p>
           <div className="flex flex-col items-start justify-start gap-[11px] lg:flex-row lg:items-center">
-            <button className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white hover:scale-105 ease-out duration-300">
+            <button
+            
+              data-modal-target="popup-modal"
+              data-modal-toggle="popup-modal"
+              className="play-now flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white hover:scale-105 ease-out duration-300"
+            >
               {t('playNow')}
             </button>
             <button className="documentation flex items-center justify-center px-[30px] py-[15px] text-[15px] font-semibold leading-[18px] text-white">

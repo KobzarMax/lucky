@@ -111,8 +111,7 @@ export const News = () => {
               <a
                 href="https://twitter.com/HamsterLucky"
                 target="_blank"
-                className="flex items-center justify-start gap-[5px] text-xs leading-[15px] text-primary lg:text-[15px] lg:leading-[18px]"
-                rel="noreferrer"
+                className="text-primary flex items-center justify-start gap-[5px] text-xs leading-[15px] lg:text-[15px] lg:leading-[18px]"
               >
                 {t('readAll')}{' '}
                 <img className="h-4 w-4" src={arrow} alt="arrow" />

@@ -9,14 +9,16 @@ import mobileLogo from '../../asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
 
 interface HeaderProps {
-  isMobile: boolean
   howVisible: boolean
 }
 
-function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
+function Header({ howVisible }: HeaderProps): JSX.Element {
   const { t, i18n } = useTranslation(['translations'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
+
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
+
+  const { isMobile } = useAppSelector(selectPlatform)
 
   useEffect(() => {
     // Split the sentence and extract the first word
@@ -72,7 +74,6 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
               alt="lucky hamster logo"
             />
           </Link>
-
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">

@@ -15,7 +15,7 @@ export const CountDown = () => {
   const stratTime = Date.now()
   const targetDate = new Date('07/01/2023')
 
-  const diffTime = Math.abs((targetDate as any) - stratTime) / 1000
+  const diffTime = Math.abs(targetDate - stratTime) / 1000
 
   const endTime = stratTime + diffTime
 
@@ -41,7 +41,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+              <span className="text-primary text-[25px] font-semibold leading-[30px]">
                 {getTimeDays(daysDuration - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -64,7 +64,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+              <span className="text-primary text-[25px] font-semibold leading-[30px]">
                 {getTimeHours(daySeconds - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -87,7 +87,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+              <span className="text-primary text-[25px] font-semibold leading-[30px]">
                 {getTimeMinutes(hourSeconds - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -112,7 +112,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+              <span className="text-primary text-[25px] font-semibold leading-[30px]">
                 {getTimeSeconds(elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
