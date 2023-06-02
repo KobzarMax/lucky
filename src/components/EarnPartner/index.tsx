@@ -47,7 +47,10 @@ export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
           <span className="text-primary">{t('partner')}</span> ?
         </h2>
         <p className="mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px]">
-          <span className="text-primary font-bold"> {t('earnLikePartnerSubtitle1')}</span>{' '}
+          <span className="font-bold text-primary">
+            {' '}
+            {t('earnLikePartnerSubtitle1')}
+          </span>{' '}
           {t('earnLikePartnerSubtitle2')}
         </p>
         <div className="flex flex-col items-start justify-start gap-[15px] lg:flex-row lg:items-center">

@@ -14,7 +14,10 @@ import creditcard from 'asset/creditcard.svg'
 
 const { chains, provider } = configureChains(
   [polygonMumbai],
-  [alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }), publicProvider()]
+  [
+    alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
+    publicProvider()
+  ]
 )
 
 const { connectors } = getDefaultWallets({
@@ -76,7 +79,7 @@ const ConnectIt = ({ isMobile }) => {
                   if (!connected) {
                     return (
                       <button
-                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px] hover:scale-105 ease-out duration-300"
+                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
                         onClick={openConnectModal}
                         type="button"
                       >
@@ -91,7 +94,7 @@ const ConnectIt = ({ isMobile }) => {
                   if (chain.unsupported) {
                     return (
                       <button
-                        className="flex h-[30px] max-w-[243px]  items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px] hover:scale-105 ease-out duration-300"
+                        className="flex h-[30px] max-w-[243px]  items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
                         style={{ backgroundColor: 'red' }}
                         onClick={openChainModal}
                         type="button"
@@ -102,7 +105,7 @@ const ConnectIt = ({ isMobile }) => {
                   }
 
                   return (
-                    <div className='flex justify-center items-center'>
+                    <div className="flex items-center justify-center">
                       <div
                         onClick={openChainModal}
                         className={`chains-wrapper relative inline-block text-left`}
@@ -130,7 +133,7 @@ const ConnectIt = ({ isMobile }) => {
                           )}
 
                           {!isMobile && (
-                            <span className="text-medium text-dark_gray text-[15px] leading-[18px]">
+                            <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
                               {chain.name}
                             </span>
                           )}
@@ -138,7 +141,7 @@ const ConnectIt = ({ isMobile }) => {
                       </div>
 
                       <button
-                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px] hover:scale-105 ease-out duration-300"
+                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
                         onClick={openAccountModal}
                         type="button"
                       >

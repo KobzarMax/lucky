@@ -38,12 +38,12 @@ function Header({ howVisible }) {
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">
             <img
-              className="h-[68px] max-w-[80px]  md:max-w-[120px] lg:h-full lg:max-[120px]"
+              className="lg:max-[120px] h-[68px]  max-w-[80px] md:max-w-[120px] lg:h-full"
               src={isMobile ? mobileLogo : logo}
               alt="lucky hamster logo"
             />
           </Link>
-        
+
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">

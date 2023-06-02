@@ -22,7 +22,7 @@ export const Nav = ({ isMobile, visible }) => {
         <div
           data-modal-target="popup-modal"
           data-modal-toggle="popup-modal"
-          className="text-dark_gray  flex flex-col mr-[15px] items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px] after:bg-primary relative cursor-pointer after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:content-['']"
+          className="relative  mr-[15px] flex cursor-pointer flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:bg-primary after:content-[''] lg:flex-row lg:text-[15px] lg:leading-[18px]"
         >
           <img src={win} alt="Win" /> Win
         </div>
@@ -30,13 +30,13 @@ export const Nav = ({ isMobile, visible }) => {
           <div
             data-modal-target="popup-modal"
             data-modal-toggle="popup-modal"
-            className="play bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-full"
+            className="play flex h-[50px] w-[50px] items-center justify-center rounded-full bg-primary"
           >
             <img className="relative z-20" src={play} alt="play" />
           </div>
         )}
         <NavLink
-          className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
+          className="flex  flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'/'}
         >
           <img src={gear} alt="Instructions" /> Instructions

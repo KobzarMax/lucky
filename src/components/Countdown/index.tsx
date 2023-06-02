@@ -8,7 +8,6 @@ const hourSeconds = 3600
 const daySeconds = 86400
 
 export const CountDown = () => {
-
   const { t } = useTranslation(['home'])
   const [days, hours, minutes, seconds] = useCountdown('07/01/2023')
   const daysDuration = days * daySeconds
@@ -42,7 +41,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-primary text-[25px] font-semibold leading-[30px]">
+              <span className="text-[25px] font-semibold leading-[30px] text-primary">
                 {getTimeDays(daysDuration - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -65,7 +64,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-primary text-[25px] font-semibold leading-[30px]">
+              <span className="text-[25px] font-semibold leading-[30px] text-primary">
                 {getTimeHours(daySeconds - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -88,7 +87,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-primary text-[25px] font-semibold leading-[30px]">
+              <span className="text-[25px] font-semibold leading-[30px] text-primary">
                 {getTimeMinutes(hourSeconds - elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">
@@ -113,7 +112,7 @@ export const CountDown = () => {
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
             <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-primary text-[25px] font-semibold leading-[30px]">
+              <span className="text-[25px] font-semibold leading-[30px] text-primary">
                 {getTimeSeconds(elapsedTime)}
               </span>
               <span className="text-[13px] leading-4 text-white">

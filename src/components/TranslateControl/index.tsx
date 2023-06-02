@@ -31,20 +31,20 @@ export const TranslateControls = ({ isMobile }) => {
     >
       <img className="mr-[5px]" src={globe} alt="globe" />
       {!isMobile && (
-        <p className="text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px]">
+        <p className="cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
           {language}
         </p>
       )}
       <div className="languages absolute -right-[30px] top-full rounded-md p-2 lg:-right-6">
         <div className="languages-inner">
           <p
-            className="text-dark_gray mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
+            className="mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
             onClick={toggleLanguage}
           >
             English
           </p>
           <p
-            className="text-dark_gray cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px]"
+            className="cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
             onClick={toggleLanguage}
           >
             Русский

@@ -20,7 +20,7 @@ function Footer({ isMobile }) {
         </Link>
         <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
           <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
+            className="text-[15px] leading-[15px] text-dark_gray"
             to={'terms'}
           >
             Instructions
