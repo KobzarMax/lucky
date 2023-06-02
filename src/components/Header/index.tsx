@@ -33,7 +33,7 @@ function Header({ howVisible }: any) {
   }, [isMobile])
   return (
     <header className={`${howVisible ? 'sticky' : 'unStiky'} header w-full`}>
-      <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
+      <div className="flex items-center justify-between px-[13px] py-0 sm:py-[18px] lg:px-[75px]">
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">
             <img

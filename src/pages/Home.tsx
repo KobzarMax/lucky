@@ -66,7 +66,7 @@ function Home({
       </div>
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
-      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
+      {/* <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} /> */}
       <CTA />
       <News />
       <FAQ />
