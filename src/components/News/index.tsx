@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import newsImage from '../../asset/news-bg.svg'
-import arrow from '../../asset/arrowup.svg'
+import banner1 from 'asset/banner1.png'
+import banner2 from 'asset/banner2.png'
+import banner3 from 'asset/banner3.png'
+import arrow from 'asset/arrowup.svg'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import React from 'react'
@@ -13,25 +15,25 @@ export const News = () => {
   const { t } = useTranslation(['home'])
   const news = [
     {
-      image: newsImage,
-      author: 'User123',
-      title: 'Pellentesque sit amet porttitor',
-      date: '13.05.2023',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur...'
+      image: banner1,
+
+      title: 'The game starts soon',
+      date: '02.06.2023',
+      text: '🎮🔮 Exciting news! Lucky Hamster, the ultimate blockchain prediction game, is launching soon! Get ready to showcase your skills and win big! 🚀 #LuckyHamster #BlockchainGame'
     },
     {
-      image: newsImage,
-      author: 'User123',
-      title: 'Pellentesque sit amet porttitor',
-      date: '13.05.2023',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur...'
+      image: banner2,
+
+      title: 'How does this game work?',
+      date: '02.06.2023',
+      text: '🔮🐹 Predict market moves, earn rewards! Lucky Hamster, the innovative blockchain prediction game, puts your skills to the test. Start playing now! 🚀 #LuckyHamster #BlockchainGame'
     },
     {
-      image: newsImage,
-      author: 'User123',
-      title: 'Pellentesque sit amet porttitor',
-      date: '13.05.2023',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur...'
+      image: banner3,
+
+      title: 'Take your profit now',
+      date: '02.06.2023',
+      text: '🤑💰 Play, predict, profit! Join Lucky Hamster, the blockchain prediction game, and turn your foresight into earnings. Get started now! 🚀 #LuckyHamster #BlockchainGame'
     }
   ]
   const swiperRef = React.useRef<React.RefObject<SwiperRef> | null | undefined>(
@@ -93,7 +95,7 @@ export const News = () => {
               </p>
               <div className="mb-[15px] flex items-center justify-between">
                 <p className="text-[10px] leading-3 text-[#929292] lg:text-[13px] lg:leading-4">
-                  {article.author}
+                  Lucky Hamster
                 </p>
                 <p className="text-[10px] leading-3 text-[#929292] lg:text-[13px] lg:leading-4">
                   {article.date}
@@ -103,7 +105,8 @@ export const News = () => {
                 {article.text}
               </p>
               <a
-                href="#"
+                href="https://twitter.com/HamsterLucky"
+                target="_blank"
                 className="text-primary flex items-center justify-start gap-[5px] text-xs leading-[15px] lg:text-[15px] lg:leading-[18px]"
               >
                 {t('readAll')}{' '}

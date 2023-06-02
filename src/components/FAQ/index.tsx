@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useRef, useEffect } from 'react'
-import caretDown from '../../asset/CaretDown.svg'
-import questionCircle from '../../asset/faqicon.svg'
+import caretDown from 'asset/CaretDown.svg'
+import questionCircle from 'asset/faqicon.svg'
 
 interface FAQItem {
   title: string
@@ -20,40 +20,28 @@ export const FAQ = (): JSX.Element => {
 
   const faqItems: FAQItem[] = [
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText1'),
+      text: t('faqDescription1')
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText2'),
+      text: t('faqDescription2')
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText3'),
+      text: t('faqDescription3')
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText4'),
+      text: t('faqDescription4')
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText5'),
+      text: t('faqDescription5')
     },
     {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
-    },
-    {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
-    },
-    {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
-    },
-    {
-      title: 'Lorem ipsum dolor sit amet, consectetur',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Dolor morbi non arcu risus quis varius quam quisque. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Laoreet sit amet cursus sit amet dictum. Ipsum faucibus vitae aliquet nec ullamcorper sit. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ultricies lacus sed turpis tincidunt id aliquet risus. Laoreet sit amet cursus sit. Habitant morbi tristique senectus et netus et malesuada. Feugiat pretium nibh ipsum consequat nisl vel. Est placerat in egestas erat imperdiet sed. Id diam maecenas ultricies mi. Porta lorem mollis aliquam ut. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Placerat in egestas erat imperdiet sed euismod. Tristique magna sit amet purus gravida quis blandit.r'
+      title: t('faqText6'),
+      text: t('faqDescription6')
     }
   ]
 

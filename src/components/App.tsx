@@ -6,10 +6,8 @@ import { platform } from 'features/global/globalSlice'
 import Header from './Header'
 import Footer from './Footer'
 import { Nav } from './Nav'
+import { ModalInfo } from './modalInfo'
 import 'scroll-smooth'
-
-
-
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -54,27 +52,26 @@ function App() {
   }
 
   return (
-  
-      <BrowserRouter>
-        <Header howVisible={howVisible} />
+    <BrowserRouter>
+      <Header howVisible={howVisible} />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
-                onHowItWorksInViewChange={handleHowItWorksInViewChange}
-                isMobile={isMobile}
-              />
-            }
-          />
-        </Routes>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
+              onHowItWorksInViewChange={handleHowItWorksInViewChange}
+              isMobile={isMobile}
+            />
+          }
+        />
+      </Routes>
 
-        <Footer isMobile={isMobile} />
-        {isMobile && <Nav visible={visible} isMobile={isMobile} />}
-      </BrowserRouter>
-   
+      <Footer isMobile={isMobile} />
+      <ModalInfo />
+      {isMobile && <Nav visible={visible} isMobile={isMobile} />}
+    </BrowserRouter>
   )
 }
 

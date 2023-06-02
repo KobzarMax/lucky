@@ -19,7 +19,6 @@ function Header({ howVisible }) {
 
   const { isMobile } = useAppSelector(selectPlatform)
 
-
   console.log('mob', isMobile)
 
   useEffect(() => {
@@ -39,11 +38,12 @@ function Header({ howVisible }) {
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">
             <img
-              className="h-[68px] max-w-[68px] lg:h-full lg:max-w-full"
+              className="h-[68px] max-w-[120px] lg:h-full lg:max-[120px]"
               src={isMobile ? mobileLogo : logo}
               alt="lucky hamster logo"
             />
           </Link>
+        
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">

@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
-import logo from '../../asset/logo.svg'
+import logo from 'asset/logo.svg'
 import { useTranslation } from 'react-i18next'
-import twitter from '../../asset/TwitterLogo.svg'
-import telegram from '../../asset/TelegramLogo.svg'
-import discord from '../../asset/DiscordLogo.svg'
-import mobileLogo from '../../asset/mobile-logo.svg'
+import twitter from 'asset/TwitterLogo.svg'
+import telegram from 'asset/TelegramLogo.svg'
+import discord from 'asset/DiscordLogo.svg'
+import mobileLogo from 'asset/mobile-logo.svg'
 
 function Footer({ isMobile }) {
   const { t } = useTranslation(['home'])
   return (
     <footer className="footer">
-      <div className="footer-nav-wrapper grid grid-cols-2 pb-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:pb-0 lg:pl-[77px] lg:pr-[74px]">
+      <div className="footer-nav-wrapper grid grid-cols-2 py-[20px]  pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between  lg:pl-[77px] lg:pr-[74px]">
         <Link className="logo" to={'/'}>
           <img
             className="max-w-[95px]"
@@ -23,19 +23,7 @@ function Footer({ isMobile }) {
             className="text-dark_gray text-[15px] leading-[15px]"
             to={'terms'}
           >
-            {t('termsOfUse')}
-          </Link>
-          <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
-            to={'privacy'}
-          >
-            {t('privacyPolicy')}
-          </Link>
-          <Link
-            className="text-dark_gray text-[15px] leading-[15px]"
-            to={'affiliate'}
-          >
-            {t('affiliateProgram')}
+            Instructions
           </Link>
         </div>
         <div className="social-links flex items-center justify-end gap-[15px] lg:justify-start">

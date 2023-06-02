@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import exchange from '../../asset/ChartLineUp.svg'
-import liquidity from '../../asset/CurrencyCircleDollar.svg'
-import leaderboard from '../../asset/Trophy.svg'
-import dots from '../../asset/DotsThreeOutline.svg'
-import signOut from '../../asset/SignOut.svg'
-import play from '../../asset/Play.svg'
+
+import liquidity from 'asset/CurrencyCircleDollar.svg'
+import win from 'asset/Trophy.svg'
+import dots from 'asset/DotsThreeOutline.svg'
+import signOut from 'asset/SignOut.svg'
+import gear from 'asset/gear.svg'
+import play from 'asset/Play.svg'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 
@@ -18,30 +19,35 @@ export const Nav = ({ isMobile, visible }) => {
       } nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative`}
     >
       <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
-        <NavLink
-          className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
-          to={'exchange'}
+        <div
+          data-modal-target="popup-modal"
+          data-modal-toggle="popup-modal"
+          className="text-dark_gray  flex flex-col mr-[15px] items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px] after:bg-primary relative cursor-pointer after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:content-['']"
         >
-          <img src={exchange} alt="exchange" /> {t('exchange')}
-        </NavLink>
-        <NavLink
-          className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
-          to={'liquidity'}
-        >
-          <img src={liquidity} alt="liquidity" /> {t('liquidity')}
-        </NavLink>
+          <img src={win} alt="Win" /> Win
+        </div>
         {isMobile && (
-          <div className="play bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-full">
+          <div
+            data-modal-target="popup-modal"
+            data-modal-toggle="popup-modal"
+            className="play bg-primary flex h-[50px] w-[50px] items-center justify-center rounded-full"
+          >
             <img className="relative z-20" src={play} alt="play" />
           </div>
         )}
         <NavLink
           className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
+          to={'/'}
+        >
+          <img src={gear} alt="Instructions" /> Instructions
+        </NavLink>
+        {/* <NavLink
+          className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'leaderboard'}
         >
           <img src={leaderboard} alt="leaderboard" /> {t('leaderboard')}
-        </NavLink>
-        <div className="more-link after:bg-primary relative cursor-pointer after:absolute after:-right-0.5 after:top-0 after:h-[5px] after:w-[5px] after:rounded-full after:content-['']">
+        </NavLink>  */}
+        {/* <div className="more-link after:bg-primary relative cursor-pointer after:absolute after:-right-0.5 after:top-0 after:h-[5px] after:w-[5px] after:rounded-full after:content-['']">
           <img src={dots} alt="dots" />
           <div className="more-links absolute bottom-[200%] right-[-30px] z-10 flex flex-col items-start justify-start rounded-[15px] py-5 lg:bottom-auto lg:left-0 lg:right-auto lg:top-full">
             <NavLink
@@ -87,7 +93,7 @@ export const Nav = ({ isMobile, visible }) => {
               {t('documents')} <img src={signOut} alt="sign out" />
             </NavLink>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
