@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('../components/Header/index.css');
+@import url('../components/LatestGames/index.css');
+@import url('../components/Footer/index.css');
+@import url('../components/HowItWorks/index.css');
+@import url('../components/TelegramButton/index.css');
+@import url('../components/DocumentsButton/index.css');
+@import url('../components/EarnPartner/index.css');
+@import url('../components/CTA/index.css');
+@import url('../components/News/index.css');
+@import url('../components/FAQ/index.css');
+@import url('../components/Chain/index.css');
+@import url('../components/TranslateControl/index.css');
+@import url('../components/Nav/index.css');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  background-image: url('../asset/background.jpg');
+  background-size: cover;
+}
+.play-now {
+  background: rgba(255, 27, 94, 0.6);
+  border: 2px solid rgba(217, 28, 84, 0.1);
+  box-shadow: 0px 4px 20px rgba(255, 27, 94, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+}
+.documentation {
+  border: 1px solid rgba(124, 202, 63, 0.5);
+  border-radius: 30px;
+}
+.sticky-outer-wrapper.active {
+  position: relative;
+  width: 100%;
+}

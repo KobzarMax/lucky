@@ -1,0 +1,30 @@
+.languages {
+  background-color: #2B2B2B;
+  border-radius: 15px;
+  display: none;
+}
+.languages-wrapper:hover .languages {
+  display: block;
+}
+.languages-inner {
+  max-height: 188px;
+  overflow-y: scroll;
+}
+.languages-inner::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.languages-inner::-webkit-scrollbar-track {
+  background: #343434;
+}
+
+/* Handle */
+.languages-inner::-webkit-scrollbar-thumb {
+  background: #7CCA3F;
+}
+
+/* Handle on hover */
+.languages-inner::-webkit-scrollbar-thumb:hover {
+  background: #7CCA3F;
+}
