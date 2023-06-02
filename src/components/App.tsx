@@ -57,7 +57,7 @@ function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Suspense fallback="loading">
-        <Header howVisible={howVisible} isMobile={isMobile} />
+        <Header howVisible={howVisible} />
         <Routes>
           <Route
             path="/"

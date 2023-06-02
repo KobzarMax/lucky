@@ -45,14 +45,14 @@ export const News = () => {
         {t('news')}
       </h2>
       <div className="slide-buttons absolute right-[0px] top-[0px] flex items-center justify-center gap-[14px] lg:right-[52px] lg:top-[167px] lg:gap-[21px]">
-        <div className="swiper-button news-swiper-button-prev flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
+        <div className="swiper-button news-swiper-button-prev bg-primary flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px]">
           <img
             src={arrow}
             alt="slide arrow"
-            className="h-[183px] w-6 -rotate-90 lg:w-full"
+            className="w-6 -rotate-90 lg:w-full"
           />
         </div>
-        <div className="swiper-button news-swiper-button-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
+        <div className="swiper-button news-swiper-button-next bg-primary flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px]">
           <img
             src={arrow}
             alt="slide arrow"
@@ -83,17 +83,13 @@ export const News = () => {
       >
         {news.map((article, index) => (
           <SwiperSlide
-            className="news-article flex min-h-[371px] w-full flex-col items-center justify-center  lg:min-h-[475px] "
+            className="news-article h-[475px] max-w-[283px] lg:max-w-[365px]"
             key={index}
           >
-            <div className="w-full max-w-[285px] lg:h-[250px] lg:max-w-[365px]">
-              <img
-                className="h-[183px] w-full max-w-[285px] object-cover lg:h-[250px] lg:max-w-[365px]"
-                src={article.image}
-                alt="article image"
-              />
+            <div>
+              <img src={article.image} alt="article image" />
             </div>
-            <div className="max-w-[285px] px-2 pb-[47px] pt-2.5 lg:max-w-[365px] lg:px-2.5">
+            <div className="px-2 pb-[47px] pt-2.5 lg:px-2.5">
               <p className="mb-[5px] text-[13px] font-bold leading-4 text-white lg:text-[17px] lg:leading-[21px]">
                 {article.title}
               </p>

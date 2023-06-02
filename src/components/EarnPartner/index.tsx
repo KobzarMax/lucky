@@ -48,7 +48,6 @@ export const EarnPartner = ({
       text: t('startBuildPortfolioSubtitle')
     }
   ]
-
   return (
     <div
       ref={ref}

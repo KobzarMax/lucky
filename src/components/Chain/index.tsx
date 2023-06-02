@@ -32,10 +32,10 @@ export const Chain = ({ isMobile }: any) => {
   return (
     <div className={`chains-wrapper relative inline-block text-left`}>
       <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
-        <img className="w-[20px]" src={matic} alt={chain?.name} />
+        <img className='w-[20px]' src={matic} alt={chain?.name} />
         {!isMobile && (
-          <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
-            {chain && chain.name}
+          <span className="text-medium text-dark_gray text-[15px] leading-[18px]">
+           {chain && chain.name}
           </span>
         )}
         {/* <img
@@ -49,7 +49,7 @@ export const Chain = ({ isMobile }: any) => {
           {chains.map((chain: Chain, index: number) => (
             <div
               key={index}
-              className={`option text-medium flex cursor-pointer items-center justify-start gap-[5px] py-2 pr-4 text-[15px] leading-[18px] text-dark_gray ${
+              className={`option text-medium text-dark_gray flex cursor-pointer items-center justify-start gap-[5px] py-2 pr-4 text-[15px] leading-[18px] ${
                 selectedChain.name === chain.name ? 'selected' : ''
               }`}
               onClick={() => handleChainChange(chain)}
@@ -58,7 +58,7 @@ export const Chain = ({ isMobile }: any) => {
               <span
                 className={`${
                   selectedChain.name === chain.name
-                    ? 'selected font-semibold text-primary'
+                    ? 'selected text-primary font-semibold'
                     : ''
                 }`}
               >
