@@ -7,7 +7,7 @@ import { DocumentsButton } from 'components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
 
-export const EarnPartner = ({ onEarnPartnerInViewChange }) => {
+export const EarnPartner = ({ onEarnPartnerInViewChange }: any) => {
   const { t } = useTranslation(['home'])
 
   const [ref, inView] = useInView({

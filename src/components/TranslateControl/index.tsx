@@ -2,7 +2,12 @@ import globe from '../../asset/globe.svg'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const TranslateControls = ({ isMobile }) => {
+interface platform {
+  isMobile: boolean
+}
+
+
+export const TranslateControls = ({ isMobile }: platform) => {
   const { i18n } = useTranslation(['home'])
   const [languageView, setLanguageView] = useState(false)
   const languages = ['en', 'ru']

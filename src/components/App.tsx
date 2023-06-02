@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useAppDispatch } from 'redux/hooks'
 import { platform } from 'features/global/globalSlice'
-import Header from './Header'
-import Footer from './Footer'
-import { Nav } from './Nav'
-import { ModalInfo } from './modalInfo'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import { Nav } from 'components/Nav'
+import { ModalInfo } from 'components/ModalInfo'
 import 'scroll-smooth'
 
 function App() {
@@ -29,11 +29,11 @@ function App() {
     }
   }, [])
 
-  const handleEarnPartnerInViewChange = (inView) => {
+  const handleEarnPartnerInViewChange = (inView: any) => {
     setVisible(inView)
   }
 
-  const handleHowItWorksInViewChange = (inHowView) => {
+  const handleHowItWorksInViewChange = (inHowView: any) => {
     setHowVisible(inHowView)
   }
 

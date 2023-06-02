@@ -12,7 +12,11 @@ import { publicProvider } from 'wagmi/providers/public'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import creditcard from 'asset/creditcard.svg'
 
-const { chains, provider } = configureChains(
+interface platform {
+  isMobile: boolean
+}
+
+const { chains, provider }: any = configureChains(
   [polygonMumbai],
   [
     alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
@@ -29,9 +33,9 @@ const config = createConfig({
   autoConnect: true,
   connectors,
   provider
-})
+} as any)
 
-const ConnectIt = ({ isMobile }) => {
+const ConnectIt = ({ isMobile }: platform) => {
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider
@@ -53,7 +57,7 @@ const ConnectIt = ({ isMobile }) => {
             openConnectModal,
             authenticationStatus,
             mounted
-          }) => {
+          }: any) => {
             // Note: If your app doesn't use authentication, you
             // can remove all 'authenticationStatus' checks
             const ready = mounted && authenticationStatus !== 'loading'

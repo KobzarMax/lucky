@@ -9,7 +9,8 @@ import play from 'asset/Play.svg'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 
-export const Nav = ({ isMobile, visible }) => {
+
+export const Nav = ({ isMobile, visible }: any) => {
   const { t } = useTranslation(['home'])
 
   return (

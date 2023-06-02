@@ -6,7 +6,7 @@ import safety from 'asset/safety.svg'
 import oportunity from 'asset/oportunity.svg'
 import rewards from 'asset/rewards.svg'
 
-export const HowItWorks = ({ onHowItWorksInViewChange }) => {
+export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
   const { t } = useTranslation(['home'])
   const [ref, inHowView] = useInView({
     triggerOnce: true,

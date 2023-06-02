@@ -13,13 +13,12 @@ import mobileLogo from 'asset/mobile-logo.svg'
 import { useAppSelector } from 'redux/hooks'
 import { selectPlatform } from 'features/global/globalSlice'
 
-function Header({ howVisible }) {
+function Header({ howVisible }: any) {
   const { t } = useTranslation(['home'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 
   const { isMobile } = useAppSelector(selectPlatform)
 
-  console.log('mob', isMobile)
 
   useEffect(() => {
     // Split the sentence and extract the first word

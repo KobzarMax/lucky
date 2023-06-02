@@ -6,7 +6,12 @@ import telegram from 'asset/TelegramLogo.svg'
 import discord from 'asset/DiscordLogo.svg'
 import mobileLogo from 'asset/mobile-logo.svg'
 
-function Footer({ isMobile }) {
+interface platform {
+  isMobile: boolean
+}
+
+
+function Footer({ isMobile }: platform) {
   const { t } = useTranslation(['home'])
   return (
     <footer className="footer">

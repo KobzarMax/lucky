@@ -7,7 +7,7 @@ interface Chain {
   //icon: string
 }
 
-export const Chain = ({ isMobile }) => {
+export const Chain = ({ isMobile }: any) => {
   const { chain, chains } = useNetwork()
 
   // const chains: Chain[] = [

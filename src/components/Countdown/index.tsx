@@ -15,7 +15,7 @@ export const CountDown = () => {
   const stratTime = Date.now()
   const targetDate = new Date('07/01/2023')
 
-  const diffTime = Math.abs(targetDate - stratTime) / 1000
+  const diffTime = Math.abs(targetDate as any - stratTime) / 1000
 
   const endTime = stratTime + diffTime
 

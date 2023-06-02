@@ -12,7 +12,7 @@ export const ModalInfo = () => {
   return (
     <div
       id="popup-modal"
-      tabIndex="-1"
+      tabIndex={1}
       className="fixed inset-x-0  top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden p-2 backdrop-blur-sm sm:p-4 md:inset-0"
     >
       <div className="relative max-h-full w-full max-w-md">
