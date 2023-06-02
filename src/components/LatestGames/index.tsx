@@ -133,7 +133,7 @@ const LatestGames: React.FC = () => {
 ]
 
   return (
-    <div className="mt-[27px] lg:mt-[151px]">
+    <div className="mt-[27px] lg:mt-[151px] relative z-index-[999]">
       <p className="mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px]">
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
         <span className="text-primary lowercase">{t('games')}</span>
