@@ -1,6 +1,6 @@
-import createAccount from '../../asset/UserCirclePlus.svg'
-import creditCard from '../../asset/creditcard-hexagen.svg'
-import startPortfolio from '../../asset/Copyright.svg'
+import createAccount from 'asset/UserCirclePlus.svg'
+import wallet from 'asset/wallet.svg'
+import coins from 'asset/coins.svg'
 import { useTranslation } from 'react-i18next'
 import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
@@ -34,18 +34,18 @@ export const EarnPartner = ({
   const partnerPosibilities: PartnerPosibility[] = [
     {
       icon: createAccount,
-      title: 'Create your account',
-      text: 'Lorem ipsum dolor sit amet, consectetur'
+      title: t('createYourAccount'),
+      text: t('createYourAccountSubtitle')
     },
     {
-      icon: creditCard,
-      title: 'Connect bank account',
-      text: 'Lorem ipsum dolor sit amet, consectetur'
+      icon: wallet,
+      title: t('connectBankAccount'),
+      text: t('connectBankAccountSubtitle')
     },
     {
-      icon: startPortfolio,
-      title: 'Start build portfolio',
-      text: 'Lorem ipsum dolor sit amet, consectetur'
+      icon: coins,
+      title: t('startBuildPortfolio'),
+      text: t('startBuildPortfolioSubtitle')
     }
   ]
 
@@ -57,11 +57,13 @@ export const EarnPartner = ({
       <div className="max-w-full">
         <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}
-          <span className="text-primary">{t('partner')}</span>
+          <span className="text-primary">{t('partner')}</span> ?
         </h2>
-        <p className="mb-[15px] max-w-[565px] text-[15px] leading-[18px] text-white lg:mb-[29px]">
-          {t('earnLikePartnerSubtitle1')}{' '}
-          <span className="text-primary">{t('25%')} </span>
+        <p className="mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px]">
+          <span className="text-primary font-bold">
+            {' '}
+            {t('earnLikePartnerSubtitle1')}
+          </span>{' '}
           {t('earnLikePartnerSubtitle2')}
         </p>
         <div className="flex flex-col items-start justify-start gap-[15px] lg:flex-row lg:items-center">
@@ -84,7 +86,7 @@ export const EarnPartner = ({
               <p className="mb-[5px] pl-2.5 text-center text-[17px] font-semibold leading-[21px] text-white lg:text-left">
                 {posibility.title}
               </p>
-              <p className="max-w-[235px] pl-2.5 text-center text-[15px] leading-[18px] text-white lg:text-left">
+              <p className="max-w-[235px] pl-2.5 text-center text-[15px] leading-[20px] text-white lg:text-left">
                 {posibility.text}
               </p>
             </div>

@@ -31,19 +31,19 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
           </Link>
           <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'terms'}
             >
               {t('termsOfUse')}
             </Link>
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'privacy'}
             >
               {t('privacyPolicy')}
             </Link>
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'affiliate'}
             >
               {t('affiliateProgram')}

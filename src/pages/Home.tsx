@@ -2,35 +2,31 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import illustration from '../asset/mobile-illlustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
-import LatestGames from '@/components/LatestGames'
-import { HowItWorks } from '@/components/HowItWorks'
-import { EarnPartner } from '@/components/EarnPartner'
-import { CTA } from '@/components/CTA'
-import { News } from '@/components/News'
-import { FAQ } from '@/components/FAQ'
-import { Timer } from '@/components/Timer'
-
+import LatestGames from '../components/LatestGames'
+import { HowItWorks } from '../components/HowItWorks'
+import { EarnPartner } from '../components/EarnPartner'
+import { CTA } from '../components/CTA'
+import { News } from '../components/News'
+import { FAQ } from '../components/FAQ'
+import { Timer } from '../components/Timer'
+import 'flowbite'
 interface HomeProps {
   isMobile: boolean
   onEarnPartnerInViewChange: (inView: boolean) => void
   onHowItWorksInViewChange: (inView: boolean) => void
 }
 
-function Home({
-  isMobile,
-  onEarnPartnerInViewChange,
-  onHowItWorksInViewChange
-}: HomeProps) {
-  const { t } = useTranslation(['translations'])
+function Home({ isMobile, onEarnPartnerInViewChange }: any) {
+  const { t } = useTranslation(['home'])
 
-  const handleEarnPartnerInViewChange = (inView: boolean) => {
+  const handleEarnPartnerInViewChange = (inView: string) => {
     // Pass the inView value to App.tsx or perform any other logic
     onEarnPartnerInViewChange(inView)
   }
 
-  const handleHowItWorksInViewChange = (inView: boolean) => {
+  const handleHowItWorksInViewChange = (inHowView: string) => {
     // Pass the inView value to App.tsx or perform any other logic
-    onHowItWorksInViewChange(inView)
+    handleHowItWorksInViewChange(inHowView)
   }
 
   return (
@@ -71,7 +67,7 @@ function Home({
       </div>
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
-      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
+      {/* <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} /> */}
       <CTA />
       <News />
       <FAQ />
