@@ -2,14 +2,11 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
-import { Chain } from '@/components/Chain'
 import { Nav } from '@/components/Nav'
 import logo from '../../asset/logo.svg'
 import coin from '../../asset/coin.svg'
-import creditcard from '../../asset/creditcard.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
-import * as ethers from 'ethers'
 
 interface HeaderProps {
   isMobile: boolean
@@ -60,35 +57,12 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     }
   }, [t, i18n])
 
-  // async function connectWallet() {
-  //   // Check if the current browser supports Ethereum provider
-  //   if (window.ethereum) {
-  //     try {
-  //       // Request access to the user's Ethereum accounts
-  //       await window.ethereum.request({ method: 'eth_requestAccounts' })
-
-  //       // Create an Ether.js provider using the injected Ethereum object
-  //       const provider = new ethers.providers.Web3Provider(window.ethereum)
-
-  //       // Get the signer (account) from the provider
-  //       const signer = provider.getSigner()
-
-  //       // Use the signer to interact with contracts or send transactions
-  //       // Example: const balance = await signer.getBalance();
-
-  //       // TODO: Do something with the signer or provider
-  //     } catch (error) {
-  //       console.error('Failed to connect to wallet:', error)
-  //     }
-  //   } else {
-  //     console.error(
-  //       'No Ethereum provider found. Please install MetaMask or use a compatible browser.'
-  //     )
-  //   }
-  // }
-
   return (
-    <header className={`${headerView ? 'sticky' : 'unStiky'} header w-full`}>
+    <header
+      className={`${
+        headerView ? 'sticky' : 'unStiky'
+      } header min-h-[64px] w-full`}
+    >
       <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">
@@ -102,16 +76,15 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
           {!isMobile && <Nav />}
         </div>
         <div className="flex items-center justify-start">
-          {/* {!isMobile && (
+          {!isMobile && (
             <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />
               <span className="text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
                 $2 000
               </span>
             </div>
-          )} */}
+          )}
           <TranslateControls isMobile={isMobile} />
-          {/* {isConnected && <Chain isMobile={isMobile} />}  */}
 
           <ConnectIt isMobile={isMobile} />
         </div>

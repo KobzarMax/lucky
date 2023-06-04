@@ -18,6 +18,7 @@ import { useState, useRef } from 'react'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../asset/CaretDown.svg'
 import { useTranslation } from 'react-i18next'
+// import { Nav } from '@/components/Nav'
 
 SwiperCore.use([Navigation])
 
@@ -152,10 +153,12 @@ function Game({ isMobile }: GameProps): JSX.Element {
           </div>
         </div>
         <Swiper
-          className={`${!isWidgetVisible ? '' : 'hidden'}  mb-[126px]`}
+          className={`${
+            !isWidgetVisible ? 'flex items-center justify-center' : 'hidden'
+          }`}
           ref={swiperRef}
           loop={true}
-          spaceBetween={41}
+          spaceBetween={45}
           slidesPerView={1}
           navigation={{
             prevEl: '.swiper-button-prev',
@@ -248,13 +251,16 @@ function Game({ isMobile }: GameProps): JSX.Element {
 
           <div
             className={`widget-container ${
-              isWidgetVisible ? 'active h-[100vh] lg:h-auto lg:pb-0' : ''
+              isWidgetVisible
+                ? 'active relative z-50 h-[100vh] lg:h-auto lg:pb-0'
+                : ''
             }`}
           >
             <TradingViewWidget />
           </div>
         </div>
       )}
+      {/* {isMobile && <Nav visible={true} isMobile={isMobile} />} */}
       <Aside asideView={asideView} toggleView={toggleAside} />
     </div>
   )

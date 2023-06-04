@@ -99,12 +99,30 @@
 
 @media (min-width: 1024px) {
   #game .swiper {
-    padding: 0 139px;
+    padding: 0 139px 126px;
   }
 }
 
 @media (max-width: 1024px) {
   .swiper.hidden {
     display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #game + .footer {
+    display: none;
+  }
+}
+
+#game .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  #game .swiper-slide:not(.swiper-slide-active) {
+    filter: blur(5px);
   }
 }
