@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
 import { Chain } from '@/components/Chain'
 import { Nav } from '@/components/Nav'
-import { ethers } from 'ethers'
 import logo from '../../asset/logo.svg'
 import coin from '../../asset/coin.svg'
 import creditcard from '../../asset/creditcard.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
+import * as ethers from 'ethers'
 
 interface HeaderProps {
   isMobile: boolean
@@ -20,9 +20,6 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
   const { t, i18n } = useTranslation(['translations'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
-  const [connectedWallet, setConnectedWallet] = useState<ethers.Signer | null>(
-    null
-  )
 
   useEffect(() => {
     // Split the sentence and extract the first word
@@ -52,30 +49,6 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     }
   }, [])
 
-  async function connectWallet() {
-    try {
-      if (window.ethereum) {
-        // Request access to the user's accounts
-        await window.ethereum.request({ method: 'eth_requestAccounts' })
-
-        // Create an ethers.js provider using the current window.ethereum object
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-
-        // Get the signer (connected wallet) from the provider
-        const signer = provider.getSigner()
-        setConnectedWallet(signer)
-
-        // Perform any desired operations with the connected wallet
-        const balance = await signer.getBalance()
-        console.log('Wallet balance:', ethers.utils.formatEther(balance))
-      } else {
-        console.error('Please install MetaMask or use a Web3-enabled browser.')
-      }
-    } catch (error) {
-      console.error('Error connecting wallet:', error)
-    }
-  }
-
   useEffect(() => {
     const languageChanged = () => {
       setSentence(t('connectWallet') || '')
@@ -86,6 +59,33 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
       i18n.off('languageChanged', languageChanged)
     }
   }, [t, i18n])
+
+  // async function connectWallet() {
+  //   // Check if the current browser supports Ethereum provider
+  //   if (window.ethereum) {
+  //     try {
+  //       // Request access to the user's Ethereum accounts
+  //       await window.ethereum.request({ method: 'eth_requestAccounts' })
+
+  //       // Create an Ether.js provider using the injected Ethereum object
+  //       const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+  //       // Get the signer (account) from the provider
+  //       const signer = provider.getSigner()
+
+  //       // Use the signer to interact with contracts or send transactions
+  //       // Example: const balance = await signer.getBalance();
+
+  //       // TODO: Do something with the signer or provider
+  //     } catch (error) {
+  //       console.error('Failed to connect to wallet:', error)
+  //     }
+  //   } else {
+  //     console.error(
+  //       'No Ethereum provider found. Please install MetaMask or use a compatible browser.'
+  //     )
+  //   }
+  // }
 
   return (
     <header className={`${headerView ? 'sticky' : 'unStiky'} header w-full`}>

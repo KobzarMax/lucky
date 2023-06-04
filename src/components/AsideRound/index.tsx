@@ -9,21 +9,19 @@ import info from '../../asset/Info.svg'
 interface Round {
   roundID: string
   status: string
+  history: string
+  choice: string
   yourPosition: string
-  yourWin: number
-  sum: number
-  lastPrice: number
-  price: number
-  priseFond: number
-  up: number
-  down: number
+  yourWin: string
+  sum: string
+  lastPrice: string
+  price: string
+  priseFond: string
+  up: string
+  down: string
 }
 
-interface AsideRoundProps {
-  round: Round
-}
-
-export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
+export const AsideRound = ({ round }: { round: Round }): JSX.Element => {
   const { t } = useTranslation(['translations'])
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -51,7 +49,7 @@ export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
           {round.status === 'now' && (
             <div className="flex items-center justify-start gap-[5px]">
               <img src={play} alt="play" />{' '}
-              <span className="text-[15px] leading-[18px] text-dark_green">
+              <span className="text-dark_green text-[15px] leading-[18px]">
                 {t('now')}
               </span>
             </div>
@@ -75,7 +73,7 @@ export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
             <p className="text-basic font-semibold text-[#707070]">
               {t('history')}
             </p>
-            <p className="text-basic flex items-center justify-center gap-[5px] font-semibold text-dark_green">
+            <p className="text-basic text-dark_green flex items-center justify-center gap-[5px] font-semibold">
               {t('win')}
               <img className="trophy" src={trophy} alt="trophy" />
             </p>
@@ -84,7 +82,7 @@ export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
             <p className="text-[13px] leading-4 text-[#707070]">
               {t('yourChoice')}
             </p>
-            <p className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
+            <p className="bg-primary flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
               <img className={`rotate-180`} src={arrow} alt="arrow" />
               {t('down')}
             </p>
@@ -101,7 +99,7 @@ export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
             <p className="text-[13px] leading-4 text-[#707070]">
               {t('yourWin')}
             </p>
-            <p className="flex flex-col items-end justify-start text-[13px] font-medium leading-4 text-dark_green">
+            <p className="text-dark_green flex flex-col items-end justify-start text-[13px] font-medium leading-4">
               {round.yourWin}{' '}
               <span className="text-[10px] leading-3 text-[#707070]">
                 $1.76
@@ -115,15 +113,15 @@ export const AsideRound = ({ round }: AsideRoundProps): JSX.Element => {
             </p>
           </div>
         </div>
-        <div className="mt-[21px] rounded-[10px] border border-dark_green p-2.5">
+        <div className="border-dark_green mt-[21px] rounded-[10px] border p-2.5">
           <p className="text-[13px] font-semibold leading-4 text-[#707070]">
             {t('finalPrice')}
           </p>
           <div className="mb-5 flex items-center justify-between">
-            <p className="text-basic font-semibold text-dark_green">
+            <p className="text-basic text-dark_green font-semibold">
               {round.lastPrice}
             </p>
-            <p className="flex items-center justify-center gap-[5px] rounded-[5px] bg-dark_green px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
+            <p className="bg-dark_green flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
               <img src={arrow} alt="arrow" /> {t('up')}
             </p>
           </div>

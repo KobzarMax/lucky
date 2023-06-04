@@ -34,7 +34,7 @@ export const Chain = ({ isMobile }: any) => {
       <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
         <img className="w-[20px]" src={matic} alt={chain?.name} />
         {!isMobile && (
-          <span className="text-medium text-dark_gray text-[15px] leading-[18px]">
+          <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
             {chain && chain.name}
           </span>
         )}

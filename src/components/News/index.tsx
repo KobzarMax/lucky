@@ -45,14 +45,14 @@ export const News = () => {
         {t('news')}
       </h2>
       <div className="slide-buttons absolute right-[0px] top-[0px] flex items-center justify-center gap-[14px] lg:right-[52px] lg:top-[167px] lg:gap-[21px]">
-        <div className="swiper-button news-swiper-button-prev bg-primary flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px]">
+        <div className="swiper-button news-swiper-button-prev flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
           <img
             src={arrow}
             alt="slide arrow"
             className="h-[183px] w-6 -rotate-90 lg:w-full"
           />
         </div>
-        <div className="swiper-button news-swiper-button-next bg-primary flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px]">
+        <div className="swiper-button news-swiper-button-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
           <img
             src={arrow}
             alt="slide arrow"
@@ -111,7 +111,7 @@ export const News = () => {
               <a
                 href="https://twitter.com/HamsterLucky"
                 target="_blank"
-                className="text-primary flex items-center justify-start gap-[5px] text-xs leading-[15px] lg:text-[15px] lg:leading-[18px]"
+                className="flex items-center justify-start gap-[5px] text-xs leading-[15px] text-primary lg:text-[15px] lg:leading-[18px]"
                 rel="noreferrer"
               >
                 {t('readAll')}{' '}

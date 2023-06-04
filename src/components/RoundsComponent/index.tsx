@@ -3,9 +3,24 @@ import { AsideRound } from '@/components/AsideRound'
 import { useState } from 'react'
 import FilterComponent from '@/components/AsideFilter'
 
+interface Round {
+  roundID: string
+  status: string
+  history: string
+  choice: string
+  yourPosition: string
+  yourWin: string
+  sum: string
+  lastPrice: string
+  price: string
+  priseFond: string
+  up: string
+  down: string
+}
+
 export const RoundsComponent = () => {
   const { t } = useTranslation(['translations'])
-  const rounds = [
+  const rounds: Round[] = [
     {
       roundID: '150,123',
       status: 'now',

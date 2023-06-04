@@ -107,7 +107,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   return (
     <div id="game" className="relative overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
-      <div className="lg:min-h-[100vh] pt-[90px]">
+      <div className="pt-[90px] lg:min-h-[100vh]">
         <Referals />
         <div className="mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
@@ -192,7 +192,11 @@ function Game({ isMobile }: GameProps): JSX.Element {
               </div>
               <div className="flex items-center justify-center gap-[22.5px] rounded-[30px] bg-[#38383899] py-[5px]">
                 <div className="flex cursor-pointer items-center justify-center rounded-[30px] bg-[#58585899] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]">
-                  <img onClick={() => setWidgetVisible(false)} src={gameCards} alt="game cards" />
+                  <img
+                    onClick={() => setWidgetVisible(false)}
+                    src={gameCards}
+                    alt="game cards"
+                  />
                 </div>
                 <div
                   className="flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]"

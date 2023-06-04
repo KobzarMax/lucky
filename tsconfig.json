@@ -4,7 +4,6 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["@types/i18next"],
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

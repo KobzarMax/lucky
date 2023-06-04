@@ -13,15 +13,16 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
     "@rainbow-me/rainbowkit": "^1.0.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-stickynode": "^4.0.0",
     "dayjs": "^1.11.7",
-    "ethers": "^6.4.0",
+    "ethers": "^6.4.1",
+    "flowbite": "^1.6.5",
     "i18next": "^22.5.0",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",
-    "flowbite": "^1.6.5",
     "rainbow": "^2.4.1",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
