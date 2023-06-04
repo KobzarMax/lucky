@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
-import transparency from 'asset/transparency.svg'
-import safety from 'asset/safety.svg'
-import oportunity from 'asset/oportunity.svg'
-import rewards from 'asset/rewards.svg'
+import transparency from '../../asset/transparency.svg'
+import safety from '../../asset/safety.svg'
+import oportunity from '../../asset/oportunity.svg'
+import rewards from '../../asset/rewards.svg'
 
 export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [ref, inHowView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px'

@@ -8,7 +8,7 @@ const hourSeconds = 3600
 const daySeconds = 86400
 
 export const CountDown = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [days, hours, minutes, seconds] = useCountdown('07/01/2023')
   const daysDuration = days * daySeconds
 

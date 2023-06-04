@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { CountDown } from '../components/Countdown'
+import { CountDown } from '../Countdown'
 
 export const Timer = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   return (
     <div className="timer relative z-10 mr-[30px] mt-[269px] lg:absolute lg:right-[47px] lg:top-[255px] lg:mr-0 lg:mt-0">

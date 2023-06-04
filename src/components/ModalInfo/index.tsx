@@ -7,7 +7,7 @@ import telegram from '../../asset/TelegramLogo.svg'
 import discord from '../../asset/DiscordLogo.svg'
 
 export const ModalInfo = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   return (
     <div

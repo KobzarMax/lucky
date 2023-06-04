@@ -1,11 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import chartup from 'asset/chartup.svg'
-import chartdown from 'asset/chartdown.svg'
-import arrowup from 'asset/arrowup.svg'
-import avatar from 'asset/hamster.png'
-import down from 'asset/down.svg'
-import border from 'asset/latest-games-border.svg'
+import chartup from '../../asset/chartup.svg'
+import chartdown from '../../asset/chartdown.svg'
+import arrowup from '../../asset/arrowup.svg'
+import avatar from '../../asset/hamster.png'
+import down from '../../asset/down.svg'
+import border from '../../asset/latest-games-border.svg'
 
 const LatestGames: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -136,7 +136,7 @@ const LatestGames: React.FC = () => {
     <div className="z-index-[999] relative mt-[27px] lg:mt-[151px]">
       <p className="mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px]">
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
-        <span className="lowercase text-primary">{t('games')}</span>
+        <span className="text-primary lowercase">{t('games')}</span>
       </p>
       <div className="ticker-wrap">
         <div className="ticker flex items-center justify-between gap-[35px]">
@@ -161,7 +161,7 @@ const LatestGames: React.FC = () => {
                   <p className="mb-[5px] text-xl font-semibold leading-6">
                     {latestGame.funds}
                   </p>
-                  <p className="text-[13px] leading-[16px] text-dark_gray">
+                  <p className="text-dark_gray text-[13px] leading-[16px]">
                     {latestGame.percents}
                   </p>
                 </div>

@@ -10,14 +10,14 @@ import { News } from '../components/News'
 import { FAQ } from '../components/FAQ'
 import { Timer } from '../components/Timer'
 import 'flowbite'
-interface HomeProps {
-  isMobile: boolean
-  onEarnPartnerInViewChange: (inView: boolean) => void
-  onHowItWorksInViewChange: (inView: boolean) => void
-}
+// interface HomeProps {
+//   isMobile: boolean
+//   onEarnPartnerInViewChange: (inView: boolean) => void
+//   onHowItWorksInViewChange: (inView: boolean) => void
+// }
 
 function Home({ isMobile, onEarnPartnerInViewChange }: any) {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   const handleEarnPartnerInViewChange = (inView: string) => {
     // Pass the inView value to App.tsx or perform any other logic
