@@ -110,9 +110,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px] lg:min-h-[100vh]">
         <Referals />
-        <div className="mb-[33px] relative flex items-center justify-end gap-[270px]">
+        <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="absolute top-0 left-[45%] right-[50%] flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute left-[45%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -152,68 +152,68 @@ function Game({ isMobile }: GameProps): JSX.Element {
             )}
           </div>
         </div>
-        {isMobile && !isWidgetVisible && (<Swiper
-          className={`${
-            !isWidgetVisible ? '' : 'hidden'
-          }`}
-          ref={swiperRef}
-          loop={true}
-          spaceBetween={45}
-          slidesPerView={1}
-          centeredSlides={true}
-          navigation={{
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
-            disabledClass: 'swiper-button-disabled'
-          }}
-          breakpoints={{
-            768: {
-              spaceBetween: 45,
-              slidesPerView: 1
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 0
-            }
-          }}
-        >
-          {games.map((game: GameData, index: number) => (
-            <SwiperSlide className="w-full max-w-[360px]" key={index}>
-              <GameCard cardData={game} />
-            </SwiperSlide>
-          ))}
-        </Swiper>)}
-        {!isMobile && (<Swiper
-          className={`${
-            !isWidgetVisible ? '' : 'hidden'
-          }`}
-          ref={swiperRef}
-          loop={true}
-          spaceBetween={45}
-          slidesPerView={1}
-          centeredSlides={true}
-          navigation={{
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
-            disabledClass: 'swiper-button-disabled'
-          }}
-          breakpoints={{
-            768: {
-              spaceBetween: 45,
-              slidesPerView: 1
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 0
-            }
-          }}
-        >
-          {games.map((game: GameData, index: number) => (
-            <SwiperSlide className="w-full max-w-[360px]" key={index}>
-              <GameCard cardData={game} />
-            </SwiperSlide>
-          ))}
-        </Swiper>)}
+        {isMobile && !isWidgetVisible && (
+          <Swiper
+            className={`${!isWidgetVisible ? '' : 'hidden'}`}
+            ref={swiperRef}
+            loop={true}
+            spaceBetween={45}
+            slidesPerView={1}
+            centeredSlides={true}
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+              disabledClass: 'swiper-button-disabled'
+            }}
+            breakpoints={{
+              768: {
+                spaceBetween: 45,
+                slidesPerView: 1
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 0
+              }
+            }}
+          >
+            {games.map((game: GameData, index: number) => (
+              <SwiperSlide className="w-full max-w-[360px]" key={index}>
+                <GameCard cardData={game} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+        {!isMobile && (
+          <Swiper
+            className={`${!isWidgetVisible ? '' : 'hidden'}`}
+            ref={swiperRef}
+            loop={true}
+            spaceBetween={45}
+            slidesPerView={1}
+            centeredSlides={true}
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+              disabledClass: 'swiper-button-disabled'
+            }}
+            breakpoints={{
+              768: {
+                spaceBetween: 45,
+                slidesPerView: 1
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 0
+              }
+            }}
+          >
+            {games.map((game: GameData, index: number) => (
+              <SwiperSlide className="w-full max-w-[360px]" key={index}>
+                <GameCard cardData={game} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
 
         {isMobile && (
           <div className="fixed bottom-0 w-full pl-[13px] pr-3">
