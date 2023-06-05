@@ -18,7 +18,6 @@ import { useState, useRef } from 'react'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../asset/CaretDown.svg'
 import { useTranslation } from 'react-i18next'
-// import { Nav } from '@/components/Nav'
 
 SwiperCore.use([Navigation])
 
@@ -49,6 +48,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
 
   const toggleAside = (): void => {
     setAsideView(!asideView)
+    if (isWidgetVisible) {
+      setWidgetVisible(false)
+    }
   }
 
   const games: GameData[] = [
@@ -106,7 +108,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
-    <div id="game" className="relative overflow-hidden">
+    <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px] lg:min-h-[100vh]">
         <Referals />
@@ -159,7 +161,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
             loop={true}
             spaceBetween={20}
             slidesPerView={1}
-            initialSlide={1}
+            initialSlide={4}
             centeredSlides={true}
             navigation={{
               prevEl: '.swiper-button-prev',
@@ -275,7 +277,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
           </div>
         )}
       </div>
-      {isGameRoute && (
+      {isWidgetVisible && (
         <div
           className={`game-footer ${
             isWidgetVisible
@@ -310,7 +312,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
           </div>
         </div>
       )}
-      {/* {isMobile && <Nav visible={true} isMobile={isMobile} />} */}
       <Aside asideView={asideView} toggleView={toggleAside} />
     </div>
   )
