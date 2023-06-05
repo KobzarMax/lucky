@@ -4,7 +4,7 @@ import questionMark from '../asset/Question.svg'
 import trophy from '../asset/Trophy.svg'
 import chartBar from '../asset/ChartBar.svg'
 import clockCounter from '../asset/ClockCounterClockwise.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { GameTimer } from '@/components/GameTimer'
 import { Referals } from '@/components/Referals'
 import { GameCard } from '@/components/GameCard'
@@ -37,9 +37,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const { t } = useTranslation(['translations'])
   const [asideView, setAsideView] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
-  const location = useLocation()
 
-  const isGameRoute = location.pathname === '/game'
   const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
 
   const toggleShow = (): void => {
@@ -114,7 +112,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         <Referals />
         <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="absolute left-[45%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute left-[45.5%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -156,65 +154,39 @@ function Game({ isMobile }: GameProps): JSX.Element {
         </div>
         {isMobile && !isWidgetVisible && (
           <Swiper
-            className={`${!isWidgetVisible ? '' : 'hidden'}`}
-            ref={swiperRef}
-            loop={true}
-            spaceBetween={20}
             slidesPerView={1}
-            initialSlide={4}
             centeredSlides={true}
+            spaceBetween={24}
+            initialSlide={2}
+            className="mobile-swiper"
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
               disabledClass: 'swiper-button-disabled'
             }}
-            breakpoints={{
-              768: {
-                spaceBetween: 45,
-                slidesPerView: 1,
-                centeredSlides: false
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 29,
-                centeredSlides: false
-              }
-            }}
           >
             {games.map((game: GameData, index: number) => (
-              <SwiperSlide className="w-full max-w-[360px]" key={index}>
-                <GameCard cardData={game} />
+              <SwiperSlide className="mx-auto w-full max-w-[360px]" key={index}>
+                <GameCard key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>
         )}
         {!isMobile && (
           <Swiper
-            className={`${!isWidgetVisible ? '' : 'hidden'}`}
-            ref={swiperRef}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={1}
+            slidesPerView={4}
+            spaceBetween={40}
             centeredSlides={true}
+            initialSlide={2}
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
               disabledClass: 'swiper-button-disabled'
             }}
-            breakpoints={{
-              768: {
-                spaceBetween: 45,
-                slidesPerView: 1
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 0
-              }
-            }}
           >
             {games.map((game: GameData, index: number) => (
               <SwiperSlide className="w-full max-w-[360px]" key={index}>
-                <GameCard cardData={game} />
+                <GameCard key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>

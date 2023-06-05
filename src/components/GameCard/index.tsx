@@ -54,7 +54,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData }) => {
 
   return (
     <div
-      className={`${cardData.status} game-card-wrapper flex min-h-[400px] min-w-[360px] flex-col items-center justify-between py-10`}
+      className={`${cardData.status} game-card-wrapper flex min-h-[400px] min-w-[360px] flex-col items-center justify-between overflow-hidden py-10`}
     >
       <div className="game-card-header relative z-10 flex flex-col items-center">
         <button className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green">
