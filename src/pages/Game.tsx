@@ -36,7 +36,7 @@ interface GameProps {
 
 function Game({ isMobile }: GameProps): JSX.Element {
   const { t } = useTranslation(['translations'])
-  const [asideView, setAsideView] = useState<boolean>(true)
+  const [asideView, setAsideView] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
   const location = useLocation()
 
@@ -110,9 +110,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px] lg:min-h-[100vh]">
         <Referals />
-        <div className="mb-[33px] flex items-center justify-end gap-[270px]">
+        <div className="mb-[33px] relative flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="relative flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute top-0 left-[45%] right-[50%] flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
