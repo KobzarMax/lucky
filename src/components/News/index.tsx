@@ -40,7 +40,7 @@ export const News = () => {
     null
   )
   return (
-    <div className="relative mt-[7.5rem] lg:mt-24">
+    <div className="news relative mt-[7.5rem] lg:mt-24">
       <h2 className="mb-[31px] text-center text-[25px] font-bold leading-[30px] text-white">
         {t('news')}
       </h2>

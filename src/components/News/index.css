@@ -24,12 +24,12 @@
    -webkit-box-orient: vertical;
 }
 
-.swiper-wrapper {
+.news .swiper-wrapper {
   justify-content: start;
 }
 
 @media (min-width: 1024px) {
-  .swiper-wrapper {
+  .news .swiper-wrapper {
     justify-content: center;
   }
 }

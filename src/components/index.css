@@ -91,10 +91,20 @@
 }
 
 #game .swiper-wrapper {
-  justify-content: flex-start;
+  width: 100%;
+  gap: 24px;
+}
+@media (max-width: 1499px) {
+  #game .swiper-wrapper {
+    width: 100%;
+    gap: 48px;
+  }
 }
 #game .swiper {
   padding: 0 12px 0 13px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 1024px) {

@@ -152,14 +152,15 @@ function Game({ isMobile }: GameProps): JSX.Element {
             )}
           </div>
         </div>
-        <Swiper
+        {isMobile && !isWidgetVisible && (<Swiper
           className={`${
-            !isWidgetVisible ? 'flex items-center justify-center' : 'hidden'
+            !isWidgetVisible ? '' : 'hidden'
           }`}
           ref={swiperRef}
           loop={true}
           spaceBetween={45}
           slidesPerView={1}
+          centeredSlides={true}
           navigation={{
             prevEl: '.swiper-button-prev',
             nextEl: '.swiper-button-next',
@@ -167,12 +168,12 @@ function Game({ isMobile }: GameProps): JSX.Element {
           }}
           breakpoints={{
             768: {
-              slidesPerView: 2,
-              spaceBetween: 37
+              spaceBetween: 45,
+              slidesPerView: 1
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 41
+              spaceBetween: 0
             }
           }}
         >
@@ -181,7 +182,38 @@ function Game({ isMobile }: GameProps): JSX.Element {
               <GameCard cardData={game} />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper>)}
+        {!isMobile && (<Swiper
+          className={`${
+            !isWidgetVisible ? '' : 'hidden'
+          }`}
+          ref={swiperRef}
+          loop={true}
+          spaceBetween={45}
+          slidesPerView={1}
+          centeredSlides={true}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+            disabledClass: 'swiper-button-disabled'
+          }}
+          breakpoints={{
+            768: {
+              spaceBetween: 45,
+              slidesPerView: 1
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 0
+            }
+          }}
+        >
+          {games.map((game: GameData, index: number) => (
+            <SwiperSlide className="w-full max-w-[360px]" key={index}>
+              <GameCard cardData={game} />
+            </SwiperSlide>
+          ))}
+        </Swiper>)}
 
         {isMobile && (
           <div className="fixed bottom-0 w-full pl-[13px] pr-3">
