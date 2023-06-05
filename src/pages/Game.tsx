@@ -157,8 +157,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
             className={`${!isWidgetVisible ? '' : 'hidden'}`}
             ref={swiperRef}
             loop={true}
-            spaceBetween={45}
+            spaceBetween={20}
             slidesPerView={1}
+            initialSlide={1}
             centeredSlides={true}
             navigation={{
               prevEl: '.swiper-button-prev',
@@ -168,11 +169,13 @@ function Game({ isMobile }: GameProps): JSX.Element {
             breakpoints={{
               768: {
                 spaceBetween: 45,
-                slidesPerView: 1
+                slidesPerView: 1,
+                centeredSlides: false
               },
               1024: {
-                slidesPerView: 3,
-                spaceBetween: 0
+                slidesPerView: 4,
+                spaceBetween: 29,
+                centeredSlides: false
               }
             }}
           >
@@ -188,7 +191,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
             className={`${!isWidgetVisible ? '' : 'hidden'}`}
             ref={swiperRef}
             loop={true}
-            spaceBetween={45}
+            spaceBetween={10}
             slidesPerView={1}
             centeredSlides={true}
             navigation={{
@@ -216,8 +219,8 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
 
         {isMobile && (
-          <div className="fixed bottom-0 w-full pl-[13px] pr-3">
-            <div className="relative flex w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+          <div className="fixed bottom-2 max-h-[48px] w-full pl-[13px] pr-3">
+            <div className="relative flex max-h-[48px] w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -225,25 +228,40 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   alt="prev"
                 />
               </div>
-              <div className="flex items-center justify-center gap-[22.5px] rounded-[30px] bg-[#38383899] py-[5px]">
-                <div className="flex cursor-pointer items-center justify-center rounded-[30px] bg-[#58585899] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]">
+              <div className="flex max-h-[38px] items-center justify-center gap-[22.5px] rounded-[30px] bg-[#38383899] py-[5px]">
+                <div
+                  className={`${
+                    !isWidgetVisible ? 'bg-[#58585899]' : ''
+                  } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
+                >
                   <img
+                    className="h-[25px] w-[25px]"
                     onClick={() => setWidgetVisible(false)}
                     src={gameCards}
                     alt="game cards"
                   />
                 </div>
                 <div
-                  className="flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]"
+                  className={` ${
+                    isWidgetVisible ? 'bg-[#58585899]' : ''
+                  } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
                   onClick={() => setWidgetVisible(!isWidgetVisible)}
                 >
-                  <img src={chartBar} alt="chartBar" />
+                  <img
+                    className="h-[25px] w-[25px]"
+                    src={chartBar}
+                    alt="chartBar"
+                  />
                 </div>
                 <div
                   onClick={toggleAside}
                   className="flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]"
                 >
-                  <img src={clockCounter} alt="clockCounter" />
+                  <img
+                    className="h-[25px] w-[25px]"
+                    src={clockCounter}
+                    alt="clockCounter"
+                  />
                 </div>
               </div>
               <div className="swiper-button-next swiper-button">

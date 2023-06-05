@@ -61,9 +61,9 @@ function Header({ isMobile, howVisible }: HeaderProps): JSX.Element {
     <header
       className={`${
         headerView ? 'sticky' : 'unStiky'
-      } header min-h-[64px] w-full`}
+      } header flex min-h-[64px] w-full items-center`}
     >
-      <div className="flex items-center justify-between px-[13px] py-0 lg:px-[75px]">
+      <div className="flex w-full items-center justify-between px-[13px] py-0 lg:px-[75px]">
         <div className="flex items-center justify-start gap-12">
           <Link to="/" className="logo-wrapper">
             <img

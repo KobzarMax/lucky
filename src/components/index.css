@@ -92,12 +92,18 @@
 
 #game .swiper-wrapper {
   width: 100%;
-  gap: 24px;
+  gap: 33px;
 }
-@media (max-width: 1499px) {
+@media (min-width: 1800px) {
   #game .swiper-wrapper {
     width: 100%;
-    gap: 48px;
+    gap: 63px;
+  }
+}
+@media (max-width: 572px) {
+  #game .swiper-wrapper {
+    width: 100%;
+    gap: 7px;
   }
 }
 #game .swiper {
