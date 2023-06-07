@@ -4,23 +4,26 @@ import questionMark from '../asset/Question.svg'
 import trophy from '../asset/Trophy.svg'
 import chartBar from '../asset/ChartBar.svg'
 import clockCounter from '../asset/ClockCounterClockwise.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { GameTimer } from '@/components/GameTimer'
 import { Referals } from '@/components/Referals'
 import { GameCard } from '@/components/GameCard'
 import { Aside } from '@/components/Aside'
 import { Win } from '@/components/Win'
-import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
-import SwiperCore, { Navigation } from 'swiper'
-import 'swiper/css'
+// import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
+// import SwiperCore, { Navigation } from 'swiper'
+// import 'swiper/css'
 import 'swiper/css/navigation'
-import { useState, useRef } from 'react'
+import { Keyboard, Mousewheel, FreeMode } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { useState } from 'react'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../asset/CaretDown.svg'
 import { useTranslation } from 'react-i18next'
-// import { Nav } from '@/components/Nav'
+import { Nav } from '@/components/Nav'
 
-SwiperCore.use([Navigation])
+// SwiperCore.use([Navigation])
 
 interface GameData {
   status: string
@@ -38,9 +41,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const { t } = useTranslation(['translations'])
   const [asideView, setAsideView] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
-  const location = useLocation()
 
-  const isGameRoute = location.pathname === '/game'
   const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
 
   const toggleShow = (): void => {
@@ -49,6 +50,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
 
   const toggleAside = (): void => {
     setAsideView(!asideView)
+    if (isWidgetVisible) {
+      setWidgetVisible(false)
+    }
   }
 
   const games: GameData[] = [
@@ -103,16 +107,16 @@ function Game({ isMobile }: GameProps): JSX.Element {
     }
   ]
 
-  const swiperRef = useRef<SwiperRef | null>(null)
+  // const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
-    <div id="game" className="relative overflow-hidden">
+    <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px] lg:min-h-[100vh]">
         <Referals />
         <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="absolute left-[45%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute left-[46.1%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -154,72 +158,65 @@ function Game({ isMobile }: GameProps): JSX.Element {
         </div>
         {isMobile && !isWidgetVisible && (
           <Swiper
-            className={`${!isWidgetVisible ? '' : 'hidden'}`}
-            ref={swiperRef}
-            loop={false}
-            spaceBetween={20}
-            slidesPerView={1}
             initialSlide={1}
-            centeredSlides={true}
+            spaceBetween={-24}
+            slidesPerView="auto"
+            freeMode={{
+              enabled: true,
+              sticky: true,
+              momentumRatio: 0.25,
+              momentumVelocityRatio: 0.5
+            }}
+            modules={[Keyboard, Mousewheel, FreeMode]}
+            centeredSlides
+            mousewheel
+            keyboard
+            resizeObserver
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
               disabledClass: 'swiper-button-disabled'
             }}
-            breakpoints={{
-              768: {
-                spaceBetween: 45,
-                slidesPerView: 1,
-                centeredSlides: false
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 29,
-                centeredSlides: false
-              }
-            }}
           >
             {games.map((game: GameData, index: number) => (
-              <SwiperSlide className="w-full max-w-[360px]" key={index}>
-                <GameCard cardData={game} />
+              <SwiperSlide className="mx-auto w-full max-w-[360px]" key={index}>
+                <GameCard key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>
         )}
         {!isMobile && (
           <Swiper
-            className={`${!isWidgetVisible ? '' : 'hidden'}`}
-            ref={swiperRef}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={1}
-            centeredSlides={true}
+            initialSlide={2}
+            spaceBetween={41}
+            slidesPerView="auto"
+            freeMode={{
+              enabled: true,
+              sticky: true,
+              momentumRatio: 0.25,
+              momentumVelocityRatio: 0.5
+            }}
+            modules={[Keyboard, Mousewheel, FreeMode]}
+            centeredSlides
+            mousewheel
+            keyboard
+            resizeObserver
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
               disabledClass: 'swiper-button-disabled'
             }}
-            breakpoints={{
-              768: {
-                spaceBetween: 45,
-                slidesPerView: 1
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 0
-              }
-            }}
           >
             {games.map((game: GameData, index: number) => (
               <SwiperSlide className="w-full max-w-[360px]" key={index}>
-                <GameCard cardData={game} />
+                <GameCard key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>
         )}
 
         {isMobile && (
-          <div className="fixed bottom-2 max-h-[48px] w-full pl-[13px] pr-3">
+          <div className="fixed bottom-0 w-full pb-20 bg-[#1b1b1bcc] pt-[9px] pl-[13px] pr-3">
             <div className="relative flex max-h-[48px] w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
@@ -272,14 +269,15 @@ function Game({ isMobile }: GameProps): JSX.Element {
                 />
               </div>
             </div>
+            <Nav isMobile={isMobile} visible={true} />
           </div>
         )}
       </div>
-      {isGameRoute && (
+      {isWidgetVisible && (
         <div
           className={`game-footer ${
             isWidgetVisible
-              ? 'active h-[100vh] pb-[80px] lg:h-auto lg:pb-0'
+              ? 'active h-[100vh] pb-[135px] lg:h-auto lg:pb-0'
               : ''
           } lg:h-auto lg:pb-0`}
         >
