@@ -70,7 +70,10 @@ function App(): JSX.Element {
             }
           />
           <Route path="rules" element={<Rules />} />
-          <Route path="leaderboard" element={<Leaderboard />} />
+          <Route
+            path="leaderboard"
+            element={<Leaderboard isMobile={isMobile} />}
+          />
           <Route path="game" element={<Game isMobile={isMobile} />} />
         </Routes>
         <Footer isMobile={isMobile} />

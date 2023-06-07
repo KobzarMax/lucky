@@ -112,7 +112,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   return (
     <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
-      <div className="pt-[90px] lg:min-h-[100vh]">
+      <div className="pt-[90px]">
         <Referals />
         <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
@@ -216,7 +216,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
 
         {isMobile && (
-          <div className="fixed bottom-0 w-full pb-20 bg-[#1b1b1bcc] pt-[9px] pl-[13px] pr-3">
+          <div className="fixed bottom-0 w-full bg-[#1b1b1bcc] pb-20 pl-[13px] pr-3 pt-[9px]">
             <div className="relative flex max-h-[48px] w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
@@ -273,41 +273,37 @@ function Game({ isMobile }: GameProps): JSX.Element {
           </div>
         )}
       </div>
-      {isWidgetVisible && (
-        <div
-          className={`game-footer ${
-            isWidgetVisible
-              ? 'active h-[100vh] pb-[135px] lg:h-auto lg:pb-0'
-              : ''
-          } lg:h-auto lg:pb-0`}
-        >
-          {!isMobile && (
-            <div
-              className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-              onClick={() => setWidgetVisible(!isWidgetVisible)}
-            >
-              {t('TradingView')}{' '}
-              <img
-                className={`transition-all duration-300 ${
-                  isWidgetVisible ? 'rotate-0' : 'rotate-180'
-                }`}
-                src={caret}
-                alt="caret down"
-              />
-            </div>
-          )}
-
+      <div
+        className={`game-footer ${
+          isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
+        } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
+      >
+        {!isMobile && (
           <div
-            className={`widget-container ${
-              isWidgetVisible
-                ? 'active relative z-50 h-[100vh] lg:h-auto lg:pb-0'
-                : ''
-            }`}
+            className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
+            onClick={() => setWidgetVisible(!isWidgetVisible)}
           >
-            <TradingViewWidget />
+            {t('TradingView')}{' '}
+            <img
+              className={`transition-all duration-300 ${
+                isWidgetVisible ? 'rotate-0' : 'rotate-180'
+              }`}
+              src={caret}
+              alt="caret down"
+            />
           </div>
+        )}
+
+        <div
+          className={`widget-container ${
+            isWidgetVisible
+              ? 'active relative z-50 h-full lg:h-auto lg:pb-0'
+              : ''
+          }`}
+        >
+          <TradingViewWidget />
         </div>
-      )}
+      </div>
       <Aside asideView={asideView} toggleView={toggleAside} />
     </div>
   )

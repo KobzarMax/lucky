@@ -1,7 +1,12 @@
-table {
-  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(27, 27, 27, 0.6);
+table,
+.table-mobile-leaders {
+  background: linear-gradient(
+      90.03deg,
+      rgba(255, 27, 94, 0.02) 0%,
+      #211b2500 14.14%
+    ),
+    rgba(27, 27, 27, 0.6);
   border-radius: 15px;
-  backdrop-filter: blur(10px);
 }
 table tbody tr {
   border-top: 1px solid #212121;
@@ -14,4 +19,25 @@ table thead tr {
 table tbody tr:last-child {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-bottom: none;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.table-wrapper::-webkit-scrollbar-track {
+  background: #707070;
+}
+
+/* Handle */
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #ff1b5e;
+  transition: 0.3s all;
+}
+
+/* Handle on hover */
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #7cca3f;
 }

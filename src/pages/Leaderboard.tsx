@@ -2,7 +2,11 @@ import { LeaderTable } from '@/components/LeaderTable'
 import { TopPlaces } from '@/components/TopPlaces'
 import { useTranslation } from 'react-i18next'
 
-function Leaderboard() {
+interface LeaderboardProps {
+  isMobile?: boolean
+}
+
+function Leaderboard({ isMobile }: LeaderboardProps) {
   const { t } = useTranslation(['translations'])
   return (
     <div className="pt-[90px]">
@@ -11,7 +15,7 @@ function Leaderboard() {
           {t('leaderboard')}
         </h1>
         <TopPlaces />
-        <LeaderTable />
+        <LeaderTable isMobile={isMobile} />
       </div>
     </div>
   )
