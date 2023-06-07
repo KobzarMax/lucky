@@ -156,7 +156,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
           <Swiper
             className={`${!isWidgetVisible ? '' : 'hidden'}`}
             ref={swiperRef}
-            loop={true}
+            loop={false}
             spaceBetween={20}
             slidesPerView={1}
             initialSlide={1}
@@ -310,7 +310,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
           </div>
         </div>
       )}
-      {/* {isMobile && <Nav visible={true} isMobile={isMobile} />} */}
       <Aside asideView={asideView} toggleView={toggleAside} />
     </div>
   )
