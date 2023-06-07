@@ -10,20 +10,15 @@ import { Referals } from '@/components/Referals'
 import { GameCard } from '@/components/GameCard'
 import { Aside } from '@/components/Aside'
 import { Win } from '@/components/Win'
-// import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
-// import SwiperCore, { Navigation } from 'swiper'
-// import 'swiper/css'
 import 'swiper/css/navigation'
 import { Keyboard, Mousewheel, FreeMode } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import 'swiper/css'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../asset/CaretDown.svg'
 import { useTranslation } from 'react-i18next'
 import { Nav } from '@/components/Nav'
-
-// SwiperCore.use([Navigation])
 
 interface GameData {
   status: string
@@ -107,7 +102,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
     }
   ]
 
-  // const swiperRef = useRef<SwiperRef | null>(null)
+  const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
     <div id="game" className="relative min-h-[100vh] overflow-hidden">
@@ -116,7 +111,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         <Referals />
         <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="absolute left-[46.1%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute left-0 right-0 mx-auto top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -124,7 +119,11 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   alt="prev"
                 />
               </div>
-              <img src={gameCards} alt="game cards" />
+              <img
+                className="cursor-pointer"
+                src={gameCards}
+                alt="game cards"
+              />
               <div className="swiper-button-next swiper-button">
                 <img
                   className="w-[25px] rotate-90 cursor-pointer"
@@ -232,7 +231,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
                 >
                   <img
-                    className="h-[25px] w-[25px]"
+                    className="h-[25px] w-[25px] cursor-pointer"
                     onClick={() => setWidgetVisible(false)}
                     src={gameCards}
                     alt="game cards"
