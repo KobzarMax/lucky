@@ -39,6 +39,53 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const asideRef = useRef<HTMLDivElement>(null)
 
   const [isWidgetVisible, setWidgetVisible] = useState(false)
+  const [counter, setCounter] = useState(216)
+  const intervalRef = useRef<any>(null)
+  const windowSize = useRef([window.innerWidth, window.innerHeight])
+
+  const [coords, setCoords] = useState({ x: 0, y: 200 })
+
+  useEffect(() => {
+    const handleWindowMouseMove = (event: any) => {
+      setCoords({
+        x: event.clientX,
+        y: windowSize.current[1] - event.clientY
+      })
+    }
+
+    window.addEventListener('mousemove', handleWindowMouseMove)
+
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove)
+    }
+  }, [])
+
+  useEffect(() => {
+    return () => stopCounter() // when App is unmounted we should stop counter
+  }, [])
+
+  const widgetHeight = counter
+
+  const startCounter = () => {
+    if (intervalRef.current) return
+    if (isWidgetVisible) {
+      intervalRef.current = setInterval(() => {
+        setCoords((prevCoords) => {
+          const newY = windowSize.current[1] - prevCoords.y
+          setCounter(newY) // Update counter with the current mouse position
+          console.log(prevCoords)
+          return prevCoords
+        })
+      }, 100)
+    }
+  }
+
+  const stopCounter = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = null
+    }
+  }
 
   const toggleShow = (): void => {
     setShow(!show)
@@ -124,6 +171,14 @@ function Game({ isMobile }: GameProps): JSX.Element {
     }
   ]
 
+  const swiperRef = useRef<any>(null)
+
+  const navigateToActiveSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(4) // Replace 2 with the index of the active slide
+    }
+  }
+
   return (
     <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
@@ -142,6 +197,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
               <img
                 className="cursor-pointer"
                 src={gameCards}
+                onClick={navigateToActiveSlide}
                 alt="game cards"
               />
               <div className="swiper-button-next swiper-button">
@@ -180,6 +236,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         </div>
         {isMobile && !isWidgetVisible && (
           <Swiper
+            ref={swiperRef}
             initialSlide={1}
             spaceBetween={-24}
             slidesPerView="auto"
@@ -209,6 +266,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
         {!isMobile && (
           <Swiper
+            ref={swiperRef}
             initialSlide={2}
             spaceBetween={41}
             slidesPerView="auto"
@@ -302,19 +360,26 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
       </div>
       <div
-        className={`game-footer transition-all duration-300 ${
+        className={`game-footer transition-all duration-300 lg:max-h-[60vh] ${
           isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
         } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
+        style={{ height: widgetHeight }}
       >
         {!isMobile && (
           <div
             className={` ${
               isWidgetVisible ? 'cursor-row-resize' : ''
             } game-footer-button flex items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
+            onMouseDown={startCounter}
+            onMouseUp={stopCounter}
+            onMouseLeave={stopCounter}
           >
             <span
               className="flex cursor-pointer items-center justify-center gap-[5px]"
-              onClick={() => setWidgetVisible(!isWidgetVisible)}
+              onClick={(e) => {
+                e.stopPropagation()
+                setWidgetVisible(!isWidgetVisible)
+              }}
             >
               {t('TradingView')}{' '}
               <img

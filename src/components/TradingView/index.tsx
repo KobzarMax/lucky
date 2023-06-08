@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import Resizable from 're-resizable'
 
 declare global {
   interface Window {
