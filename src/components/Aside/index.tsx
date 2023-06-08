@@ -27,12 +27,12 @@ export const Aside: React.FC<AsideProps> = ({ asideView, toggleView }) => {
 
   return (
     <div
-      className={`${
-        asideView === true ? 'active' : ''
-      } game-aside absolute right-0 top-[65px] z-20 min-h-[100vh] min-w-[302px] overflow-y-scroll px-5 pt-[31px]`}
+      className={`game-aside absolute right-0 top-[65px] z-20 h-[100vh] min-h-[100vh] min-w-[302px] overflow-y-scroll px-5 pb-[200px] pt-[31px] lg:pb-[135px] ${
+        asideView ? 'active' : ''
+      }`}
     >
       <div className="relative z-20 mb-4 flex items-center justify-between">
-        <p className="text-[15px] font-semibold leading-[18px] text-primary">
+        <p className="text-primary text-[15px] font-semibold leading-[18px]">
           {t('history')}
         </p>
         <button

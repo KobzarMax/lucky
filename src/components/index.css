@@ -20,7 +20,6 @@
 @import url('../components/AsideRound/index.css');
 @import url('../components/Win/index.css');
 
-
 * {
   padding: 0;
   margin: 0;
@@ -49,7 +48,7 @@
 }
 
 .positive .total {
-  color: #7CCA3F;
+  color: #7cca3f;
   position: relative;
 }
 .text-basic {
@@ -57,12 +56,12 @@
   line-height: 18px !important;
 }
 .negative .total {
-  color: #FF1B5E;
+  color: #ff1b5e;
   position: relative;
 }
 
 .positive .total::before {
-  color: #7CCA3F;
+  color: #7cca3f;
   content: '+';
   position: absolute;
   display: block;
@@ -70,7 +69,7 @@
   top: 1px;
 }
 .negative .total::before {
-  color: #FF1B5E;
+  color: #ff1b5e;
   content: '-';
   position: absolute;
   display: block;
@@ -79,50 +78,49 @@
 }
 
 .swiper-button img {
-  filter: invert(80%) sepia(98%) saturate(2593%) hue-rotate(214deg) brightness(101%) contrast(92%);
+  filter: invert(80%) sepia(98%) saturate(2593%) hue-rotate(214deg)
+    brightness(101%) contrast(92%);
 }
 
 #game .ticker-wrap .ticker__item {
   display: flex;
   min-width: 211px;
-  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(24, 24, 24, 0.6);
+  background: linear-gradient(
+      90.03deg,
+      rgba(255, 27, 94, 0.02) 0%,
+      rgba(33, 27, 37, 0) 14.14%
+    ),
+    rgba(24, 24, 24, 0.6);
   padding: 8px 10px;
   border-radius: 15px;
+}
+@media (max-width: 572px) {
+  #game .swiper-slide-active {
+    z-index: 50;
+    position: relative;
+  }
+  #game .swiper-slide:not(.swiper-slide-active) {
+    filter: blur(5px);
+  }
+}
+#game .swiper {
+  padding: 0 12px 0 13px;
+}
+
+@media (min-width: 1024px) {
+  #game .swiper {
+    padding: 0 0 126px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .swiper.hidden {
+    display: none !important;
+  }
 }
 
 @media (max-width: 1024px) {
   #game + .footer {
     display: none;
   }
-}
-
-#game .slick-slider .slick-list {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 !important;
-}
-
-#game .slick-slider .slick-track{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 41px;
-  max-width: 100%;
-}
-
-#game .slick-slider .slick-arrow{
-  position: absolute;
-  top: 50%;
-  font-size: 0;
-  width: 50px;
-  height: 50px;
-}
-
-#game .slick-slide {
-  max-width: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100% !important;
 }

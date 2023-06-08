@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import Resizable from 're-resizable'
 
 declare global {
   interface Window {
@@ -41,7 +42,7 @@ export default function TradingViewWidget(): JSX.Element {
       ) {
         new window.TradingView.widget({
           autosize: true,
-          symbol: 'NASDAQ:AAPL',
+          symbol: 'BINANCE:BNBBUSD',
           interval: 'D',
           timezone: 'Etc/UTC',
           theme: 'dark',
@@ -50,6 +51,7 @@ export default function TradingViewWidget(): JSX.Element {
           toolbar_bg: '#f1f3f6',
           enable_publishing: false,
           allow_symbol_change: true,
+          enabled_features: ['header_fullscreen_button'],
           container_id: 'tradingview_06401'
         })
       }

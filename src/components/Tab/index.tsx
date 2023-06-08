@@ -19,7 +19,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
 
   return (
     <div>
-      <div className="mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-[#38383899] px-[7px]">
+      <div className="mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-[#38383899]">
         {tabs.map((tab) => (
           <button
             key={tab.id}

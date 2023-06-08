@@ -10,16 +10,15 @@ import { Referals } from '@/components/Referals'
 import { GameCard } from '@/components/GameCard'
 import { Aside } from '@/components/Aside'
 import { Win } from '@/components/Win'
-import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
-import SwiperCore, { Navigation } from 'swiper'
-import 'swiper/css'
 import 'swiper/css/navigation'
-import { useState, useRef } from 'react'
+import { Keyboard, Mousewheel, FreeMode } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { useState, useEffect, useRef } from 'react'
 import TradingViewWidget from '@/components/TradingView'
 import caret from '../asset/CaretDown.svg'
 import { useTranslation } from 'react-i18next'
-
-SwiperCore.use([Navigation])
+import { Nav } from '@/components/Nav'
 
 interface GameData {
   status: string
@@ -37,6 +36,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const { t } = useTranslation(['translations'])
   const [asideView, setAsideView] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
+  const asideRef = useRef<HTMLDivElement>(null)
 
   const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
 
@@ -50,6 +50,27 @@ function Game({ isMobile }: GameProps): JSX.Element {
       setWidgetVisible(false)
     }
   }
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      asideRef.current &&
+      !asideRef.current.contains(event.target as Node) &&
+      asideView === true
+    ) {
+      setAsideView(false)
+    }
+  }
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      handleClickOutside(event)
+    }
+
+    document.addEventListener('click', handleClick)
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
+  }, [asideView])
 
   const games: GameData[] = [
     {
@@ -106,11 +127,11 @@ function Game({ isMobile }: GameProps): JSX.Element {
   return (
     <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
-      <div className="pt-[90px] lg:min-h-[100vh]">
+      <div className="pt-[90px]">
         <Referals />
         <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">
           {!isMobile && (
-            <div className="absolute left-[45.5%] right-[50%] top-0 flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
+            <div className="absolute inset-x-0 top-0 mx-auto flex w-full max-w-[150px] items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
                   className="w-[25px] -rotate-90 cursor-pointer"
@@ -118,7 +139,11 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   alt="prev"
                 />
               </div>
-              <img src={gameCards} alt="game cards" />
+              <img
+                className="cursor-pointer"
+                src={gameCards}
+                alt="game cards"
+              />
               <div className="swiper-button-next swiper-button">
                 <img
                   className="w-[25px] rotate-90 cursor-pointer"
@@ -142,7 +167,10 @@ function Game({ isMobile }: GameProps): JSX.Element {
             </Link>
             {!isMobile && (
               <div
-                onClick={toggleAside}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  toggleAside()
+                }}
                 className="flex cursor-pointer items-center justify-center rounded-[15px] bg-[#2b2b2b99] p-[14px] transition-all duration-300 hover:bg-[#2b2b2bcc]"
               >
                 <img src={clockCounter} alt="clockCounter" />
@@ -152,11 +180,20 @@ function Game({ isMobile }: GameProps): JSX.Element {
         </div>
         {isMobile && !isWidgetVisible && (
           <Swiper
-            slidesPerView={1}
-            centeredSlides={true}
-            spaceBetween={24}
-            initialSlide={2}
-            className="mobile-swiper"
+            initialSlide={1}
+            spaceBetween={-24}
+            slidesPerView="auto"
+            freeMode={{
+              enabled: true,
+              sticky: true,
+              momentumRatio: 0.25,
+              momentumVelocityRatio: 0.5
+            }}
+            modules={[Keyboard, Mousewheel, FreeMode]}
+            centeredSlides
+            mousewheel
+            keyboard
+            resizeObserver
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
@@ -172,10 +209,20 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
         {!isMobile && (
           <Swiper
-            slidesPerView={5}
-            spaceBetween={40}
-            centeredSlides={true}
             initialSlide={2}
+            spaceBetween={41}
+            slidesPerView="auto"
+            freeMode={{
+              enabled: true,
+              sticky: true,
+              momentumRatio: 0.25,
+              momentumVelocityRatio: 0.5
+            }}
+            modules={[Keyboard, Mousewheel, FreeMode]}
+            centeredSlides
+            mousewheel
+            keyboard
+            resizeObserver
             navigation={{
               prevEl: '.swiper-button-prev',
               nextEl: '.swiper-button-next',
@@ -194,7 +241,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
 
         {isMobile && (
-          <div className="fixed bottom-2 max-h-[48px] w-full pl-[13px] pr-3">
+          <div className="fixed bottom-0 z-[100] w-full bg-[#1b1b1bcc] pb-20 pl-[13px] pr-3 pt-[9px]">
             <div className="relative flex max-h-[48px] w-full items-end justify-center gap-2.5 rounded-[49px] bg-[#2b2b2b99] px-5 py-1">
               <div className="swiper-button-prev swiper-button">
                 <img
@@ -210,7 +257,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
                 >
                   <img
-                    className="h-[25px] w-[25px]"
+                    className="h-[25px] w-[25px] cursor-pointer"
                     onClick={() => setWidgetVisible(false)}
                     src={gameCards}
                     alt="game cards"
@@ -229,7 +276,10 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   />
                 </div>
                 <div
-                  onClick={toggleAside}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    toggleAside()
+                  }}
                   className="flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]"
                 >
                   <img
@@ -247,45 +297,44 @@ function Game({ isMobile }: GameProps): JSX.Element {
                 />
               </div>
             </div>
+            <Nav isMobile={isMobile} visible={true} />
           </div>
         )}
       </div>
-      {isWidgetVisible && (
-        <div
-          className={`game-footer ${
-            isWidgetVisible
-              ? 'active h-[100vh] pb-[80px] lg:h-auto lg:pb-0'
-              : ''
-          } lg:h-auto lg:pb-0`}
-        >
-          {!isMobile && (
-            <div
-              className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-              onClick={() => setWidgetVisible(!isWidgetVisible)}
-            >
-              {t('TradingView')}{' '}
-              <img
-                className={`transition-all duration-300 ${
-                  isWidgetVisible ? 'rotate-0' : 'rotate-180'
-                }`}
-                src={caret}
-                alt="caret down"
-              />
-            </div>
-          )}
-
+      <div
+        className={`game-footer transition-all duration-300 ${
+          isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
+        } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
+      >
+        {!isMobile && (
           <div
-            className={`widget-container ${
-              isWidgetVisible
-                ? 'active relative z-50 h-[100vh] lg:h-auto lg:pb-0'
-                : ''
-            }`}
+            className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
+            onClick={() => setWidgetVisible(!isWidgetVisible)}
           >
-            <TradingViewWidget />
+            {t('TradingView')}{' '}
+            <img
+              className={`transition-all duration-300 ${
+                isWidgetVisible ? 'rotate-0' : 'rotate-180'
+              }`}
+              src={caret}
+              alt="caret down"
+            />
           </div>
+        )}
+
+        <div
+          className={`widget-container transition-all duration-300 ${
+            isWidgetVisible
+              ? 'active relative z-50 h-full lg:h-auto lg:pb-0'
+              : ''
+          }`}
+        >
+          <TradingViewWidget />
         </div>
-      )}
-      <Aside asideView={asideView} toggleView={toggleAside} />
+      </div>
+      <div ref={asideRef}>
+        <Aside asideView={asideView} toggleView={toggleAside} />
+      </div>
     </div>
   )
 }
