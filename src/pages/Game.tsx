@@ -103,8 +103,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
     }
   ]
 
-  const swiperRef = useRef<SwiperRef | null>(null)
-
   return (
     <div id="game" className="relative min-h-[100vh] overflow-hidden">
       <Win toggleShow={toggleShow} show={show} />
@@ -174,7 +172,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
         {!isMobile && (
           <Swiper
-            slidesPerView={4}
+            slidesPerView={5}
             spaceBetween={40}
             centeredSlides={true}
             initialSlide={2}
@@ -185,7 +183,10 @@ function Game({ isMobile }: GameProps): JSX.Element {
             }}
           >
             {games.map((game: GameData, index: number) => (
-              <SwiperSlide className="w-full max-w-[360px]" key={index}>
+              <SwiperSlide
+                className="w-full min-w-[360px] max-w-[360px]"
+                key={index}
+              >
                 <GameCard key={index} cardData={game} />
               </SwiperSlide>
             ))}
