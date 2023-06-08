@@ -32,7 +32,7 @@ export const Aside: React.FC<AsideProps> = ({ asideView, toggleView }) => {
       }`}
     >
       <div className="relative z-20 mb-4 flex items-center justify-between">
-        <p className="text-primary text-[15px] font-semibold leading-[18px]">
+        <p className="text-[15px] font-semibold leading-[18px] text-primary">
           {t('history')}
         </p>
         <button

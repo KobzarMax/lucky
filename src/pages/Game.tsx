@@ -38,7 +38,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const [show, setShow] = useState<boolean>(true)
   const asideRef = useRef<HTMLDivElement>(null)
 
-  const [isWidgetVisible, setWidgetVisible] = useState(false) // State for widget visibility
+  const [isWidgetVisible, setWidgetVisible] = useState(false)
 
   const toggleShow = (): void => {
     setShow(!show)
@@ -308,24 +308,30 @@ function Game({ isMobile }: GameProps): JSX.Element {
       >
         {!isMobile && (
           <div
-            className={`game-footer-button flex w-full cursor-pointer items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-            onClick={() => setWidgetVisible(!isWidgetVisible)}
+            className={` ${
+              isWidgetVisible ? 'cursor-row-resize' : ''
+            } game-footer-button flex items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
           >
-            {t('TradingView')}{' '}
-            <img
-              className={`transition-all duration-300 ${
-                isWidgetVisible ? 'rotate-0' : 'rotate-180'
-              }`}
-              src={caret}
-              alt="caret down"
-            />
+            <span
+              className="flex cursor-pointer items-center justify-center gap-[5px]"
+              onClick={() => setWidgetVisible(!isWidgetVisible)}
+            >
+              {t('TradingView')}{' '}
+              <img
+                className={`transition-all duration-300 ${
+                  isWidgetVisible ? 'rotate-0' : 'rotate-180'
+                }`}
+                src={caret}
+                alt="caret down"
+              />
+            </span>
           </div>
         )}
 
         <div
           className={`widget-container transition-all duration-300 ${
             isWidgetVisible
-              ? 'active relative z-50 h-full lg:h-auto lg:pb-0'
+              ? 'active relative z-50 h-full lg:h-full lg:pb-0'
               : ''
           }`}
         >
