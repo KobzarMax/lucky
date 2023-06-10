@@ -29,7 +29,7 @@
 }
 
 .game-footer {
-  transform: translateY(84%);
+  transform: translateY(85%);
   transition: 0.3s all;
   overflow: hidden;
 }

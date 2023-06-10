@@ -37,55 +37,93 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const [asideView, setAsideView] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
   const asideRef = useRef<HTMLDivElement>(null)
+  const chartRef = useRef<HTMLDivElement>(null)
+  const desktopFooterRef = useRef<HTMLDivElement>(null)
 
   const [isWidgetVisible, setWidgetVisible] = useState(false)
-  const [counter, setCounter] = useState(216)
-  const intervalRef = useRef<any>(null)
   const windowSize = useRef([window.innerWidth, window.innerHeight])
+  const [widgetHeight, setWidgetHeight] = useState<string>('216px')
 
-  const [coords, setCoords] = useState({ x: 0, y: 200 })
-
-  useEffect(() => {
-    const handleWindowMouseMove = (event: any) => {
-      setCoords({
-        x: event.clientX,
-        y: windowSize.current[1] - event.clientY
-      })
-    }
-
-    window.addEventListener('mousemove', handleWindowMouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', handleWindowMouseMove)
-    }
-  }, [])
+  const toggleWidget = () => {
+    setWidgetVisible(!isWidgetVisible)
+  }
 
   useEffect(() => {
-    return () => stopCounter() // when App is unmounted we should stop counter
-  }, [])
+    if (isWidgetVisible || !isWidgetVisible) {
+      setWidgetHeight('216px')
+    }
+  }, [isWidgetVisible])
 
-  const widgetHeight = counter
+  // useEffect(() => {
+  //   return () => stopCounter() // when App is unmounted we should stop counter
+  // }, [])
 
-  const startCounter = () => {
-    if (intervalRef.current) return
+  const mountWidgetHeight = desktopFooterRef.current?.clientHeight
+
+  // console.log(widgetHeight)
+  // console.log('mount', mountWidgetHeight)
+
+  // const [cursorDirection, setCursorDirection] = useState('');
+  // const prevYRef = useRef(null);
+
+  // useEffect(() => {
+  //   const handleMouseMove = (event) => {
+  //     const currentY = event.clientY;
+  //     const prevY = prevYRef.current;
+
+  //     if (prevY !== null && currentY !== prevY) {
+  //       if (currentY > prevY) {
+  //         setCursorDirection('down');
+  //       } else {
+  //         setCursorDirection('up');
+  //       }
+  //     }
+
+  //     prevYRef.current = currentY;
+  //   };
+
+  //   document.addEventListener('mousemove', handleMouseMove);
+
+  //   return () => {
+  //     document.removeEventListener('mousemove', handleMouseMove);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(cursorDirection)
+  // }, [cursorDirection])
+
+  const increaseHeight = () => {
     if (isWidgetVisible) {
-      intervalRef.current = setInterval(() => {
-        setCoords((prevCoords) => {
-          const newY = windowSize.current[1] - prevCoords.y
-          setCounter(newY) // Update counter with the current mouse position
-          console.log(prevCoords)
-          return prevCoords
-        })
-      }, 100)
+      setWidgetHeight('60vh')
     }
   }
 
-  const stopCounter = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current)
-      intervalRef.current = null
+  const decreaseHeight = () => {
+    if (isWidgetVisible) {
+      setWidgetHeight('20vh')
     }
   }
+
+  // const startCounter = () => {
+  //   if (isWidgetVisible) {
+  //     const interval = setInterval(() => {
+  //       if (cursorDirection === 'up') {
+  //         setWidgetHeight((prevHeight) => Math.min(prevHeight + 1, MAX_HEIGHT)); // Increase height, but limit it to the maximum value
+  //       } else if (cursorDirection === 'down') {
+  //         setWidgetHeight((prevHeight) => Math.max(prevHeight - 1, MIN_HEIGHT)); // Decrease height, but limit it to the minimum value
+  //       }
+  //     }, 50);
+
+  //     return () => clearInterval(interval); // Return the clearInterval function to stop the interval when needed
+  //   }
+  // };
+
+  // const stopCounter = () => {
+  //   if (desktopFooterRef.current) {
+  //     clearInterval(desktopFooterRef.current)
+  //   }
+  // }
 
   const toggleShow = (): void => {
     setShow(!show)
@@ -95,6 +133,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
     setAsideView(!asideView)
     if (isWidgetVisible) {
       setWidgetVisible(false)
+      setWidgetHeight('216px')
     }
   }
 
@@ -316,7 +355,10 @@ function Game({ isMobile }: GameProps): JSX.Element {
                 >
                   <img
                     className="h-[25px] w-[25px] cursor-pointer"
-                    onClick={() => setWidgetVisible(false)}
+                    onClick={() => {
+                      setWidgetVisible(false)
+                      navigateToActiveSlide
+                    }}
                     src={gameCards}
                     alt="game cards"
                   />
@@ -325,7 +367,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   className={` ${
                     isWidgetVisible ? 'bg-[#58585899]' : ''
                   } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
-                  onClick={() => setWidgetVisible(!isWidgetVisible)}
+                  onClick={() => {
+                    toggleWidget
+                  }}
                 >
                   <img
                     className="h-[25px] w-[25px]"
@@ -360,22 +404,29 @@ function Game({ isMobile }: GameProps): JSX.Element {
         )}
       </div>
       <div
-        className={`game-footer transition-all duration-300 lg:max-h-[60vh] ${
+        ref={desktopFooterRef}
+        className={`game-footer min-h-[100px] transition-all duration-300 lg:max-h-[60vh] ${
           isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
         } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
         style={{ height: widgetHeight }}
       >
         {!isMobile && (
           <div
-            className={` ${
-              isWidgetVisible ? 'cursor-row-resize' : ''
-            } game-footer-button flex items-center justify-center gap-[5px] py-[7px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-            onMouseDown={startCounter}
-            onMouseUp={stopCounter}
-            onMouseLeave={stopCounter}
+            className={`game-footer-button relative flex items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
+            // onMouseDown={startCounter}
+            // onMouseUp={stopCounter}
+            // onMouseLeave={stopCounter}
           >
+            {isWidgetVisible && (
+              <button
+                onClick={increaseHeight}
+                className="absolute left-3 top-0 min-h-[34px] cursor-pointer"
+              >
+                Increase
+              </button>
+            )}
             <span
-              className="flex cursor-pointer items-center justify-center gap-[5px]"
+              className="flex h-[34px] cursor-pointer items-center justify-center gap-[5px]"
               onClick={(e) => {
                 e.stopPropagation()
                 setWidgetVisible(!isWidgetVisible)
@@ -390,10 +441,19 @@ function Game({ isMobile }: GameProps): JSX.Element {
                 alt="caret down"
               />
             </span>
+            {isWidgetVisible && (
+              <button
+                onClick={decreaseHeight}
+                className="absolute right-3 top-0 min-h-[34px] cursor-pointer"
+              >
+                Decrease
+              </button>
+            )}
           </div>
         )}
 
         <div
+          ref={chartRef}
           className={`widget-container transition-all duration-300 ${
             isWidgetVisible
               ? 'active relative z-50 h-full lg:h-full lg:pb-0'
