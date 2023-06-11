@@ -13,7 +13,8 @@ interface GameData {
 }
 
 interface GameCardProps {
-  cardData: GameData
+  cardData: GameData,
+  toggleShow: () => void
 }
 
 interface TimeLeft {
@@ -22,7 +23,7 @@ interface TimeLeft {
   seconds: number
 }
 
-export const GameCard: React.FC<GameCardProps> = ({ cardData }) => {
+export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
   const { t } = useTranslation(['translations'])
   const targetDate = new Date('2023-06-01T00:00:00')
 
@@ -57,7 +58,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData }) => {
       className={`${cardData.status} game-card-wrapper flex min-h-[400px] min-w-[360px] max-w-[360px] flex-col items-center justify-between overflow-hidden py-10`}
     >
       <div className="game-card-header relative z-10 flex flex-col items-center">
-        <button className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green">
+        <button onClick={toggleShow} className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green">
           {t('up')}
         </button>
         <span className="text-[13px] font-semibold leading-4 text-[#5B5B5B]">
@@ -180,7 +181,9 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData }) => {
         <span className="text-[13px] font-semibold leading-4 text-[#5B5B5B]">
           2.28x <span className="font-normal">{t('payment')}</span>
         </span>
-        <button className="text-[17px] font-semibold uppercase leading-[21px] text-primary">
+        <button onClick={() => {
+          toggleShow
+        }} className="text-[17px] font-semibold uppercase leading-[21px] text-primary">
           {t('down')}
         </button>
       </div>

@@ -298,7 +298,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
           >
             {games.map((game: GameData, index: number) => (
               <SwiperSlide className="mx-auto w-full max-w-[360px]" key={index}>
-                <GameCard key={index} cardData={game} />
+                <GameCard toggleShow={toggleShow} key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -331,7 +331,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
                 className="w-full min-w-[360px] max-w-[360px]"
                 key={index}
               >
-                <GameCard key={index} cardData={game} />
+                <GameCard toggleShow={toggleShow} key={index} cardData={game} />
               </SwiperSlide>
             ))}
           </Swiper>
