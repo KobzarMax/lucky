@@ -41,3 +41,7 @@ table tbody tr:last-child {
 .table-wrapper::-webkit-scrollbar-thumb:hover {
   background: #7cca3f;
 }
+table thead th {
+  background-color: #1b1b1b;
+  z-index: 10;
+}

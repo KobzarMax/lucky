@@ -104,23 +104,23 @@ export const LeaderTable = ({ isMobile }: LeaderTableProps) => {
       <div className="overflow-x-auto">
         {!isMobile && (
           <div className="table-wrapper mx-auto my-[75.5px] h-[420px]  max-h-[420px] w-full max-w-[1162px] overflow-y-scroll">
-            <table className="w-full">
+            <table className="w-full relative border-collapse">
               <thead>
                 <tr>
-                  <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary"></th>
-                  <th className="py-[30px] pr-[45px] text-xs font-normal uppercase leading-[15px] text-primary">
+                  <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary"></th>
+                  <th className="sticky top-0 py-[30px] pr-[45px] text-xs font-normal uppercase leading-[15px] text-primary">
                     {t('user')}
                   </th>
-                  <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
+                  <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                     {t('totalWin')}
                   </th>
-                  <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
+                  <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                     {t('winChance')}
                   </th>
-                  <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
+                  <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                     {t('roundsWIn')}
                   </th>
-                  <th className="whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
+                  <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary">
                     {t('playedRounds')}
                   </th>
                 </tr>
