@@ -88,3 +88,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.game-card-wrapper {
+  transform-style: preserve-3d;
+}
+
+.card-0 {
+  transform: rotateY(0);
+}
+
+.card-180 {
+  transform: rotateY(180deg);
+}

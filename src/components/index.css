@@ -123,4 +123,7 @@
   #game + .footer {
     display: none;
   }
+  .game-footer.active {
+    height: 63vh !important;
+  }
 }

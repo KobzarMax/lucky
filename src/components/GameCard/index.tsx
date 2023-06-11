@@ -32,6 +32,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
   const [inputRangeValue, setInputRangeValue] = useState<number>(50)
   const [starting, setStarting] = useState<boolean>(false)
   const [timer, setTimer] = useState(60)
+  const [cardRotation, setCardRotation] = useState<number>(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,10 +69,12 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
 
   const togglePositionInput = () => {
     setPositionInput(!positionInput)
+    setCardRotation((rotation) => (rotation === 180 ? 0 : 180))
   }
   const toggleStarting = () => {
     setStarting(!starting)
     setPositionInput(!positionInput)
+    setCardRotation((rotation) => (rotation === 180 ? 0 : 180))
   }
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft())
@@ -89,7 +92,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
     <div
       className={`${
         starting ? '' : cardData.status
-      } game-card-wrapper flex min-h-[400px] min-w-[360px] max-w-[360px] flex-col items-center justify-between overflow-hidden py-10`}
+      } game-card-wrapper card-${cardRotation} flex min-h-[400px] min-w-[360px] max-w-[360px] flex-col items-center justify-between overflow-hidden py-10 duration-300`}
     >
       <div className="game-card-header relative z-10 flex flex-col items-center">
         {!positionInput && (
@@ -229,7 +232,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
         </div>
       )}
       {positionInput && !starting && (
-        <div className="game-card-main w-full">
+        <div className="game-card-main w-full scale-x-[-1]">
           <div>
             <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
               <div>

@@ -367,9 +367,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
                   className={` ${
                     isWidgetVisible ? 'bg-[#58585899]' : ''
                   } flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-[#2b2b2bcc]`}
-                  onClick={() => {
-                    toggleWidget
-                  }}
+                  onClick={toggleWidget}
                 >
                   <img
                     className="h-[25px] w-[25px]"
@@ -405,7 +403,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
       </div>
       <div
         ref={desktopFooterRef}
-        className={`game-footer min-h-[100px] transition-all duration-300 lg:max-h-[60vh] ${
+        className={`game-footer transition-all duration-300 lg:max-h-[60vh] lg:min-h-[100px] ${
           isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
         } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
         style={{ height: widgetHeight }}
