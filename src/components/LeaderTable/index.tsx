@@ -104,7 +104,7 @@ export const LeaderTable = ({ isMobile }: LeaderTableProps) => {
       <div className="overflow-x-auto">
         {!isMobile && (
           <div className="table-wrapper mx-auto my-[75.5px] h-[420px]  max-h-[420px] w-full max-w-[1162px] overflow-y-scroll">
-            <table className="w-full relative border-collapse">
+            <table className="relative w-full border-collapse">
               <thead>
                 <tr>
                   <th className="sticky top-0 whitespace-nowrap px-[35px] py-[30px] text-xs font-normal uppercase leading-[15px] text-primary"></th>

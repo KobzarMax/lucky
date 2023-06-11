@@ -13,7 +13,7 @@
 .game-card-wrapper {
   position: relative;
 }
-.game-card-wrapper:not(.togo)::after {
+.game-card-wrapper.active::after, .game-card-wrapper.ended::after {
   position: absolute;
   content: url('../../asset/game-card-down.svg');
   bottom: -6px;
