@@ -45,6 +45,46 @@
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
   display: none;
 }
-.swiper-button-next, .swiper-button-prev {
-  
+.game-card-main-inner .arrow {
+  filter: invert(20%) sepia(38%) saturate(826%) hue-rotate(37deg) brightness(86%) contrast(82%);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 5px;
+  background: #252525;
+  border-radius: 5px;
+  background-image: linear-gradient(#7CCA3F, #7CCA3F);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #7CCA3F;
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background .3s ease-in-out;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
