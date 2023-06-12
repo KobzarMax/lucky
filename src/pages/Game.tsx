@@ -41,7 +41,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
   const desktopFooterRef = useRef<HTMLDivElement>(null)
 
   const [isWidgetVisible, setWidgetVisible] = useState(false)
-  const windowSize = useRef([window.innerWidth, window.innerHeight])
   const [widgetHeight, setWidgetHeight] = useState<string>('216px')
 
   const toggleWidget = () => {
@@ -54,45 +53,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
     }
   }, [isWidgetVisible])
 
-  // useEffect(() => {
-  //   return () => stopCounter() // when App is unmounted we should stop counter
-  // }, [])
-
-  const mountWidgetHeight = desktopFooterRef.current?.clientHeight
-
-  // console.log(widgetHeight)
-  // console.log('mount', mountWidgetHeight)
-
-  // const [cursorDirection, setCursorDirection] = useState('');
-  // const prevYRef = useRef(null);
-
-  // useEffect(() => {
-  //   const handleMouseMove = (event) => {
-  //     const currentY = event.clientY;
-  //     const prevY = prevYRef.current;
-
-  //     if (prevY !== null && currentY !== prevY) {
-  //       if (currentY > prevY) {
-  //         setCursorDirection('down');
-  //       } else {
-  //         setCursorDirection('up');
-  //       }
-  //     }
-
-  //     prevYRef.current = currentY;
-  //   };
-
-  //   document.addEventListener('mousemove', handleMouseMove);
-
-  //   return () => {
-  //     document.removeEventListener('mousemove', handleMouseMove);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(cursorDirection)
-  // }, [cursorDirection])
-
   const increaseHeight = () => {
     if (isWidgetVisible) {
       setWidgetHeight('60vh')
@@ -104,26 +64,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
       setWidgetHeight('20vh')
     }
   }
-
-  // const startCounter = () => {
-  //   if (isWidgetVisible) {
-  //     const interval = setInterval(() => {
-  //       if (cursorDirection === 'up') {
-  //         setWidgetHeight((prevHeight) => Math.min(prevHeight + 1, MAX_HEIGHT)); // Increase height, but limit it to the maximum value
-  //       } else if (cursorDirection === 'down') {
-  //         setWidgetHeight((prevHeight) => Math.max(prevHeight - 1, MIN_HEIGHT)); // Decrease height, but limit it to the minimum value
-  //       }
-  //     }, 50);
-
-  //     return () => clearInterval(interval); // Return the clearInterval function to stop the interval when needed
-  //   }
-  // };
-
-  // const stopCounter = () => {
-  //   if (desktopFooterRef.current) {
-  //     clearInterval(desktopFooterRef.current)
-  //   }
-  // }
 
   const toggleShow = (): void => {
     setShow(!show)
@@ -411,9 +351,6 @@ function Game({ isMobile }: GameProps): JSX.Element {
         {!isMobile && (
           <div
             className={`game-footer-button relative flex items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-            // onMouseDown={startCounter}
-            // onMouseUp={stopCounter}
-            // onMouseLeave={stopCounter}
           >
             {isWidgetVisible && (
               <button
