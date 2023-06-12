@@ -21,7 +21,7 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
   return (
     <footer className="footer">
       {!isGameRoute && (
-        <div className="footer-nav-wrapper grid grid-cols-2 pb-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:py-[13px] lg:pl-[77px] lg:pr-[74px]">
+        <div className="footer-nav-wrapper grid grid-cols-2 pb-[100px] pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:py-[13px] lg:pb-5 lg:pl-[77px] lg:pr-[74px]">
           <Link className="logo" to={'/'}>
             <img
               className="max-w-[95px]"
@@ -31,19 +31,19 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
           </Link>
           <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'terms'}
             >
               {t('termsOfUse')}
             </Link>
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'privacy'}
             >
               {t('privacyPolicy')}
             </Link>
             <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
+              className="text-dark_gray text-[15px] leading-[15px]"
               to={'affiliate'}
             >
               {t('affiliateProgram')}
