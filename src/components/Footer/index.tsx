@@ -21,7 +21,7 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
   return (
     <footer className="footer">
       {!isGameRoute && (
-        <div className="footer-nav-wrapper grid grid-cols-2 pb-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:pb-0 lg:pl-[77px] lg:pr-[74px]">
+        <div className="footer-nav-wrapper grid grid-cols-2 pb-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:py-[13px] lg:pl-[77px] lg:pr-[74px]">
           <Link className="logo" to={'/'}>
             <img
               className="max-w-[95px]"

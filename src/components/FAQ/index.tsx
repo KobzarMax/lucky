@@ -85,7 +85,7 @@ export const FAQ = (): JSX.Element => {
             </div>
             <p
               ref={(el) => (contentRefs.current[index] = el)}
-              className="text-[15px] leading-[18px] text-white"
+              className='text-[15px] leading-[18px] text-white'
               style={{
                 maxHeight:
                   openIndex === index

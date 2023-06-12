@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import illustration from '../asset/mobile-illlustration.png'
+import illustration from '../asset/illustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
 import LatestGames from '@/components/LatestGames'
 import { HowItWorks } from '@/components/HowItWorks'
