@@ -59,7 +59,7 @@ export const EarnPartner = ({
           <span className="text-primary">{t('partner')}</span> ?
         </h2>
         <p className="mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px]">
-          <span className="text-primary font-bold">
+          <span className="font-bold text-primary">
             {' '}
             {t('earnLikePartnerSubtitle1')}
           </span>{' '}
@@ -70,7 +70,7 @@ export const EarnPartner = ({
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden">
+      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-hidden overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}
