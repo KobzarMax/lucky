@@ -49,8 +49,23 @@
           animation-timing-function: linear;
   -webkit-animation-name: ticker;
           animation-name: ticker;
-  -webkit-animation-duration: 30s; /* Adjust the duration to control the speed */
-          animation-duration: 30s; /* Adjust the duration to control the speed */
+  -webkit-animation-duration: 15s; /* Adjust the duration to control the speed */
+          animation-duration: 15s; /* Adjust the duration to control the speed */
+}
+
+@media (min-width: 1024px) {
+  .ticker-wrap .ticker {
+    white-space: nowrap;
+    box-sizing: content-box;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+            animation-name: ticker;
+    -webkit-animation-duration: 30s; /* Adjust the duration to control the speed */
+            animation-duration: 30s; /* Adjust the duration to control the speed */
+  }
 }
 
 .ticker-wrap .ticker__item {
