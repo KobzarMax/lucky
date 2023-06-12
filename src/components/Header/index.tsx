@@ -21,6 +21,8 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
 
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
 
+  console.log(headerView)
+
   const { isMobile } = useAppSelector(selectPlatform)
 
   useEffect(() => {
@@ -40,6 +42,7 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
       const scrolledContentHeight = window.innerHeight >= 1000 // Modify this condition as needed
       if (scrolledContentHeight) {
         setHeaderView(true)
+        console.log('scrolled')
       } else {
         setHeaderView(false)
       }

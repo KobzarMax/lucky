@@ -11,8 +11,6 @@ interface FAQItem {
 export const FAQ = (): JSX.Element => {
   const { t } = useTranslation(['translations'])
 
-  console.log('t',t)
-
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const contentRefs = useRef<(HTMLParagraphElement | null)[]>([])
 
@@ -85,7 +83,7 @@ export const FAQ = (): JSX.Element => {
             </div>
             <p
               ref={(el) => (contentRefs.current[index] = el)}
-              className='text-[15px] leading-[18px] text-white'
+              className="text-[15px] leading-[18px] text-white"
               style={{
                 maxHeight:
                   openIndex === index

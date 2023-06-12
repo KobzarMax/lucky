@@ -11,17 +11,21 @@ import { FAQ } from '@/components/FAQ'
 import { Timer } from '@/components/Timer'
 import 'flowbite'
 
-function Home({ isMobile, onEarnPartnerInViewChange }: any) {
+function Home({
+  isMobile,
+  onEarnPartnerInViewChange,
+  onHowItWorksInViewChange
+}: any) {
   const { t } = useTranslation(['translations'])
 
-  const handleEarnPartnerInViewChange = (inView: string) => {
+  const handleEarnPartnerInViewChange = (inView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
     onEarnPartnerInViewChange(inView)
   }
 
-  const handleHowItWorksInViewChange = (inHowView: string) => {
+  const handleHowItWorksInViewChange = (inHowView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
-    handleHowItWorksInViewChange(inHowView)
+    onHowItWorksInViewChange(inHowView)
   }
 
   return (
@@ -48,7 +52,7 @@ function Home({ isMobile, onEarnPartnerInViewChange }: any) {
             </button>
           </div>
         </div>
-        <div className="relative w-[108%] lg:w-full">
+        <div className="relative w-[108%] lg:w-full 2xl:w-[1000px]">
           <img
             className="absolute right-[14px] top-[-128px] w-[108%] lg:right-0 lg:top-0 lg:w-full"
             src={isMobile ? mobileIllustration : illustration}
@@ -60,7 +64,7 @@ function Home({ isMobile, onEarnPartnerInViewChange }: any) {
       </div>
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
-      {/* <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} /> */}
+      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
       <CTA />
       <News />
       <FAQ />
