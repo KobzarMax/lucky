@@ -13,7 +13,7 @@ import 'flowbite'
 function Home({
   isMobile,
   onEarnPartnerInViewChange,
-
+  onHowItWorksInViewChange
 }: any) {
   const { t } = useTranslation(['home'])
 
@@ -22,9 +22,9 @@ function Home({
     onEarnPartnerInViewChange(inView)
   }
 
-  const handleHowItWorksInViewChange = (inHowView: string) => {
+  const handleHowItWorksInViewChange = (inHowView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
-    handleHowItWorksInViewChange(inHowView)
+    onHowItWorksInViewChange(inHowView)
   }
 
   return (
@@ -66,7 +66,7 @@ function Home({
       </div>
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
-      {/* <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} /> */}
+      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
       <CTA />
       <News />
       <FAQ />

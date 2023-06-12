@@ -15,7 +15,7 @@ function Footer({ isMobile }: platform) {
   const { t } = useTranslation(['home'])
   return (
     <footer className="footer">
-      <div className="footer-nav-wrapper grid grid-cols-2 py-[20px]  pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between  lg:pl-[77px] lg:pr-[74px]">
+      <div className="footer-nav-wrapper pb-[90px] lg:pb-5 grid grid-cols-2 py-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between  lg:pl-[77px] lg:pr-[74px]">
         <Link className="logo" to={'/'}>
           <img
             className="max-w-[95px]"
