@@ -21,8 +21,6 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
 
   const [headerView, setHeaderView] = useState<boolean>(howVisible)
 
-  console.log(headerView)
-
   const { isMobile } = useAppSelector(selectPlatform)
 
   useEffect(() => {
@@ -42,7 +40,6 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
       const scrolledContentHeight = window.innerHeight >= 1000 // Modify this condition as needed
       if (scrolledContentHeight) {
         setHeaderView(true)
-        console.log('scrolled')
       } else {
         setHeaderView(false)
       }
@@ -68,7 +65,7 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
   return (
     <header
       className={`${
-        headerView ? 'sticky' : 'unStiky'
+        howVisible ? 'sticky' : 'unStiky'
       } header flex min-h-[64px] w-full items-center`}
     >
       <div className="flex w-full items-center justify-between px-[13px] py-0 lg:px-[75px]">

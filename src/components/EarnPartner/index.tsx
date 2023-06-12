@@ -51,15 +51,15 @@ export const EarnPartner = ({
   return (
     <div
       ref={ref}
-      className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]"
+      className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mx-auto lg:mt-[100px] lg:max-w-[1165px] lg:flex-row"
     >
-      <div className="max-w-full">
+      <div className="w-full max-w-full">
         <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span> ?
         </h2>
         <p className="mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px]">
-          <span className="font-bold text-primary">
+          <span className="text-primary font-bold">
             {' '}
             {t('earnLikePartnerSubtitle1')}
           </span>{' '}
@@ -70,7 +70,7 @@ export const EarnPartner = ({
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:justify-center lg:gap-5 lg:overflow-x-hidden">
+      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}

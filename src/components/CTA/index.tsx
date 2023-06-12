@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 export const CTA = () => {
   const { t } = useTranslation(['translations'])
   return (
-    <div className="cta mt-[110px] flex flex-col items-center justify-center lg:mt-[86px]">
+    <div className="cta mt-[110px] flex flex-col items-center justify-center lg:mx-[-78px] lg:mt-[50px] lg:py-9">
       <h2 className="mx-auto mb-[15px] max-w-[565px] text-center text-xl font-semibold leading-6 text-white lg:mb-[20px] lg:text-[25px] lg:font-bold lg:leading-[30px]">
         {t('firstSubscribers')}{' '}
         <span className="text-primary">{t('bonus')}</span>{' '}
