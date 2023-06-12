@@ -57,7 +57,9 @@ export const FAQ = (): JSX.Element => {
         {faqItems.map((faqItem, index) => (
           <div
             key={index}
-            className="faq-item w-full rounded-[10px] px-2.5 lg:px-5"
+            className={`faq-item w-full rounded-[10px] px-2.5 lg:px-5 ${
+              openIndex === index ? 'pb-[17px]' : 'pb-0'
+            }`}
           >
             <div
               className="flex cursor-pointer items-center justify-between py-[17px]"
@@ -83,7 +85,7 @@ export const FAQ = (): JSX.Element => {
             </div>
             <p
               ref={(el) => (contentRefs.current[index] = el)}
-              className="text-[15px] leading-[18px] text-white"
+              className={`text-[15px] leading-[18px] text-white`}
               style={{
                 maxHeight:
                   openIndex === index
