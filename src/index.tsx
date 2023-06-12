@@ -2,11 +2,11 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createRoot } from 'react-dom/client'
 import 'tailwindcss/tailwind.css'
-import { store } from 'redux/store'
-import App from 'components/App'
+import { store } from './redux/store'
+import App from './components/App'
 import './components/index.css'
 
-import './public/i18n/i18n'
+import './components/i18n'
 
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 

@@ -12,6 +12,13 @@
 @import url('../components/Chain/index.css');
 @import url('../components/TranslateControl/index.css');
 @import url('../components/Nav/index.css');
+@import url('../components/TopPlaces/index.css');
+@import url('../components/LeaderTable/index.css');
+@import url('../components/GameTimer/index.css');
+@import url('../components/GameCard/index.css');
+@import url('../components/Aside/index.css');
+@import url('../components/AsideRound/index.css');
+@import url('../components/Win/index.css');
 
 * {
   padding: 0;
@@ -38,4 +45,85 @@
 .sticky-outer-wrapper.active {
   position: relative;
   width: 100%;
+}
+
+.positive .total {
+  color: #7cca3f;
+  position: relative;
+}
+.text-basic {
+  font-size: 15px !important;
+  line-height: 18px !important;
+}
+.negative .total {
+  color: #ff1b5e;
+  position: relative;
+}
+
+.positive .total::before {
+  color: #7cca3f;
+  content: '+';
+  position: absolute;
+  display: block;
+  left: -8px;
+  top: 1px;
+}
+.negative .total::before {
+  color: #ff1b5e;
+  content: '-';
+  position: absolute;
+  display: block;
+  left: -7px;
+  top: 0px;
+}
+
+.swiper-button img {
+  filter: invert(80%) sepia(98%) saturate(2593%) hue-rotate(214deg)
+    brightness(101%) contrast(92%);
+}
+
+#game .ticker-wrap .ticker__item {
+  display: flex;
+  min-width: 211px;
+  background: linear-gradient(
+      90.03deg,
+      rgba(255, 27, 94, 0.02) 0%,
+      rgba(33, 27, 37, 0) 14.14%
+    ),
+    rgba(24, 24, 24, 0.6);
+  padding: 8px 10px;
+  border-radius: 15px;
+}
+@media (max-width: 572px) {
+  #game .swiper-slide-active {
+    z-index: 50;
+    position: relative;
+  }
+  #game .swiper-slide:not(.swiper-slide-active) {
+    filter: blur(5px);
+  }
+}
+#game .swiper {
+  padding: 0 12px 0 13px;
+}
+
+@media (min-width: 1024px) {
+  #game .swiper {
+    padding: 0 0 126px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .swiper.hidden {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #game + .footer {
+    display: none;
+  }
+  .game-footer.active {
+    height: 63vh !important;
+  }
 }

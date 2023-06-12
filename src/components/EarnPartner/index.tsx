@@ -2,13 +2,19 @@ import createAccount from 'asset/UserCirclePlus.svg'
 import wallet from 'asset/wallet.svg'
 import coins from 'asset/coins.svg'
 import { useTranslation } from 'react-i18next'
-import { TelegramButton } from 'components/TelegramButton'
-import { DocumentsButton } from 'components/DocumentsButton'
+import { TelegramButton } from '@/components/TelegramButton'
+import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
 
-export const EarnPartner = ({ onEarnPartnerInViewChange }: any) => {
-  const { t } = useTranslation(['home'])
+interface EarnPartnerProps {
+  onEarnPartnerInViewChange: (inView: boolean) => void
+}
+
+export const EarnPartner = ({
+  onEarnPartnerInViewChange
+}: EarnPartnerProps): JSX.Element => {
+  const { t } = useTranslation(['translations'])
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -19,7 +25,13 @@ export const EarnPartner = ({ onEarnPartnerInViewChange }: any) => {
     onEarnPartnerInViewChange(inView)
   }, [inView, onEarnPartnerInViewChange])
 
-  const partnerPosibilities = [
+  interface PartnerPosibility {
+    icon: string
+    title: string
+    text: string
+  }
+
+  const partnerPosibilities: PartnerPosibility[] = [
     {
       icon: createAccount,
       title: t('createYourAccount'),
@@ -36,6 +48,7 @@ export const EarnPartner = ({ onEarnPartnerInViewChange }: any) => {
       text: t('startBuildPortfolioSubtitle')
     }
   ]
+
   return (
     <div
       ref={ref}

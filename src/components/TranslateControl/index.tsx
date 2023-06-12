@@ -1,39 +1,30 @@
 import globe from '../../asset/globe.svg'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-interface platform {
+type TranslateControlsProps = {
   isMobile: boolean
 }
 
-
-export const TranslateControls = ({ isMobile }: platform) => {
-  const { i18n } = useTranslation(['home'])
+export const TranslateControls: React.FC<TranslateControlsProps> = ({
+  isMobile
+}) => {
+  const { t, i18n } = useTranslation(['translations'])
   const [languageView, setLanguageView] = useState(false)
-  const languages = ['en', 'ru']
+  const languages: string[] = ['en', 'ru']
   const [language, setLanguage] = useState(languages[0])
-  const toggleLanguage = (
-    event: React.MouseEvent<HTMLParagraphElement>
-  ): void => {
-    const target = event.target as HTMLElement
-    const parentNode = target.parentNode as HTMLElement
-    if (parentNode.classList.contains('languages')) {
-      if (target.innerHTML === 'English') {
-        i18n.changeLanguage('en')
-        setLanguage('en')
-      } else if (target.innerHTML === 'Русский') {
-        i18n.changeLanguage('ru')
-        setLanguage('ru')
-      }
-    }
-    setLanguageView(!languageView)
+
+  const toggleLanguage = (selectedLanguage: string): void => {
+    i18n
+      .changeLanguage(selectedLanguage)
+      .then(() => setLanguage(selectedLanguage))
+      .catch((error) => {
+        console.error('Failed to change language:', error)
+      })
   }
 
   return (
-    <div
-      className="languages-wrapper relative mr-[18px] flex items-center justify-start lg:mr-[30px]"
-      onClick={toggleLanguage}
-    >
+    <div className="languages-wrapper relative mr-[18px] flex items-center justify-start lg:mr-[30px]">
       <img className="mr-[5px]" src={globe} alt="globe" />
       {!isMobile && (
         <p className="cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
@@ -43,14 +34,14 @@ export const TranslateControls = ({ isMobile }: platform) => {
       <div className="languages absolute -right-[30px] top-full rounded-md p-2 lg:-right-6">
         <div className="languages-inner">
           <p
-            className="mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
-            onClick={toggleLanguage}
+            className="en mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
+            onClick={() => toggleLanguage('en')}
           >
             English
           </p>
           <p
-            className="cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
-            onClick={toggleLanguage}
+            className="ru cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
+            onClick={() => toggleLanguage('ru')}
           >
             Русский
           </p>

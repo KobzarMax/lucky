@@ -10,7 +10,7 @@ import { polygonMumbai } from 'wagmi/chains'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import creditcard from 'asset/creditcard.svg'
+import creditcard from '../asset/creditcard.svg'
 
 interface platform {
   isMobile: boolean

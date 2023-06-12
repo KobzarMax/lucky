@@ -2,7 +2,7 @@ import telegram from '../../asset/TelegramLinkLogo.svg'
 import { useTranslation } from 'react-i18next'
 
 export const TelegramButton = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   return (
     <a
       href="https://t.me/luckyham"

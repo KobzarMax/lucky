@@ -1,14 +1,14 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import chartup from 'asset/chartup.svg'
-import chartdown from 'asset/chartdown.svg'
-import arrowup from 'asset/arrowup.svg'
-import avatar from 'asset/hamster.png'
-import down from 'asset/down.svg'
-import border from 'asset/latest-games-border.svg'
+import chartup from '../../asset/chartup.svg'
+import chartdown from '../../asset/chartdown.svg'
+import arrowup from '../../asset/arrowup.svg'
+import avatar from '../../asset/hamster.png'
+import down from '../../asset/down.svg'
+import border from '../../asset/latest-games-border.svg'
 
 const LatestGames: React.FC = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const latestGames = [
     {
       id: '0x139812hud1',

@@ -1,5 +1,5 @@
 import react from 'react'
-import { useCountdown } from 'hooks/useCountdown'
+import { useCountdown } from '../../hooks/useCountdown'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
 
@@ -8,14 +8,14 @@ const hourSeconds = 3600
 const daySeconds = 86400
 
 export const CountDown = () => {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
   const [days, hours, minutes, seconds] = useCountdown('07/01/2023')
   const daysDuration = days * daySeconds
 
   const stratTime = Date.now()
   const targetDate = new Date('07/01/2023')
 
-  const diffTime = Math.abs(targetDate as any - stratTime) / 1000
+  const diffTime = Math.abs((targetDate as any) - stratTime) / 1000
 
   const endTime = stratTime + diffTime
 
