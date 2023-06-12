@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { CountDown } from 'components/Countdown'
+import { CountDown } from '@/components/Countdown'
 
 export const Timer = () => {
   const { t } = useTranslation(['translations'])

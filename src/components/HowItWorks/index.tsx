@@ -19,7 +19,7 @@ export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
   const descriptions = [
     {
       icon: transparency,
-      title: t('tranparency'),
+      title: t('transperancy'),
       text: 'Full transparency and honesty in our decentralized blockchain game. The results are stored on the public blockchain for verification. No manipulation or rigging - just fair play.'
     },
     {

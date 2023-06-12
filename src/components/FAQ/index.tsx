@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useRef, useEffect } from 'react'
-import caretDown from 'asset/CaretDown.svg'
-import questionCircle from 'asset/faqicon.svg'
+import caretDown from '@/asset/CaretDown.svg'
+import questionCircle from '@/asset/faqicon.svg'
 
 interface FAQItem {
   title: string
@@ -10,6 +10,8 @@ interface FAQItem {
 
 export const FAQ = (): JSX.Element => {
   const { t } = useTranslation(['translations'])
+
+  console.log('t',t)
 
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const contentRefs = useRef<(HTMLParagraphElement | null)[]>([])

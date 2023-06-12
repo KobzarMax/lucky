@@ -19,6 +19,8 @@
     "dayjs": "^1.11.7",
     "flowbite": "^1.6.5",
     "i18next": "^22.4.15",
+    "i18next-browser-languagedetector": "^7.0.2",
+    "i18next-http-backend": "^2.2.1",
     "rainbow": "^2.4.1",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",

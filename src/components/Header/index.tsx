@@ -8,6 +8,9 @@ import coin from '../../asset/coin.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
 
+import { useAppSelector } from '@/redux/hooks'
+import { selectPlatform } from '@/features/global/globalSlice'
+
 interface HeaderProps {
   howVisible: boolean
 }

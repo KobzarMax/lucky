@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
-import liquidity from 'asset/CurrencyCircleDollar.svg'
-import win from 'asset/Trophy.svg'
-import dots from 'asset/DotsThreeOutline.svg'
-import signOut from 'asset/SignOut.svg'
-import gear from 'asset/gear.svg'
-import play from 'asset/Play.svg'
+import liquidity from '@/asset/CurrencyCircleDollar.svg'
+import win from '@/asset/Trophy.svg'
+import dots from '@/asset/DotsThreeOutline.svg'
+import signOut from '@/asset/SignOut.svg'
+import gear from '@/asset/gear.svg'
+import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 
