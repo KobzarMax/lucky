@@ -51,9 +51,9 @@ export const EarnPartner = ({
   return (
     <div
       ref={ref}
-      className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:px-[100px]"
+      className="relative mt-[104px] lg:mx-auto flex flex-col items-start justify-between px-0 lg:mt-[100px] lg:flex-row lg:max-w-[1165px]"
     >
-      <div className="max-w-full">
+      <div className="max-w-full lg:w-full">
         <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span> ?
@@ -70,7 +70,7 @@ export const EarnPartner = ({
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:justify-center lg:gap-5 lg:overflow-x-hidden">
+      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden">
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}

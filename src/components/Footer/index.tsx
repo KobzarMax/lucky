@@ -21,14 +21,15 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
   return (
     <footer className="footer">
       {!isGameRoute && (
-        <div className="footer-nav-wrapper grid grid-cols-2 pb-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between lg:pb-0 lg:pl-[77px] lg:pr-[74px]">
-          <Link className="logo" to={'/'}>
-            <img
-              className="max-w-[95px]"
-              src={isMobile ? mobileLogo : logo}
-              alt="lucky hamster logo"
-            />
-          </Link>
+      <div className="footer-nav-wrapper pb-[90px] lg:pb-5 grid grid-cols-2 py-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between  lg:pl-[77px] lg:pr-[74px]">
+        <Link className="logo" to={'/'}>
+          <img
+            className="max-w-[95px]"
+            src={isMobile ? mobileLogo : logo}
+            alt="lucky hamster logo"
+          />
+        </Link>
+        <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
           <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
             <Link
               className="text-[15px] leading-[15px] text-dark_gray"
@@ -82,6 +83,7 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
             </a>
           </div>
         </div>
+      </div>
       )}
     </footer>
   )

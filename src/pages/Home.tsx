@@ -11,17 +11,22 @@ import { FAQ } from '@/components/FAQ'
 import { Timer } from '@/components/Timer'
 import 'flowbite'
 
-function Home({ isMobile, onEarnPartnerInViewChange }: any) {
-  const { t } = useTranslation(['translations'])
 
-  const handleEarnPartnerInViewChange = (inView: string) => {
+function Home({
+  isMobile,
+  onEarnPartnerInViewChange,
+  onHowItWorksInViewChange
+}: any) {
+  const { t } = useTranslation(['home'])
+
+  const handleEarnPartnerInViewChange = (inView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
     onEarnPartnerInViewChange(inView)
   }
 
-  const handleHowItWorksInViewChange = (inHowView: string) => {
+  const handleHowItWorksInViewChange = (inHowView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
-    handleHowItWorksInViewChange(inHowView)
+    onHowItWorksInViewChange(inHowView)
   }
 
   return (
@@ -60,7 +65,7 @@ function Home({ isMobile, onEarnPartnerInViewChange }: any) {
       </div>
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />
-      {/* <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} /> */}
+      <EarnPartner onEarnPartnerInViewChange={handleHowItWorksInViewChange} />
       <CTA />
       <News />
       <FAQ />

@@ -86,8 +86,8 @@ export const News = () => {
             className="news-article h-[475px] max-w-[283px] lg:max-w-[365px]"
             key={index}
           >
-            <div>
-              <img src={article.image} alt="article image" />
+            <div className="max-h-[195px] overflow-hidden">
+              <img className="h-full object-cover" src={article.image} alt="article image" />
             </div>
             <div className="px-2 pb-[47px] pt-2.5 lg:px-2.5">
               <p className="mb-[5px] text-[13px] font-bold leading-4 text-white lg:text-[17px] lg:leading-[21px]">
