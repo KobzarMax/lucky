@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import prohibit from '../../asset/Prohibit.svg'
 import arrow from '../../asset/arrowup.svg'
 import play from '../../asset/PlayCircle.svg'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import bnb from '../../asset/BNB.svg'
 import clock from '../../asset/Clock.svg'
 
@@ -33,6 +33,8 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
   const [starting, setStarting] = useState<boolean>(false)
   const [timer, setTimer] = useState(60)
   const [cardRotation, setCardRotation] = useState<number>(0)
+  const positionInputRef = useRef<HTMLDivElement>(null)
+  const [positionInputValue, setPositionInputValue] = useState<string>('')
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,15 +69,39 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
     return timeLeft
   }
 
-  const togglePositionInput = () => {
+  const togglePositionInput = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const value = event.currentTarget.value
     setPositionInput(!positionInput)
     setCardRotation((rotation) => (rotation === 180 ? 0 : 180))
+    setPositionInputValue(value)
   }
   const toggleStarting = () => {
     setStarting(!starting)
     setPositionInput(!positionInput)
     setCardRotation((rotation) => (rotation === 180 ? 0 : 180))
   }
+
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        positionInputRef.current &&
+        positionInput === true &&
+        !positionInputRef.current.contains(event.target as Node)
+      ) {
+        setPositionInput(false)
+        setCardRotation(0)
+      }
+    },
+    [positionInput]
+  )
+
+  useEffect(() => {
+    window.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [handleClickOutside])
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft())
 
@@ -99,7 +125,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
           <>
             <button
               onClick={toggleShow}
-              className="text-dark_green text-[17px] font-semibold uppercase leading-[21px]"
+              className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green"
             >
               {t('up')}
             </button>
@@ -126,10 +152,10 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                   {t('lastPrice')}
                 </p>
                 <div className="flex items-center justify-between">
-                  <p className="text-primary text-xl font-bold uppercase leading-6">
+                  <p className="text-xl font-bold uppercase leading-6 text-primary">
                     {cardData.lastPrice}
                   </p>
-                  <div className="bg-primary flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
+                  <div className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
                     <img className="rotate-180" src={arrow} alt="arrow" />{' '}
                     $-0.0040
                   </div>
@@ -152,7 +178,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
             <div>
               <div className="mt-3 flex items-center justify-center gap-[5px]">
                 <img src={play} alt="play" />
-                <span className="text-dark_green mr-[5px] text-[13px] font-semibold uppercase leading-4">
+                <span className="mr-[5px] text-[13px] font-semibold uppercase leading-4 text-dark_green">
                   {t('active')}
                 </span>
                 <div className="flex items-center justify-center gap-[5px]">
@@ -168,17 +194,17 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                 </div>
               </div>
               <div
-                className={`after:bg-dark_green relative mx-auto my-2.5 h-[5px] max-w-[298px] bg-[#252525] after:absolute after:left-0 after:top-0 after:z-10 after:block after:h-[5px] after:w-[208px] after:max-w-[298px] after:content-['']`}
+                className={`relative mx-auto my-2.5 h-[5px] max-w-[298px] bg-[#252525] after:absolute after:left-0 after:top-0 after:z-10 after:block after:h-[5px] after:w-[208px] after:max-w-[298px] after:bg-dark_green after:content-['']`}
               ></div>
               <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
                 <p className="mb-[5px] text-xs font-semibold uppercase leading-[15px] text-[#464646]">
                   {t('lastPrice')}
                 </p>
                 <div className="flex items-center justify-between">
-                  <p className="text-primary text-xl font-bold uppercase leading-6">
+                  <p className="text-xl font-bold uppercase leading-6 text-primary">
                     {cardData.lastPrice}
                   </p>
-                  <div className="bg-primary flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
+                  <div className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
                     <img className="rotate-180" src={arrow} alt="arrow" />{' '}
                     $-0.0040
                   </div>
@@ -212,13 +238,15 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                 </div>
                 <button
                   onClick={togglePositionInput}
-                  className="bg-dark_green my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  value={'up'}
+                  className="my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-dark_green py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
                 >
                   {t('takeUp')} <img src={arrow} alt="arrow" />
                 </button>
                 <button
                   onClick={togglePositionInput}
-                  className="bg-primary flex w-full items-center justify-center gap-[5px] rounded-[5px] py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  value={'down'}
+                  className="flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-primary py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
                 >
                   {t('takeDown')}{' '}
                   <img className="rotate-180" src={arrow} alt="arrow" />
@@ -232,25 +260,37 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
         </div>
       )}
       {positionInput && !starting && (
-        <div className="game-card-main w-full scale-x-[-1]">
+        <div
+          ref={positionInputRef}
+          className="game-card-main w-full scale-x-[-1]"
+        >
           <div>
             <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
               <div>
                 <div className="flex items-center justify-between">
                   <p className="text-[17px] font-semibold leading-[21px] text-white">
-                    Определение позиции
+                    {t('choosePosition')}
                   </p>
-                  <div className="flex items-center justify-start gap-[5px]">
+                  <div
+                    className={`${positionInputValue} flex items-center justify-start gap-[5px]`}
+                  >
                     <img className="arrow" src={arrow} alt="arrow" />
-                    <span className="text-dark_green text-[17px] font-semibold leading-[21px]">
-                      ВВЕРХ
-                    </span>
+                    {positionInputValue === 'up' && (
+                      <span className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green">
+                        {t('up')}
+                      </span>
+                    )}
+                    {positionInputValue === 'down' && (
+                      <span className="text-[17px] font-semibold uppercase leading-[21px] text-primary">
+                        {t('down')}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="mt-[15px]">
                   <div className="mb-[5px] flex items-end justify-between">
                     <span className="text-xs leading-[15px] text-[#757575]">
-                      Ставка
+                      {t('bid')}
                     </span>
                     <img src={bnb} alt="bnb" />
                   </div>
@@ -261,7 +301,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                       placeholder="0.0"
                     />
                     <p className="mt-[5px] text-right text-xs leading-[15px] text-[#757575]">
-                      Баланс: $2 000
+                      {t(`balance`)}: $2 000
                     </p>
                   </div>
                 </div>
@@ -310,13 +350,12 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                 </div>
                 <button
                   onClick={toggleStarting}
-                  className="bg-dark_green my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  className="my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-dark_green py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
                 >
-                  Подключить кошелек
+                  {t('connectWallet')}
                 </button>
                 <p className="mt-[5px] text-xs leading-[15px] text-[#757575]">
-                  Вы не сможете удалить или поменять свою позицию после того,
-                  как её займете.
+                  {t('connectWithInput')}
                 </p>
               </div>
             </div>
@@ -357,7 +396,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
               onClick={() => {
                 toggleShow
               }}
-              className="text-primary text-[17px] font-semibold uppercase leading-[21px]"
+              className="text-[17px] font-semibold uppercase leading-[21px] text-primary"
             >
               {t('down')}
             </button>

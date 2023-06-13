@@ -40,7 +40,7 @@ export const News = () => {
     null
   )
   return (
-    <div className="news relative mt-[7.5rem] lg:mt-24">
+    <div className="news relative mt-[7.5rem] lg:mt-[60px]">
       <h2 className="mb-[31px] text-center text-[25px] font-bold leading-[30px] text-white">
         {t('news')}
       </h2>
@@ -49,7 +49,7 @@ export const News = () => {
           <img
             src={arrow}
             alt="slide arrow"
-            className="w-6 -rotate-90 lg:w-full"
+            className="h-[183px] w-6 -rotate-90 lg:w-full"
           />
         </div>
         <div className="swiper-button news-swiper-button-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
@@ -83,13 +83,17 @@ export const News = () => {
       >
         {news.map((article, index) => (
           <SwiperSlide
-            className="news-article h-[475px] max-w-[283px] lg:max-w-[365px]"
+            className="news-article flex min-h-[371px] w-full flex-col items-center justify-center lg:min-h-[475px] lg:max-w-[365px] "
             key={index}
           >
-            <div className="max-h-[195px] overflow-hidden">
-              <img className="h-full object-cover" src={article.image} alt="article image" />
+            <div className="mx-auto w-full max-w-[285px] lg:h-[250px] lg:max-w-[365px]">
+              <img
+                className="h-[183px] w-full max-w-[285px] object-cover lg:h-[250px] lg:max-w-[365px]"
+                src={article.image}
+                alt="article image"
+              />
             </div>
-            <div className="px-2 pb-[47px] pt-2.5 lg:px-2.5">
+            <div className="mx-auto max-w-[285px] px-2 pb-[47px] pt-2.5 lg:max-w-[365px] lg:px-2.5">
               <p className="mb-[5px] text-[13px] font-bold leading-4 text-white lg:text-[17px] lg:leading-[21px]">
                 {article.title}
               </p>

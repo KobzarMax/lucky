@@ -1,5 +1,17 @@
 .cta {
-  background-image: url('../../asset/cta-bg.svg');
+  background-image: url('../../asset/our-telegram-bg.svg');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.cta::after {
+  position: absolute;
+  content: url('../../asset/cta-bg.svg');
+  left: 0;
+  right: 0;
+  top: 16px;
+  margin: 0 auto;
+  width: 168px;
+  height: 168px;
 }

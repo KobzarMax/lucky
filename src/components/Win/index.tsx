@@ -12,7 +12,7 @@ export const Win = ({ show, toggleShow }: WinProps) => {
       <Confetti />
       <div className="win-item">
         <p className="text-basic mb-2.5 font-semibold text-dark_green">
-          Ты выиграл!
+          You won!
         </p>
         <p className="max-w-[157px] text-center text-[13px] font-medium leading-4 text-white">
           It’s BNB Smart Chain only feature

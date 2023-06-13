@@ -19,71 +19,72 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
   const isGameRoute = location.pathname === '/game'
 
   return (
-    <footer className="footer">
+    <footer className={`${isGameRoute ? 'hidden' : ''} footer`}>
       {!isGameRoute && (
-      <div className="footer-nav-wrapper pb-[90px] lg:pb-5 grid grid-cols-2 py-5 pl-[13px] pr-[12px] lg:flex lg:items-center lg:justify-between  lg:pl-[77px] lg:pr-[74px]">
-        <Link className="logo" to={'/'}>
-          <img
-            className="max-w-[95px]"
-            src={isMobile ? mobileLogo : logo}
-            alt="lucky hamster logo"
-          />
-        </Link>
         <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
-          <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
-            <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
-              to={'terms'}
-            >
-              {t('termsOfUse')}
-            </Link>
-            <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
-              to={'privacy'}
-            >
-              {t('privacyPolicy')}
-            </Link>
-            <Link
-              className="text-[15px] leading-[15px] text-dark_gray"
-              to={'affiliate'}
-            >
-              {t('affiliateProgram')}
-            </Link>
-          </div>
-          <div className="social-links flex items-center justify-end gap-[15px] lg:justify-start">
-            <a
-              href="#"
-              className="flex h-[25px] w-[25px] items-center justify-center"
-            >
+          <div className="footer-nav-wrapper grid w-full grid-cols-2 pb-[100px] pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]">
+            <Link className="logo" to={'/'}>
               <img
-                className="h-[25px] w-[25px]"
-                src={twitter}
-                alt="twitter link"
+                className="max-w-[95px]"
+                src={isMobile ? mobileLogo : logo}
+                alt="lucky hamster logo"
               />
-            </a>
-            <a
-              href="#"
-              className="flex h-[25px] w-[25px] items-center justify-center"
-            >
-              <img
-                className="h-[25px] w-[25px]"
-                src={telegram}
-                alt="telegram link"
-              />
-            </a>
-            <a
-              href="#"
-              className="flex h-[25px] w-[25px] items-center justify-center"
-            >
-              <img
-                className="h-[25px] w-[25px]"
-                src={discord}
-                alt="discord link"
-              />
-            </a>
+            </Link>
+
+            <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
+              <Link
+                className="text-[15px] leading-[15px] text-dark_gray"
+                to={'terms'}
+              >
+                {t('termsOfUse')}
+              </Link>
+              <Link
+                className="text-[15px] leading-[15px] text-dark_gray"
+                to={'privacy'}
+              >
+                {t('privacyPolicy')}
+              </Link>
+              <Link
+                className="text-[15px] leading-[15px] text-dark_gray"
+                to={'affiliate'}
+              >
+                {t('affiliateProgram')}
+              </Link>
+            </div>
+            <div className="social-links flex items-center justify-end gap-[15px] lg:justify-start">
+              <a
+                href="#"
+                className="flex h-[25px] w-[25px] items-center justify-center"
+              >
+                <img
+                  className="h-[25px] w-[25px]"
+                  src={twitter}
+                  alt="twitter link"
+                />
+              </a>
+              <a
+                href="#"
+                className="flex h-[25px] w-[25px] items-center justify-center"
+              >
+                <img
+                  className="h-[25px] w-[25px]"
+                  src={telegram}
+                  alt="telegram link"
+                />
+              </a>
+              <a
+                href="#"
+                className="flex h-[25px] w-[25px] items-center justify-center"
+              >
+                <img
+                  className="h-[25px] w-[25px]"
+                  src={discord}
+                  alt="discord link"
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       )}
     </footer>
   )

@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import translationsEN from '../public/locales/en/translations.json'
-import translationsRU from '../public/locales/ru/translations.json'
+import translationsEN from '../locales/en/en.json'
+import translationsRU from '../locales/ru/ru.json'
 
 const resources = {
   en: {
@@ -23,7 +23,7 @@ i18n
     lng: 'en',
     resources,
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     ns: ['translations'],
     defaultNS: 'translations',
     keySeparator: false,

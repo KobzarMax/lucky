@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import illustration from '../asset/mobile-illlustration.png'
+import illustration from '../asset/illustration.png'
 import mobileIllustration from '../asset/mobile-illlustration.png'
 import LatestGames from '@/components/LatestGames'
 import { HowItWorks } from '@/components/HowItWorks'
@@ -11,13 +11,12 @@ import { FAQ } from '@/components/FAQ'
 import { Timer } from '@/components/Timer'
 import 'flowbite'
 
-
 function Home({
   isMobile,
   onEarnPartnerInViewChange,
   onHowItWorksInViewChange
 }: any) {
-  const { t } = useTranslation(['home'])
+  const { t } = useTranslation(['translations'])
 
   const handleEarnPartnerInViewChange = (inView: boolean) => {
     // Pass the inView value to App.tsx or perform any other logic
@@ -53,7 +52,7 @@ function Home({
             </button>
           </div>
         </div>
-        <div className="relative w-[108%] lg:w-full">
+        <div className="relative w-[108%] lg:w-full 2xl:w-[1000px]">
           <img
             className="absolute right-[14px] top-[-128px] w-[108%] lg:right-0 lg:top-0 lg:w-full"
             src={isMobile ? mobileIllustration : illustration}

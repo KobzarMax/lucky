@@ -39,7 +39,7 @@ export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
     }
   ]
   return (
-    <div ref={ref} className="mt-[57px] lg:mt-[97.5px]">
+    <div ref={ref} className="relative z-40 mt-[57px] lg:mt-[97.5px]">
       <h2 className="mb-2.5  text-center text-xl font-bold leading-6 text-white lg:mb-[19px] lg:text-[25px] lg:leading-[30px]">
         {t('howWorks')}{' '}
         <span className="text-primary">{t('howWorksName')}</span>{' '}

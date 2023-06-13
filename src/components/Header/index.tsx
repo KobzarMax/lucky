@@ -65,7 +65,7 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
   return (
     <header
       className={`${
-        headerView ? 'sticky' : 'unStiky'
+        howVisible ? 'sticky' : 'unStiky'
       } header flex min-h-[64px] w-full items-center`}
     >
       <div className="flex w-full items-center justify-between px-[13px] py-0 lg:px-[75px]">

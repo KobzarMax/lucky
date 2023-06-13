@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 function Rules() {
   const { t } = useTranslation(['translations'])
   return (
-    <div className="pt-[90px]">
-      <div className="mx-auto max-w-[565px] pl-[13px] pr-3">
+    <div className="min-h-[100vh] pt-[90px]">
+      <div className="mx-auto max-w-[765px] pl-[13px] pr-3 lg:px-0">
         <h1 className="mb-[15px] text-center text-[25px] font-semibold uppercase leading-[30px] text-white">
           {t('rulesTitle')}
         </h1>

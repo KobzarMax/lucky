@@ -45,8 +45,13 @@
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
   display: none;
 }
-.game-card-main-inner .arrow {
+.game-card-main-inner .up .arrow {
   filter: invert(20%) sepia(38%) saturate(826%) hue-rotate(37deg) brightness(86%) contrast(82%);
+}
+
+.game-card-main-inner .down .arrow {
+  filter: invert(32%) sepia(97%) saturate(5674%) hue-rotate(331deg) brightness(102%) contrast(101%);
+  transform: rotate(180deg);
 }
 
 input[type="range"] {

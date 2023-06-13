@@ -128,7 +128,7 @@ export const Referals = () => {
 
   return (
     <div>
-      <h2 className="mx-auto mb-2.5 max-w-[1202px] text-[15px] font-semibold leading-[18px] text-white">
+      <h2 className="mx-auto mb-2.5 max-w-[1202px] pl-[13px] text-[15px] font-semibold leading-[18px] text-white lg:pl-0">
         {t('yourReferals')}
       </h2>
       <div className="ticker-wrap">
