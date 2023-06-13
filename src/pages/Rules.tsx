@@ -4,7 +4,7 @@ function Rules() {
   const { t } = useTranslation(['translations'])
   return (
     <div className="min-h-[100vh] pt-[90px]">
-      <div className="mx-auto max-w-[765px] pl-[13px] pr-3 lg:px-0">
+      <div className="rules-text-wrapper mx-auto h-[565px] max-w-[765px] overflow-y-auto pl-[13px] pr-3 lg:px-0">
         <h1 className="mb-[15px] text-center text-[25px] font-semibold uppercase leading-[30px] text-white">
           {t('rulesTitle')}
         </h1>

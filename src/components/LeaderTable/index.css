@@ -45,3 +45,16 @@ table thead th {
   background-color: #1b1b1b;
   z-index: 10;
 }
+
+@media (max-width: 1024px) {
+  .table-mobile-leaders {
+    max-height: 2180px;
+    overflow-y: scroll;
+  }
+  
+  .table-wrapper {
+    max-width: 1162px;
+    display: inline-block;
+    width: 100%;
+  }
+}

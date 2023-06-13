@@ -17,12 +17,25 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
   const location = useLocation()
 
   const isGameRoute = location.pathname === '/game'
+  const isRulesRoute = location.pathname === '/rules'
 
   return (
-    <footer className={`${isGameRoute ? 'hidden' : ''} footer`}>
+    <footer
+      className={`${isGameRoute ? 'hidden' : ''} ${
+        isRulesRoute ? 'fixed bottom-0 w-full' : ''
+      } footer`}
+    >
       {!isGameRoute && (
-        <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
-          <div className="footer-nav-wrapper grid w-full grid-cols-2 pb-[100px] pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]">
+        <div
+          className={`footer-nav flex w-full flex-col items-center justify-start gap-[13px] ${
+            !isGameRoute ? 'lg:ml-0' : 'lg:ml-[205px]'
+          } lg:flex-row lg:gap-[30px]`}
+        >
+          <div
+            className={`footer-nav-wrapper grid w-full grid-cols-2 gap-2 ${
+              !isGameRoute ? 'pb-[13px]' : 'pb-[100px]'
+            }  pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]`}
+          >
             <Link className="logo" to={'/'}>
               <img
                 className="max-w-[95px]"

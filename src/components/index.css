@@ -127,3 +127,23 @@
     height: 63vh !important;
   }
 }
+
+.rules-text-wrapper::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.rules-text-wrapper::-webkit-scrollbar-track {
+  background: #707070;
+}
+
+/* Handle */
+.rules-text-wrapper::-webkit-scrollbar-thumb {
+  background: #FF1B5E;
+  transition: 0.3s all;
+}
+
+/* Handle on hover */
+.rules-text-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #7CCA3F;
+}

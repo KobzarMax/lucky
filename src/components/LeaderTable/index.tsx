@@ -10,6 +10,39 @@ export const LeaderTable = ({ isMobile }: LeaderTableProps) => {
 
   const users = [
     {
+      place: 1,
+      userId: '139812hud12j',
+      winChance: '60,15%',
+      totalWin: '2 336,731979',
+      winRounds: '7 519',
+      totalRounds: '12 501',
+      funds: '4 512, 78',
+      winStatus: 'positive',
+      avatar: avatar
+    },
+    {
+      place: 2,
+      userId: '139812hud12j',
+      winChance: '60,15%',
+      totalWin: '2 336,731979',
+      winRounds: '7 519',
+      totalRounds: '12 501',
+      funds: '4 512, 78',
+      winStatus: 'positive',
+      avatar: avatar
+    },
+    {
+      place: 3,
+      userId: '139812hud12j',
+      winChance: '60,15%',
+      totalWin: '2 336,731979',
+      winRounds: '7 519',
+      totalRounds: '12 501',
+      funds: '4 512, 78',
+      winStatus: 'positive',
+      avatar: avatar
+    },
+    {
       place: 4,
       userId: '139812hud12j',
       winChance: '60,15%',
@@ -161,54 +194,56 @@ export const LeaderTable = ({ isMobile }: LeaderTableProps) => {
           </div>
         )}
         {isMobile && (
-          <div className="table-mobile-leaders my-[75.5px] pl-[13px] pr-3">
-            {users.map((user, index) => (
-              <div
-                key={index}
-                className={`${user.winStatus} border-b border-dark_gray`}
-              >
-                <div className="flex items-center justify-between p-4">
-                  <div className="text-center text-[18px] font-semibold leading-[18px] text-primary">
-                    #{user.place}
+          <div className="table-mobile-leaders my-[75.5px] overflow-x-auto pl-[13px] pr-3">
+            <div className="table-wrapper">
+              {users.map((user, index) => (
+                <div
+                  key={index}
+                  className={`${user.winStatus} border-b border-dark_gray`}
+                >
+                  <div className="flex items-center justify-between p-4">
+                    <div className="text-center text-[18px] font-semibold leading-[18px] text-primary">
+                      #{user.place}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <img src={user.avatar} alt="user avatar" />
+                      <span className=" ml-[5px] text-[15px] font-semibold leading-[18px] text-white">
+                        {user.userId}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <img src={user.avatar} alt="user avatar" />
-                    <span className=" ml-[5px] text-[15px] font-semibold leading-[18px] text-white">
-                      {user.userId}
-                    </span>
+                  <div className="flex items-center justify-between p-4">
+                    <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
+                      {t('winChance')}
+                    </div>
+                    <div className="text-center text-sm font-medium leading-[17px] text-white">
+                      {user.winChance}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4">
+                    <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
+                      {t('totalWin')}
+                    </div>
+                    <div>
+                      <p className="total ml-auto mr-0 w-fit text-right text-sm font-medium leading-[17px]">
+                        {user.totalWin}
+                      </p>
+                      <p className="text-right text-[10px] leading-3 text-[#5B5B5B]">
+                        ${user.funds}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between p-4">
+                    <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
+                      {t('roundsWIn')}
+                    </div>
+                    <div className="text-center text-sm font-medium leading-[17px] text-white">
+                      {user.winRounds}/{user.totalRounds}
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between p-4">
-                  <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
-                    {t('winChance')}
-                  </div>
-                  <div className="text-center text-sm font-medium leading-[17px] text-white">
-                    {user.winChance}
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-4">
-                  <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
-                    {t('totalWin')}
-                  </div>
-                  <div>
-                    <p className="total ml-auto mr-0 w-fit text-right text-sm font-medium leading-[17px]">
-                      {user.totalWin}
-                    </p>
-                    <p className="text-right text-[10px] leading-3 text-[#5B5B5B]">
-                      ${user.funds}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-4">
-                  <div className="whitespace-nowrap text-xs font-normal uppercase leading-[15px] text-primary">
-                    {t('roundsWIn')}
-                  </div>
-                  <div className="text-center text-sm font-medium leading-[17px] text-white">
-                    {user.winRounds}/{user.totalRounds}
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </div>
