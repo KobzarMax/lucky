@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type FilterOption = 'all' | 'winned' | 'losed'
 
@@ -9,6 +10,7 @@ type FilterComponentProps = {
 const FilterComponent: React.FC<FilterComponentProps> = ({
   onFilterChange
 }) => {
+  const { t } = useTranslation(['translations'])
   const [activeFilter, setActiveFilter] = useState<FilterOption>('all')
 
   const handleFilterChange = (filter: FilterOption) => {
@@ -24,7 +26,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
           activeFilter === 'all' ? 'bg-primary' : ''
         }`}
       >
-        All
+        {t('all')}
       </button>
       <button
         onClick={() => handleFilterChange('winned')}
@@ -32,7 +34,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
           activeFilter === 'winned' ? 'bg-primary' : ''
         }`}
       >
-        Winned
+        {t('winned')}
       </button>
       <button
         onClick={() => handleFilterChange('losed')}
@@ -40,7 +42,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
           activeFilter === 'losed' ? 'bg-primary' : ''
         }`}
       >
-        Losed
+        {t('losed')}
       </button>
     </div>
   )

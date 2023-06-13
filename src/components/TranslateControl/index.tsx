@@ -1,6 +1,9 @@
 import globe from '../../asset/globe.svg'
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { RootState } from '@/redux/store'
+import { setLanguage } from '@/features/global/globalSlice'
 
 type TranslateControlsProps = {
   isMobile: boolean
@@ -9,19 +12,32 @@ type TranslateControlsProps = {
 export const TranslateControls: React.FC<TranslateControlsProps> = ({
   isMobile
 }) => {
-  const { t, i18n } = useTranslation(['translations'])
-  const [languageView, setLanguageView] = useState(false)
-  const languages: string[] = ['en', 'ru']
-  const [language, setLanguage] = useState(languages[0])
+  const { i18n } = useTranslation(['translations'])
 
-  const toggleLanguage = (selectedLanguage: string): void => {
-    i18n
-      .changeLanguage(selectedLanguage)
-      .then(() => setLanguage(selectedLanguage))
-      .catch((error) => {
-        console.error('Failed to change language:', error)
-      })
+  // Get the current language from Redux store
+  const language = useSelector((state: RootState) => state.global.language)
+
+  // Dispatch action to update the language in Redux store
+  const dispatch = useDispatch()
+  const updateLanguage = (selectedLanguage: string): void => {
+    dispatch(setLanguage(selectedLanguage))
+    i18n.changeLanguage(selectedLanguage).catch((error) => {
+      console.error('Failed to change language:', error)
+    })
   }
+
+  // Save the chosen language to local storage when it changes
+  useEffect(() => {
+    localStorage.setItem('language', language)
+  }, [language])
+
+  // Load the language from local storage on page reload
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language')
+    if (savedLanguage) {
+      updateLanguage(savedLanguage)
+    }
+  }, [])
 
   return (
     <div className="languages-wrapper relative mr-[18px] flex items-center justify-start lg:mr-[30px]">
@@ -35,13 +51,13 @@ export const TranslateControls: React.FC<TranslateControlsProps> = ({
         <div className="languages-inner">
           <p
             className="en mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
-            onClick={() => toggleLanguage('en')}
+            onClick={() => updateLanguage('en')}
           >
             English
           </p>
           <p
             className="ru cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
-            onClick={() => toggleLanguage('ru')}
+            onClick={() => updateLanguage('ru')}
           >
             Русский
           </p>

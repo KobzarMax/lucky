@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type Tab = {
   id: string
@@ -12,6 +13,7 @@ type TabsProps = {
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState<string>(tabs[0].id)
+  const { t } = useTranslation(['translations'])
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId)
@@ -28,7 +30,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
               activeTab === tab.id ? 'bg-primary' : ''
             }`}
           >
-            {tab.label}
+            {t(tab.label)}
           </button>
         ))}
       </div>

@@ -183,13 +183,16 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                 </span>
                 <div className="flex items-center justify-center gap-[5px]">
                   <div className="text-[13px] leading-4 text-[#5B5B5B]">
-                    {timeLeft.hours.toString().padStart(2, '0')}h.
+                    {timeLeft.hours.toString().padStart(2, '0')}
+                    {t('h')}
                   </div>
                   <div className="text-[13px] leading-4 text-[#5B5B5B]">
-                    {timeLeft.minutes.toString().padStart(2, '0')}m
+                    {timeLeft.minutes.toString().padStart(2, '0')}
+                    {t('m')}
                   </div>
                   <div className="text-[13px] leading-4 text-[#5B5B5B]">
-                    {timeLeft.seconds.toString().padStart(2, '0')}s.
+                    {timeLeft.seconds.toString().padStart(2, '0')}
+                    {t('s')}
                   </div>
                 </div>
               </div>
@@ -345,7 +348,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                     onClick={() => handleRangeItemClick(100)}
                     className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
                   >
-                    MAX
+                    {t('max')}
                   </div>
                 </div>
                 <button
@@ -366,12 +369,12 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
         <div className="game-card-main w-full">
           <div>
             <p className="mb-2.5 flex items-center justify-center gap-[5px] text-center text-[13px] leading-4 text-[#5B5B5B]">
-              <img src={clock} alt="clock" /> Позже
+              <img src={clock} alt="clock" /> {t('later')}
             </p>
             <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5 py-[29px]">
               <div>
                 <p className="text-center text-[15px] font-semibold leading-[18px] text-white">
-                  Начало входа
+                  {t('entranceStart')}
                 </p>
                 <div className="starting-timer text-center text-[25px] font-bold leading-[30px] text-white">
                   {timer < 10 ? `00:0${timer}` : `00:${timer}`}

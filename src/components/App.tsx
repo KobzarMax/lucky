@@ -11,6 +11,8 @@ import { Nav } from '../components/Nav'
 import { ModalInfo } from '../components/ModalInfo'
 import 'scroll-smooth'
 import Leaderboard from '@/pages/Leaderboard'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
 
 function App(): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -55,32 +57,34 @@ function App(): JSX.Element {
   }
 
   return (
-    <BrowserRouter>
-      <Suspense fallback="loading">
-        <Header howVisible={howVisible} />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
-                onHowItWorksInViewChange={handleHowItWorksInViewChange}
-                isMobile={isMobile}
-              />
-            }
-          />
-          <Route path="rules" element={<Rules />} />
-          <Route
-            path="leaderboard"
-            element={<Leaderboard isMobile={isMobile} />}
-          />
-          <Route path="game" element={<Game isMobile={isMobile} />} />
-        </Routes>
-        <Footer isMobile={isMobile} />
-        <ModalInfo />
-        {isMobile && <Nav visible={visible} isMobile={isMobile} />}
-      </Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback="loading">
+          <Header howVisible={howVisible} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
+                  onHowItWorksInViewChange={handleHowItWorksInViewChange}
+                  isMobile={isMobile}
+                />
+              }
+            />
+            <Route path="rules" element={<Rules />} />
+            <Route
+              path="leaderboard"
+              element={<Leaderboard isMobile={isMobile} />}
+            />
+            <Route path="game" element={<Game isMobile={isMobile} />} />
+          </Routes>
+          <Footer isMobile={isMobile} />
+          <ModalInfo />
+          {isMobile && <Nav visible={visible} isMobile={isMobile} />}
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
   )
 }
 

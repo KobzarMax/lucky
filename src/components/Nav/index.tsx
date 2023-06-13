@@ -7,7 +7,6 @@ import signOut from '@/asset/SignOut.svg'
 import gear from '@/asset/gear.svg'
 import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
 
 interface NavProps {
   isMobile?: boolean
@@ -29,7 +28,7 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
           data-modal-toggle="popup-modal"
           className="relative  mr-[15px] flex cursor-pointer flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:bg-primary after:content-[''] lg:flex-row lg:text-[15px] lg:leading-[18px]"
         >
-          <img src={win} alt="Win" /> Win
+          <img src={win} alt="Win" /> {t('win')}
         </div>
         {isMobile && (
           <div
@@ -44,7 +43,7 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
           className="flex  flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray lg:flex-row lg:text-[15px] lg:leading-[18px]"
           to={'/'}
         >
-          <img src={gear} alt="Instructions" /> Instructions
+          <img src={gear} alt="Instructions" /> {t('documentation')}
         </NavLink>
         {/* <NavLink
           className="text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px]"

@@ -161,7 +161,7 @@ function Game({ isMobile }: GameProps): JSX.Element {
   return (
     <div
       id="game"
-      className="relative max-h-[92vh] min-h-[90vh] overflow-hidden sm:max-h-[100vh]"
+      className="relative max-h-[92vh] min-h-[90vh] overflow-hidden sm:max-h-[100vh] lg:min-h-[100vh]"
     >
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px]">

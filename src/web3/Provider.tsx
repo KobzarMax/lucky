@@ -11,6 +11,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import creditcard from '../asset/creditcard.svg'
+import { useTranslation } from 'react-i18next'
 
 interface platform {
   isMobile: boolean
@@ -36,6 +37,7 @@ const config = createConfig({
 } as any)
 
 const ConnectIt = ({ isMobile }: platform) => {
+  const { t } = useTranslation(['translations'])
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider
@@ -87,7 +89,7 @@ const ConnectIt = ({ isMobile }: platform) => {
                         onClick={openConnectModal}
                         type="button"
                       >
-                        Connect Wallet
+                        {t('connectWallet')}
                         {!isMobile && (
                           <img src={creditcard} alt="credit card" />
                         )}
