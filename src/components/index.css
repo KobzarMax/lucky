@@ -128,17 +128,6 @@
   }
 }
 
-@media (min-width: 376px) {
-  .rules-text-wrapper {
-    height: 65vh;
-  }
-}
-@media (min-width: 769px) {
-  .rules-text-wrapper {
-    height: 75vh;
-  }
-}
-
 .rules-text-wrapper::-webkit-scrollbar {
   width: 3px;
 }
