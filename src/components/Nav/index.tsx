@@ -20,7 +20,7 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
     <div
       className={`${
         visible ? 'active' : ''
-      } nav fixed bottom-[-1px] left-0 z-10 w-full lg:relative`}
+      } nav fixed bottom-[-1px] left-0 z-50 w-full lg:relative`}
     >
       <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
         <div

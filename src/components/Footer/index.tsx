@@ -18,6 +18,7 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
 
   const isGameRoute = location.pathname === '/game'
   const isRulesRoute = location.pathname === '/rules'
+  const isHomeRoute = location.pathname === '/'
 
   return (
     <footer
@@ -33,8 +34,8 @@ function Footer({ isMobile }: FooterProps): JSX.Element {
         >
           <div
             className={`footer-nav-wrapper grid w-full grid-cols-2 gap-2 ${
-              !isGameRoute ? 'pb-[13px]' : 'pb-[100px]'
-            }  pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]`}
+              isGameRoute ? 'pb-[13px]' : 'pb-[100px]'
+            } pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]`}
           >
             <Link className="logo" to={'/'}>
               <img

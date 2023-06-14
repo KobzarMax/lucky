@@ -358,9 +358,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
             {isWidgetVisible && (
               <button
                 onClick={increaseHeight}
-                className="absolute left-3 top-0 min-h-[34px] cursor-pointer"
+                className="absolute left-3 top-0 min-h-[34px] cursor-pointer rounded-md bg-dark_green px-2 text-white"
               >
-                Increase
+                {t('increase')}
               </button>
             )}
             <span
@@ -382,9 +382,9 @@ function Game({ isMobile }: GameProps): JSX.Element {
             {isWidgetVisible && (
               <button
                 onClick={decreaseHeight}
-                className="absolute right-3 top-0 min-h-[34px] cursor-pointer"
+                className="absolute right-3 top-0 min-h-[34px] cursor-pointer rounded-md bg-primary px-2 text-white"
               >
-                Decrease
+                {t('decrease')}
               </button>
             )}
           </div>

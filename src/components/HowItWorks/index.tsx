@@ -20,22 +20,22 @@ export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
     {
       icon: transparency,
       title: t('transperancy'),
-      text: 'Full transparency and honesty in our decentralized blockchain game. The results are stored on the public blockchain for verification. No manipulation or rigging - just fair play.'
+      text: t('transperancyText')
     },
     {
       icon: safety,
       title: t('safety'),
-      text: 'Our blockchain tech ensures strong security and reliability. Predictions and transactions are encrypted and stored in a distributed node network, guarding against hacks and external risks.'
+      text: t('safetyText')
     },
     {
       icon: oportunity,
       title: t('opportunity'),
-      text: 'Equal opportunities for all in our game. Experience and status are irrelevant - actively predict markets and earn rewards for accurate forecasts. We believe in equality for all.'
+      text: t('opportunityText')
     },
     {
       icon: rewards,
       title: t('rewards'),
-      text: 'Earn money with our game. Predict market movements, get tokens/cryptocurrency. Exchange rewards for cash or wick for games/investments. Financial success depends on your skills and intuition.'
+      text: t('rewardsText')
     }
   ]
   return (

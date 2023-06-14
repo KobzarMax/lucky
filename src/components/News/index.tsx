@@ -8,11 +8,15 @@ import SwiperCore, { Navigation } from 'swiper'
 import React from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
 
 SwiperCore.use([Navigation])
 
 export const News = () => {
   const { t } = useTranslation(['translations'])
+  const language = useSelector((state: RootState) => state.global.language)
+
   const news = [
     {
       image: banner1,
@@ -41,7 +45,11 @@ export const News = () => {
   )
   return (
     <div className="news relative mt-[7.5rem] lg:mt-[60px]">
-      <h2 className="mb-[31px] text-center text-[25px] font-bold leading-[30px] text-white">
+      <h2
+        className={`mb-[31px] ${
+          language === 'ru' ? 'text-left' : 'text-center'
+        } text-[25px] font-bold leading-[30px] text-white sm:text-center`}
+      >
         {t('news')}
       </h2>
       <div className="slide-buttons absolute right-[0px] top-[0px] flex items-center justify-center gap-[14px] lg:right-[52px] lg:top-[167px] lg:gap-[21px]">
