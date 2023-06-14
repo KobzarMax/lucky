@@ -79,7 +79,7 @@ function App(): JSX.Element {
             />
             <Route path="game" element={<Game isMobile={isMobile} />} />
           </Routes>
-          <Footer isMobile={isMobile} />
+          <Footer visible={visible} isMobile={isMobile} />
           <ModalInfo />
           {isMobile && <Nav visible={visible} isMobile={isMobile} />}
         </Suspense>
