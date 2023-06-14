@@ -8,7 +8,7 @@ function Rules() {
         <h1 className="mb-[15px] text-center text-[25px] font-semibold uppercase leading-[30px] text-white">
           {t('rulesTitle')}
         </h1>
-        <div className="rules-text-wrapper h-[50vh] overflow-y-auto lg:h-[580px]">
+        <div className="rules-text-wrapper h-[55vh] overflow-y-auto lg:h-[75vh]">
           <p className="mb-[30px] text-[15px] leading-[18px] text-white">
             {t('rulesSubtitle')}
           </p>
@@ -38,6 +38,15 @@ function Rules() {
           </p>
           <p className="mb-2.5 text-[15px] font-medium leading-[18px] text-[#1B6AF5]">
             {t('confTitle')}
+          </p>
+          <p className="mb-4 text-[15px] leading-[18px] text-white">
+            {t('rights21')}
+          </p>
+          <p className="mb-4 text-[15px] leading-[18px] text-white">
+            {t('rights22')}
+          </p>
+          <p className="mb-4 text-[15px] leading-[18px] text-white">
+            {t('rights23')}
           </p>
         </div>
       </div>
