@@ -3,6 +3,7 @@ import { AsideRound } from '@/components/AsideRound'
 import React, { useState } from 'react'
 import FilterComponent from '@/components/AsideFilter'
 import { rounds } from '@/consts'
+import styles from './index.module.css'
 
 export const RoundsComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -26,9 +27,7 @@ export const RoundsComponent: React.FC = () => {
 
   return (
     <div>
-      <p className="mb-[5px] px-[7px] text-[10px] leading-3 text-[#707070]">
-        {t('filter')}
-      </p>
+      <p className={styles.filter}>{t('filter')}</p>
       <div className="px-[7px]">
         <FilterComponent onFilterChange={handleFilterChange} />
       </div>

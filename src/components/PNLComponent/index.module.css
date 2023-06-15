@@ -1,0 +1,54 @@
+.pnlHead {
+    @apply flex items-center justify-start gap-[15px];
+}
+.circle {
+    @apply border-b-primary border-l-primary border-r-dark_green border-t-dark_green  flex h-20 w-20 rotate-45 items-center justify-center rounded-full border-[5px];
+}
+.circleInner {
+    @apply flex -rotate-45 flex-col items-center justify-center;
+}
+.won {
+    @apply text-xs font-semibold leading-[15px] text-white;
+}
+.wonNumber {
+    @apply text-[15px] font-semibold leading-[18px] text-white;
+}
+.smallText {
+    @apply text-[10px] leading-3 text-[#797979];
+}
+.midText {
+    @apply text-xs font-semibold leading-[15px] text-[#797979];
+}
+.baseTextPrimary {
+    @apply text-primary text-[15px] font-semibold leading-[18px];
+}
+.baseTextGreen {
+    @apply text-dark_green text-[15px] font-semibold leading-[18px];
+}
+.textWrap {
+    @apply mb-[15px] border-b border-[#363636] pb-[15px];
+}
+.wonText {
+    @apply mb-2.5 text-xs font-semibold leading-[15px] text-[#797979];
+}
+.wonItem {
+    @apply mb-2.5 flex items-center justify-start gap-[60px];
+}
+.roundsNumber {
+    @apply text-dark_green mb-[3px] text-[15px] font-semibold lowercase leading-[18px];
+}
+.plusToken {
+    @apply text-dark_green mb-[3px] text-[15px] font-semibold leading-[18px];
+}
+.wonSecondItem {
+    @apply flex items-center justify-start gap-[60px];
+}
+.secondRoundsNumber {
+    @apply text-primary mb-[3px] text-[15px] font-semibold lowercase leading-[18px];
+}
+.secondPlusToken {
+    @apply text-primary mb-[3px] text-[15px] font-semibold leading-[18px];
+}
+.pnl {
+    @apply mt-[108px];
+}
