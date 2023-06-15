@@ -15,7 +15,8 @@ import { GameTimer } from '@/components/GameTimer'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
-import { games, GameData } from '@/consts'
+import { games } from '@/consts'
+import { GameData } from '@/interfaces'
 
 interface GameContentProps {
   toggleWidget: () => void
