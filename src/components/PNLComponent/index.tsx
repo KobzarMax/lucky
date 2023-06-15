@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
+import React from "react";
 
-export const PNLComponent = () => {
+export const PNLComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
   return (
     <div className="mt-[108px]">

@@ -2,12 +2,13 @@ import { useCountdown } from '../../hooks/useCountdown'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
+import React from "react";
 
 const minuteSeconds = 60
 const hourSeconds = 3600
 const daySeconds = 86400
 
-export const CountDown = () => {
+export const CountDown: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const [days, hours, minutes, seconds] = useCountdown('07/01/2023')
   const daysDuration = days * daySeconds

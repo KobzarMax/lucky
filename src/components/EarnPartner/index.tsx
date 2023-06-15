@@ -5,16 +5,14 @@ import { useTranslation } from 'react-i18next'
 import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styles from './index.module.css'
 
 interface EarnPartnerProps {
   onEarnPartnerInViewChange: (inView: boolean) => void
 }
 
-export const EarnPartner = ({
-  onEarnPartnerInViewChange
-}: EarnPartnerProps): JSX.Element => {
+export const EarnPartner: React.FC<EarnPartnerProps> = ({onEarnPartnerInViewChange}: EarnPartnerProps) => {
   const { t } = useTranslation(['translations'])
 
   const [ref, inView] = useInView({

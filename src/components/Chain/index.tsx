@@ -2,13 +2,14 @@ import matic from '../../asset/matic-logo.svg'
 // import caretDown from '../../asset/CaretDown.svg'
 import { useNetwork } from 'wagmi'
 import styles from './index.module.css'
+import React from "react";
 
 interface Chain {
   name: string
   //icon: string
 }
 
-export const Chain = ({ isMobile }: any) => {
+export const Chain: React.FC = ({ isMobile }: any) => {
   const { chain, chains } = useNetwork()
 
   // const chains: Chain[] = [

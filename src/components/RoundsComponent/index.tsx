@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { AsideRound } from '@/components/AsideRound'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import FilterComponent from '@/components/AsideFilter'
 
 interface Round {
@@ -18,7 +18,7 @@ interface Round {
   down: string
 }
 
-export const RoundsComponent = () => {
+export const RoundsComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const rounds: Round[] = [
     {

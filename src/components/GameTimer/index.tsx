@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import clock from '../../asset/Clock.svg'
 import caret from '../../asset/CaretDown.svg'
 
-export const GameTimer = (): JSX.Element => {
+export const GameTimer: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const durations: string[] = [
     '1 minute',

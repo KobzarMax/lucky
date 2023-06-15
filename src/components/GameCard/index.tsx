@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import prohibit from '../../asset/Prohibit.svg'
 import arrow from '../../asset/arrowup.svg'
 import play from '../../asset/PlayCircle.svg'
-import { useEffect, useState, useRef, useCallback } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import bnb from '../../asset/BNB.svg'
 import clock from '../../asset/Clock.svg'
 

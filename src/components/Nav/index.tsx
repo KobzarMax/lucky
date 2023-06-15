@@ -8,13 +8,14 @@ import gear from '@/asset/gear.svg'
 import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
+import React from "react";
 
 interface NavProps {
   isMobile?: boolean
   visible?: boolean
 }
 
-export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
+export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
   const { t } = useTranslation(['translations'])
 
   return (

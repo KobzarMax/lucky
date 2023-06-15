@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import caretDown from '@/asset/CaretDown.svg'
 import questionCircle from '@/asset/faqicon.svg'
 import styles from './index.module.css'
@@ -9,7 +9,7 @@ interface FAQItem {
   text: string
 }
 
-export const FAQ = (): JSX.Element => {
+export const FAQ: React.FC = () => {
   const { t } = useTranslation(['translations'])
 
   const [openIndex, setOpenIndex] = useState<number | null>(null)

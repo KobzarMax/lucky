@@ -1,8 +1,9 @@
 import avatar from '../../asset/big-avatar.png'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
+import React from "react";
 
-export const TopPlaces = () => {
+export const TopPlaces: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const rating = [
     {

@@ -1,13 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import transparency from '../../asset/transparency.svg'
 import safety from '../../asset/safety.svg'
 import oportunity from '../../asset/oportunity.svg'
 import rewards from '../../asset/rewards.svg'
 import styles from './index.module.css'
 
-export const HowItWorks = ({ onHowItWorksInViewChange }: any) => {
+interface HowItWorksProps {
+  onHowItWorksInViewChange: (inView: boolean) => void
+}
+
+export const HowItWorks: React.FC<HowItWorksProps> = ({ onHowItWorksInViewChange }) => {
   const { t } = useTranslation(['translations'])
   const [ref, inHowView] = useInView({
     triggerOnce: true,

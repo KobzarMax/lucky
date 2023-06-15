@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
@@ -15,7 +15,7 @@ interface HeaderProps {
   howVisible: boolean
 }
 
-function Header({ howVisible }: HeaderProps): JSX.Element {
+const Header: React.FC<HeaderProps> = ({ howVisible }) => {
   const { t, i18n } = useTranslation(['translations'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 

@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import avatar from '../../asset/avatar.png'
 import styles from './index.module.css'
+import React from "react";
 
 interface LeaderTableProps {
   isMobile?: boolean
 }
 
-export const LeaderTable = ({ isMobile }: LeaderTableProps) => {
+export const LeaderTable: React.FC<LeaderTableProps> = ({ isMobile }) => {
   const { t } = useTranslation(['translations'])
 
   const users = [

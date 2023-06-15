@@ -1,7 +1,7 @@
 import { Referals } from '@/components/Referals'
 import { Aside } from '@/components/Aside'
 import { Win } from '@/components/Win'
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { GameFooter } from '@/components/GameFooter'
 import { GameContent } from '@/components/GameContent'
 

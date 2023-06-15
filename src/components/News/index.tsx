@@ -13,7 +13,7 @@ import { RootState } from '@/redux/store'
 
 SwiperCore.use([Navigation])
 
-export const News = () => {
+export const News: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const language = useSelector((state: RootState) => state.global.language)
 

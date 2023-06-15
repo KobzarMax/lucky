@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import styles from './index.module.css'
+import React from "react";
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const isMobile = useSelector((state: RootState) => state.global.isMobile)
   return (

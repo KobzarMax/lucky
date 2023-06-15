@@ -2,7 +2,7 @@ import Home from '@/pages/Home'
 import Game from '@/pages/Game'
 import Rules from '@/pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState, useEffect, Suspense } from 'react'
+import React, {useState, useEffect, Suspense, FC} from 'react'
 import { useAppDispatch } from '../redux/hooks'
 import { platform } from '../features/global/globalSlice'
 import Header from '../components/Header'
@@ -14,7 +14,7 @@ import Leaderboard from '@/pages/Leaderboard'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 
-function App(): JSX.Element {
+const App: FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
   const [howVisible, setHowVisible] = useState<boolean>(false)

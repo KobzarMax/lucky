@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 import { GameTimer } from '@/components/GameTimer'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 interface GameData {
   status: string

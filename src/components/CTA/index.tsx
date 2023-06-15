@@ -1,8 +1,9 @@
 import { TelegramButton } from '@/components/TelegramButton'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
+import React from "react";
 
-export const CTA = () => {
+export const CTA: React.FC = () => {
   const { t } = useTranslation(['translations'])
   return (
     <div className={`${styles['cta']} ${styles.ctaWrapper}`}>
