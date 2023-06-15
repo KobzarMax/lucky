@@ -1,7 +1,7 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import homeEn from '../../locales/en/en.json'
-import homeRu from '../../locales/ru/ru.json'
+import homeEn from '@/locales/en/en.json'
+import homeRu from '@/locales/ru/ru.json'
 
 const resources = {
   en: {

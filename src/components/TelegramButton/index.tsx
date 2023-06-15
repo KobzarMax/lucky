@@ -1,4 +1,4 @@
-import telegram from '../../asset/TelegramLinkLogo.svg'
+import telegram from '@/asset/TelegramLinkLogo.svg'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
 import React from 'react'

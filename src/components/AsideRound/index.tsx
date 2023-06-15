@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import caret from '../../asset/CaretDown.svg'
-import play from '../../asset/PlayCircle.svg'
-import trophy from '../../asset/Trophy.svg'
-import arrow from '../../asset/arrowup.svg'
-import info from '../../asset/Info.svg'
+import caret from '@/asset/CaretDown.svg'
+import play from '@/asset/PlayCircle.svg'
+import trophy from '@/asset/Trophy.svg'
+import arrow from '@/asset/arrowup.svg'
+import info from '@/asset/Info.svg'
 import styles from './index.module.css'
 
 interface Round {

@@ -1,5 +1,5 @@
 import React from 'react'
-import arrow from '../../asset/arrowup.svg'
+import arrow from '@/asset/arrowup.svg'
 import { useTranslation } from 'react-i18next'
 import { RoundsComponent } from '@/components/RoundsComponent'
 import { PNLComponent } from '@/components/PNLComponent'

@@ -1,4 +1,4 @@
-import { useCountdown } from '../../hooks/useCountdown'
+import { useCountdown } from '@/hooks/useCountdown'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'

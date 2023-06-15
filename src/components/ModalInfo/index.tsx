@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { CountDown } from '../../components/Countdown'
+import { CountDown } from '@/components/Countdown'
 import { useTranslation } from 'react-i18next'
 import 'flowbite'
-import twitter from '../../asset/TwitterLogo.svg'
-import telegram from '../../asset/TelegramLogo.svg'
-import discord from '../../asset/DiscordLogo.svg'
+import twitter from '@/asset/TwitterLogo.svg'
+import telegram from '@/asset/TelegramLogo.svg'
+import discord from '@/asset/DiscordLogo.svg'
 
 export const ModalInfo: React.FC = () => {
   const { t } = useTranslation(['translations'])

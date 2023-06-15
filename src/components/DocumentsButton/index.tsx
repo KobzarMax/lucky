@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import documents from '../../asset/Files.svg'
+import documents from '@/asset/Files.svg'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
 import React from 'react'

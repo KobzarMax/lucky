@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
-import caret from '../../asset/CaretDown.svg'
+import caret from '@/asset/CaretDown.svg'
 
 interface GameFooterProps {
   increaseHeight: () => void

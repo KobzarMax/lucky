@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import arrow from '../../asset/arrowup.svg'
+import arrow from '@/asset/arrowup.svg'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import React from 'react'

@@ -1,4 +1,4 @@
-import trophy from '../../asset/trophy-in-hand.svg'
+import trophy from '@/asset/trophy-in-hand.svg'
 import Confetti from 'react-confetti'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'

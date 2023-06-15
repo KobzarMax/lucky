@@ -32,9 +32,25 @@
   top: 100%;
   left: 0;
 }
+.game-durations {
+  position: relative;
+  z-index: 20;
+}
 .game-durations:hover .durations {
   display: block;
 }
 .game-durations:hover .caret {
   transform: rotate(180deg);
+}
+.durationPicker {
+  @apply flex cursor-pointer items-center justify-between gap-[33px] rounded-[15px] bg-[#2b2b2b99] py-[14px] pl-5 pr-4 transition-all duration-300 hover:bg-[#2b2b2bcc];
+}
+.durationPicked {
+  @apply flex items-center justify-start gap-[5px] text-[15px] font-medium leading-[18px] text-[#BEBEBE];
+}
+.durationSelected {
+  @apply pl-2.5 text-[15px] font-medium leading-[18px] text-white mb-2.5 cursor-pointer;
+}
+.durationDefault {
+  @apply text-[15px] font-medium leading-[18px] text-[#BEBEBE] mb-2.5 cursor-pointer;
 }

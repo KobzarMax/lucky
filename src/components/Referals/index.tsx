@@ -1,4 +1,4 @@
-import avatar from '../../asset/avatar.png'
+import avatar from '@/asset/avatar.png'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
 import React from 'react'

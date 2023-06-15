@@ -1,4 +1,4 @@
-import globe from '../../asset/globe.svg'
+import globe from '@/asset/globe.svg'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'

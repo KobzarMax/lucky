@@ -1,6 +1,6 @@
 import { Timer } from '@/components/Timer'
-import illustration from '../../asset/illustration.png'
-import mobileIllustration from '../../asset/mobile-illlustration.png'
+import illustration from '@/asset/illustration.png'
+import mobileIllustration from '@/asset/mobile-illlustration.png'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
