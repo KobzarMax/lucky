@@ -5,6 +5,7 @@ import play from '../../asset/PlayCircle.svg'
 import trophy from '../../asset/Trophy.svg'
 import arrow from '../../asset/arrowup.svg'
 import info from '../../asset/Info.svg'
+import styles from './index.module.css'
 
 interface Round {
   roundID: string
@@ -30,126 +31,92 @@ export const AsideRound = ({ round }: { round: Round }): JSX.Element => {
   }
 
   return (
-    <div className="w-full">
+    <div className={styles.container}>
       <button
-        className={`round-header flex w-full items-center justify-between ${
-          isExpanded ? '' : 'border-b border-[#313131]'
-        } pb-[15px] pt-2.5`}
+        className={` ${styles.roundHeader} ${
+          isExpanded ? '' : styles.roundHeaderNotEx
+        }`}
         onClick={toggleAccordion}
       >
-        <div className="flex items-center justify-start gap-[17px]">
-          <div className="flex flex-col items-center justify-center">
-            <p className="text-[13px] leading-4 text-[#707070] ">
-              {t('round')}
-            </p>
-            <span className="text-[15px] font-semibold leading-[18px] text-white">
-              {round.roundID}
-            </span>
+        <div className={styles.roundHeaderContent}>
+          <div className={styles.roundHeaderRoundWrapper}>
+            <p className={styles.roundHeaderRound}>{t('round')}</p>
+            <span className={styles.roundID}>{round.roundID}</span>
           </div>
           {round.status === 'now' && (
-            <div className="flex items-center justify-start gap-[5px]">
+            <div className={styles.roundPlay}>
               <img src={play} alt="play" />{' '}
-              <span className="text-[15px] leading-[18px] text-dark_green">
-                {t('now')}
-              </span>
+              <span className={styles.roundPlayText}>{t('now')}</span>
             </div>
           )}
         </div>
         <img
           src={caret}
           alt="caret"
-          className={`${
-            isExpanded ? 'rotate-180' : ''
-          } transition-transform duration-300`}
+          className={`${isExpanded ? styles.rotatedCaret : ''} ${styles.caret}`}
         />
       </button>
       <div
-        className={`round-content ${
-          isExpanded ? 'block' : 'hidden'
-        } transition-all duration-300`}
+        className={`${
+          isExpanded ? styles.expandedContent : styles.hiddenContent
+        } ${styles.roundContent}`}
       >
-        <div className="mt-[23px] rounded-[10px] border border-[#252525] p-2.5">
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-basic font-semibold text-[#707070]">
-              {t('history')}
-            </p>
-            <p className="text-basic flex items-center justify-center gap-[5px] font-semibold text-dark_green">
+        <div className={styles.roundContentWrapper}>
+          <div className={styles.roundInfo}>
+            <p className={styles.infoText}>{t('history')}</p>
+            <p className={styles.winTrophy}>
               {t('win')}
-              <img className="trophy" src={trophy} alt="trophy" />
+              <img className={styles.trophy} src={trophy} alt="trophy" />
             </p>
           </div>
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-[13px] leading-4 text-[#707070]">
-              {t('yourChoice')}
-            </p>
-            <p className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
+          <div className={styles.choiceText}>
+            <p className={styles.roundHeaderRound}>{t('yourChoice')}</p>
+            <p className={styles.yourChoiseStatus}>
               <img className={`rotate-180`} src={arrow} alt="arrow" />
               {t('down')}
             </p>
           </div>
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-[13px] leading-4 text-[#707070]">
-              {t('yourPosition')}
-            </p>
-            <p className="text-[13px] font-medium leading-4 text-white">
-              {round.yourPosition}
-            </p>
+          <div className={styles.choiceText}>
+            <p className={styles.roundHeaderRound}>{t('yourPosition')}</p>
+            <p className={styles.roundBaseValue}>{round.yourPosition}</p>
           </div>
-          <div className="mb-2.5 flex items-start justify-between">
-            <p className="text-[13px] leading-4 text-[#707070]">
-              {t('yourWin')}
-            </p>
-            <p className="flex flex-col items-end justify-start text-[13px] font-medium leading-4 text-dark_green">
+          <div className={styles.winWrap}>
+            <p className={styles.roundHeaderRound}>{t('yourWin')}</p>
+            <p className={styles.winInfo}>
               {round.yourWin}{' '}
-              <span className="text-[10px] leading-3 text-[#707070]">
-                $1.76
-              </span>
+              <span className={styles.directionText}>$1.76</span>
             </p>
           </div>
-          <div className="mb-[33px] flex items-center justify-between">
-            <p className="text-[13px] leading-4 text-[#707070]">{t('sum')}</p>
-            <p className="flex items-center justify-center gap-[5px] text-[13px] font-medium leading-4 text-[#707070]">
+          <div className={styles.sumWrap}>
+            <p className={styles.roundHeaderRound}>{t('sum')}</p>
+            <p className={styles.sumText}>
               {round.sum} <img src={info} alt="info" />
             </p>
           </div>
         </div>
-        <div className="mt-[21px] rounded-[10px] border border-dark_green p-2.5">
-          <p className="text-[13px] font-semibold leading-4 text-[#707070]">
-            {t('finalPrice')}
-          </p>
-          <div className="mb-5 flex items-center justify-between">
-            <p className="text-basic font-semibold text-dark_green">
-              {round.lastPrice}
-            </p>
-            <p className="flex items-center justify-center gap-[5px] rounded-[5px] bg-dark_green px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white">
+        <div className={styles.finalPriceWrap}>
+          <p className={styles.finalPriceText}>{t('finalPrice')}</p>
+          <div className={styles.finalPriceInner}>
+            <p className={styles.finalPriceValue}>{round.lastPrice}</p>
+            <p className={styles.finalPriceStatus}>
               <img src={arrow} alt="arrow" /> {t('up')}
             </p>
           </div>
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-[13px] leading-4 text-[#707070]">{t('price')}</p>
-            <p className="text-[13px] font-medium leading-4 text-white">
-              {round.price}
-            </p>
+          <div className={styles.choiceText}>
+            <p className={styles.roundHeaderRound}>{t('price')}</p>
+            <p className={styles.roundBaseValue}>{round.price}</p>
           </div>
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-[13px] font-medium leading-4 text-[#707070]">
-              {t('priseFond')}
-            </p>
-            <p className="text-[13px] font-semibold leading-4 text-white">
-              {round.priseFond}
-            </p>
+          <div className={styles.choiceText}>
+            <p className={styles.priceFondText}>{t('priseFond')}</p>
+            <p className={styles.priceFondValue}>{round.priseFond}</p>
           </div>
-          <div className="mb-[5px] flex items-center justify-between">
-            <p className="text-[10px] leading-3 text-[#707070]">{t('up')}</p>
-            <p className="text-[10px] font-semibold leading-3 text-white">
-              {round.up}
-            </p>
+          <div className={`mb-[5px] ${styles.directionInner}`}>
+            <p className={styles.directionText}>{t('up')}</p>
+            <p className={styles.directionValue}>{round.up}</p>
           </div>
-          <div className="flex items-center justify-between">
-            <p className="text-[10px] leading-3 text-[#707070]">{t('down')}</p>
-            <p className="text-[10px] font-semibold leading-3 text-white">
-              {round.down}
-            </p>
+          <div className={styles.directionInner}>
+            <p className={styles.directionText}>{t('down')}</p>
+            <p className={styles.directionValue}>{round.down}</p>
           </div>
         </div>
       </div>

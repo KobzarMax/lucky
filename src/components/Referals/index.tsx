@@ -1,5 +1,6 @@
 import avatar from '../../asset/avatar.png'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 export const Referals = () => {
   const { t } = useTranslation(['translations'])
@@ -128,25 +129,23 @@ export const Referals = () => {
 
   return (
     <div>
-      <h2 className="mx-auto mb-2.5 max-w-[1202px] pl-[13px] text-[15px] font-semibold leading-[18px] text-white lg:pl-0">
-        {t('yourReferals')}
-      </h2>
-      <div className="ticker-wrap">
-        <div className="ticker mb-16 flex items-center justify-between gap-[15px]">
+      <h2 className={styles.yourReferals}>{t('yourReferals')}</h2>
+      <div className={`${styles.tickerWrap} ticker-wrap`}>
+        <div className={`${styles.ticker} ${styles.referals}`}>
           {referals.map((referal, index) => (
             <div
               key={index}
-              className="ticker__item flex items-center justify-center gap-2.5"
+              className={`${styles['ticker__item']} ticker__item ${styles.referal}`}
             >
               <img src={referal.avatar} alt="avatar" />
               <div>
-                <p className="text-[13px] leading-4 text-[#5B5B5B]">
+                <p className={styles.yourBonus}>
                   {t('yourBonus')}{' '}
                   <span className="font-semibold text-primary">
                     {referal.bonus}$
                   </span>
                 </p>
-                <p className="text-[13px] leading-4 text-[#5B5B5B]">
+                <p className={styles.yourBonus}>
                   {t('invited')}{' '}
                   <span className="text-white">{referal.invited}</span>
                 </p>

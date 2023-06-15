@@ -1,0 +1,6 @@
+.tabs {
+    @apply mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-[#38383899];
+}
+.tabIem {
+    @apply flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white;
+}

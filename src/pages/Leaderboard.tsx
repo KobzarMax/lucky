@@ -6,7 +6,7 @@ interface LeaderboardProps {
   isMobile?: boolean
 }
 
-function Leaderboard({ isMobile }: LeaderboardProps) {
+const Leaderboard: React.FC<LeaderboardProps> = ({ isMobile }) => {
   const { t } = useTranslation(['translations'])
   return (
     <div className="pt-[90px]">

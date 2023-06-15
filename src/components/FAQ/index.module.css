@@ -1,0 +1,27 @@
+.faq-item {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(27, 27, 27, 0.6);
+}
+.faqWrap {
+  @apply mb-[79px] mt-[39px] lg:mb-[87px] lg:mt-[60px];
+}
+.faqTitle {
+  @apply mb-6 text-center text-xl font-bold leading-6 text-white lg:mb-[30px] lg:text-[25px] lg:leading-[30px];
+}
+.faqItems {
+  @apply mx-auto flex max-w-[965px] flex-col items-center justify-center gap-2.5;
+}
+.faqItem {
+  @apply w-full rounded-[10px] px-2.5 lg:px-5;
+}
+.faqItemTitle {
+  @apply text-[15px] font-semibold leading-[18px] text-white;
+}
+.faqItemText {
+  @apply text-[15px] leading-[18px] text-white;
+}
+.toggleAccordion {
+  @apply flex cursor-pointer items-center justify-between py-[17px];
+}
+.faqTitleWrap {
+  @apply flex items-center justify-start gap-2.5;
+}

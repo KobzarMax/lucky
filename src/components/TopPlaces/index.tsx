@@ -1,5 +1,6 @@
 import avatar from '../../asset/big-avatar.png'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 export const TopPlaces = () => {
   const { t } = useTranslation(['translations'])
@@ -41,52 +42,40 @@ export const TopPlaces = () => {
 
   return (
     <div>
-      <div className="rating flex flex-col items-center justify-center gap-9">
+      <div className={styles.rating}>
         {rating.map((ratingPlace, index) => (
           <div
             key={index}
-            className={`${ratingPlace.winStatus} rating-place flex flex-col items-center justify-start`}
+            className={`${ratingPlace.winStatus} ${styles.ratingPlace}`}
           >
-            <p className="place mb-[5px] mt-[15px] text-center text-[25px] font-semibold leading-[30px]">
+            <p className={`${styles.place} ${styles.ratingPlaceNumber}`}>
               #{ratingPlace.place}
             </p>
-            <div className="avatar-wrapper mb-2.5 flex items-center justify-center">
+            <div
+              className={`${styles['avatar-wrapper']} ${styles.avatarWrapper}`}
+            >
               <img
                 className="avatar"
                 src={ratingPlace.avatar}
                 alt="user avatar"
               />
             </div>
-            <p className="mb-[17px] text-[15px] font-semibold leading-[18px] text-white">
-              {ratingPlace.userId}
-            </p>
+            <p className={styles.ratingUserID}>{ratingPlace.userId}</p>
             <div className="w-full px-5">
-              <div className="mb-[5px] flex items-center justify-between">
-                <p className="text-xs leading-[15px] text-[#5B5B5B]">
-                  {t('winChance')}
-                </p>
-                <p className="text-sm font-medium leading-[17px] text-white">
-                  {ratingPlace.winChance}
-                </p>
+              <div className={styles.winWrapHelper}>
+                <p className={styles.winChanceText}>{t('winChance')}</p>
+                <p className={styles.winChanceValue}>{ratingPlace.winChance}</p>
               </div>
-              <div className="mb-[5px] flex items-center justify-between">
-                <p className="text-xs leading-[15px] text-[#5B5B5B]">
-                  {t('totalWin')}
-                </p>
+              <div className={styles.winWrapHelper}>
+                <p className={styles.winChanceText}>{t('totalWin')}</p>
                 <div>
-                  <p className="total text-sm font-medium leading-[17px]">
-                    {ratingPlace.totalWin}
-                  </p>
-                  <p className="text-right text-[10px] leading-3 text-[#5B5B5B]">
-                    ${ratingPlace.funds}
-                  </p>
+                  <p className={styles.totalWinValue}>{ratingPlace.totalWin}</p>
+                  <p className={styles.funds}>${ratingPlace.funds}</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between">
-                <p className="text-xs leading-[15px] text-[#5B5B5B]">
-                  {t('roundsWIn')}
-                </p>
-                <p className="text-sm font-medium leading-[17px] text-white">
+              <div className={styles.flexHelper}>
+                <p className={styles.winChanceText}>{t('roundsWIn')}</p>
+                <p className={styles.winChanceValue}>
                   {ratingPlace.winRounds}/{ratingPlace.totalRounds}
                 </p>
               </div>

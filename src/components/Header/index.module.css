@@ -10,6 +10,9 @@
   transition: all 0.4s ease;
   -webkit-animation: animation-1qgufe0 0.4s ease;
   animation: animation-1qgufe0 0.4s ease;
+  display: flex;
+  min-height: 64px;
+  align-items: center;
 }
 .header.sticky {
   box-shadow: 0 1px 2px rgba(0,0,0,0.06);
@@ -37,4 +40,19 @@
   to {
     transform: translateY(0);
   }
+}
+
+.headerInner {
+  @apply flex w-full items-center justify-between px-[13px] py-0 lg:px-[75px];
+}
+
+.headerImage {
+  @apply lg:max-w-[120px] h-[68px] max-w-[80px] md:max-w-[120px] lg:h-full;
+}
+.headerImageWrap {
+  @apply flex items-center justify-start gap-12;
+}
+
+.headerActions {
+  @apply flex items-center justify-start;
 }

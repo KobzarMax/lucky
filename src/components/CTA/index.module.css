@@ -15,3 +15,10 @@
   width: 168px;
   height: 168px;
 }
+.ctaWrapper {
+  @apply mx-[-13px] mt-[110px] flex flex-col items-center justify-center py-[60px] lg:mx-[-78px] lg:mt-[50px] lg:py-9;
+}
+
+.ctaTitle {
+  @apply mx-auto mb-[15px] max-w-[565px] text-center text-xl font-semibold leading-6 text-white lg:mb-[20px] lg:text-[25px] lg:font-bold lg:leading-[30px];
+}

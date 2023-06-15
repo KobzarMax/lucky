@@ -34,13 +34,13 @@
   }
 }
 
-.ticker-wrap {
+.tickerWrap {
   width: 100%;
   box-sizing: content-box;
 }
 
 
-.ticker-wrap .ticker {
+.tickerWrap .ticker {
   white-space: nowrap;
   box-sizing: content-box;
   -webkit-animation-iteration-count: infinite;
@@ -54,7 +54,7 @@
 }
 
 @media (min-width: 1024px) {
-  .ticker-wrap .ticker {
+  .tickerWrap .ticker {
     white-space: nowrap;
     box-sizing: content-box;
     -webkit-animation-iteration-count: infinite;
@@ -68,7 +68,7 @@
   }
 }
 
-.ticker-wrap .ticker__item {
+.tickerWrap .ticker__item {
   display: inline-block;
   color: white;
 }
@@ -95,4 +95,37 @@
 }
 .hexagon.down .status-arrow img {
   transform: rotate(180deg);
+}
+.latestgames {
+  @apply z-[999] relative mt-[27px] lg:mt-[151px];
+}
+.latestgamesText {
+  @apply mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px];
+}
+.tickerWrapInner {
+  @apply flex items-center justify-between gap-[35px];
+}
+.latestGameItem {
+  @apply relative h-[150px] min-w-[265px] px-5 pb-[26.5px] pt-[33px];
+}
+.latestgameID {
+  @apply text-[15px] font-semibold leading-[18px];
+}
+.latestgameAvatar {
+  @apply flex items-center justify-start gap-[5px];
+}
+.latestgameInner {
+  @apply mb-4 flex items-center justify-between;
+}
+.latestGameBorder {
+  @apply absolute bottom-0 left-0;
+}
+.latestGamePercents {
+  @apply text-dark_gray text-[13px] leading-[16px];
+}
+.latestGameFunds {
+  @apply mb-[5px] text-xl font-semibold leading-6;
+}
+.latestGameFlex {
+  @apply flex items-center justify-between;
 }

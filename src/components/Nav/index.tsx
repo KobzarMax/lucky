@@ -7,6 +7,7 @@ import signOut from '@/asset/SignOut.svg'
 import gear from '@/asset/gear.svg'
 import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 interface NavProps {
   isMobile?: boolean
@@ -18,15 +19,13 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
 
   return (
     <div
-      className={`${
-        visible ? 'active' : ''
-      } nav fixed bottom-[-1px] left-0 z-50 w-full lg:relative`}
+      className={`${visible ? 'active' : ''} ${styles.nav} ${styles.navMain}`}
     >
-      <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
+      <div className={styles.navInner}>
         <div
           data-modal-target="popup-modal"
           data-modal-toggle="popup-modal"
-          className="relative  mr-[15px] flex cursor-pointer flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:bg-primary after:content-[''] lg:flex-row lg:text-[15px] lg:leading-[18px]"
+          className={styles.modal}
         >
           <img src={win} alt="Win" /> {t('win')}
         </div>
@@ -34,15 +33,12 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
           <div
             data-modal-target="popup-modal"
             data-modal-toggle="popup-modal"
-            className="play flex h-[50px] w-[50px] items-center justify-center rounded-full bg-primary"
+            className={styles.play}
           >
             <img className="relative z-20" src={play} alt="play" />
           </div>
         )}
-        <NavLink
-          className="flex  flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray lg:flex-row lg:text-[15px] lg:leading-[18px]"
-          to={'/'}
-        >
+        <NavLink className={styles.navLink} to={'/'}>
           <img src={gear} alt="Instructions" /> {t('documentation')}
         </NavLink>
         {/* <NavLink

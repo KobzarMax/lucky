@@ -6,6 +6,7 @@ import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
+import styles from './index.module.css'
 
 interface EarnPartnerProps {
   onEarnPartnerInViewChange: (inView: boolean) => void
@@ -49,32 +50,29 @@ export const EarnPartner = ({
     }
   ]
   return (
-    <div
-      ref={ref}
-      className="relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mx-auto lg:mt-[100px] lg:max-w-[1165px] lg:flex-row"
-    >
+    <div ref={ref} className={styles.earnPartnerWrap}>
       <div className="w-full max-w-full">
-        <h2 className="mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px]">
+        <h2 className={styles.earnLikePartner}>
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span> ?
         </h2>
-        <p className="mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px]">
+        <p className={styles.earnLikePartnerSubtitle1}>
           <span className="font-bold text-primary">
             {' '}
             {t('earnLikePartnerSubtitle1')}
           </span>{' '}
           {t('earnLikePartnerSubtitle2')}
         </p>
-        <div className="flex flex-col items-start justify-start gap-[15px] lg:flex-row lg:items-center">
+        <div className={styles.earnButtons}>
           <TelegramButton />
           <DocumentsButton />
         </div>
       </div>
-      <div className="mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-hidden overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden">
+      <div className={styles.partnerPosibilities}>
         {partnerPosibilities.map((posibility, index) => (
           <div
             key={index}
-            className="posibility relative flex h-[334px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-center gap-3 px-0 py-5 lg:h-[103px] lg:w-[465px]  lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:justify-start lg:pl-[70px] lg:pr-[60px]"
+            className={`${styles['posibility']} ${styles.posibilityItem}`}
           >
             <img
               className="relative z-10"
@@ -82,12 +80,8 @@ export const EarnPartner = ({
               alt={posibility.title}
             />
             <div className="relative z-10">
-              <p className="mb-[5px] pl-2.5 text-center text-[17px] font-semibold leading-[21px] text-white lg:text-left">
-                {posibility.title}
-              </p>
-              <p className="max-w-[235px] pl-2.5 text-center text-[15px] leading-[20px] text-white lg:text-left">
-                {posibility.text}
-              </p>
+              <p className={styles.posibilityTitle}>{posibility.title}</p>
+              <p className={styles.posibilityText}>{posibility.text}</p>
             </div>
           </div>
         ))}

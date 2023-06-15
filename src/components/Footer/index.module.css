@@ -1,0 +1,47 @@
+.footer {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), rgba(27, 27, 27, 0.6);
+  border-radius: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.78);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.footer-nav-wrapper {
+  grid-template-areas:
+  "logo social"
+  "nav nav";
+}
+.footer-nav-wrapper .logo {
+  grid-area: logo;
+}
+.footer-nav-wrapper .footer-nav {
+  grid-area: nav;
+}
+.footer-nav-wrapper .social-links {
+  grid-area: social;
+}
+
+.isRulesRoute {
+  @apply fixed bottom-0 w-full;
+}
+
+.footerNav {
+  @apply flex w-full flex-col items-center justify-start gap-[13px] lg:flex-row lg:gap-[30px]
+}
+
+.footerNavWrapper {
+  @apply grid w-full grid-cols-2 gap-2 pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px];
+}
+.footerLinks {
+  @apply flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px];
+}
+.footerLink {
+  @apply text-dark_gray text-[15px] leading-[15px];
+}
+.socialLinks {
+  @apply flex items-center justify-end gap-[15px] lg:justify-start;
+}
+.socialLink {
+  @apply flex h-[25px] w-[25px] items-center justify-center;
+}
+.socialImage {
+  @apply h-[25px] w-[25px];
+}

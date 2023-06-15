@@ -1,0 +1,50 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.win-overlay {
+  position: absolute;
+  z-index: 1100;
+  background: rgba(28, 28, 28, 0.9);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  left: 0;
+  bottom: 0;
+}
+.win-item {
+  background-image: url('../../asset/win-item-bd.svg');
+  width: 300px;
+  height: 580px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 10px 102px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.youWon {
+  @apply text-base text-dark_green mb-2.5 font-semibold;
+}
+.bnbOnlyFeature {
+  @apply max-w-[157px] text-center text-[13px] font-medium leading-4 text-white;
+}
+.winText {
+  @apply mb-[15px] text-center text-[10px] font-medium leading-3 text-white;
+}
+.switchToBnb {
+  @apply text-base border-dark_green mb-[5px] flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white;
+}
+.disconnectWallet {
+  @apply text-base border-dark_green mb-2.5 flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white;
+}
+.stayOnEthereum {
+  @apply text-base border-dark_green bg-dark_green flex w-full items-center justify-center rounded-[5px] border-2 py-[15px] font-semibold text-white;
+}

@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import MobileDetect from 'mobile-detect';
+import MobileDetect from 'mobile-detect'
 
 const Rules: FC = () => {
   const { t } = useTranslation(['translations'])
@@ -9,12 +9,12 @@ const Rules: FC = () => {
   useEffect(() => {
     const calculateHeight = () => {
       const windowHeight = window.innerHeight
-      const md = new MobileDetect(window.navigator.userAgent);
-      const isMobile = md.mobile();
-      let calculatedHeight = windowHeight - 250;
+      const md = new MobileDetect(window.navigator.userAgent)
+      const isMobile = md.mobile()
+      let calculatedHeight = windowHeight - 250
 
       if (isMobile) {
-        calculatedHeight -= 100; 
+        calculatedHeight -= 100
       }
       setHeight(calculatedHeight)
     }

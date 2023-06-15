@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom'
 import documents from '../../asset/Files.svg'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 export const DocumentsButton = () => {
   const { t } = useTranslation(['translations'])
   return (
-    <Link
-      to="rules"
-      className="documents-link flex h-12 max-w-[200px] items-center justify-center gap-2.5 py-[15px] pl-[25px] pr-[29px] text-[15px] font-semibold leading-[18px] text-white"
-    >
+    <Link to="rules" className={styles['documents-link']}>
       {t('documents')} <img src={documents} alt="documents" />
     </Link>
   )

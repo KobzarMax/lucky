@@ -68,7 +68,6 @@ function App(): JSX.Element {
                 <Home
                   onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
                   onHowItWorksInViewChange={handleHowItWorksInViewChange}
-                  isMobile={isMobile}
                 />
               }
             />
@@ -77,7 +76,7 @@ function App(): JSX.Element {
               path="leaderboard"
               element={<Leaderboard isMobile={isMobile} />}
             />
-            <Route path="game" element={<Game isMobile={isMobile} />} />
+            <Route path="game" element={<Game />} />
           </Routes>
           <Footer visible={visible} isMobile={isMobile} />
           <ModalInfo />

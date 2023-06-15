@@ -1,0 +1,114 @@
+.ratingPlace {
+  width: 301px;
+  height: 265.5px;
+  background-image: url(../../asset/top-bg.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ratingPlace:nth-child(1)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: url('../../asset/first-chevron.svg');
+}
+.ratingPlace:nth-child(2)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: url('../../asset/second-chevron.svg');
+}
+.ratingPlace:nth-child(3)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: url('../../asset/third-chevron.svg');
+}
+.ratingPlace:nth-child(1) .avatar-wrapper {
+  position: relative;
+}
+.ratingPlace:nth-child(1) .avatar-wrapper::before {
+  position: absolute;
+  bottom: -21px;
+  left: -17px;
+  content: url('../../asset/crown.svg');
+  z-index: 1;
+  width: 84px;
+  height: 84px;
+  display: block;
+}
+
+.ratingPlace:nth-child(1) .place {
+  color: #FFC700;
+}
+.ratingPlace:nth-child(2) .place {
+  color: #B2B2B2;
+}
+.ratingPlace:nth-child(3) .place {
+  color: #E7974D;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .rating {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "second first third";
+  }
+  .ratingPlace:nth-child(1) {
+    grid-area: first;
+    justify-self: center;
+  }
+  .ratingPlace:nth-child(2) {
+    grid-area: second;
+    justify-self: center;
+    margin-top: 30px;
+  }
+  .ratingPlace:nth-child(3) {
+    grid-area: third;
+    justify-self: center;
+    margin-top: 30px;
+  }
+}
+
+.ratingPlaceNumber {
+  @apply mb-[5px] mt-[15px] text-center text-[25px] font-semibold leading-[30px];
+}
+.avatarWrapper {
+  @apply mb-2.5 flex items-center justify-center;
+}
+.ratingUserID {
+  @apply mb-[17px] text-[15px] font-semibold leading-[18px] text-white;
+}
+.winChanceText {
+  @apply text-xs leading-[15px] text-[#5B5B5B];
+}
+.winChanceValue {
+  @apply text-sm font-medium leading-[17px] text-white;
+}
+.winWrapHelper {
+  @apply mb-[5px] flex items-center justify-between;
+}
+.totalWinValue {
+  @apply text-sm font-medium leading-[17px];
+}
+.funds {
+  @apply text-right text-[10px] leading-3 text-[#5B5B5B];
+}
+.flexHelper {
+  @apply flex items-center justify-between;
+}

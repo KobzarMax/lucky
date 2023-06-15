@@ -1,7 +1,7 @@
-import react from 'react'
 import { useCountdown } from '../../hooks/useCountdown'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 const minuteSeconds = 60
 const hourSeconds = 3600
@@ -28,7 +28,7 @@ export const CountDown = () => {
   const getTimeDays = (time: number) => (time / daySeconds) | 0
 
   return (
-    <div className="flex items-center justify-center gap-2.5">
+    <div className={styles.timer}>
       <CountdownCircleTimer
         isPlaying
         duration={daysDuration}
@@ -40,13 +40,11 @@ export const CountDown = () => {
       >
         {({ elapsedTime }) => (
           <div className="timer-wrapper">
-            <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+            <div className={styles.timerText}>
+              <span className={styles.timerDurationNumber}>
                 {getTimeDays(daysDuration - elapsedTime)}
               </span>
-              <span className="text-[13px] leading-4 text-white">
-                {t('days')}
-              </span>
+              <span className={styles.timerDuration}>{t('days')}</span>
             </div>
           </div>
         )}
@@ -62,14 +60,12 @@ export const CountDown = () => {
         size={80}
       >
         {({ elapsedTime }) => (
-          <div className="timer-wrapper">
-            <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+          <div>
+            <div className={styles.timerText}>
+              <span className={styles.timerDurationNumber}>
                 {getTimeHours(daySeconds - elapsedTime)}
               </span>
-              <span className="text-[13px] leading-4 text-white">
-                {t('hours')}
-              </span>
+              <span className={styles.timerDuration}>{t('hours')}</span>
             </div>
           </div>
         )}
@@ -85,14 +81,12 @@ export const CountDown = () => {
         size={80}
       >
         {({ elapsedTime }) => (
-          <div className="timer-wrapper">
-            <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+          <div>
+            <div className={styles.timerText}>
+              <span className={styles.timerDurationNumber}>
                 {getTimeMinutes(hourSeconds - elapsedTime)}
               </span>
-              <span className="text-[13px] leading-4 text-white">
-                {t('minutes')}
-              </span>
+              <span className={styles.timerDuration}>{t('minutes')}</span>
             </div>
           </div>
         )}
@@ -110,14 +104,12 @@ export const CountDown = () => {
         }}
       >
         {({ elapsedTime }) => (
-          <div className="timer-wrapper">
-            <div className="timer-text flex flex-col items-center justify-center">
-              <span className="text-[25px] font-semibold leading-[30px] text-primary">
+          <div>
+            <div className={styles.timerText}>
+              <span className={styles.timerDurationNumber}>
                 {getTimeSeconds(elapsedTime)}
               </span>
-              <span className="text-[13px] leading-4 text-white">
-                {t('seconds')}
-              </span>
+              <span className={styles.timerDuration}>{t('seconds')}</span>
             </div>
           </div>
         )}

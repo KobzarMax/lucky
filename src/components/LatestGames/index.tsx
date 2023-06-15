@@ -6,6 +6,7 @@ import arrowup from '../../asset/arrowup.svg'
 import avatar from '../../asset/hamster.png'
 import down from '../../asset/down.svg'
 import border from '../../asset/latest-games-border.svg'
+import styles from './index.module.css'
 
 const LatestGames: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -133,35 +134,31 @@ const LatestGames: React.FC = () => {
   ]
 
   return (
-    <div className="z-index-[999] relative mt-[27px] lg:mt-[151px]">
-      <p className="mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px]">
+    <div className={styles.latestgames}>
+      <p className={styles.latestgamesText}>
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
         <span className="lowercase text-primary">{t('games')}</span>
       </p>
-      <div className="ticker-wrap">
-        <div className="ticker flex items-center justify-between gap-[35px]">
+      <div className={styles.tickerWrap}>
+        <div className={`${styles.ticker} ${styles.tickerWrapInner}`}>
           {latestGames.map((latestGame, index) => (
             <div
               key={index}
-              className={`${latestGame.status} ticker__item hexagon relative h-[150px] min-w-[265px] px-5 pb-[26.5px] pt-[33px]`}
+              className={`${latestGame.status} ${styles['ticker__item']} ${styles.hexagon} ${styles.latestGameItem}`}
             >
-              <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center justify-start gap-[5px]">
+              <div className={styles.latestgameInner}>
+                <div className={styles.latestgameAvatar}>
                   <img width={25} src={avatar} alt="Lucky Hamster icon" />
-                  <span className="text-[15px] font-semibold leading-[18px]">
-                    {latestGame.id}
-                  </span>
+                  <span className={styles.latestgameID}>{latestGame.id}</span>
                 </div>
-                <div className="status-arrow">
+                <div className={styles['status-arrow']}>
                   <img src={arrowup} alt="status arrow " />
                 </div>
               </div>
-              <div className="flex items-center justify-between">
+              <div className={styles.latestGameFlex}>
                 <div>
-                  <p className="mb-[5px] text-xl font-semibold leading-6">
-                    {latestGame.funds}
-                  </p>
-                  <p className="text-[13px] leading-[16px] text-dark_gray">
+                  <p className={styles.latestGameFunds}>{latestGame.funds}</p>
+                  <p className={styles.latestGamePercents}>
                     {latestGame.percents}
                   </p>
                 </div>
@@ -173,7 +170,7 @@ const LatestGames: React.FC = () => {
                 )}
               </div>
               <img
-                className="absolute bottom-0 left-0"
+                className={styles.latestGameBorder}
                 src={border}
                 alt="border"
               />

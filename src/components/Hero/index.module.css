@@ -1,0 +1,40 @@
+.hero {
+    @apply flex flex-col items-stretch justify-between lg:flex-row;
+  }
+  
+  .content {
+    @apply relative z-10 mt-[157px] w-full max-w-[665px] lg:mt-[254px];
+  }
+  
+  .title {
+    @apply mb-2.5 text-[30px] font-bold leading-[37px] text-white lg:mb-[15px] lg:text-[40px] lg:leading-[49px];
+  }
+  
+  .primaryText {
+    @apply text-primary;
+  }
+  
+  .subtitle {
+    @apply mb-[15px] text-[15px] leading-[18px] text-white lg:mb-[30px];
+  }
+  
+  .buttons {
+    @apply flex flex-col items-start justify-start gap-[11px] lg:flex-row lg:items-center;
+  }
+  
+  .playNowButton {
+    @apply flex items-center justify-center px-[64.5px] py-[15px] text-[15px] font-semibold leading-[18px] text-white duration-300 ease-out hover:scale-105;
+  }
+  
+  .documentationButton {
+    @apply flex items-center justify-center px-[30px] py-[15px] text-[15px] font-semibold leading-[18px] text-white;
+  }
+  
+  .imageContainer {
+    @apply relative w-[108%] lg:w-full 2xl:w-[1000px];
+  }
+  
+  .image {
+    @apply absolute right-[14px] top-[-128px] w-[108%] lg:right-0 lg:top-0 lg:w-full;
+  }
+  

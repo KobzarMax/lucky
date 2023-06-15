@@ -41,3 +41,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.chainsWrapper {
+  @apply relative inline-block text-left;
+}
+
+.chainName {
+  @apply text-medium text-dark_gray text-[15px] leading-[18px];
+}
+.chainCurrent {
+  @apply mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px];
+}

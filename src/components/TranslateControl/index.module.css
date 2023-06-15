@@ -1,0 +1,56 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.languages {
+  @apply bg-[#2B2B2B] rounded-[15px] hidden;
+}
+
+.languagesWrapper:hover .languages {
+  @apply block;
+}
+
+.languages-inner,
+.languagesInner {
+  @apply max-h-[188px] overflow-y-scroll;
+}
+
+.languages-inner::-webkit-scrollbar,
+.languagesInner::-webkit-scrollbar {
+  @apply w-[3px];
+}
+
+.languages-inner::-webkit-scrollbar-track,
+.languagesInner::-webkit-scrollbar-track {
+  @apply bg-[#343434];
+}
+
+.languages-inner::-webkit-scrollbar-thumb,
+.languagesInner::-webkit-scrollbar-thumb {
+  @apply bg-[#7CCA3F];
+}
+
+.languages-inner::-webkit-scrollbar-thumb:hover,
+.languagesInner::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#7CCA3F];
+}
+
+.languagesWrapper {
+  @apply relative z-50 mr-[18px] flex items-center justify-start lg:mr-[30px];
+}
+
+.globeIcon {
+  @apply mr-[5px];
+}
+
+.languageText {
+  @apply text-dark_gray cursor-pointer text-[15px] font-medium uppercase leading-[18px];
+}
+
+.languages {
+  @apply absolute -right-[30px] top-full rounded-md p-2 lg:-right-6;
+}
+
+.languageOption {
+  @apply text-dark_gray mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px];
+}

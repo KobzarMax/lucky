@@ -12,6 +12,7 @@ import { publicProvider } from 'wagmi/providers/public'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import creditcard from '../asset/creditcard.svg'
 import { useTranslation } from 'react-i18next'
+import styles from './index.module.css'
 
 interface platform {
   isMobile: boolean
@@ -85,7 +86,7 @@ const ConnectIt = ({ isMobile }: platform) => {
                   if (!connected) {
                     return (
                       <button
-                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
+                        className={styles.connectWallet}
                         onClick={openConnectModal}
                         type="button"
                       >
@@ -100,7 +101,7 @@ const ConnectIt = ({ isMobile }: platform) => {
                   if (chain.unsupported) {
                     return (
                       <button
-                        className="flex h-[30px] max-w-[243px]  items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
+                        className={styles.wrongNetwork}
                         style={{ backgroundColor: 'red' }}
                         onClick={openChainModal}
                         type="button"
@@ -111,12 +112,12 @@ const ConnectIt = ({ isMobile }: platform) => {
                   }
 
                   return (
-                    <div className="flex items-center justify-center">
+                    <div className={styles.openChainWrap}>
                       <div
                         onClick={openChainModal}
-                        className={`chains-wrapper relative inline-block text-left`}
+                        className={styles.openChainInner}
                       >
-                        <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
+                        <div className={styles.hasIcon}>
                           {chain.hasIcon && (
                             <div
                               style={{
@@ -139,7 +140,7 @@ const ConnectIt = ({ isMobile }: platform) => {
                           )}
 
                           {!isMobile && (
-                            <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
+                            <span className={styles.chainName}>
                               {chain.name}
                             </span>
                           )}
@@ -147,7 +148,7 @@ const ConnectIt = ({ isMobile }: platform) => {
                       </div>
 
                       <button
-                        className="flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px]"
+                        className={styles.connectWallet}
                         onClick={openAccountModal}
                         type="button"
                       >
