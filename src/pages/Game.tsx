@@ -4,6 +4,7 @@ import { Win } from '@/components/Win'
 import React, { useState, useEffect, useRef } from 'react'
 import { GameFooter } from '@/components/GameFooter'
 import { GameContent } from '@/components/GameContent'
+import styles from '@/components/index.module.css'
 
 const Game: React.FC = () => {
   const [asideView, setAsideView] = useState<boolean>(false)
@@ -69,10 +70,7 @@ const Game: React.FC = () => {
   }, [asideView])
 
   return (
-    <div
-      id="game"
-      className="relative max-h-[92vh] min-h-[90vh] overflow-hidden sm:max-h-[100vh] lg:min-h-[100vh]"
-    >
+    <div id="game" className={styles.game}>
       <Win toggleShow={toggleShow} show={show} />
       <div className="pt-[90px]">
         <Referals />

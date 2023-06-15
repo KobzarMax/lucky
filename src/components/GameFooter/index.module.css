@@ -1,0 +1,49 @@
+.gameFooterButton img {
+    filter: invert(60%) sepia(3%) saturate(0%) hue-rotate(142deg) brightness(91%) contrast(84%);
+}
+.gameFooterButton {
+    background: rgba(27, 27, 27, 0.6);
+    border-radius: 15px 15px 0px 0px;
+    backdrop-filter: blur(10px);
+}
+
+.game-footer {
+    transform: translateY(85%);
+    transition: 0.3s all;
+    overflow: hidden;
+}
+
+.gameFooter {
+    @apply transition-all duration-300 lg:max-h-[60vh] lg:min-h-[100px] lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0;
+}
+.gameFooterActive {
+    @apply h-[63vh] pb-[135px] lg:pb-0;
+}
+.gameFooterButton {
+    @apply relative flex items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-[#8A8A8A];
+}
+.increase {
+    @apply bg-dark_green absolute left-3 top-0 min-h-[34px] cursor-pointer rounded-md px-2 text-white;
+}
+.decrease {
+    @apply bg-primary absolute right-3 top-0 min-h-[34px] cursor-pointer rounded-md px-2 text-white;
+}
+.widgetButton {
+    @apply flex h-[34px] cursor-pointer items-center justify-center gap-[5px];
+}
+.widgetContainer {
+    @apply transition-all duration-300 overflow-hidden translate-y-[100%];
+}
+.widgetContainerActive {
+    @apply relative z-50 h-full lg:h-full lg:pb-0 bg-[#2b2b2bcc] translate-y-0 max-h-full;
+}
+
+.game-footer.active {
+    transform: translateY(0%);
+}
+
+@media (max-width: 1024px) {
+    .game-footer.active {
+        height: 63vh !important;
+    }
+}

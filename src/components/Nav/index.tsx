@@ -20,7 +20,9 @@ export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
 
   return (
     <div
-      className={`${visible ? 'active' : ''} ${styles.nav} ${styles.navMain}`}
+      className={`${visible ? styles.active : ''} ${styles.nav} ${
+        styles.navMain
+      }`}
     >
       <div className={styles.navInner}>
         <div

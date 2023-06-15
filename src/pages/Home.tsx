@@ -7,6 +7,7 @@ import { News } from '@/components/News'
 import { FAQ } from '@/components/FAQ'
 import { Hero } from '@/components/Hero'
 import 'flowbite'
+import styles from '@/components/index.module.css'
 
 type HomeProps = {
   onEarnPartnerInViewChange: (inView: boolean) => void
@@ -28,10 +29,7 @@ const Home: React.FC<HomeProps> = ({
   }
 
   return (
-    <div
-      id="home"
-      className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]"
-    >
+    <div id="home" className={styles.home}>
       <Hero />
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />

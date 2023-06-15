@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
               styles.footerNavWrapper
             }  ${!visible ? 'pb-[13px]' : 'pb-[100px]'} `}
           >
-            <Link className="logo" to={'/'}>
+            <Link className={styles.logo} to={'/'}>
               <img
                 className="max-w-[95px]"
                 src={isMobile ? mobileLogo : logo}
@@ -46,7 +46,7 @@ const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
               />
             </Link>
 
-            <div className={(styles['footer-nav'], styles.footerLinks)}>
+            <div className={`${styles['footer-nav']} ${styles.footerLinks}`}>
               <Link className={styles.footerLink} to={'terms'}>
                 {t('termsOfUse')}
               </Link>

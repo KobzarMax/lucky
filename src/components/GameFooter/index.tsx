@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
 import caret from '@/asset/CaretDown.svg'
+import styles from './index.module.css'
 
 interface GameFooterProps {
   increaseHeight: () => void
@@ -28,25 +29,20 @@ export const GameFooter: React.FC<GameFooterProps> = ({
   return (
     <div
       ref={desktopFooterRef}
-      className={`game-footer transition-all duration-300 lg:max-h-[60vh] lg:min-h-[100px] ${
-        isWidgetVisible ? 'active h-[63vh] pb-[135px]' : ''
-      } lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0`}
+      className={`${styles['game-footer']} ${styles.gameFooter} ${
+        isWidgetVisible ? `${styles.active} ${styles.gameFooterActive}` : ''
+      } `}
       style={{ height: widgetHeight }}
     >
       {!isMobile && (
-        <div
-          className={`game-footer-button relative flex items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-[#8A8A8A]`}
-        >
+        <div className={styles.gameFooterButton}>
           {isWidgetVisible && (
-            <button
-              onClick={increaseHeight}
-              className="absolute left-3 top-0 min-h-[34px] cursor-pointer rounded-md bg-dark_green px-2 text-white"
-            >
+            <button onClick={increaseHeight} className={styles.increase}>
               {t('increase')}
             </button>
           )}
           <span
-            className="flex h-[34px] cursor-pointer items-center justify-center gap-[5px]"
+            className={styles.widgetButton}
             onClick={(e) => {
               e.stopPropagation()
               setWidgetVisible(!isWidgetVisible)
@@ -62,10 +58,7 @@ export const GameFooter: React.FC<GameFooterProps> = ({
             />
           </span>
           {isWidgetVisible && (
-            <button
-              onClick={decreaseHeight}
-              className="absolute right-3 top-0 min-h-[34px] cursor-pointer rounded-md bg-primary px-2 text-white"
-            >
+            <button onClick={decreaseHeight} className={styles.decrease}>
               {t('decrease')}
             </button>
           )}
@@ -74,8 +67,8 @@ export const GameFooter: React.FC<GameFooterProps> = ({
 
       <div
         ref={chartRef}
-        className={`widget-container transition-all duration-300 ${
-          isWidgetVisible ? 'active relative z-50 h-full lg:h-full lg:pb-0' : ''
+        className={` ${styles.widgetContainer} ${
+          isWidgetVisible ? `${styles.widgetContainerActive} active` : ''
         }`}
       >
         <TradingViewWidget />

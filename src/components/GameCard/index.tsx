@@ -258,7 +258,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                   <div
                     className={`${styles[positionInputValue]} ${styles.positionInputValue}`}
                   >
-                    <img className="arrow" src={arrow} alt="arrow" />
+                    <img className={styles.arrow} src={arrow} alt="arrow" />
                     {positionInputValue === 'up' && (
                       <span className={styles.gameUpButton}>{t('up')}</span>
                     )}
