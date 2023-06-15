@@ -22,7 +22,7 @@ interface Round {
   down: string
 }
 
-export  const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
+export const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
   const { t } = useTranslation(['translations'])
   const [isExpanded, setIsExpanded] = useState(false)
 

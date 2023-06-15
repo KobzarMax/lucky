@@ -1,39 +1,39 @@
-import { useEffect, useRef, FC } from 'react';
+import { useEffect, useRef, FC } from 'react'
 
 declare global {
   interface Window {
-    TradingView: any; // Replace 'any' with the appropriate type for TradingView
+    TradingView: any // Replace 'any' with the appropriate type for TradingView
   }
 }
 
-let tvScriptLoadingPromise: Promise<Event> | null;
+let tvScriptLoadingPromise: Promise<Event> | null
 
 const TradingViewWidget: FC = () => {
-  const onLoadScriptRef = useRef<(() => void) | null>();
+  const onLoadScriptRef = useRef<(() => void) | null>()
 
   useEffect(() => {
-    onLoadScriptRef.current = createWidget;
+    onLoadScriptRef.current = createWidget
 
     if (!tvScriptLoadingPromise) {
       tvScriptLoadingPromise = new Promise((resolve) => {
-        const script = document.createElement('script');
-        script.id = 'tradingview-widget-loading-script';
-        script.src = 'https://s3.tradingview.com/tv.js';
-        script.type = 'text/javascript';
-        script.onload = resolve;
+        const script = document.createElement('script')
+        script.id = 'tradingview-widget-loading-script'
+        script.src = 'https://s3.tradingview.com/tv.js'
+        script.type = 'text/javascript'
+        script.onload = resolve
 
-        document.head.appendChild(script);
-      });
+        document.head.appendChild(script)
+      })
     }
 
     tvScriptLoadingPromise.then(
       () => onLoadScriptRef.current && onLoadScriptRef.current()
-    );
+    )
 
     return () => {
-      onLoadScriptRef.current = null;
-    };
-  }, []);
+      onLoadScriptRef.current = null
+    }
+  }, [])
 
   const createWidget = () => {
     if (
@@ -53,9 +53,9 @@ const TradingViewWidget: FC = () => {
         allow_symbol_change: true,
         enabled_features: ['header_fullscreen_button'],
         container_id: 'tradingview_06401'
-      });
+      })
     }
-  };
+  }
 
   return (
     <div className="tradingview-widget-container" style={{ height: '100%' }}>
@@ -70,7 +70,7 @@ const TradingViewWidget: FC = () => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TradingViewWidget;
+export default TradingViewWidget

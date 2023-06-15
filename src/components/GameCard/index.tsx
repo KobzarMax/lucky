@@ -5,14 +5,7 @@ import play from '../../asset/PlayCircle.svg'
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import bnb from '../../asset/BNB.svg'
 import clock from '../../asset/Clock.svg'
-
-interface GameData {
-  status: string
-  lastPrice: string
-  fixedPrice: string
-  presentPool: string
-  gameID: string
-}
+import { GameData } from '@/consts'
 
 interface GameCardProps {
   cardData: GameData

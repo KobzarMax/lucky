@@ -3,22 +3,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import caretDown from '@/asset/CaretDown.svg'
 import questionCircle from '@/asset/faqicon.svg'
 import styles from './index.module.css'
-
-interface FAQItem {
-  title: string
-  text: string
-}
+import { FAQItem } from '@/interfaces'
 
 export const FAQ: React.FC = () => {
   const { t } = useTranslation(['translations'])
-
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const contentRefs = useRef<(HTMLParagraphElement | null)[]>([])
-
-  const toggleAccordion = (index: number): void => {
-    setOpenIndex((prevIndex) => (prevIndex === index ? null : index))
-  }
-
   const faqItems: FAQItem[] = [
     {
       title: t('faqText1'),
@@ -45,6 +33,12 @@ export const FAQ: React.FC = () => {
       text: t('faqDescription6')
     }
   ]
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const contentRefs = useRef<(HTMLParagraphElement | null)[]>([])
+
+  const toggleAccordion = (index: number): void => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index))
+  }
 
   useEffect(() => {
     contentRefs.current = contentRefs.current.slice(0, faqItems.length)

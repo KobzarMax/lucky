@@ -1,35 +1,20 @@
-import createAccount from '@/asset/UserCirclePlus.svg'
-import wallet from '@/asset/wallet.svg'
-import coins from '@/asset/coins.svg'
 import { useTranslation } from 'react-i18next'
 import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import React, { useEffect } from 'react'
 import styles from './index.module.css'
+import { PartnerPosibility } from '@/interfaces'
+import { coins, createAccount, wallet } from '@/consts'
 
 interface EarnPartnerProps {
   onEarnPartnerInViewChange: (inView: boolean) => void
 }
 
-export const EarnPartner: React.FC<EarnPartnerProps> = ({onEarnPartnerInViewChange}: EarnPartnerProps) => {
+export const EarnPartner: React.FC<EarnPartnerProps> = ({
+  onEarnPartnerInViewChange
+}: EarnPartnerProps) => {
   const { t } = useTranslation(['translations'])
-
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: '0px 0px'
-  })
-
-  useEffect(() => {
-    onEarnPartnerInViewChange(inView)
-  }, [inView, onEarnPartnerInViewChange])
-
-  interface PartnerPosibility {
-    icon: string
-    title: string
-    text: string
-  }
-
   const partnerPosibilities: PartnerPosibility[] = [
     {
       icon: createAccount,
@@ -47,6 +32,15 @@ export const EarnPartner: React.FC<EarnPartnerProps> = ({onEarnPartnerInViewChan
       text: t('startBuildPortfolioSubtitle')
     }
   ]
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px'
+  })
+
+  useEffect(() => {
+    onEarnPartnerInViewChange(inView)
+  }, [inView, onEarnPartnerInViewChange])
+
   return (
     <div ref={ref} className={styles.earnPartnerWrap}>
       <div className="w-full max-w-full">

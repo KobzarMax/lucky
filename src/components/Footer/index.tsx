@@ -7,7 +7,7 @@ import twitter from '../../asset/TwitterLogo.svg'
 import telegram from '../../asset/TelegramLogo.svg'
 import discord from '../../asset/DiscordLogo.svg'
 import mobileLogo from '../../asset/mobile-logo.svg'
-import React from "react";
+import React from 'react'
 
 interface FooterProps {
   isMobile: boolean

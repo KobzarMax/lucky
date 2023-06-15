@@ -2,7 +2,7 @@ import { useCountdown } from '../../hooks/useCountdown'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
-import React from "react";
+import React from 'react'
 
 const minuteSeconds = 60
 const hourSeconds = 3600

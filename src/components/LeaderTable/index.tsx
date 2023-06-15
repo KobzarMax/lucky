@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import avatar from '../../asset/avatar.png'
 import styles from './index.module.css'
-import React from "react";
+import React from 'react'
+import { users } from '@/consts'
 
 interface LeaderTableProps {
   isMobile?: boolean
@@ -9,130 +9,6 @@ interface LeaderTableProps {
 
 export const LeaderTable: React.FC<LeaderTableProps> = ({ isMobile }) => {
   const { t } = useTranslation(['translations'])
-
-  const users = [
-    {
-      place: 1,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 2,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 3,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 4,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 5,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 6,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 7,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 8,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 9,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 10,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 11,
-      userId: '139812hud12j',
-      winChance: '60,15%',
-      totalWin: '2 336,731979',
-      winRounds: '7 519',
-      totalRounds: '12 501',
-      funds: '4 512, 78',
-      winStatus: 'positive',
-      avatar: avatar
-    }
-  ]
 
   return (
     <div>

@@ -1,19 +1,11 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-
+import { durations } from '@/consts'
 import clock from '../../asset/Clock.svg'
 import caret from '../../asset/CaretDown.svg'
 
 export const GameTimer: React.FC = () => {
   const { t } = useTranslation(['translations'])
-  const durations: string[] = [
-    '1 minute',
-    '5 minutes',
-    '30 minutes',
-    '1 hour',
-    '2 hours',
-    '4 hours'
-  ]
 
   const [duration, setDuration] = useState<string>(durations[0])
 

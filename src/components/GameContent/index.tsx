@@ -15,14 +15,7 @@ import { GameTimer } from '@/components/GameTimer'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
-
-interface GameData {
-  status: string
-  lastPrice: string
-  fixedPrice: string
-  presentPool: string
-  gameID: string
-}
+import { games, GameData } from '@/consts'
 
 interface GameContentProps {
   toggleWidget: () => void
@@ -49,57 +42,6 @@ export const GameContent: React.FC<GameContentProps> = ({
     }
   }
 
-  const games: GameData[] = [
-    {
-      status: 'ended',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '4.9641',
-      gameID: '#91999'
-    },
-    {
-      status: 'active',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '4.9641',
-      gameID: '#92002'
-    },
-    {
-      status: 'togo',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '0.0001',
-      gameID: '#92001'
-    },
-    {
-      status: 'ended',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '4.9641',
-      gameID: '#91999'
-    },
-    {
-      status: 'active',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '4.9641',
-      gameID: '#92002'
-    },
-    {
-      status: 'togo',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '0.0001',
-      gameID: '#92001'
-    },
-    {
-      status: 'togo',
-      lastPrice: '$1.8848',
-      fixedPrice: '$1.8905',
-      presentPool: '0.0001',
-      gameID: '#92001'
-    }
-  ]
   return (
     <>
       <div className="relative mb-[33px] flex items-center justify-end gap-[270px]">

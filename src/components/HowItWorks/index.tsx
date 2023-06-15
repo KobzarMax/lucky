@@ -1,27 +1,19 @@
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import React, { useEffect } from 'react'
-import transparency from '../../asset/transparency.svg'
-import safety from '../../asset/safety.svg'
-import oportunity from '../../asset/oportunity.svg'
-import rewards from '../../asset/rewards.svg'
 import styles from './index.module.css'
+import { DescriptionItem } from '@/interfaces'
+import { oportunity, rewards, safety, transparency } from '@/consts'
 
 interface HowItWorksProps {
   onHowItWorksInViewChange: (inView: boolean) => void
 }
 
-export const HowItWorks: React.FC<HowItWorksProps> = ({ onHowItWorksInViewChange }) => {
+export const HowItWorks: React.FC<HowItWorksProps> = ({
+  onHowItWorksInViewChange
+}) => {
   const { t } = useTranslation(['translations'])
-  const [ref, inHowView] = useInView({
-    triggerOnce: true,
-    rootMargin: '0px 0px'
-  })
-
-  useEffect(() => {
-    onHowItWorksInViewChange(inHowView)
-  }, [inHowView, onHowItWorksInViewChange])
-  const descriptions = [
+  const descriptions: DescriptionItem[] = [
     {
       icon: transparency,
       title: t('transperancy'),
@@ -43,6 +35,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onHowItWorksInViewChange
       text: t('rewardsText')
     }
   ]
+  const [ref, inHowView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px'
+  })
+
+  useEffect(() => {
+    onHowItWorksInViewChange(inHowView)
+  }, [inHowView, onHowItWorksInViewChange])
   return (
     <div ref={ref} className={styles.howItWorks}>
       <h2 className={styles.howItTitle}>

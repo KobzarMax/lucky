@@ -1,45 +1,10 @@
-import avatar from '../../asset/big-avatar.png'
 import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
-import React from "react";
+import React from 'react'
+import { rating } from '@/consts'
 
 export const TopPlaces: React.FC = () => {
   const { t } = useTranslation(['translations'])
-  const rating = [
-    {
-      place: 1,
-      userId: '139812hud12j',
-      winChance: '51.87%',
-      totalWin: '62,571107',
-      winRounds: '11 041',
-      totalRounds: '21 287',
-      funds: '120,78',
-      winStatus: 'negative',
-      avatar: avatar
-    },
-    {
-      place: 2,
-      userId: '139812hud12j',
-      winChance: '59.23%',
-      totalWin: '10 617,047296',
-      winRounds: '10 576',
-      totalRounds: '17 856',
-      funds: '20 491,57',
-      winStatus: 'positive',
-      avatar: avatar
-    },
-    {
-      place: 3,
-      userId: '139812hud12j',
-      winChance: '60.49%',
-      totalWin: '3 050,363175',
-      winRounds: '7 617',
-      totalRounds: '12 592',
-      funds: '5 886,97',
-      winStatus: 'positive',
-      avatar: avatar
-    }
-  ]
 
   return (
     <div>

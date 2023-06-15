@@ -1,7 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import banner1 from '../../asset/banner1.png'
-import banner2 from '../../asset/banner2.png'
-import banner3 from '../../asset/banner3.png'
 import arrow from '../../asset/arrowup.svg'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
@@ -10,6 +7,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
+import { news } from '@/consts'
 
 SwiperCore.use([Navigation])
 
@@ -17,29 +15,6 @@ export const News: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const language = useSelector((state: RootState) => state.global.language)
 
-  const news = [
-    {
-      image: banner1,
-
-      title: 'The game starts soon',
-      date: '02.06.2023',
-      text: '🎮🔮 Exciting news! Lucky Hamster, the ultimate blockchain prediction game, is launching soon! Get ready to showcase your skills and win big! 🚀 #LuckyHamster #BlockchainGame'
-    },
-    {
-      image: banner2,
-
-      title: 'How does this game work?',
-      date: '02.06.2023',
-      text: '🔮🐹 Predict market moves, earn rewards! Lucky Hamster, the innovative blockchain prediction game, puts your skills to the test. Start playing now! 🚀 #LuckyHamster #BlockchainGame'
-    },
-    {
-      image: banner3,
-
-      title: 'Take your profit now',
-      date: '02.06.2023',
-      text: '🤑💰 Play, predict, profit! Join Lucky Hamster, the blockchain prediction game, and turn your foresight into earnings. Get started now! 🚀 #LuckyHamster #BlockchainGame'
-    }
-  ]
   const swiperRef = React.useRef<React.RefObject<SwiperRef> | null | undefined>(
     null
   )

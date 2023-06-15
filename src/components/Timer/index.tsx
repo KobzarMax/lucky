@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { CountDown } from '@/components/Countdown'
 import styles from './index.module.css'
-import React from "react";
+import React from 'react'
 
 export const Timer: React.FC = () => {
   const { t } = useTranslation(['translations'])
