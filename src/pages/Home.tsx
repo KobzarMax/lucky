@@ -28,7 +28,10 @@ const Home: React.FC<HomeProps> = ({
   }
 
   return (
-    <div className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]">
+    <div
+      id="home"
+      className="relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px]"
+    >
       <Hero />
       <LatestGames />
       <HowItWorks onHowItWorksInViewChange={handleEarnPartnerInViewChange} />

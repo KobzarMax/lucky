@@ -8,34 +8,44 @@ import 'swiper/css/navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { news } from '@/consts'
+import styles from './index.module.css'
 
 SwiperCore.use([Navigation])
 
 export const News: React.FC = () => {
   const { t } = useTranslation(['translations'])
   const language = useSelector((state: RootState) => state.global.language)
+  const isMobile = useSelector((state: RootState) => state.global.isMobile)
 
   const swiperRef = React.useRef<React.RefObject<SwiperRef> | null | undefined>(
     null
   )
   return (
-    <div className="news relative mt-[7.5rem] lg:mt-[60px]">
+    <div className={styles.news}>
       <h2
         className={`mb-[31px] ${
           language === 'ru' ? 'text-left' : 'text-center'
-        } text-[25px] font-bold leading-[30px] text-white sm:text-center`}
+        } ${styles.newsTitle}`}
       >
         {t('news')}
       </h2>
-      <div className="slide-buttons absolute right-[0px] top-[0px] flex items-center justify-center gap-[14px] lg:right-[52px] lg:top-[167px] lg:gap-[21px]">
-        <div className="swiper-button news-swiper-button-prev flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
+      <div
+        className={`${styles.slideButtons} ${
+          isMobile ? '' : styles.hiddenButtons
+        }`}
+      >
+        <div
+          className={`${styles['swiper-button']} ${styles['news-swiper-button-prev']} ${styles.newsButton}`}
+        >
           <img
             src={arrow}
             alt="slide arrow"
             className="h-[183px] w-6 -rotate-90 lg:w-full"
           />
         </div>
-        <div className="swiper-button news-swiper-button-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary">
+        <div
+          className={`${styles['swiper-button']} ${styles['news-swiper-button-next']} ${styles.newsButton}`}
+        >
           <img
             src={arrow}
             alt="slide arrow"
@@ -66,35 +76,29 @@ export const News: React.FC = () => {
       >
         {news.map((article, index) => (
           <SwiperSlide
-            className="news-article flex min-h-[371px] w-full flex-col items-center justify-center lg:min-h-[475px] lg:max-w-[365px] "
+            className={`${styles.newsArticle} ${styles['news-article']}`}
             key={index}
           >
-            <div className="mx-auto w-full max-w-[285px] lg:h-[250px] lg:max-w-[365px]">
+            <div className={styles.newsArticleItem}>
               <img
-                className="h-[183px] w-full max-w-[285px] object-cover lg:h-[250px] lg:max-w-[365px]"
+                className={styles.newsArticleImage}
                 src={article.image}
                 alt="article image"
               />
             </div>
-            <div className="mx-auto max-w-[285px] px-2 pb-[47px] pt-2.5 lg:max-w-[365px] lg:px-2.5">
-              <p className="mb-[5px] text-[13px] font-bold leading-4 text-white lg:text-[17px] lg:leading-[21px]">
-                {article.title}
-              </p>
-              <div className="mb-[15px] flex items-center justify-between">
-                <p className="text-[10px] leading-3 text-[#929292] lg:text-[13px] lg:leading-4">
-                  Lucky Hamster
-                </p>
-                <p className="text-[10px] leading-3 text-[#929292] lg:text-[13px] lg:leading-4">
-                  {article.date}
-                </p>
+            <div className={styles.newsArticleContent}>
+              <p className={styles.articleTitle}>{article.title}</p>
+              <div className={styles.articleData}>
+                <p className={styles.articleDataItem}>Lucky Hamster</p>
+                <p className={styles.articleDataItem}>{article.date}</p>
               </div>
-              <p className="article-text mb-4 text-xs leading-[15px] text-white lg:text-[15px] lg:leading-[18px]">
+              <p className={`${styles['article-text']} ${styles.articleText}`}>
                 {article.text}
               </p>
               <a
                 href="https://twitter.com/HamsterLucky"
                 target="_blank"
-                className="flex items-center justify-start gap-[5px] text-xs leading-[15px] text-primary lg:text-[15px] lg:leading-[18px]"
+                className={styles.readAll}
                 rel="noreferrer"
               >
                 {t('readAll')}{' '}
