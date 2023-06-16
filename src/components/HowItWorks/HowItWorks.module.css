@@ -17,7 +17,7 @@
   @apply mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[23px] text-white lg:mb-[30px];
 }
 .descriptions {
-  @apply flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden;
+  @apply flex relative items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden;
 }
 .descriptions {
   -webkit-overflow-scrolling: touch;

@@ -7,6 +7,15 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+@supports (-webkit-touch-callout: none) {
+  body {
+      height: -webkit-fill-available;
+  }
+  html {
+      height: -webkit-fill-available;
+  }
+}
+
 #root {
   background-image: url('../asset/background.jpg');
   background-size: cover;

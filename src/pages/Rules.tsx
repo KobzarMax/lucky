@@ -10,7 +10,13 @@ const Rules: FC = () => {
   useEffect(() => {
     const calculateHeight = () => {
       const windowHeight = window.innerHeight
-      const calculatedHeight = windowHeight - 150
+      const md = new MobileDetect(window.navigator.userAgent)
+      const isMobile = md.mobile()
+      let calculatedHeight = windowHeight - 200
+
+      if (isMobile) {
+        calculatedHeight -= 50
+      }
 
       setHeight(calculatedHeight)
     }
