@@ -29,7 +29,10 @@ module.exports = {
         wrap_gray_border: '#363636',
         header_popup_bg: '#2B2B2B',
         scrollbar_thumb: '#7CCA3F',
-        scrollbar_track: '#343434'
+        scrollbar_track: '#343434',
+        widget_bg: '#58585899',
+        dark_gray_border: '#292929',
+        header_bg_opacity40: '#211b2566'
       }
     }
   },

@@ -76,7 +76,7 @@ export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
               {t('vote')}
             </NavLink>
             <NavLink
-              className="text-dark_gray flex w-full items-center justify-between whitespace-nowrap border-y border-[#292929] px-5 py-2.5 text-[15px] leading-[18px]"
+              className="text-dark_gray flex w-full items-center justify-between whitespace-nowrap border-y border-dark_gray_border px-5 py-2.5 text-[15px] leading-[18px]"
               to={'ratings'}
             >
               {t('ratings')}

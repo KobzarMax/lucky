@@ -160,7 +160,7 @@ export const GameContent: React.FC<GameContentProps> = ({
             </div>
             <div className={styles.bottomActions}>
               <div
-                className={`${!isWidgetVisible ? 'bg-[#58585899]' : ''} ${
+                className={`${!isWidgetVisible ? 'bg-widget_bg' : ''} ${
                   styles.chartBar
                 }`}
               >
@@ -175,7 +175,7 @@ export const GameContent: React.FC<GameContentProps> = ({
                 />
               </div>
               <div
-                className={` ${isWidgetVisible ? 'bg-[#58585899]' : ''} ${
+                className={` ${isWidgetVisible ? 'bg-widget_bg' : ''} ${
                   styles.chartBar
                 }`}
                 onClick={toggleWidget}
