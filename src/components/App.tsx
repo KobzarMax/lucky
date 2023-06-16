@@ -11,8 +11,6 @@ import { Nav } from '@/components/Nav'
 import { ModalInfo } from '@/components/ModalInfo'
 import 'scroll-smooth'
 import Leaderboard from '@/pages/Leaderboard'
-import { Provider } from 'react-redux'
-import { store } from '@/redux/store'
 
 const App: FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -57,7 +55,6 @@ const App: FC = () => {
   }
 
   return (
-    <Provider store={store}>
       <BrowserRouter>
         <Suspense fallback="loading">
           <Header howVisible={howVisible} />
@@ -85,7 +82,6 @@ const App: FC = () => {
           </div>
         </Suspense>
       </BrowserRouter>
-    </Provider>
   )
 }
 
