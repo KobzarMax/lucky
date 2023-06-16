@@ -32,15 +32,13 @@ export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
         >
           <img src={win} alt="Win" /> {t('win')}
         </div>
-        {isMobile && (
-          <div
-            data-modal-target="popup-modal"
-            data-modal-toggle="popup-modal"
-            className={styles.play}
-          >
-            <img className="relative z-20" src={play} alt="play" />
-          </div>
-        )}
+        <div
+          data-modal-target="popup-modal"
+          data-modal-toggle="popup-modal"
+          className={`${styles.play} ${isMobile ? '' : styles.playHidden}`}
+        >
+          <img className="relative z-20" src={play} alt="play" />
+        </div>
         <NavLink className={styles.navLink} to={'/'}>
           <img src={gear} alt="Instructions" /> {t('documentation')}
         </NavLink>

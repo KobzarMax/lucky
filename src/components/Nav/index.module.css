@@ -65,6 +65,7 @@
 }
 .nav.active {
   transform: translateY(0px);
+  z-index: 1010;
 }
 
 @media (min-width: 1024px) {
@@ -84,4 +85,7 @@
 }
 .navLink {
   @apply text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px];
+}
+.playHidden {
+  @apply hidden;
 }

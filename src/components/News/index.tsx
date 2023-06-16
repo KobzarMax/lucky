@@ -35,7 +35,7 @@ export const News: React.FC = () => {
         }`}
       >
         <div
-          className={`${styles['swiper-button']} ${styles['news-swiper-button-prev']} ${styles.newsButton}`}
+          className={`${styles['swiper-button']} news-swiper-button-prev ${styles['news-swiper-button-prev']} ${styles.newsButton}`}
         >
           <img
             src={arrow}
@@ -44,7 +44,7 @@ export const News: React.FC = () => {
           />
         </div>
         <div
-          className={`${styles['swiper-button']} ${styles['news-swiper-button-next']} ${styles.newsButton}`}
+          className={`${styles['swiper-button']} news-swiper-button-next ${styles['news-swiper-button-next']} ${styles.newsButton}`}
         >
           <img
             src={arrow}

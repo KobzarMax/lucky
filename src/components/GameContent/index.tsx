@@ -49,7 +49,9 @@ export const GameContent: React.FC<GameContentProps> = ({
       <div className={styles.gameContentActions}>
         {!isMobile && (
           <div className={styles.gameMainArrows}>
-            <div className={`${styles['swiper-button-prev']} swiper-button`}>
+            <div
+              className={`${styles['swiper-button-prev']} swiper-button-prev swiper-button`}
+            >
               <img className={styles.arrowRotated} src={arrow} alt="prev" />
             </div>
             <img
@@ -58,7 +60,9 @@ export const GameContent: React.FC<GameContentProps> = ({
               onClick={navigateToActiveSlide}
               alt="game cards"
             />
-            <div className={`${styles['swiper-button-next']} swiper-button`}>
+            <div
+              className={`${styles['swiper-button-next']} swiper-button-next swiper-button`}
+            >
               <img className={styles.arrow} src={arrow} alt="next" />
             </div>
           </div>
@@ -149,7 +153,9 @@ export const GameContent: React.FC<GameContentProps> = ({
       {isMobile && (
         <div className={styles.bottomActionsWrap}>
           <div className={styles.bottomActionsInner}>
-            <div className={`${styles['swiper-button-prev']} swiper-button`}>
+            <div
+              className={`${styles['swiper-button-prev']} swiper-button-prev swiper-button`}
+            >
               <img className={styles.arrowRotated} src={arrow} alt="prev" />
             </div>
             <div className={styles.bottomActions}>
@@ -194,7 +200,9 @@ export const GameContent: React.FC<GameContentProps> = ({
                 />
               </div>
             </div>
-            <div className={`${styles['swiper-button-next']} swiper-button`}>
+            <div
+              className={`${styles['swiper-button-next']} swiper-button-next swiper-button`}
+            >
               <img className={styles.arrow} src={arrow} alt="next" />
             </div>
           </div>

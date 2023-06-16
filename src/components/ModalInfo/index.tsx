@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { MutableRefObject, useEffect } from 'react'
 import { CountDown } from '@/components/Countdown'
 import { useTranslation } from 'react-i18next'
 import 'flowbite'
@@ -11,7 +11,7 @@ export const ModalInfo: React.FC = () => {
   const { t } = useTranslation(['translations'])
 
   return (
-    <div id="popup-modal" tabIndex={1} className={styles.modalWrap}>
+    <div id="popup-modal" tabIndex={1} className={`${styles.modalWrap} hidden`}>
       <div className={styles.modalWrapInner}>
         <div className={styles.modalContent}>
           <button
