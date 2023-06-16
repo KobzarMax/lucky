@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
 import caret from '@/asset/CaretDown.svg'
-import styles from './index.module.css'
+import styles from './GameFooter.module.css'
 
 interface GameFooterProps {
   increaseHeight: () => void

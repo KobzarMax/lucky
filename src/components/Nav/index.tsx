@@ -7,7 +7,7 @@ import signOut from '@/asset/SignOut.svg'
 import gear from '@/asset/gear.svg'
 import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
-import styles from './index.module.css'
+import styles from './Nav.module.css'
 import React from 'react'
 
 interface NavProps {

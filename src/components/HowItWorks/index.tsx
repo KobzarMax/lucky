@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import React, { useEffect } from 'react'
-import styles from './index.module.css'
+import styles from './HowItWorks.module.css'
 import { DescriptionItem } from '@/interfaces'
 import { oportunity, rewards, safety, transparency } from '@/consts'
 

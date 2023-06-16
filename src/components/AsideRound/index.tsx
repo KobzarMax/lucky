@@ -5,7 +5,7 @@ import play from '@/asset/PlayCircle.svg'
 import trophy from '@/asset/Trophy.svg'
 import arrow from '@/asset/arrowup.svg'
 import info from '@/asset/Info.svg'
-import styles from './index.module.css'
+import styles from './AsideRound.module.css'
 
 interface Round {
   roundID: string

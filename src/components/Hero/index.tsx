@@ -4,7 +4,7 @@ import mobileIllustration from '@/asset/mobile-illlustration.png'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
-import styles from './index.module.css'
+import styles from './Hero.module.css'
 import React from 'react'
 
 export const Hero: React.FC = () => {

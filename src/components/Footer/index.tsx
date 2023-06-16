@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
-import styles from './index.module.css'
+import styles from './Footer.module.css'
 import logo from '@/asset/logo.svg'
 import twitter from '@/asset/TwitterLogo.svg'
 import telegram from '@/asset/TelegramLogo.svg'

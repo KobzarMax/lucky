@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { durations } from '@/consts'
 import clock from '@/asset/Clock.svg'
 import caret from '@/asset/CaretDown.svg'
-import styles from './index.module.css'
+import styles from './GameTimer.module.css'
 
 export const GameTimer: React.FC = () => {
   const { t } = useTranslation(['translations'])

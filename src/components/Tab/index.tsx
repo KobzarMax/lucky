@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import styles from './index.module.css'
+import styles from './Tab.module.css'
 
 type Tab = {
   id: string

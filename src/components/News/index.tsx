@@ -8,7 +8,7 @@ import 'swiper/css/navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { news } from '@/consts'
-import styles from './index.module.css'
+import styles from './News.module.css'
 
 SwiperCore.use([Navigation])
 

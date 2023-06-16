@@ -6,7 +6,7 @@ import arrowup from '@/asset/arrowup.svg'
 import avatar from '@/asset/hamster.png'
 import down from '@/asset/down.svg'
 import border from '@/asset/latest-games-border.svg'
-import styles from './index.module.css'
+import styles from './LatestGames.module.css'
 import { latestGames } from '@/consts'
 
 const LatestGames: React.FC = () => {

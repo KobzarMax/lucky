@@ -1,6 +1,6 @@
 import { TelegramButton } from '@/components/TelegramButton'
 import { useTranslation } from 'react-i18next'
-import styles from './index.module.css'
+import styles from './CTA.module.css'
 import React from 'react'
 
 export const CTA: React.FC = () => {

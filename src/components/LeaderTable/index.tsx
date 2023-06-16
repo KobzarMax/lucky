@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import styles from './index.module.css'
+import styles from './LeaderTable.module.css'
 import React from 'react'
 import { users } from '@/consts'
 

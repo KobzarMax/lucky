@@ -3,7 +3,7 @@ import { AsideRound } from '@/components/AsideRound'
 import React, { useState } from 'react'
 import FilterComponent from '@/components/AsideFilter'
 import { rounds } from '@/consts'
-import styles from './index.module.css'
+import styles from './RoundsComponent.module.css'
 
 export const RoundsComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])

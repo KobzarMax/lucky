@@ -17,7 +17,7 @@ import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
 import { games } from '@/consts'
 import { GameData } from '@/interfaces'
-import styles from './index.module.css'
+import styles from './GameContent.module.css'
 
 interface GameContentProps {
   toggleWidget: () => void

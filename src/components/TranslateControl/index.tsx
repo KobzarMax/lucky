@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { RootState } from '@/redux/store'
 import { setLanguage } from '@/features/global/globalSlice'
-import styles from './index.module.css'
+import styles from './TranslateControl.module.css'
 
 type TranslateControlsProps = {
   isMobile: boolean

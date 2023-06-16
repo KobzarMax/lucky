@@ -1,7 +1,7 @@
 import matic from '@/asset/matic-logo.svg'
 // import caretDown from '../../asset/CaretDown.svg'
 import { useNetwork } from 'wagmi'
-import styles from './index.module.css'
+import styles from './Chain.module.css'
 import React from 'react'
 
 interface Chain {

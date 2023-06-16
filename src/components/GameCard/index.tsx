@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react'
 import bnb from '@/asset/BNB.svg'
 import clock from '@/asset/Clock.svg'
 import { GameData } from '@/interfaces'
-import styles from './index.module.css'
+import styles from './GameCard.module.css'
 
 interface GameCardProps {
   cardData: GameData

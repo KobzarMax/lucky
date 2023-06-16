@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { RoundsComponent } from '@/components/RoundsComponent'
 import { PNLComponent } from '@/components/PNLComponent'
 import Tabs from '@/components/Tab'
-import styles from './index.module.css'
+import styles from './Aside.module.css'
 
 interface AsideProps {
   toggleView: () => void

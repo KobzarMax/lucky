@@ -3,7 +3,7 @@ import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
 import React, { useEffect } from 'react'
-import styles from './index.module.css'
+import styles from './EarnPartner.module.css'
 import { PartnerPosibility } from '@/interfaces'
 import { coins, createAccount, wallet } from '@/consts'
 

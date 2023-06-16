@@ -7,7 +7,7 @@ import logo from '@/asset/logo.svg'
 import coin from '@/asset/coin.svg'
 import mobileLogo from '@/asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
-import styles from './index.module.css'
+import styles from './Header.module.css'
 import { useAppSelector } from '@/redux/hooks'
 import { selectPlatform } from '@/features/global/globalSlice'
 

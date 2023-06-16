@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import styles from './index.module.css'
+import styles from './PNLComponent.module.css'
 
 export const PNLComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
