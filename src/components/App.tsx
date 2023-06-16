@@ -2,7 +2,7 @@ import Home from '@/pages/Home'
 import Game from '@/pages/Game'
 import Rules from '@/pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React, { useState, useEffect, Suspense, FC, useRef } from 'react'
+import React, { useState, useEffect, Suspense, FC } from 'react'
 import { useAppDispatch } from '@/redux/hooks'
 import { platform } from '@/features/global/globalSlice'
 import Header from '../components/Header'
@@ -41,33 +41,33 @@ const App: FC = () => {
   }
 
   return (
-      <BrowserRouter>
-        <Suspense fallback="loading">
-          <Header howVisible={howVisible} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
-                  onHowItWorksInViewChange={handleHowItWorksInViewChange}
-                />
-              }
-            />
-            <Route path="rules" element={<Rules />} />
-            <Route
-              path="leaderboard"
-              element={<Leaderboard isMobile={isMobile} />}
-            />
-            <Route path="game" element={<Game />} />
-          </Routes>
-          <Footer visible={visible} isMobile={isMobile} />
-          <ModalInfo />
-          <div className={isMobile ? '' : 'hidden'}>
-            <Nav visible={visible} isMobile={isMobile} />
-          </div>
-        </Suspense>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Suspense fallback="loading">
+        <Header howVisible={howVisible} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
+                onHowItWorksInViewChange={handleHowItWorksInViewChange}
+              />
+            }
+          />
+          <Route path="rules" element={<Rules />} />
+          <Route
+            path="leaderboard"
+            element={<Leaderboard isMobile={isMobile} />}
+          />
+          <Route path="game" element={<Game />} />
+        </Routes>
+        <Footer visible={visible} isMobile={isMobile} />
+        <ModalInfo />
+        <div className={isMobile ? '' : 'hidden'}>
+          <Nav visible={visible} isMobile={isMobile} />
+        </div>
+      </Suspense>
+    </BrowserRouter>
   )
 }
 

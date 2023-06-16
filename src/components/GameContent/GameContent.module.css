@@ -43,6 +43,6 @@
 .swiper-button-next:after {
   display: none !important;
 }
-.prev:after {
+.swiper-button-prev:after {
   display: none !important;
 }

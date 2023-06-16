@@ -54,6 +54,32 @@
   color: #E7974D;
 }
 
+.positive .total {
+  color: #7cca3f;
+  position: relative;
+}
+.negative .total {
+  color: #ff1b5e;
+  position: relative;
+}
+
+.positive .total::before {
+  color: #7cca3f;
+  content: '+';
+  position: absolute;
+  display: block;
+  left: -8px;
+  top: 1px;
+}
+.negative .total::before {
+  color: #ff1b5e;
+  content: '-';
+  position: absolute;
+  display: block;
+  left: -7px;
+  top: 0px;
+}
+
 .rating {
   display: flex;
   flex-direction: column;

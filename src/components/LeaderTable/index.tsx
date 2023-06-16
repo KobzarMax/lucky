@@ -28,15 +28,17 @@ export const LeaderTable: React.FC<LeaderTableProps> = ({ isMobile }) => {
               </thead>
               <tbody>
                 {users.map((user, index) => (
-                  <tr key={index} className={`${user.winStatus}`}>
+                  <tr key={index} className={`${styles[user.winStatus]}`}>
                     <td className={styles.userPlace}>#{user.place}</td>
                     <td className={styles.userAvatar}>
                       <img src={user.avatar} alt="user avatar" />
                       <span className={styles.userID}>{user.userId}</span>
                     </td>
                     <td className="pb-[15px] pr-[45px] pt-6">
-                      <p className={styles.totalWin}>{user.totalWin}</p>
-                      <p className="{styles.userFunds}">${user.funds}</p>
+                      <p className={`${styles.total} ${styles.totalWin}`}>
+                        {user.totalWin}
+                      </p>
+                      <p className={styles.userFunds}>${user.funds}</p>
                     </td>
                     <td className={styles.winValue}>{user.winChance}</td>
                     <td className={styles.winValue}>{user.winRounds}</td>
@@ -53,7 +55,9 @@ export const LeaderTable: React.FC<LeaderTableProps> = ({ isMobile }) => {
               {users.map((user, index) => (
                 <div
                   key={index}
-                  className={`${user.winStatus} border-b border-dark_gray`}
+                  className={`${
+                    styles[user.winStatus]
+                  } border-b border-dark_gray`}
                 >
                   <div className="flex items-center justify-between p-4">
                     <div className={styles.mobileUserPlace}>#{user.place}</div>
@@ -73,7 +77,9 @@ export const LeaderTable: React.FC<LeaderTableProps> = ({ isMobile }) => {
                       {t('totalWin')}
                     </div>
                     <div>
-                      <p className={styles.totalWin}>{user.totalWin}</p>
+                      <p className={`${styles.total} ${styles.totalWin}`}>
+                        {user.totalWin}
+                      </p>
                       <p className={styles.userFunds}>${user.funds}</p>
                     </div>
                   </div>

@@ -57,12 +57,38 @@ table thead th {
     max-height: 2180px;
     overflow-y: scroll;
   }
-  
+
   .table-wrapper {
     max-width: 1162px;
     display: inline-block;
     width: 100%;
   }
+}
+
+.positive .total {
+  color: #7cca3f;
+  position: relative;
+}
+.negative .total {
+  color: #ff1b5e;
+  position: relative;
+}
+
+.positive .total::before {
+  color: #7cca3f;
+  content: '+';
+  position: absolute;
+  display: block;
+  left: -8px;
+  top: 1px;
+}
+.negative .total::before {
+  color: #ff1b5e;
+  content: '-';
+  position: absolute;
+  display: block;
+  left: -7px;
+  top: 0px;
 }
 
 .th {

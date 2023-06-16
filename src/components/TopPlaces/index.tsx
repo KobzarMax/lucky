@@ -12,7 +12,7 @@ export const TopPlaces: React.FC = () => {
         {rating.map((ratingPlace, index) => (
           <div
             key={index}
-            className={`${ratingPlace.winStatus} ${styles.ratingPlace}`}
+            className={`${styles[ratingPlace.winStatus]} ${styles.ratingPlace}`}
           >
             <p className={`${styles.place} ${styles.ratingPlaceNumber}`}>
               #{ratingPlace.place}
@@ -35,7 +35,9 @@ export const TopPlaces: React.FC = () => {
               <div className={styles.winWrapHelper}>
                 <p className={styles.winChanceText}>{t('totalWin')}</p>
                 <div>
-                  <p className={styles.totalWinValue}>{ratingPlace.totalWin}</p>
+                  <p className={`${styles.total} ${styles.totalWinValue}`}>
+                    {ratingPlace.totalWin}
+                  </p>
                   <p className={styles.funds}>${ratingPlace.funds}</p>
                 </div>
               </div>

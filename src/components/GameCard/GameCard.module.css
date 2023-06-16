@@ -39,10 +39,10 @@
   border: 2px solid #7CCA3F;
   backdrop-filter: blur(10px);
 }
-.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+.swiper-button-prev:after, .swiper-button-next:after {
   display: none;
 }
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+.swiper-button-next:after, .swiper-button-prev:after {
   display: none;
 }
 .game-card-main-inner .up .arrow {
