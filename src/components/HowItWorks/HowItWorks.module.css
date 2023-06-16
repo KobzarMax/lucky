@@ -18,7 +18,7 @@
   @apply mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[23px] text-white lg:mb-[30px];
 }
 .descriptionWrap {
-  @apply max-w-full w-full overflow-auto lg:overflow-x-hidden whitespace-nowrap;
+  @apply max-w-full w-full overflow-auto lg:overflow-x-hidden;
 }
 .descriptions {
   @apply flex max-w-full w-full relative z-10 items-center justify-start gap-[30px] lg:justify-center;
