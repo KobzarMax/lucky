@@ -40,20 +40,6 @@ const App: FC = () => {
     setHowVisible(inHowView)
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', smoothScroll)
-    return () => {
-      window.removeEventListener('scroll', smoothScroll)
-    }
-  }, [])
-
-  const smoothScroll = (): void => {
-    window.scroll({
-      top: window.scrollY,
-      behavior: 'smooth'
-    })
-  }
-
   return (
       <BrowserRouter>
         <Suspense fallback="loading">
