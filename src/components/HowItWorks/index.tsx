@@ -51,22 +51,24 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
         {t('howWorksEnd')} ?
       </h2>
       <p className={styles.howWorksSubtitle}>{t('howWorksSubtitle')}</p>
-      <div className={styles.descriptions}>
-        {descriptions.map((description, index) => (
-          <div
-            key={index}
-            className={styles.description}
-            onTouchStart={(event) => event.stopPropagation()}
-          >
-            <img
-              className="mx-auto mb-[10px]"
-              src={description.icon}
-              alt={description.title}
-            />
-            <p className={styles.descriptionTitle}>{description.title}</p>
-            <p className={styles.descriptionText}>{description.text}</p>
-          </div>
-        ))}
+      <div className={styles.descriptionWrap}>
+        <div className={styles.descriptions}>
+          {descriptions.map((description, index) => (
+            <div
+              key={index}
+              className={styles.description}
+              onTouchStart={(event) => event.stopPropagation()}
+            >
+              <img
+                className="mx-auto mb-[10px]"
+                src={description.icon}
+                alt={description.title}
+              />
+              <p className={styles.descriptionTitle}>{description.title}</p>
+              <p className={styles.descriptionText}>{description.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
