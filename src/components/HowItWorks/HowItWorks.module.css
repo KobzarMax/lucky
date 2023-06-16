@@ -23,7 +23,7 @@
 .descriptions {
   @apply flex max-w-full w-full relative z-10 items-center justify-start gap-[30px] lg:justify-center;
 }
-.descriptions {
+.descriptionsWrap {
   -webkit-overflow-scrolling: touch;
   height: -webkit-fill-available;
 }
