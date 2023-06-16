@@ -1,0 +1,12 @@
+.timerText {
+    @apply flex flex-col items-center justify-center;
+}
+.timerDuration {
+    @apply text-[13px] leading-4 text-white;
+}
+.timerDurationNumber {
+    @apply text-primary text-[25px] font-semibold leading-[30px];
+}
+.timer {
+    @apply flex items-center justify-center gap-2.5;
+}

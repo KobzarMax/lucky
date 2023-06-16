@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import styles from './AsideFilter.module.css'
 
 type FilterOption = 'all' | 'winned' | 'losed'
 
@@ -19,10 +20,10 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
   }
 
   return (
-    <div className="mb-[68px] flex w-full items-center justify-center gap-2.5 rounded-[30px] bg-[#38383899]">
+    <div className={styles.asideFilter}>
       <button
         onClick={() => handleFilterChange('all')}
-        className={`flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white ${
+        className={` ${styles.asideFilterButton} ${
           activeFilter === 'all' ? 'bg-primary' : ''
         }`}
       >
@@ -30,7 +31,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
       </button>
       <button
         onClick={() => handleFilterChange('winned')}
-        className={`flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white ${
+        className={`${styles.asideFilterButton} ${
           activeFilter === 'winned' ? 'bg-primary' : ''
         }`}
       >
@@ -38,7 +39,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
       </button>
       <button
         onClick={() => handleFilterChange('losed')}
-        className={`flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white ${
+        className={`${styles.asideFilterButton} ${
           activeFilter === 'losed' ? 'bg-primary' : ''
         }`}
       >

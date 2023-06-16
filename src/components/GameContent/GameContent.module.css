@@ -1,0 +1,48 @@
+.gameContentActions {
+  @apply relative mb-[33px] flex items-center justify-end gap-[270px];
+}
+.gameMainArrows {
+  @apply absolute inset-x-0 top-0 mx-auto flex w-full max-w-[150px] items-center justify-center gap-2.5 rounded-[49px] bg-dark_gray_bg_opacity60 px-5 py-1;
+}
+.SwiperSlide {
+  @apply mx-auto w-full max-w-[360px];
+}
+.SwiperSlideDesktop {
+  @apply w-full min-w-[360px] max-w-[360px];
+}
+.clockCounter {
+  @apply flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-dark_gray_bg_opacity80;
+}
+.chartBar {
+  @apply flex cursor-pointer items-center justify-center rounded-[30px] px-[22.5px] py-[6.5px] transition-all duration-300 hover:bg-dark_gray_bg_opacity80;
+}
+.bottomActions {
+  @apply flex max-h-[38px] items-center justify-center gap-[22.5px] rounded-[30px] bg-night_gray_border_opacity80 py-[5px];
+}
+.bottomActionsInner {
+  @apply relative flex max-h-[48px] w-full items-end justify-center gap-2.5 rounded-[49px] bg-dark_gray_bg_opacity60 px-5 py-1;
+}
+.bottomActionsWrap {
+  @apply fixed bottom-0 z-[100] w-full bg-night_gray_bg_opacity60 pb-20 pl-[13px] pr-3 pt-[9px];
+}
+.clockCounterDesktop {
+  @apply flex cursor-pointer items-center justify-center rounded-[15px] bg-dark_gray_bg_opacity60 p-[14px] transition-all duration-300 hover:bg-dark_gray_bg_opacity80;
+}
+.link {
+  @apply flex cursor-pointer items-center justify-center rounded-[15px] bg-dark_gray_bg_opacity60 p-[14px] transition-all duration-300 hover:bg-dark_gray_bg_opacity80;
+}
+.wrap {
+  @apply flex items-center justify-center gap-2.5 pr-3 lg:pr-[75px];
+}
+.arrow {
+  @apply w-[25px] rotate-90 cursor-pointer;
+}
+.arrowRotated {
+  @apply w-[25px] -rotate-90 cursor-pointer;
+}
+.swiper-button-next:after {
+  display: none !important;
+}
+.swiper-button-prev:after {
+  display: none !important;
+}

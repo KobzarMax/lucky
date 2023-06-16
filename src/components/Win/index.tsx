@@ -1,38 +1,31 @@
-import trophy from '../../asset/trophy-in-hand.svg'
+import trophy from '@/asset/trophy-in-hand.svg'
 import Confetti from 'react-confetti'
 import { useTranslation } from 'react-i18next'
+import styles from './Win.module.css'
+import React from 'react'
 
 interface WinProps {
   show: boolean
   toggleShow: () => void
 }
 
-export const Win = ({ show, toggleShow }: WinProps) => {
+export const Win: React.FC<WinProps> = ({ show, toggleShow }) => {
   const { t } = useTranslation(['translations'])
   return (
-    <div className={`win-overlay w-full ${show ? 'hidden' : 'flex'}`}>
+    <div
+      className={`${styles['win-overlay']} w-full ${show ? 'hidden' : 'flex'}`}
+    >
       <Confetti />
-      <div className="win-item">
-        <p className="text-basic mb-2.5 font-semibold text-dark_green">
-          {t('youWon')}
-        </p>
-        <p className="max-w-[157px] text-center text-[13px] font-medium leading-4 text-white">
-          {t('bnbOnlyFeature')}
-        </p>
+      <div className={styles['win-item']}>
+        <p className={styles.youWon}>{t('youWon')}</p>
+        <p className={styles.bnbOnlyFeature}>{t('bnbOnlyFeature')}</p>
         <img className="mb-[15px]" src={trophy} alt="trophy" />
-        <p className="mb-[15px] text-center text-[10px] font-medium leading-3 text-white">
-          {t('winText')}
-        </p>
-        <button className="text-basic mb-[5px] flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green py-[15px] font-semibold text-white">
-          {t('switchToBnb')}
-        </button>
-        <button className="text-basic mb-2.5 flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green py-[15px] font-semibold text-white">
+        <p className={styles.winText}>{t('winText')}</p>
+        <button className={styles.switchToBnb}>{t('switchToBnb')}</button>
+        <button className={styles.disconnectWallet}>
           {t('disconnectWallet')}
         </button>
-        <button
-          onClick={toggleShow}
-          className="text-basic flex w-full items-center justify-center rounded-[5px] border-2 border-dark_green bg-dark_green py-[15px] font-semibold text-white"
-        >
+        <button onClick={toggleShow} className={styles.stayOnEthereum}>
           {t('stayOnEthereum')}
         </button>
       </div>

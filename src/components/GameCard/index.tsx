@@ -1,18 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import prohibit from '../../asset/Prohibit.svg'
-import arrow from '../../asset/arrowup.svg'
-import play from '../../asset/PlayCircle.svg'
-import { useEffect, useState, useRef, useCallback } from 'react'
-import bnb from '../../asset/BNB.svg'
-import clock from '../../asset/Clock.svg'
-
-interface GameData {
-  status: string
-  lastPrice: string
-  fixedPrice: string
-  presentPool: string
-  gameID: string
-}
+import prohibit from '@/asset/Prohibit.svg'
+import arrow from '@/asset/arrowup.svg'
+import play from '@/asset/PlayCircle.svg'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import bnb from '@/asset/BNB.svg'
+import clock from '@/asset/Clock.svg'
+import { GameData } from '@/interfaces'
+import styles from './GameCard.module.css'
 
 interface GameCardProps {
   cardData: GameData
@@ -85,7 +79,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
     (event: MouseEvent) => {
       if (
         positionInputRef.current &&
-        positionInput === true &&
+        positionInput &&
         !positionInputRef.current.contains(event.target as Node)
       ) {
         setPositionInput(false)
@@ -116,21 +110,18 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
 
   return (
     <div
-      className={`${
-        starting ? '' : cardData.status
-      } game-card-wrapper card-${cardRotation} flex min-h-[400px] min-w-[360px] max-w-[360px] flex-col items-center justify-between overflow-hidden py-10 duration-300`}
+      className={`${starting ? '' : styles[cardData.status]} ${
+        styles['game-card-wrapper']
+      } ${styles[`card-${cardRotation}`]} ${styles.gameCardWrapper}`}
     >
-      <div className="game-card-header relative z-10 flex flex-col items-center">
+      <div className={styles.gameCardHeader}>
         {!positionInput && (
           <>
-            <button
-              onClick={toggleShow}
-              className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green"
-            >
+            <button onClick={toggleShow} className={styles.gameUpButton}>
               {t('up')}
             </button>
             {!positionInput && !starting && (
-              <span className="text-[13px] font-semibold leading-4 text-[#5B5B5B]">
+              <span className={styles.gamePaymentValue}>
                 1.78x <span className="font-normal">{t('payment')}</span>
               </span>
             )}
@@ -141,123 +132,113 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
         <div className="game-card-main w-full">
           {cardData.status === 'ended' && (
             <div>
-              <div className="mb-5 mt-3 flex items-center justify-center gap-[5px]">
+              <div className={styles.timeFinishWrap}>
                 <img src={prohibit} alt="prohibit" />
-                <span className="text-[13px] font-semibold uppercase leading-4 text-[#5B5B5B]">
+                <span className={styles.timeFinishValue}>
                   {t('timeFinish')}
                 </span>
               </div>
-              <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
-                <p className="mb-[5px] text-xs font-semibold uppercase leading-[15px] text-[#464646]">
-                  {t('lastPrice')}
-                </p>
-                <div className="flex items-center justify-between">
-                  <p className="text-xl font-bold uppercase leading-6 text-primary">
+              <div
+                className={`${styles['game-card-main-inner']} ${styles.gameCardMainInner}`}
+              >
+                <p className={styles.lastPrice}>{t('lastPrice')}</p>
+                <div className={styles.flexHelper}>
+                  <p className={styles.cardDataLastPrice}>
                     {cardData.lastPrice}
                   </p>
-                  <div className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
+                  <div className={styles.cardDataLastPriceContent}>
                     <img className="rotate-180" src={arrow} alt="arrow" />{' '}
                     $-0.0040
                   </div>
                 </div>
-                <div className="mb-2.5 mt-[15px] flex items-center justify-between text-[13px] leading-4 text-white">
+                <div className={styles.fixedPrice}>
                   <p>{t('fixedPrice')}</p>
                   <span>{cardData.fixedPrice}</span>
                 </div>
-                <div className="flex items-center justify-between text-[13px] font-semibold leading-4 text-white">
+                <div className={styles.presentPool}>
                   <p>{t('presentPool')}</p>
                   <span>{cardData.presentPool}</span>
                 </div>
               </div>
-              <p className="text-center text-[13px] leading-4 text-[#5B5B5B]">
-                {cardData.gameID}
-              </p>
+              <p className={styles.cardDataGameID}>{cardData.gameID}</p>
             </div>
           )}
           {cardData.status === 'active' && (
             <div>
-              <div className="mt-3 flex items-center justify-center gap-[5px]">
+              <div className={styles.cardActiveHead}>
                 <img src={play} alt="play" />
-                <span className="mr-[5px] text-[13px] font-semibold uppercase leading-4 text-dark_green">
-                  {t('active')}
-                </span>
-                <div className="flex items-center justify-center gap-[5px]">
-                  <div className="text-[13px] leading-4 text-[#5B5B5B]">
+                <span className={styles.headActive}>{t('active')}</span>
+                <div className={styles.headTimeWrap}>
+                  <div className={styles.headTimeItem}>
                     {timeLeft.hours.toString().padStart(2, '0')}
                     {t('h')}
                   </div>
-                  <div className="text-[13px] leading-4 text-[#5B5B5B]">
+                  <div className={styles.headTimeItem}>
                     {timeLeft.minutes.toString().padStart(2, '0')}
                     {t('m')}
                   </div>
-                  <div className="text-[13px] leading-4 text-[#5B5B5B]">
+                  <div className={styles.headTimeItem}>
                     {timeLeft.seconds.toString().padStart(2, '0')}
                     {t('s')}
                   </div>
                 </div>
               </div>
+              <div className={styles.headTimeLine}></div>
               <div
-                className={`relative mx-auto my-2.5 h-[5px] max-w-[298px] bg-[#252525] after:absolute after:left-0 after:top-0 after:z-10 after:block after:h-[5px] after:w-[208px] after:max-w-[298px] after:bg-dark_green after:content-['']`}
-              ></div>
-              <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
-                <p className="mb-[5px] text-xs font-semibold uppercase leading-[15px] text-[#464646]">
-                  {t('lastPrice')}
-                </p>
-                <div className="flex items-center justify-between">
-                  <p className="text-xl font-bold uppercase leading-6 text-primary">
+                className={`${styles['game-card-main-inner']} ${styles.gameCardMainInner}`}
+              >
+                <p className={styles.lastPrice}>{t('lastPrice')}</p>
+                <div className={styles.flexHelper}>
+                  <p className={styles.cardDataLastPrice}>
                     {cardData.lastPrice}
                   </p>
-                  <div className="flex items-center justify-center gap-[5px] rounded-[5px] bg-primary px-2.5 py-[5px] text-[15px] font-medium uppercase leading-[18px] text-white">
+                  <div className={styles.cardDataLastPriceContent}>
                     <img className="rotate-180" src={arrow} alt="arrow" />{' '}
                     $-0.0040
                   </div>
                 </div>
-                <div className="mb-2.5 mt-[15px] flex items-center justify-between text-[13px] leading-4 text-white">
+                <div className={styles.fixedPrice}>
                   <p>{t('fixedPrice')}</p>
                   <span>{cardData.fixedPrice}</span>
                 </div>
-                <div className="flex items-center justify-between text-[13px] font-semibold leading-4 text-white">
+                <div className={styles.presentPool}>
                   <p>{t('presentPool')}</p>
                   <span>{cardData.presentPool}</span>
                 </div>
               </div>
-              <p className="text-center text-[13px] leading-4 text-[#5B5B5B]">
-                {cardData.gameID}
-              </p>
+              <p className={styles.cardDataGameID}>{cardData.gameID}</p>
             </div>
           )}
           {cardData.status === 'togo' && (
             <div>
-              <div className="mb-2.5 mt-3 flex items-center justify-center gap-[5px]">
+              <div className={styles.nextWrap}>
                 <img className="opacity-50" src={play} alt="play" />
-                <span className="text-[13px] font-semibold uppercase leading-4 text-[#42711D]">
-                  {t('next')}
-                </span>
+                <span className={styles.nextText}>{t('next')}</span>
               </div>
-              <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
-                <div className="flex items-center justify-between text-[15px] font-semibold leading-4 text-white">
+              <div
+                className={`${styles['game-card-main-inner']} ${styles.gameCardMainInner}`}
+              >
+                <div className={styles.togoPresentPool}>
                   <p>{t('presentPool')}</p>
                   <span>{cardData.presentPool}</span>
                 </div>
                 <button
                   onClick={togglePositionInput}
                   value={'up'}
-                  className="my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-dark_green py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  className={styles.cardGreenButton}
                 >
                   {t('takeUp')} <img src={arrow} alt="arrow" />
                 </button>
                 <button
                   onClick={togglePositionInput}
                   value={'down'}
-                  className="flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-primary py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  className={styles.cardRedButton}
                 >
                   {t('takeDown')}{' '}
                   <img className="rotate-180" src={arrow} alt="arrow" />
                 </button>
               </div>
-              <p className="text-center text-[13px] leading-4 text-[#5B5B5B]">
-                {cardData.gameID}
-              </p>
+              <p className={styles.cardDataGameID}>{cardData.gameID}</p>
             </div>
           )}
         </div>
@@ -265,45 +246,41 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
       {positionInput && !starting && (
         <div
           ref={positionInputRef}
-          className="game-card-main w-full scale-x-[-1]"
+          className={`${styles['game-card-main']} w-full scale-x-[-1]`}
         >
           <div>
-            <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5">
+            <div
+              className={`${styles['game-card-main-inner']} ${styles.gameCardMainInner}`}
+            >
               <div>
-                <div className="flex items-center justify-between">
-                  <p className="text-[17px] font-semibold leading-[21px] text-white">
-                    {t('choosePosition')}
-                  </p>
+                <div className={styles.flexHelper}>
+                  <p className={styles.choosePosition}>{t('choosePosition')}</p>
                   <div
-                    className={`${positionInputValue} flex items-center justify-start gap-[5px]`}
+                    className={`${styles[positionInputValue]} ${styles.positionInputValue}`}
                   >
-                    <img className="arrow" src={arrow} alt="arrow" />
+                    <img className={styles.arrow} src={arrow} alt="arrow" />
                     {positionInputValue === 'up' && (
-                      <span className="text-[17px] font-semibold uppercase leading-[21px] text-dark_green">
-                        {t('up')}
-                      </span>
+                      <span className={styles.gameUpButton}>{t('up')}</span>
                     )}
                     {positionInputValue === 'down' && (
-                      <span className="text-[17px] font-semibold uppercase leading-[21px] text-primary">
+                      <span className={styles.positionInputValueDown}>
                         {t('down')}
                       </span>
                     )}
                   </div>
                 </div>
                 <div className="mt-[15px]">
-                  <div className="mb-[5px] flex items-end justify-between">
-                    <span className="text-xs leading-[15px] text-[#757575]">
-                      {t('bid')}
-                    </span>
+                  <div className={styles.bidWrap}>
+                    <span className={styles.bidText}>{t('bid')}</span>
                     <img src={bnb} alt="bnb" />
                   </div>
                   <div className="w-full">
                     <input
-                      className="w-full rounded-[5px] border-none bg-[#2D2D2D] text-white outline-none focus:border-none focus:border-transparent focus:shadow-none focus:outline-none active:outline-none"
+                      className={styles.cardInput}
                       type="number"
                       placeholder="0.0"
                     />
-                    <p className="mt-[5px] text-right text-xs leading-[15px] text-[#757575]">
+                    <p className={styles.balanceValue}>
                       {t(`balance`)}: $2 000
                     </p>
                   </div>
@@ -319,45 +296,45 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
                     onChange={(e) => setInputRangeValue(Number(e.target.value))}
                   />
                 </div>
-                <div className="ranges mb-[15px] mt-2.5 flex items-center justify-center gap-[11px]">
+                <div className={styles.ranges}>
                   <div
                     onClick={() => handleRangeItemClick(10)}
-                    className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
+                    className={styles.rangeItem}
                   >
                     10%
                   </div>
                   <div
                     onClick={() => handleRangeItemClick(25)}
-                    className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
+                    className={styles.rangeItem}
                   >
                     25%
                   </div>
                   <div
                     onClick={() => handleRangeItemClick(50)}
-                    className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
+                    className={styles.rangeItem}
                   >
                     50%
                   </div>
                   <div
                     onClick={() => handleRangeItemClick(75)}
-                    className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
+                    className={styles.rangeItem}
                   >
                     75%
                   </div>
                   <div
                     onClick={() => handleRangeItemClick(100)}
-                    className="range-item cursor-pointer rounded-[15px] bg-[#313131] px-[15px] py-[5px] text-xs font-medium leading-[15px] text-white"
+                    className={styles.rangeItem}
                   >
                     {t('max')}
                   </div>
                 </div>
                 <button
                   onClick={toggleStarting}
-                  className="my-2.5 flex w-full items-center justify-center gap-[5px] rounded-[5px] bg-dark_green py-[15px] text-[15px] font-semibold uppercase leading-[18px] text-white"
+                  className={styles.cardGreenButton}
                 >
                   {t('connectWallet')}
                 </button>
-                <p className="mt-[5px] text-xs leading-[15px] text-[#757575]">
+                <p className={styles.connectWithInput}>
                   {t('connectWithInput')}
                 </p>
               </div>
@@ -366,32 +343,30 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
         </div>
       )}
       {starting && (
-        <div className="game-card-main w-full">
+        <div className={`${styles['game-card-main']} w-full`}>
           <div>
-            <p className="mb-2.5 flex items-center justify-center gap-[5px] text-center text-[13px] leading-4 text-[#5B5B5B]">
+            <p className={styles.later}>
               <img src={clock} alt="clock" /> {t('later')}
             </p>
-            <div className="game-card-main-inner mb-[5px] w-full rounded-[20px] p-5 py-[29px]">
+            <div
+              className={`${styles['game-card-main-inner']} ${styles.gameCardMainInner} py-[29px]`}
+            >
               <div>
-                <p className="text-center text-[15px] font-semibold leading-[18px] text-white">
-                  {t('entranceStart')}
-                </p>
-                <div className="starting-timer text-center text-[25px] font-bold leading-[30px] text-white">
+                <p className={styles.entranceStart}>{t('entranceStart')}</p>
+                <div className={styles.timer}>
                   {timer < 10 ? `00:0${timer}` : `00:${timer}`}
                 </div>
               </div>
             </div>
-            <p className="mt-2.5 text-center text-[13px] leading-4 text-[#5B5B5B]">
-              {cardData.gameID}
-            </p>
+            <p className={styles.startingGameID}>{cardData.gameID}</p>
           </div>
         </div>
       )}
-      <div className="game-card-footer relative z-10 flex flex-col items-center">
+      <div className={styles.gameCardFooter}>
         {!positionInput && (
           <>
             {!positionInput && !starting && (
-              <span className="text-[13px] font-semibold leading-4 text-[#5B5B5B]">
+              <span className={styles.gamePaymentValue}>
                 2.28x <span className="font-normal">{t('payment')}</span>
               </span>
             )}
@@ -399,7 +374,7 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
               onClick={() => {
                 toggleShow
               }}
-              className="text-[17px] font-semibold uppercase leading-[21px] text-primary"
+              className={styles.positionInputValueDown}
             >
               {t('down')}
             </button>

@@ -1,0 +1,27 @@
+.description {
+  background-image: url('../../asset/how-it-works-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 334px;
+  min-width: 265px;
+  padding: 20px 10px 72px;
+}
+
+.howItWorks {
+  @apply relative z-40 mt-[57px] lg:mt-[97.5px];
+}
+.howItTitle {
+  @apply mb-2.5 text-center text-xl font-bold leading-6 text-white lg:mb-[19px] lg:text-[25px] lg:leading-[30px];
+}
+.howWorksSubtitle {
+  @apply mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[23px] text-white lg:mb-[30px];
+}
+.descriptions {
+  @apply flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden;
+}
+.descriptionTitle {
+  @apply mb-[10px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white;
+}
+.descriptionText {
+  @apply max-w-[235px] pl-2.5 text-[15px] leading-[20px] text-white;
+}

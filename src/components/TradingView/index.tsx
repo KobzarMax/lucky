@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, FC } from 'react'
 
 declare global {
   interface Window {
@@ -8,7 +8,7 @@ declare global {
 
 let tvScriptLoadingPromise: Promise<Event> | null
 
-export default function TradingViewWidget(): JSX.Element {
+const TradingViewWidget: FC = () => {
   const onLoadScriptRef = useRef<(() => void) | null>()
 
   useEffect(() => {
@@ -33,29 +33,29 @@ export default function TradingViewWidget(): JSX.Element {
     return () => {
       onLoadScriptRef.current = null
     }
-
-    function createWidget() {
-      if (
-        document.getElementById('tradingview_06401') &&
-        'TradingView' in window
-      ) {
-        new window.TradingView.widget({
-          autosize: true,
-          symbol: 'BINANCE:BNBBUSD',
-          interval: 'D',
-          timezone: 'Etc/UTC',
-          theme: 'dark',
-          style: '1',
-          locale: 'en',
-          toolbar_bg: '#f1f3f6',
-          enable_publishing: false,
-          allow_symbol_change: true,
-          enabled_features: ['header_fullscreen_button'],
-          container_id: 'tradingview_06401'
-        })
-      }
-    }
   }, [])
+
+  const createWidget = () => {
+    if (
+      document.getElementById('tradingview_06401') &&
+      'TradingView' in window
+    ) {
+      new window.TradingView.widget({
+        autosize: true,
+        symbol: 'BINANCE:BNBBUSD',
+        interval: 'D',
+        timezone: 'Etc/UTC',
+        theme: 'dark',
+        style: '1',
+        locale: 'en',
+        toolbar_bg: '#f1f3f6',
+        enable_publishing: false,
+        allow_symbol_change: true,
+        enabled_features: ['header_fullscreen_button'],
+        container_id: 'tradingview_06401'
+      })
+    }
+  }
 
   return (
     <div className="tradingview-widget-container" style={{ height: '100%' }}>
@@ -72,3 +72,5 @@ export default function TradingViewWidget(): JSX.Element {
     </div>
   )
 }
+
+export default TradingViewWidget

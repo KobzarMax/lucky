@@ -1,0 +1,39 @@
+.modalWrap {
+    @apply fixed inset-x-0 top-0 z-[1011] w-full h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden p-2 backdrop-blur-sm sm:p-4 md:inset-0;
+}
+
+.modalOpened {
+  @apply flex items-center justify-center;
+}
+
+.modalClosed {
+  @apply hidden;
+}
+
+.modalWrapInner {
+    @apply relative max-h-full w-full max-w-md;
+}
+.modalContent {
+    @apply relative rounded-lg bg-modal_bg shadow dark:bg-gray-700;
+}
+.modalButton {
+    @apply absolute right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white;
+}
+.modalTextContent {
+    @apply p-6 text-center;
+}
+.modalTitle {
+    @apply mb-[20px] text-[20px] text-white;
+}
+.modalText {
+    @apply my-[20px] text-[20px] text-white;
+}
+.socialLinks {
+    @apply flex items-center justify-center gap-[15px];
+}
+.socialLink {
+    @apply flex h-[25px] w-[25px] items-center justify-center;
+}
+.socialLinkImage {
+    @apply h-[25px] w-[25px];
+}

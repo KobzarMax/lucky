@@ -1,13 +1,15 @@
-import matic from '../../asset/matic-logo.svg'
+import matic from '@/asset/matic-logo.svg'
 // import caretDown from '../../asset/CaretDown.svg'
 import { useNetwork } from 'wagmi'
+import styles from './Chain.module.css'
+import React from 'react'
 
 interface Chain {
   name: string
   //icon: string
 }
 
-export const Chain = ({ isMobile }: any) => {
+export const Chain: React.FC = ({ isMobile }: any) => {
   const { chain, chains } = useNetwork()
 
   // const chains: Chain[] = [
@@ -30,13 +32,11 @@ export const Chain = ({ isMobile }: any) => {
   // }
 
   return (
-    <div className={`chains-wrapper relative inline-block text-left`}>
-      <div className="mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px]">
+    <div className={`${styles['chains-wrapper']} ${styles.chainsWrapper}`}>
+      <div className={styles.chainCurrent}>
         <img className="w-[20px]" src={matic} alt={chain?.name} />
         {!isMobile && (
-          <span className="text-medium text-[15px] leading-[18px] text-dark_gray">
-            {chain && chain.name}
-          </span>
+          <span className={styles.chainName}>{chain && chain.name}</span>
         )}
         {/* <img
           className={`transition-all duration-300`}

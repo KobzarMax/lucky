@@ -2,19 +2,17 @@ import Home from '@/pages/Home'
 import Game from '@/pages/Game'
 import Rules from '@/pages/Rules'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState, useEffect, Suspense } from 'react'
-import { useAppDispatch } from '../redux/hooks'
-import { platform } from '../features/global/globalSlice'
+import React, { useState, useEffect, Suspense, FC } from 'react'
+import { useAppDispatch } from '@/redux/hooks'
+import { platform } from '@/features/global/globalSlice'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Nav } from '../components/Nav'
-import { ModalInfo } from '../components/ModalInfo'
+import { Nav } from '@/components/Nav'
+import { ModalInfo } from '@/components/ModalInfo'
 import 'scroll-smooth'
 import Leaderboard from '@/pages/Leaderboard'
-import { Provider } from 'react-redux'
-import { store } from '../redux/store'
 
-function App(): JSX.Element {
+const App: FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
   const [howVisible, setHowVisible] = useState<boolean>(false)
@@ -34,14 +32,6 @@ function App(): JSX.Element {
     }
   }, [])
 
-  const handleEarnPartnerInViewChange = (inView: any) => {
-    setVisible(inView)
-  }
-
-  const handleHowItWorksInViewChange = (inHowView: any) => {
-    setHowVisible(inHowView)
-  }
-
   useEffect(() => {
     window.addEventListener('scroll', smoothScroll)
     return () => {
@@ -56,35 +46,42 @@ function App(): JSX.Element {
     })
   }
 
+  const handleEarnPartnerInViewChange = (inView: any) => {
+    setVisible(inView)
+  }
+
+  const handleHowItWorksInViewChange = (inHowView: any) => {
+    setHowVisible(inHowView)
+  }
+
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Suspense fallback="loading">
-          <Header howVisible={howVisible} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
-                  onHowItWorksInViewChange={handleHowItWorksInViewChange}
-                  isMobile={isMobile}
-                />
-              }
-            />
-            <Route path="rules" element={<Rules />} />
-            <Route
-              path="leaderboard"
-              element={<Leaderboard isMobile={isMobile} />}
-            />
-            <Route path="game" element={<Game isMobile={isMobile} />} />
-          </Routes>
-          <Footer visible={visible} isMobile={isMobile} />
-          <ModalInfo />
-          {isMobile && <Nav visible={visible} isMobile={isMobile} />}
-        </Suspense>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <Suspense fallback="loading">
+        <Header howVisible={howVisible} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                onEarnPartnerInViewChange={handleEarnPartnerInViewChange}
+                onHowItWorksInViewChange={handleHowItWorksInViewChange}
+              />
+            }
+          />
+          <Route path="rules" element={<Rules />} />
+          <Route
+            path="leaderboard"
+            element={<Leaderboard isMobile={isMobile} />}
+          />
+          <Route path="game" element={<Game />} />
+        </Routes>
+        <Footer visible={visible} isMobile={isMobile} />
+        <ModalInfo />
+        <div className={isMobile ? '' : 'hidden'}>
+          <Nav visible={visible} isMobile={isMobile} />
+        </div>
+      </Suspense>
+    </BrowserRouter>
   )
 }
 

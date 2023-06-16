@@ -1,0 +1,56 @@
+.durations {
+  background-color: #2B2B2B;
+  border-radius: 15px;
+}
+.durations-inner {
+  height: 188px;
+  overflow-y: scroll;
+}
+
+.durations-inner::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.durations-inner::-webkit-scrollbar-track {
+  background: #343434;
+}
+
+/* Handle */
+.durations-inner::-webkit-scrollbar-thumb {
+  background: #7CCA3F;
+}
+
+/* Handle on hover */
+.durations-inner::-webkit-scrollbar-thumb:hover {
+  background: #7CCA3F;
+}
+
+.durations{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.game-durations {
+  position: relative;
+  z-index: 20;
+}
+.game-durations:hover .durations {
+  display: block;
+}
+.game-durations:hover .caret {
+  transform: rotate(180deg);
+}
+.durationPicker {
+  @apply flex cursor-pointer items-center justify-between gap-[33px] rounded-[15px] bg-dark_gray_bg_opacity60 py-[14px] pl-5 pr-4 transition-all duration-300 hover:bg-dark_gray_bg_opacity80;
+}
+.durationPicked {
+  @apply flex items-center justify-start gap-[5px] text-[15px] font-medium leading-[18px] text-duration_text;
+}
+.durationSelected {
+  @apply pl-2.5 text-[15px] font-medium leading-[18px] text-white mb-2.5 cursor-pointer;
+}
+.durationDefault {
+  @apply text-[15px] font-medium leading-[18px] text-duration_text mb-2.5 cursor-pointer;
+}

@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
-
-import logo from '../../asset/logo.svg'
-import twitter from '../../asset/TwitterLogo.svg'
-import telegram from '../../asset/TelegramLogo.svg'
-import discord from '../../asset/DiscordLogo.svg'
-import mobileLogo from '../../asset/mobile-logo.svg'
+import styles from './Footer.module.css'
+import logo from '@/asset/logo.svg'
+import twitter from '@/asset/TwitterLogo.svg'
+import telegram from '@/asset/TelegramLogo.svg'
+import discord from '@/asset/DiscordLogo.svg'
+import mobileLogo from '@/asset/mobile-logo.svg'
+import React from 'react'
 
 interface FooterProps {
   isMobile: boolean
   visible: boolean
 }
 
-function Footer({ isMobile, visible }: FooterProps): JSX.Element {
+const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
   const { t } = useTranslation(['translations'])
   const location = useLocation()
 
@@ -23,21 +24,21 @@ function Footer({ isMobile, visible }: FooterProps): JSX.Element {
   return (
     <footer
       className={`${isGameRoute ? 'hidden' : ''} ${
-        isRulesRoute ? 'fixed bottom-0 w-full' : ''
-      } footer`}
+        isRulesRoute ? styles.isRulesRoute : ''
+      } ${styles['footer']}`}
     >
       {!isGameRoute && (
         <div
-          className={`footer-nav flex w-full flex-col items-center justify-start gap-[13px] ${
+          className={`${styles.footerNav} ${styles['footer-nav']} ${
             !isGameRoute ? 'lg:ml-0' : 'lg:ml-[205px]'
-          } lg:flex-row lg:gap-[30px]`}
+          }`}
         >
           <div
-            className={`footer-nav-wrapper grid w-full grid-cols-2 gap-2 ${
-              !visible ? 'pb-[13px]' : 'pb-[100px]'
-            } pl-[13px] pr-[12px] pt-[13px] lg:flex lg:items-center lg:justify-between lg:pb-5 lg:pl-[77px] lg:pr-[74px]`}
+            className={`${styles['footer-nav-wrapper']} ${
+              styles.footerNavWrapper
+            }  ${!visible ? 'pb-[13px]' : 'pb-[100px]'} `}
           >
-            <Link className="logo" to={'/'}>
+            <Link className={styles.logo} to={'/'}>
               <img
                 className="max-w-[95px]"
                 src={isMobile ? mobileLogo : logo}
@@ -45,53 +46,35 @@ function Footer({ isMobile, visible }: FooterProps): JSX.Element {
               />
             </Link>
 
-            <div className="footer-nav flex w-full flex-col items-center justify-start gap-[13px] lg:ml-[205px] lg:flex-row lg:gap-[30px]">
-              <Link
-                className="text-[15px] leading-[15px] text-dark_gray"
-                to={'terms'}
-              >
+            <div className={`${styles['footer-nav']} ${styles.footerLinks}`}>
+              <Link className={styles.footerLink} to={'terms'}>
                 {t('termsOfUse')}
               </Link>
-              <Link
-                className="text-[15px] leading-[15px] text-dark_gray"
-                to={'privacy'}
-              >
+              <Link className={styles.footerLink} to={'privacy'}>
                 {t('privacyPolicy')}
               </Link>
-              <Link
-                className="text-[15px] leading-[15px] text-dark_gray"
-                to={'affiliate'}
-              >
+              <Link className={styles.footerLink} to={'affiliate'}>
                 {t('affiliateProgram')}
               </Link>
             </div>
-            <div className="social-links flex items-center justify-end gap-[15px] lg:justify-start">
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+            <div className={`${styles['social-links']} ${styles.socialLinks}`}>
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialImage}
                   src={twitter}
                   alt="twitter link"
                 />
               </a>
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialImage}
                   src={telegram}
                   alt="telegram link"
                 />
               </a>
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialImage}
                   src={discord}
                   alt="discord link"
                 />

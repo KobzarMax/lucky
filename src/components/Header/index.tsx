@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
 import { Nav } from '@/components/Nav'
-import logo from '../../asset/logo.svg'
-import coin from '../../asset/coin.svg'
-import mobileLogo from '../../asset/mobile-logo.svg'
+import logo from '@/asset/logo.svg'
+import coin from '@/asset/coin.svg'
+import mobileLogo from '@/asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
-
+import styles from './Header.module.css'
 import { useAppSelector } from '@/redux/hooks'
 import { selectPlatform } from '@/features/global/globalSlice'
 
@@ -15,7 +15,7 @@ interface HeaderProps {
   howVisible: boolean
 }
 
-function Header({ howVisible }: HeaderProps): JSX.Element {
+const Header: React.FC<HeaderProps> = ({ howVisible }) => {
   const { t, i18n } = useTranslation(['translations'])
   const [sentence, setSentence] = useState<string>(t('connectWallet') || '')
 
@@ -64,24 +64,24 @@ function Header({ howVisible }: HeaderProps): JSX.Element {
 
   return (
     <header
-      className={`${
-        howVisible ? 'sticky' : 'unStiky'
-      } header flex min-h-[64px] w-full items-center`}
+      className={`${howVisible ? styles.sticky : 'unStiky'} ${
+        styles['header']
+      }`}
     >
-      <div className="flex w-full items-center justify-between px-[13px] py-0 lg:px-[75px]">
-        <div className="flex items-center justify-start gap-12">
+      <div className={styles.headerInner}>
+        <div className={styles.headerImageWrap}>
           <Link to="/" className="logo-wrapper">
             <img
-              className="lg:max-[120px] h-[68px]  max-w-[80px] md:max-w-[120px] lg:h-full"
+              className={styles.headerImage}
               src={isMobile ? mobileLogo : logo}
               alt="lucky hamster logo"
             />
           </Link>
           {!isMobile && <Nav />}
         </div>
-        <div className="flex items-center justify-start">
+        <div className={styles.headerActions}>
           {/* {!isMobile && (
-            <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-[#211b2566] px-[30px]">
+            <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-header_bg_opacity40 px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />
               <span className="text-dark_gray text-[15px] font-medium uppercase leading-[18px]">
                 $2 000

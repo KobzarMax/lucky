@@ -1,0 +1,9 @@
+.timer {
+    @apply flex items-center justify-center gap-2.5;
+}
+.timerWrap {
+    @apply relative z-10 mr-[30px] mt-[269px] lg:absolute lg:right-[47px] lg:top-[255px] lg:mr-0 lg:mt-0;
+}
+.gameStartsIn {
+    @apply mb-2.5 text-center text-[15px] leading-[18px] text-white;
+}

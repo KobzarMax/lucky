@@ -1,0 +1,91 @@
+.more-link:after {
+  box-shadow: 0px 0px 5px #FF1B5E;
+}
+.more-links {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 14.14%), #1B1B1B;
+  display: none;
+}
+.more-link:hover .more-links {
+  display: flex;
+}
+
+.nav {
+  background: linear-gradient(90.03deg, rgba(255, 27, 94, 0.02) 0%, rgba(33, 27, 37, 0) 44.14%), rgba(27, 27, 27, 1);
+  transition: 0.4s all;
+}
+.play {
+  box-shadow: 0px 2px 26px #FF1B5E;
+  position: relative;
+  z-index: 11;
+  background-color: #FF1B5E;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.play:before {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  content: "";
+  left: 0%;
+  top: 0%;
+  transform: translateX(0%) translateY(0%);
+  display: block;
+  background-color: #FF1B5E;
+  border-radius: 50%;
+  -webkit-animation: pulse-red 1.5s ease-out infinite;
+  animation: pulse-red 1.5s ease-out infinite;
+  opacity: 0.5;
+  -webkit-transform: translateX(0%) translateY(0%);
+  -ms-transform: translateX(0%) translateY(0%);
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 27, 94, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
+.nav:not(.active) {
+  transform: translateY(80px);
+}
+.nav.active {
+  transform: translateY(0px);
+  z-index: 1010;
+}
+
+@media (min-width: 1024px) {
+  .nav:not(.active) {
+    transform: translateY(0px);
+    transition: 0.3s all;
+  }
+}
+.navMain {
+  @apply fixed bottom-[-1px] left-0 z-50 w-full lg:relative;
+}
+.navInner {
+  @apply flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0;
+}
+.modal {
+  @apply text-dark_gray  after:bg-primary relative mr-[15px] flex cursor-pointer flex-col items-center justify-start gap-[5px] text-[10px] leading-3 after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:content-[''] lg:flex-row lg:text-[15px] lg:leading-[18px];
+}
+.navLink {
+  @apply text-dark_gray  flex flex-col items-center justify-start gap-[5px] text-[10px] leading-3 lg:flex-row lg:text-[15px] lg:leading-[18px];
+}
+.playHidden {
+  @apply hidden;
+}

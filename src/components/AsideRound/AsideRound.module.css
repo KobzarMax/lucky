@@ -1,0 +1,129 @@
+.trophy {
+  filter: invert(0%) sepia(18%) saturate(1417%) hue-rotate(49deg) brightness(93%) contrast(91%);
+}
+.roundHeader {
+  @apply flex w-full items-center justify-between pb-[15px] pt-2.5;
+}
+.roundHeaderNotEx {
+  @apply border-b border-night_gray_border;
+}
+.roundHeaderContent {
+  @apply flex items-center justify-start gap-[17px];
+}
+.roundHeaderRoundWrapper {
+  @apply flex flex-col items-center justify-center;
+}
+.roundHeaderRound {
+  @apply text-[13px] leading-4 text-light_gray_text;
+}
+.roundID {
+  @apply text-[15px] font-semibold leading-[18px] text-white;
+}
+.roundPlay {
+  @apply flex items-center justify-start gap-[5px];
+}
+.roundPlayText {
+  @apply text-dark_green text-[15px] leading-[18px];
+}
+
+.container {
+  @apply w-full;
+}
+
+.caret {
+  @apply transition-transform duration-300;
+}
+
+.rotatedCaret {
+  @apply rotate-180;
+}
+
+.roundContent {
+  @apply transition-all duration-300;
+}
+
+.expandedContent {
+  @apply block;
+}
+
+.hiddenContent {
+  @apply hidden;
+}
+
+.roundContentWrapper {
+  @apply mt-[23px] rounded-[10px] border border-round_gray p-2.5;
+}
+
+.roundInfo {
+  @apply mb-2.5 flex items-center justify-between;
+}
+
+.infoText {
+  @apply text-base font-semibold text-light_gray_text;
+}
+
+.winTrophy {
+  @apply text-base text-dark_green flex items-center justify-center gap-[5px] font-semibold;
+}
+
+.choiceText {
+  @apply mb-2.5 flex items-center justify-between;
+}
+
+.roundBaseValue {
+  @apply text-[13px] font-medium leading-4 text-white;
+}
+
+.yourChoiseStatus {
+  @apply bg-primary flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white;
+}
+
+.winWrap {
+  @apply mb-2.5 flex items-start justify-between;
+}
+
+.winInfo {
+  @apply text-dark_green flex flex-col items-end justify-start text-[13px] font-medium leading-4;
+}
+
+.sumText {
+  @apply flex items-center justify-center gap-[5px] text-[13px] font-medium leading-4 text-light_gray_text;
+}
+
+.sumWrap {
+  @apply mb-[33px] flex items-center justify-between;
+}
+
+.priceFondValue {
+  @apply text-[13px] font-semibold leading-4 text-white;
+}
+.priceFondText {
+  @apply text-[13px] font-medium leading-4 text-light_gray_text;
+}
+
+.directionText {
+  @apply text-[10px] leading-3 text-light_gray_text;
+}
+
+.directionValue {
+  @apply text-[10px] font-semibold leading-3 text-white;
+}
+
+.finalPriceWrap {
+  @apply border-dark_green mt-[21px] rounded-[10px] border p-2.5;
+}
+.finalPriceText {
+  @apply text-[13px] font-semibold leading-4 text-light_gray_text;
+}
+.finalPriceValue {
+  @apply text-base text-dark_green font-semibold;
+}
+.finalPriceStatus {
+  @apply bg-dark_green flex items-center justify-center gap-[5px] rounded-[5px] px-2.5 py-[5px] text-[13px] font-medium uppercase leading-4 text-white;
+}
+.finalPriceInner {
+  @apply mb-5 flex items-center justify-between;
+}
+.directionInner {
+  @apply flex items-center justify-between;
+}

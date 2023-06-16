@@ -1,0 +1,18 @@
+.connectWallet {
+    @apply flex h-[30px] max-w-[243px] items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px];
+}
+.wrongNetwork {
+    @apply flex h-[30px] max-w-[243px]  items-center justify-center gap-3 whitespace-nowrap px-5 py-[7px] text-[13px] font-medium leading-4 text-white duration-300 ease-out hover:scale-105 lg:h-11 lg:py-[18px] lg:text-[15px] lg:leading-[18px];
+}
+.chainName {
+    @apply font-medium text-dark_gray text-[15px] leading-[18px];
+}
+.hasIcon {
+    @apply mr-[18px] flex cursor-pointer items-center justify-start gap-[5px] lg:mr-[30px];
+}
+.openChainInner {
+    @apply relative inline-block text-left;
+}
+.openChainWrap {
+    @apply flex items-center justify-center;
+}

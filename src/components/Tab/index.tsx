@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import styles from './Tab.module.css'
 
 type Tab = {
   id: string
@@ -21,12 +22,12 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
 
   return (
     <div>
-      <div className="mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-[#38383899]">
+      <div className={styles.tabs}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={`flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white ${
+            className={`${styles.tabIem} ${
               activeTab === tab.id ? 'bg-primary' : ''
             }`}
           >

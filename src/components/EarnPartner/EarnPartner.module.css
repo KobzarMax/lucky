@@ -1,0 +1,53 @@
+.posibility::after {
+  background-repeat: no-repeat;
+  background-position: center;
+  content: url('../../asset/how-it-works-bg.svg');
+  transform: rotate(90deg);
+  max-width: 228px;
+  min-height: 350px;
+  left: 11px;
+  top: -15px;
+  position: absolute;
+}
+
+.posibility:first-child {
+  margin-left: 45px;
+}
+
+@media (min-width: 1024px) {
+  .posibility {
+    background-image: url('../../asset/partner-item-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .posibility::after {
+    display: none;
+  }
+  .posibility:first-child {
+    margin-left: 0px;
+  }
+}
+.earnPartnerWrap {
+  @apply relative mt-[104px] flex flex-col items-start justify-between px-0 lg:mx-auto lg:mt-[100px] lg:max-w-[1165px] lg:flex-row;
+}
+.earnLikePartner {
+  @apply mb-[11px] text-xl font-bold leading-6 text-white lg:mb-[15px] lg:text-[25px] lg:leading-[30px];
+}
+.earnLikePartnerSubtitle1 {
+  @apply mb-[15px] max-w-[565px] text-[15px] leading-[20px] text-white lg:mb-[29px];
+}
+.earnButtons {
+  @apply flex flex-col items-start justify-start gap-[15px] lg:flex-row lg:items-center;
+}
+.partnerPosibilities {
+  @apply mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-hidden overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden;
+}
+.posibilityItem {
+  @apply relative flex h-[334px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-center gap-3 px-0 py-5 lg:h-[103px] lg:w-[465px]  lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:justify-start lg:pl-[70px] lg:pr-[60px];
+}
+.posibilityTitle {
+  @apply mb-[5px] pl-2.5 text-center text-[17px] font-semibold leading-[21px] text-white lg:text-left;
+}
+.posibilityText {
+  @apply max-w-[235px] pl-2.5 text-center text-[15px] leading-[20px] text-white lg:text-left;
+}

@@ -1,0 +1,90 @@
+.news-article {
+  background-image: url('../../asset/news-article-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+@media (min-width: 1024px) {
+  .news-article {
+    background-image: url('../../asset/news-article-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+.news-article a img {
+  filter: invert(54%) sepia(97%) saturate(7497%) hue-rotate(331deg) brightness(101%) contrast(101%);
+  transform: rotate(90deg);
+}
+.news-article .article-text {
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4;
+   -webkit-box-orient: vertical;
+}
+
+.news .swiper-wrapper {
+  justify-content: start;
+}
+
+@media (min-width: 1024px) {
+  .news .swiper-wrapper {
+    justify-content: center;
+  }
+}
+
+.news .swiper-button img {
+  filter: none;
+}
+
+.news {
+  @apply relative mt-[7.5rem] lg:mt-[60px];
+}
+.newsTitle {
+  @apply text-[25px] font-bold leading-[30px] text-white sm:text-center;
+}
+.slideButtons {
+  @apply absolute right-[0px] top-[0px] flex items-center justify-center gap-[14px] lg:right-[52px] lg:top-[167px] lg:gap-[21px];
+}
+.newsButton {
+  @apply flex h-8 w-8 cursor-pointer items-center justify-center rounded-[5px] bg-primary;
+}
+
+.newsArticle {
+  @apply flex min-h-[371px] w-full flex-col items-center justify-center lg:min-h-[475px] lg:max-w-[365px];
+}
+
+@media (min-width: 1024px) {
+  .newsArticle:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+.newsArticleItem {
+  @apply mx-auto w-full max-w-[285px] lg:h-[250px] lg:max-w-[365px];
+}
+.newsArticleImage {
+  @apply h-[183px] w-full max-w-[285px] object-cover lg:h-[250px] lg:max-w-[365px];
+}
+.newsArticleContent {
+  @apply mx-auto max-w-[285px] px-2 pb-[47px] pt-2.5 lg:max-w-[365px] lg:px-2.5;
+}
+.articleTitle {
+  @apply mb-[5px] text-[13px] font-bold leading-4 text-white lg:text-[17px] lg:leading-[21px];
+}
+.articleData {
+  @apply mb-[15px] flex items-center justify-between;
+}
+.articleDataItem {
+  @apply text-[10px] leading-3 text-article_gray lg:text-[13px] lg:leading-4;
+}
+.articleText {
+  @apply mb-4 text-xs leading-[15px] text-white lg:text-[15px] lg:leading-[18px];
+}
+.readAll {
+  @apply flex items-center justify-start gap-[5px] text-xs leading-[15px] text-primary lg:text-[15px] lg:leading-[18px];
+}
+.hiddenButtons {
+  @apply hidden;
+}

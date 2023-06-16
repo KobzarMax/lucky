@@ -1,0 +1,131 @@
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  200% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+            transform: translate3d(-200%, 0, 0);
+    visibility: visible;
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  200% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+            transform: translate3d(-200%, 0, 0);
+    visibility: visible;
+  }
+}
+
+.tickerWrap {
+  width: 100%;
+  box-sizing: content-box;
+}
+
+
+.tickerWrap .ticker {
+  white-space: nowrap;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+          animation-name: ticker;
+  -webkit-animation-duration: 15s; /* Adjust the duration to control the speed */
+          animation-duration: 15s; /* Adjust the duration to control the speed */
+}
+
+@media (min-width: 1024px) {
+  .tickerWrap .ticker {
+    white-space: nowrap;
+    box-sizing: content-box;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+            animation-name: ticker;
+    -webkit-animation-duration: 30s; /* Adjust the duration to control the speed */
+            animation-duration: 30s; /* Adjust the duration to control the speed */
+  }
+}
+
+.tickerWrap .ticker__item {
+  display: inline-block;
+  color: white;
+}
+
+.hexagon {
+  background-image: url('../../asset/latest-game-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hexagon .status-arrow {
+  width: 27px;
+  height: 27px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hexagon.up .status-arrow {
+  background-color: #7CCA3F;
+}
+.hexagon.down .status-arrow {
+  background-color: #FF1B5E;
+}
+.hexagon.down .status-arrow img {
+  transform: rotate(180deg);
+}
+.latestgames {
+  @apply z-[999] relative mt-[27px] lg:mt-[151px];
+}
+.latestgamesText {
+  @apply mb-[17px] text-[17px] font-bold capitalize leading-[21px] text-white lg:mb-4 lg:text-xl lg:leading-[24px];
+}
+.tickerWrapInner {
+  @apply flex items-center justify-between gap-[35px];
+}
+.latestGameItem {
+  @apply relative h-[150px] min-w-[265px] px-5 pb-[26.5px] pt-[33px];
+}
+.latestgameID {
+  @apply text-[15px] font-semibold leading-[18px];
+}
+.latestgameAvatar {
+  @apply flex items-center justify-start gap-[5px];
+}
+.latestgameInner {
+  @apply mb-4 flex items-center justify-between;
+}
+.latestGameBorder {
+  @apply absolute bottom-0 left-0;
+}
+.latestGamePercents {
+  @apply text-dark_gray text-[13px] leading-[16px];
+}
+.latestGameFunds {
+  @apply mb-[5px] text-xl font-semibold leading-6;
+}
+.latestGameFlex {
+  @apply flex items-center justify-between;
+}

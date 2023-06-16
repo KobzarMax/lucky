@@ -7,42 +7,39 @@ import signOut from '@/asset/SignOut.svg'
 import gear from '@/asset/gear.svg'
 import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
+import styles from './Nav.module.css'
+import React from 'react'
 
 interface NavProps {
   isMobile?: boolean
   visible?: boolean
 }
 
-export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
+export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
   const { t } = useTranslation(['translations'])
 
   return (
     <div
-      className={`${
-        visible ? 'active' : ''
-      } nav fixed bottom-[-1px] left-0 z-50 w-full lg:relative`}
+      className={`${visible ? styles.active : ''} ${styles.nav} ${
+        styles.navMain
+      }`}
     >
-      <div className="flex items-center justify-center gap-[30px] py-[15px] lg:justify-start lg:gap-5 lg:py-0">
+      <div className={styles.navInner}>
         <div
           data-modal-target="popup-modal"
           data-modal-toggle="popup-modal"
-          className="relative  mr-[15px] flex cursor-pointer flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray after:absolute after:right-[-14px] after:top-[6px] after:h-[8px] after:w-[8px] after:rounded-full after:bg-primary after:content-[''] lg:flex-row lg:text-[15px] lg:leading-[18px]"
+          className={styles.modal}
         >
           <img src={win} alt="Win" /> {t('win')}
         </div>
-        {isMobile && (
-          <div
-            data-modal-target="popup-modal"
-            data-modal-toggle="popup-modal"
-            className="play flex h-[50px] w-[50px] items-center justify-center rounded-full bg-primary"
-          >
-            <img className="relative z-20" src={play} alt="play" />
-          </div>
-        )}
-        <NavLink
-          className="flex  flex-col items-center justify-start gap-[5px] text-[10px] leading-3 text-dark_gray lg:flex-row lg:text-[15px] lg:leading-[18px]"
-          to={'/'}
+        <div
+          data-modal-target="popup-modal"
+          data-modal-toggle="popup-modal"
+          className={`${styles.play} ${isMobile ? '' : styles.playHidden}`}
         >
+          <img className="relative z-20" src={play} alt="play" />
+        </div>
+        <NavLink className={styles.navLink} to={'/'}>
           <img src={gear} alt="Instructions" /> {t('documentation')}
         </NavLink>
         {/* <NavLink
@@ -79,7 +76,7 @@ export const Nav = ({ isMobile, visible }: NavProps): JSX.Element => {
               {t('vote')}
             </NavLink>
             <NavLink
-              className="text-dark_gray flex w-full items-center justify-between whitespace-nowrap border-y border-[#292929] px-5 py-2.5 text-[15px] leading-[18px]"
+              className="text-dark_gray flex w-full items-center justify-between whitespace-nowrap border-y border-dark_gray_border px-5 py-2.5 text-[15px] leading-[18px]"
               to={'ratings'}
             >
               {t('ratings')}

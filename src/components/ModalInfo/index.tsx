@@ -1,25 +1,22 @@
-import { useEffect } from 'react'
-import { CountDown } from '../../components/Countdown'
+import React, { MutableRefObject, useEffect } from 'react'
+import { CountDown } from '@/components/Countdown'
 import { useTranslation } from 'react-i18next'
 import 'flowbite'
-import twitter from '../../asset/TwitterLogo.svg'
-import telegram from '../../asset/TelegramLogo.svg'
-import discord from '../../asset/DiscordLogo.svg'
+import twitter from '@/asset/TwitterLogo.svg'
+import telegram from '@/asset/TelegramLogo.svg'
+import discord from '@/asset/DiscordLogo.svg'
+import styles from './ModalInfo.module.css'
 
-export const ModalInfo = () => {
+export const ModalInfo: React.FC = () => {
   const { t } = useTranslation(['translations'])
 
   return (
-    <div
-      id="popup-modal"
-      tabIndex={1}
-      className="fixed inset-x-0  top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden p-2 backdrop-blur-sm sm:p-4 md:inset-0"
-    >
-      <div className="relative max-h-full w-full max-w-md">
-        <div className="relative rounded-lg bg-[#1A1B1F] shadow dark:bg-gray-700">
+    <div id="popup-modal" tabIndex={1} className={`${styles.modalWrap} hidden`}>
+      <div className={styles.modalWrapInner}>
+        <div className={styles.modalContent}>
           <button
             type="button"
-            className="absolute right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
+            className={styles.modalButton}
             data-modal-hide="popup-modal"
           >
             <svg
@@ -38,37 +35,28 @@ export const ModalInfo = () => {
             <span className="sr-only">Close modal</span>
           </button>
 
-          <div className="p-6 text-center">
-            <h1 className="mb-[20px] text-[20px] text-white">Game starts in</h1>
+          <div className={styles.modalTextContent}>
+            <h1 className={styles.modalTitle}>Game starts in</h1>
             <CountDown />
-            <p className="my-[20px] text-[20px] text-white">Stay tuned!</p>
-            <div className="social-links flex items-center justify-center gap-[15px]">
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+            <p className={styles.modalText}>Stay tuned!</p>
+            <div className={styles.socialLinks}>
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialLinkImage}
                   src={twitter}
                   alt="twitter link"
                 />
               </a>
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialLinkImage}
                   src={telegram}
                   alt="telegram link"
                 />
               </a>
-              <a
-                href="#"
-                className="flex h-[25px] w-[25px] items-center justify-center"
-              >
+              <a href="#" className={styles.socialLink}>
                 <img
-                  className="h-[25px] w-[25px]"
+                  className={styles.socialLinkImage}
                   src={discord}
                   alt="discord link"
                 />

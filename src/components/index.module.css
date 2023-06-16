@@ -1,0 +1,57 @@
+.rulesTextWrapper {
+  @apply overflow-y-auto;
+}
+
+.rulesTextWrapper::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.rulesTextWrapper::-webkit-scrollbar-track {
+  background: #707070;
+}
+
+/* Handle */
+.rulesTextWrapper::-webkit-scrollbar-thumb {
+  background: #FF1B5E;
+  transition: 0.3s all;
+}
+
+/* Handle on hover */
+.rulesTextWrapper::-webkit-scrollbar-thumb:hover {
+  background: #7CCA3F;
+}
+
+.game {
+  @apply relative max-h-[92vh] min-h-[90vh] overflow-hidden sm:max-h-[100vh] lg:min-h-[100vh];
+}
+.home {
+  @apply relative overflow-x-hidden pl-[13px] pr-[12px] lg:px-[78px];
+}
+.leaderboardTitle {
+  @apply mb-[15px] text-center text-[25px] font-semibold uppercase leading-[30px] text-white lg:mb-[31px];
+}
+.leaderboardInner {
+  @apply pl-[13px] pr-3 lg:px-[139px];
+}
+.leaderboardWrap {
+  @apply pt-[90px];
+}
+.rulesWrap {
+  @apply min-h-[100vh] pt-[90px];
+}
+.rulesInner {
+  @apply mx-auto max-w-[765px] pl-[13px] pr-3 lg:px-0;
+}
+.rulesTitle {
+  @apply mb-[15px] text-center text-[25px] font-semibold uppercase leading-[30px] text-white;
+}
+.rulesSubtitle {
+  @apply mb-[30px] text-[15px] leading-[18px] text-white;
+}
+.rulesCategory {
+  @apply mb-2.5 text-[15px] font-medium leading-[18px] text-rules_blue;
+}
+.rulesText {
+  @apply mb-4 text-[15px] leading-[18px] text-white;
+}

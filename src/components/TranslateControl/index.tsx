@@ -1,9 +1,10 @@
-import globe from '../../asset/globe.svg'
+import globe from '@/asset/globe.svg'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { RootState } from '@/redux/store'
 import { setLanguage } from '@/features/global/globalSlice'
+import styles from './TranslateControl.module.css'
 
 type TranslateControlsProps = {
   isMobile: boolean
@@ -40,23 +41,19 @@ export const TranslateControls: React.FC<TranslateControlsProps> = ({
   }, [])
 
   return (
-    <div className="languages-wrapper relative mr-[18px] flex items-center justify-start lg:mr-[30px]">
-      <img className="mr-[5px]" src={globe} alt="globe" />
-      {!isMobile && (
-        <p className="cursor-pointer text-[15px] font-medium uppercase leading-[18px] text-dark_gray">
-          {language}
-        </p>
-      )}
-      <div className="languages absolute -right-[30px] top-full rounded-md p-2 lg:-right-6">
-        <div className="languages-inner">
+    <div className={styles.languagesWrapper}>
+      <img className={styles.globeIcon} src={globe} alt="globe" />
+      {!isMobile && <p className={styles.languageText}>{language}</p>}
+      <div className={styles.languages}>
+        <div className={`${styles.languagesInner} ${styles.languagesInner}`}>
           <p
-            className="en mb-2 cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
+            className={`${styles.languageOption} ${styles.en}`}
             onClick={() => updateLanguage('en')}
           >
             English
           </p>
           <p
-            className="ru cursor-pointer p-2 text-[15px] font-medium uppercase leading-[18px] text-dark_gray"
+            className={`${styles.languageOption} ${styles.ru}`}
             onClick={() => updateLanguage('ru')}
           >
             Русский
