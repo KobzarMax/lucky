@@ -51,7 +51,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
         {t('howWorksEnd')} ?
       </h2>
       <p className={styles.howWorksSubtitle}>{t('howWorksSubtitle')}</p>
-      <div className={styles.descriptionWrap}>
+      <div className={`${styles['styles.descriptionWrap}]' ]>
         <div className={styles.descriptions}>
           {descriptions.map((description, index) => (
             <div
