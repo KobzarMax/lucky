@@ -19,6 +19,9 @@
 .descriptions {
   @apply flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden;
 }
+.descriptions {
+  -webkit-overflow-scrolling: touch;
+}
 .descriptionTitle {
   @apply mb-[10px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white;
 }

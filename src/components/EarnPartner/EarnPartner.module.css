@@ -42,6 +42,9 @@
 .partnerPosibilities {
   @apply mt-[39px] flex w-full flex-row items-center justify-start gap-20 overflow-hidden overflow-x-auto lg:mt-0 lg:flex-col lg:items-end lg:justify-center lg:gap-5 lg:overflow-x-hidden;
 }
+.partnerPosibilities {
+  -webkit-overflow-scrolling: touch;
+}
 .posibilityItem {
   @apply relative flex h-[334px] w-full min-w-[265px] max-w-[265px] flex-col items-center justify-center gap-3 px-0 py-5 lg:h-[103px] lg:w-[465px]  lg:min-w-[465px] lg:max-w-[465px] lg:flex-row lg:justify-start lg:pl-[70px] lg:pr-[60px];
 }

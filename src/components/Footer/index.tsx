@@ -23,9 +23,9 @@ const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
 
   return (
     <footer
-      className={`${isGameRoute ? 'hidden' : ''} ${
-        isRulesRoute ? styles.isRulesRoute : ''
-      } ${styles['footer']}`}
+      className={`${isGameRoute || isRulesRoute ? 'hidden' : ''} ${
+        styles['footer']
+      }`}
     >
       {!isGameRoute && (
         <div
