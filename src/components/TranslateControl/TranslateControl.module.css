@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .languages {
-  @apply bg-[#2B2B2B] rounded-[15px] hidden;
+  @apply bg-header_popup_bg rounded-[15px] hidden;
 }
 
 .languagesWrapper:hover .languages {
@@ -22,17 +22,17 @@
 
 .languages-inner::-webkit-scrollbar-track,
 .languagesInner::-webkit-scrollbar-track {
-  @apply bg-[#343434];
+  @apply bg-scrollbar_track;
 }
 
 .languages-inner::-webkit-scrollbar-thumb,
 .languagesInner::-webkit-scrollbar-thumb {
-  @apply bg-[#7CCA3F];
+  @apply bg-scrollbar_thumb;
 }
 
 .languages-inner::-webkit-scrollbar-thumb:hover,
 .languagesInner::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#7CCA3F];
+  @apply bg-scrollbar_thumb;
 }
 
 .languagesWrapper {

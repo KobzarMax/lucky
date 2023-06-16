@@ -1,5 +1,5 @@
 .tabs {
-    @apply mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-[#38383899];
+    @apply mb-[15px] flex w-full items-center justify-center rounded-[30px] bg-night_gray_border_opacity80;
 }
 .tabIem {
     @apply flex w-full items-center justify-center rounded-[30px] py-[7.5px] text-xs font-semibold leading-[15px] text-white;

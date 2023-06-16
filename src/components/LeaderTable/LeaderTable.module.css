@@ -119,7 +119,7 @@ table thead th {
   @apply pb-[15px] pt-6 text-center text-sm font-medium leading-[17px] text-white;
 }
 .userFunds {
-  @apply text-right text-[10px] leading-3 text-[#5B5B5B];
+  @apply text-right text-[10px] leading-3 text-gray_text;
 }
 .mobileWinCHance {
   @apply text-primary whitespace-nowrap text-xs font-normal uppercase leading-[15px];

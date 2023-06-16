@@ -14,10 +14,10 @@
     @apply text-[15px] font-semibold leading-[18px] text-white;
 }
 .smallText {
-    @apply text-[10px] leading-3 text-[#797979];
+    @apply text-[10px] leading-3 text-small_text_gray;
 }
 .midText {
-    @apply text-xs font-semibold leading-[15px] text-[#797979];
+    @apply text-xs font-semibold leading-[15px] text-small_text_gray;
 }
 .baseTextPrimary {
     @apply text-primary text-[15px] font-semibold leading-[18px];
@@ -26,10 +26,10 @@
     @apply text-dark_green text-[15px] font-semibold leading-[18px];
 }
 .textWrap {
-    @apply mb-[15px] border-b border-[#363636] pb-[15px];
+    @apply mb-[15px] border-b border-wrap_gray_border pb-[15px];
 }
 .wonText {
-    @apply mb-2.5 text-xs font-semibold leading-[15px] text-[#797979];
+    @apply mb-2.5 text-xs font-semibold leading-[15px] text-small_text_gray;
 }
 .wonItem {
     @apply mb-2.5 flex items-center justify-start gap-[60px];

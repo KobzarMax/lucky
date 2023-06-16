@@ -121,7 +121,7 @@
   @apply mb-[17px] text-[15px] font-semibold leading-[18px] text-white;
 }
 .winChanceText {
-  @apply text-xs leading-[15px] text-[#5B5B5B];
+  @apply text-xs leading-[15px] text-gray_text;
 }
 .winChanceValue {
   @apply text-sm font-medium leading-[17px] text-white;
@@ -133,7 +133,7 @@
   @apply text-sm font-medium leading-[17px];
 }
 .funds {
-  @apply text-right text-[10px] leading-3 text-[#5B5B5B];
+  @apply text-right text-[10px] leading-3 text-gray_text;
 }
 .flexHelper {
   @apply flex items-center justify-between;

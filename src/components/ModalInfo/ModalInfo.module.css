@@ -14,7 +14,7 @@
     @apply relative max-h-full w-full max-w-md;
 }
 .modalContent {
-    @apply relative rounded-lg bg-[#1A1B1F] shadow dark:bg-gray-700;
+    @apply relative rounded-lg bg-modal_bg shadow dark:bg-gray-700;
 }
 .modalButton {
     @apply absolute right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white;

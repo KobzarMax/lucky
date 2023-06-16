@@ -19,7 +19,7 @@
       visibility: visible;
     }
   }
-  
+
   @keyframes ticker {
     0% {
       -webkit-transform: translate3d(0, 0, 0);
@@ -37,13 +37,13 @@
       visibility: visible;
     }
   }
-  
+
   .tickerWrap {
     width: 100%;
     box-sizing: content-box;
   }
-  
-  
+
+
   .tickerWrap .ticker {
     white-space: nowrap;
     box-sizing: content-box;
@@ -56,7 +56,7 @@
     -webkit-animation-duration: 15s; /* Adjust the duration to control the speed */
             animation-duration: 15s; /* Adjust the duration to control the speed */
   }
-  
+
   @media (min-width: 1024px) {
     .tickerWrap .ticker {
       white-space: nowrap;
@@ -71,7 +71,7 @@
               animation-duration: 30s; /* Adjust the duration to control the speed */
     }
   }
-  
+
   .tickerWrap .ticker__item {
     display: inline-block;
     color: white;
@@ -84,5 +84,5 @@
     @apply flex items-center justify-center gap-2.5;
   }
   .yourBonus {
-    @apply text-[13px] leading-4 text-[#5B5B5B];
+    @apply text-[13px] leading-4 text-gray_text;
   }

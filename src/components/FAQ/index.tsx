@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import caretDown from '@/asset/CaretDown.svg'
 import questionCircle from '@/asset/faqicon.svg'
 import styles from './FAQ.module.css'
-import { FAQItem, } from '@/interfaces'
+import { FAQItem } from '@/interfaces'
 
 export const FAQ: React.FC = () => {
   const { t } = useTranslation(['translations'])

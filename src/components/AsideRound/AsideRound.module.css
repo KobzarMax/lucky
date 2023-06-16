@@ -5,7 +5,7 @@
   @apply flex w-full items-center justify-between pb-[15px] pt-2.5;
 }
 .roundHeaderNotEx {
-  @apply border-b border-[#313131];
+  @apply border-b border-night_gray_border;
 }
 .roundHeaderContent {
   @apply flex items-center justify-start gap-[17px];
@@ -14,7 +14,7 @@
   @apply flex flex-col items-center justify-center;
 }
 .roundHeaderRound {
-  @apply text-[13px] leading-4 text-[#707070];
+  @apply text-[13px] leading-4 text-light_gray_text;
 }
 .roundID {
   @apply text-[15px] font-semibold leading-[18px] text-white;
@@ -51,7 +51,7 @@
 }
 
 .roundContentWrapper {
-  @apply mt-[23px] rounded-[10px] border border-[#252525] p-2.5;
+  @apply mt-[23px] rounded-[10px] border border-round_gray p-2.5;
 }
 
 .roundInfo {
@@ -59,7 +59,7 @@
 }
 
 .infoText {
-  @apply text-base font-semibold text-[#707070];
+  @apply text-base font-semibold text-light_gray_text;
 }
 
 .winTrophy {
@@ -87,7 +87,7 @@
 }
 
 .sumText {
-  @apply flex items-center justify-center gap-[5px] text-[13px] font-medium leading-4 text-[#707070];
+  @apply flex items-center justify-center gap-[5px] text-[13px] font-medium leading-4 text-light_gray_text;
 }
 
 .sumWrap {
@@ -98,11 +98,11 @@
   @apply text-[13px] font-semibold leading-4 text-white;
 }
 .priceFondText {
-  @apply text-[13px] font-medium leading-4 text-[#707070];
+  @apply text-[13px] font-medium leading-4 text-light_gray_text;
 }
 
 .directionText {
-  @apply text-[10px] leading-3 text-[#707070];
+  @apply text-[10px] leading-3 text-light_gray_text;
 }
 
 .directionValue {
@@ -113,7 +113,7 @@
   @apply border-dark_green mt-[21px] rounded-[10px] border p-2.5;
 }
 .finalPriceText {
-  @apply text-[13px] font-semibold leading-4 text-[#707070];
+  @apply text-[13px] font-semibold leading-4 text-light_gray_text;
 }
 .finalPriceValue {
   @apply text-base text-dark_green font-semibold;

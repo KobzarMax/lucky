@@ -32,7 +32,6 @@ const App: FC = () => {
     }
   }, [])
 
-
   useEffect(() => {
     window.addEventListener('scroll', smoothScroll)
     return () => {
@@ -46,7 +45,6 @@ const App: FC = () => {
       behavior: 'smooth'
     })
   }
-
 
   const handleEarnPartnerInViewChange = (inView: any) => {
     setVisible(inView)
