@@ -32,7 +32,8 @@ module.exports = {
         scrollbar_track: '#343434',
         widget_bg: '#58585899',
         dark_gray_border: '#292929',
-        header_bg_opacity40: '#211b2566'
+        header_bg_opacity40: '#211b2566',
+        rules_blue: '#1B6AF5'
       }
     }
   },

@@ -50,7 +50,7 @@
   @apply mb-[30px] text-[15px] leading-[18px] text-white;
 }
 .rulesCategory {
-  @apply mb-2.5 text-[15px] font-medium leading-[18px] text-[#1B6AF5];
+  @apply mb-2.5 text-[15px] font-medium leading-[18px] text-rules_blue;
 }
 .rulesText {
   @apply mb-4 text-[15px] leading-[18px] text-white;
