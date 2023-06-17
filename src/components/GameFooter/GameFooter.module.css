@@ -14,13 +14,13 @@
 }
 
 .gameFooter {
-    @apply transition-all duration-300 lg:max-h-[60vh] lg:min-h-[100px] lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0;
+    @apply transition-all flex flex-col items-center justify-center duration-300 lg:max-h-[60vh] lg:min-h-[100px] lg:fixed lg:bottom-0 lg:z-50 lg:h-auto lg:w-full lg:pb-0;
 }
 .gameFooterActive {
     @apply h-[63vh] pb-[135px] lg:pb-0;
 }
 .gameFooterButton {
-    @apply relative flex items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-light_action_text;
+    @apply relative flex w-full items-center justify-center gap-[5px] text-xs font-medium leading-[15px] text-light_action_text;
 }
 .increase {
     @apply bg-dark_green absolute left-3 top-0 min-h-[34px] cursor-pointer rounded-md px-2 text-white;
@@ -32,7 +32,7 @@
     @apply flex h-[34px] cursor-pointer items-center justify-center gap-[5px];
 }
 .widgetContainer {
-    @apply transition-all duration-300 overflow-hidden translate-y-[100%];
+    @apply transition-all duration-300 overflow-hidden translate-y-[100%] w-full;
 }
 .widgetContainerActive {
     @apply relative z-50 h-full lg:h-full lg:pb-0 bg-dark_gray_bg_opacity80 translate-y-0 max-h-full;

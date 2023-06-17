@@ -59,19 +59,14 @@ const TradingViewWidget: FC = () => {
 
   return (
     <div
-      className="tradingview-widget-container"
+      className="tradingview-widget-container w-full"
       style={{ height: '100%', overflow: 'hidden' }}
     >
-      <div id="tradingview_06401" style={{ height: '100%' }} />
-      <div className="tradingview-widget-copyright">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow noreferrer"
-          target="_blank"
-        >
-          <span className="blue-text">Track all markets on TradingView</span>
-        </a>
-      </div>
+      <div
+        className="w-full"
+        id="tradingview_06401"
+        style={{ height: '100%' }}
+      />
     </div>
   )
 }
