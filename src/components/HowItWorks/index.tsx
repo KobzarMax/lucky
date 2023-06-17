@@ -68,6 +68,27 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
           ))}
         </div>
       </div>
+      <div className="flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden">
+        {descriptions.map((description, index) => (
+          <div
+            key={index}
+            className="description h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[20px]"
+            onTouchStart={(event) => event.stopPropagation()}
+          >
+            <img
+              className="mx-auto mb-[10px]"
+              src={description.icon}
+              alt={description.title}
+            />
+            <p className="mb-[10px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white">
+              {description.title}
+            </p>
+            <p className="max-w-[235px] pl-2.5 text-[15px] leading-[20px] text-white">
+              {description.text}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
