@@ -1,4 +1,3 @@
-import avatar from '@/asset/avatar.png'
 import { useTranslation } from 'react-i18next'
 import styles from './Referals.module.css'
 import React from 'react'
@@ -21,7 +20,7 @@ export const Referals: React.FC = () => {
               <div>
                 <p className={styles.yourBonus}>
                   {t('yourBonus')}{' '}
-                  <span className="font-semibold text-primary">
+                  <span className="text-primary font-semibold">
                     {referal.bonus}$
                   </span>
                 </p>

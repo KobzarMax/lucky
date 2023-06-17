@@ -58,7 +58,10 @@ const TradingViewWidget: FC = () => {
   }
 
   return (
-    <div className="tradingview-widget-container" style={{ height: '100%' }}>
+    <div
+      className="tradingview-widget-container"
+      style={{ height: '100%', overflow: 'hidden' }}
+    >
       <div id="tradingview_06401" style={{ height: '100%' }} />
       <div className="tradingview-widget-copyright">
         <a

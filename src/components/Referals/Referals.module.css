@@ -81,8 +81,14 @@
     @apply mb-16 flex items-center justify-between gap-[15px];
   }
   .referal {
-    @apply flex items-center justify-center gap-2.5;
+    @apply flex items-center justify-start gap-2.5;
   }
   .yourBonus {
     @apply text-[13px] leading-4 text-gray_text;
+  }
+
+  .referal img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }

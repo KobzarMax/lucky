@@ -32,7 +32,7 @@ export const GameFooter: React.FC<GameFooterProps> = ({
       className={`${styles['game-footer']} ${styles.gameFooter} ${
         isWidgetVisible ? `${styles.active} ${styles.gameFooterActive}` : ''
       } `}
-      style={{ height: widgetHeight }}
+      style={{ height: widgetHeight, overflow: 'hidden' }}
     >
       {!isMobile && (
         <div className={styles.gameFooterButton}>
