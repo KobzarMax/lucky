@@ -9,6 +9,7 @@
   padding: 20px 10px 72px;
   -webkit-overflow-scrolling: touch;
   width: -webkit-fill-available;
+  margin-top: 100px;
 }
 
 .howItWorks {
