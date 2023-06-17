@@ -4,8 +4,11 @@
   background-position: center;
   height: 334px;
   min-width: 265px;
+  max-width: 265px;
   position: relative;
   padding: 20px 10px 72px;
+  -webkit-overflow-scrolling: touch;
+  width: -webkit-fill-available;
 }
 
 .howItWorks {
@@ -25,7 +28,7 @@
 }
 .descriptionsWrap {
   -webkit-overflow-scrolling: touch;
-  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 .descriptionTitle {
   @apply mb-[10px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white;
