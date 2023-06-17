@@ -56,12 +56,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
           {descriptions.map((description, index) => (
             <div key={index} className={styles.description}>
               <img
-                className="mx-auto mb-[10px]"
+                className="relative z-10 mx-auto mb-[10px]"
                 src={description.icon}
                 alt={description.title}
               />
-              <p className={styles.descriptionTitle}>{description.title}</p>
-              <p className={styles.descriptionText}>{description.text}</p>
+              <div className="relative z-10">
+                <p className={styles.descriptionTitle}>{description.title}</p>
+                <p className={styles.descriptionText}>{description.text}</p>
+              </div>
             </div>
           ))}
         </div>

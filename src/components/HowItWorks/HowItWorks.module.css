@@ -7,6 +7,7 @@
   max-width: 265px;
   position: relative;
   padding: 20px 10px 72px;
+  z-index: 10;
   -webkit-overflow-scrolling: touch;
   width: -webkit-fill-available;
 }
@@ -21,7 +22,7 @@
   @apply mx-auto mb-1.5 max-w-[765px] text-center text-[15px] leading-[23px] text-white lg:mb-[30px];
 }
 .descriptionWrap {
-  @apply max-w-full w-full overflow-auto lg:overflow-x-hidden;
+  @apply max-w-full w-full overflow-x-auto overflow-hidden;
 }
 .descriptions {
   @apply flex max-w-full w-full relative z-10 items-center justify-start gap-[30px] lg:justify-center;
