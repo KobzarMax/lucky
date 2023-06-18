@@ -74,7 +74,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
         {descriptions.map((description, index) => (
           <div
             key={index}
-            className={`${styles['description']} h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[20px]`}
+            className={`${styles['description']}`}
             onTouchStart={(event) => event.stopPropagation()}
           >
             <img

@@ -8,7 +8,7 @@
 }
 
 .game-footer {
-    transform: translateY(85%);
+    transform: translateY(77%);
     transition: 0.3s all;
     overflow: hidden;
 }
