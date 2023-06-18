@@ -51,7 +51,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
         {t('howWorksEnd')} ?
       </h2>
       <p className={styles.howWorksSubtitle}>{t('howWorksSubtitle')}</p>
-      <div className={`${styles.descriptionWrap}`}>
+      {/* <div className={`${styles.descriptionWrap}`}>
         <div className={`${styles.descriptions} ${styles.descriptionWrap}`}>
           {descriptions.map((description, index) => (
             <div key={index} className={styles.description}>
@@ -67,12 +67,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
             </div>
           ))}
         </div>
-      </div>
-      <div className="flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden">
+      </div> */}
+      <div
+        className={`flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden`}
+      >
         {descriptions.map((description, index) => (
           <div
             key={index}
-            className="description h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[20px]"
+            className={`${styles['description']} h-[334px] min-w-[265px] px-2.5 pb-[72px] pt-[20px]`}
             onTouchStart={(event) => event.stopPropagation()}
           >
             <img
