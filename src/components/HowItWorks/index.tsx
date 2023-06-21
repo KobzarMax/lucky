@@ -69,7 +69,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
         </div>
       </div> */}
       <div
-        className={`flex items-center justify-start gap-[30px] overflow-x-scroll lg:justify-center lg:overflow-x-hidden`}
+        className={`flex items-center justify-start gap-[30px] overflow-x-auto overflow-scroll lg:justify-center lg:overflow-x-hidden`}
       >
         {descriptions.map((description, index) => (
           <div
