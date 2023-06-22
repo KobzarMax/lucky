@@ -17,6 +17,7 @@ const App: FC = () => {
   const [visible, setVisible] = useState<boolean>(false)
   const [howVisible, setHowVisible] = useState<boolean>(false)
   const dispatch = useAppDispatch()
+  const isRulesRoute = location.pathname === '/rules'
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -31,6 +32,12 @@ const App: FC = () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  useEffect(() => {
+    if (isMobile && isRulesRoute) {
+      setVisible(true)
+    }
+  }, [isMobile, isRulesRoute])
 
   useEffect(() => {
     window.addEventListener('scroll', smoothScroll)

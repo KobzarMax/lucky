@@ -15,29 +15,32 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
     onFilterChange(filter)
   }
 
+  const allTabClass = classNames(styles.asideFilterButton, {
+    'bg-primary': activeFilter === 'all'
+  })
+
+  const winnedTabClass = classNames(styles.asideFilterButton, {
+    'bg-primary': activeFilter === 'winned'
+  })
+
+  const losedTabClass = classNames(styles.asideFilterButton, {
+    'bg-primary': activeFilter === 'losed'
+  })
+
   return (
     <div className={styles.asideFilter}>
-      <button
-        onClick={() => handleFilterChange('all')}
-        className={classNames(styles.asideFilterButton, {
-          [styles.bgPrimary]: activeFilter === 'all'
-        })}
-      >
+      <button onClick={() => handleFilterChange('all')} className={allTabClass}>
         {t('all')}
       </button>
       <button
         onClick={() => handleFilterChange('winned')}
-        className={classNames(styles.asideFilterButton, {
-          [styles.bgPrimary]: activeFilter === 'winned'
-        })}
+        className={winnedTabClass}
       >
         {t('winned')}
       </button>
       <button
         onClick={() => handleFilterChange('losed')}
-        className={classNames(styles.asideFilterButton, {
-          [styles.bgPrimary]: activeFilter === 'losed'
-        })}
+        className={losedTabClass}
       >
         {t('losed')}
       </button>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import classNames from 'classnames'
 import styles from './Tab.module.css'
 import { TabsProps } from './tab'
 
@@ -12,15 +11,6 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
     setActiveTab(tabId)
   }
 
-  const tabButtonClasses = (tabId: string) =>
-    classNames(styles.tabItem, {
-      [styles.active]: activeTab === tabId
-    })
-
-  const tabContentStyles = (tabId: string) => ({
-    display: activeTab === tabId ? 'block' : 'none'
-  })
-
   return (
     <div>
       <div className={styles.tabs}>
@@ -28,7 +18,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           <button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
-            className={tabButtonClasses(tab.id)}
+            className={`${styles.tabIem} ${
+              activeTab === tab.id ? 'bg-primary' : ''
+            }`}
           >
             {t(tab.label)}
           </button>
@@ -36,7 +28,10 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
       </div>
       <div>
         {tabs.map((tab) => (
-          <div key={tab.id} style={tabContentStyles(tab.id)}>
+          <div
+            key={tab.id}
+            style={{ display: activeTab === tab.id ? 'block' : 'none' }}
+          >
             {tab.component}
           </div>
         ))}

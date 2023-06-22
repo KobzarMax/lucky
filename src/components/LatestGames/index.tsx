@@ -42,7 +42,7 @@ const LatestGames: React.FC = () => {
     <div className={latestgamesClasses}>
       <p className={latestgamesTextClasses}>
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
-        <span className="text-primary lowercase">{t('games')}</span>
+        <span className="lowercase text-primary">{t('games')}</span>
       </p>
       <div className={tickerWrapClasses}>
         <div className={tickerClasses}>
