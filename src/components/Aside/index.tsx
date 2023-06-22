@@ -1,15 +1,12 @@
 import React from 'react'
-import arrow from '@/asset/arrowup.svg'
 import { useTranslation } from 'react-i18next'
 import { RoundsComponent } from '@/components/RoundsComponent'
 import { PNLComponent } from '@/components/PNLComponent'
 import Tabs from '@/components/Tab'
+import classNames from 'classnames'
 import styles from './Aside.module.css'
-
-interface AsideProps {
-  toggleView: () => void
-  asideView: boolean
-}
+import { AsideProps } from './aside'
+import { arrow } from '@/images'
 
 export const Aside: React.FC<AsideProps> = ({ asideView, toggleView }) => {
   const { t } = useTranslation(['translations'])
@@ -26,12 +23,12 @@ export const Aside: React.FC<AsideProps> = ({ asideView, toggleView }) => {
     }
   ]
 
+  const asideViewClasses = classNames(styles.asideView, styles.gameAside, {
+    [styles.gameAsideActive]: asideView
+  })
+
   return (
-    <div
-      className={`${styles.asideView} ${styles.gameAside} ${
-        asideView ? styles.gameAsideActive : ''
-      }`}
-    >
+    <div className={asideViewClasses}>
       <div className={styles.asideHead}>
         <p className={styles.history}>{t('history')}</p>
         <button onClick={toggleView} className={styles.toggleView}>

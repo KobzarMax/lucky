@@ -1,13 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import React, { useEffect } from 'react'
+import classNames from 'classnames'
 import styles from './HowItWorks.module.css'
-import { DescriptionItem } from '@/interfaces'
-import { oportunity, rewards, safety, transparency } from '@/consts'
-
-interface HowItWorksProps {
-  onHowItWorksInViewChange: (inView: boolean) => void
-}
+import { oportunity, rewards, safety, transparency } from '@/images'
+import { DescriptionItem, HowItWorksProps } from './howItWorks'
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({
   onHowItWorksInViewChange
@@ -43,18 +40,32 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
   useEffect(() => {
     onHowItWorksInViewChange(inHowView)
   }, [inHowView, onHowItWorksInViewChange])
+
+  const howItWorksClass = classNames(styles.howItWorks)
+  const howItTitleClass = styles.howItTitle
+  const howItSubtitleClass = styles.howWorksSubtitle
+  const descriptionWrapClass = styles.descriptionWrap
+  const descriptionsClass = classNames(
+    styles.descriptions,
+    styles.descriptionWrap
+  )
+  const descriptionClass = styles.description
+
   return (
-    <div ref={ref} className={styles.howItWorks}>
-      <h2 className={styles.howItTitle}>
+    <div ref={ref} className={howItWorksClass}>
+      <h2 className={howItTitleClass}>
         {t('howWorks')}{' '}
         <span className="text-primary">{t('howWorksName')}</span>{' '}
         {t('howWorksEnd')} ?
       </h2>
-      <p className={styles.howWorksSubtitle}>{t('howWorksSubtitle')}</p>
-      {/* <div className={`${styles.descriptionWrap}`}>
-        <div className={`${styles.descriptions} ${styles.descriptionWrap}`}>
+      <p className={howItSubtitleClass}>{t('howWorksSubtitle')}</p>
+      <div className={descriptionWrapClass}>
+        <div
+          style={{ WebkitOverflowScrolling: 'touch' }}
+          className={descriptionsClass}
+        >
           {descriptions.map((description, index) => (
-            <div key={index} className={styles.description}>
+            <div key={index} className={descriptionClass}>
               <img
                 className="relative z-10 mx-auto mb-[10px]"
                 src={description.icon}
@@ -67,30 +78,6 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
             </div>
           ))}
         </div>
-      </div> */}
-      <div
-        style={{ WebkitOverflowScrolling: 'touch' }}
-        className={`flex items-center justify-start gap-[30px] overflow-x-auto overflow-scroll lg:justify-center lg:overflow-x-hidden`}
-      >
-        {descriptions.map((description, index) => (
-          <div
-            key={index}
-            className={`${styles['description']}`}
-            onTouchStart={(event) => event.stopPropagation()}
-          >
-            <img
-              className="mx-auto mb-[10px]"
-              src={description.icon}
-              alt={description.title}
-            />
-            <p className="mb-[10px] pl-2.5 text-[17px] font-semibold capitalize leading-[21px] text-white">
-              {description.title}
-            </p>
-            <p className="max-w-[235px] pl-2.5 text-[15px] leading-[20px] text-white">
-              {description.text}
-            </p>
-          </div>
-        ))}
       </div>
     </div>
   )

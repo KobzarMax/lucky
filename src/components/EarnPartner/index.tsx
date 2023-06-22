@@ -1,15 +1,12 @@
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import classNames from 'classnames'
 import { TelegramButton } from '@/components/TelegramButton'
 import { DocumentsButton } from '@/components/DocumentsButton'
 import { useInView } from 'react-intersection-observer'
-import React, { useEffect } from 'react'
 import styles from './EarnPartner.module.css'
-import { PartnerPosibility } from '@/interfaces'
-import { coins, createAccount, wallet } from '@/consts'
-
-interface EarnPartnerProps {
-  onEarnPartnerInViewChange: (inView: boolean) => void
-}
+import { coins, createAccount, wallet } from '@/images'
+import { EarnPartnerProps, PartnerPosibility } from './earnPartner'
 
 export const EarnPartner: React.FC<EarnPartnerProps> = ({
   onEarnPartnerInViewChange
@@ -41,14 +38,24 @@ export const EarnPartner: React.FC<EarnPartnerProps> = ({
     onEarnPartnerInViewChange(inView)
   }, [inView, onEarnPartnerInViewChange])
 
+  const earnPartnerWrapClasses = classNames(styles.earnPartnerWrap)
+  const earnLikePartnerClasses = classNames(styles.earnLikePartner)
+  const earnLikePartnerSubtitle1Classes = classNames(
+    styles.earnLikePartnerSubtitle1
+  )
+  const posibilityItemClasses = classNames(
+    styles['posibility'],
+    styles.posibilityItem
+  )
+
   return (
-    <div ref={ref} className={styles.earnPartnerWrap}>
+    <div ref={ref} className={earnPartnerWrapClasses}>
       <div className="w-full max-w-full">
-        <h2 className={styles.earnLikePartner}>
+        <h2 className={earnLikePartnerClasses}>
           {t('earnLikePartner')}{' '}
           <span className="text-primary">{t('partner')}</span> ?
         </h2>
-        <p className={styles.earnLikePartnerSubtitle1}>
+        <p className={earnLikePartnerSubtitle1Classes}>
           <span className="font-bold text-primary">
             {' '}
             {t('earnLikePartnerSubtitle1')}
@@ -62,10 +69,7 @@ export const EarnPartner: React.FC<EarnPartnerProps> = ({
       </div>
       <div className={styles.partnerPosibilities}>
         {partnerPosibilities.map((posibility, index) => (
-          <div
-            key={index}
-            className={`${styles['posibility']} ${styles.posibilityItem}`}
-          >
+          <div key={index} className={posibilityItemClasses}>
             <img
               className="relative z-10"
               src={posibility.icon}

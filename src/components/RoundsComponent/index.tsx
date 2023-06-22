@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { AsideRound } from '@/components/AsideRound'
 import React, { useState } from 'react'
+import classNames from 'classnames'
 import FilterComponent from '@/components/AsideFilter'
-import { rounds } from '@/consts'
 import styles from './RoundsComponent.module.css'
+import { rounds } from './roundsConsts'
 
 export const RoundsComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -25,10 +26,13 @@ export const RoundsComponent: React.FC = () => {
     // Add your logic here to handle the filter change, e.g., updating the data based on the filter selection.
   }
 
+  const filterClass = classNames(styles.filter)
+  const pxClass = classNames('px-[7px]')
+
   return (
     <div>
-      <p className={styles.filter}>{t('filter')}</p>
-      <div className="px-[7px]">
+      <p className={filterClass}>{t('filter')}</p>
+      <div className={pxClass}>
         <FilterComponent onFilterChange={handleFilterChange} />
       </div>
       <div>

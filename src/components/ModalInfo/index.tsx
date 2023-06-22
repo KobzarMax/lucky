@@ -2,21 +2,31 @@ import React, { MutableRefObject, useEffect } from 'react'
 import { CountDown } from '@/components/Countdown'
 import { useTranslation } from 'react-i18next'
 import 'flowbite'
-import twitter from '@/asset/TwitterLogo.svg'
-import telegram from '@/asset/TelegramLogo.svg'
-import discord from '@/asset/DiscordLogo.svg'
+import classNames from 'classnames'
 import styles from './ModalInfo.module.css'
+import { twitter, telegram, discord } from '@/images'
 
 export const ModalInfo: React.FC = () => {
   const { t } = useTranslation(['translations'])
 
+  const modalWrapClass = classNames(styles.modalWrap, 'hidden')
+  const modalWrapInnerClass = styles.modalWrapInner
+  const modalContentClass = styles.modalContent
+  const modalButtonClass = styles.modalButton
+  const modalTitleClass = styles.modalTitle
+  const modalTextContentClass = styles.modalTextContent
+  const modalTextClass = styles.modalText
+  const socialLinksClass = styles.socialLinks
+  const socialLinkClass = styles.socialLink
+  const socialLinkImageClass = styles.socialLinkImage
+
   return (
-    <div id="popup-modal" tabIndex={1} className={`${styles.modalWrap} hidden`}>
-      <div className={styles.modalWrapInner}>
-        <div className={styles.modalContent}>
+    <div id="popup-modal" tabIndex={1} className={modalWrapClass}>
+      <div className={modalWrapInnerClass}>
+        <div className={modalContentClass}>
           <button
             type="button"
-            className={styles.modalButton}
+            className={modalButtonClass}
             data-modal-hide="popup-modal"
           >
             <svg
@@ -35,28 +45,28 @@ export const ModalInfo: React.FC = () => {
             <span className="sr-only">Close modal</span>
           </button>
 
-          <div className={styles.modalTextContent}>
-            <h1 className={styles.modalTitle}>Game starts in</h1>
+          <div className={modalTextContentClass}>
+            <h1 className={modalTitleClass}>Game starts in</h1>
             <CountDown />
-            <p className={styles.modalText}>Stay tuned!</p>
-            <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialLink}>
+            <p className={modalTextClass}>Stay tuned!</p>
+            <div className={socialLinksClass}>
+              <a href="#" className={socialLinkClass}>
                 <img
-                  className={styles.socialLinkImage}
+                  className={socialLinkImageClass}
                   src={twitter}
                   alt="twitter link"
                 />
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a href="#" className={socialLinkClass}>
                 <img
-                  className={styles.socialLinkImage}
+                  className={socialLinkImageClass}
                   src={telegram}
                   alt="telegram link"
                 />
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a href="#" className={socialLinkClass}>
                 <img
-                  className={styles.socialLinkImage}
+                  className={socialLinkImageClass}
                   src={discord}
                   alt="discord link"
                 />

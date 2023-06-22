@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import React, { useState, useRef, useEffect } from 'react'
-import caretDown from '@/asset/CaretDown.svg'
-import questionCircle from '@/asset/faqicon.svg'
+import classNames from 'classnames'
 import styles from './FAQ.module.css'
-import { FAQItem } from '@/interfaces'
+import { FAQItem } from './faq'
+import { caret, questionCircle } from '@/images'
 
 export const FAQ: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -43,17 +43,20 @@ export const FAQ: React.FC = () => {
   useEffect(() => {
     contentRefs.current = contentRefs.current.slice(0, faqItems.length)
   }, [faqItems.length])
+
+  const faqWrapClasses = classNames(styles.faqWrap)
+  const faqItemClasses = (index: number) =>
+    classNames(styles['faq-item'], styles.faqItem, {
+      'pb-[17px]': openIndex === index,
+      'pb-0': openIndex !== index
+    })
+
   return (
-    <div className={styles.faqWrap}>
+    <div className={faqWrapClasses}>
       <h2 className={styles.faqTitle}>{t('faq')}</h2>
       <div className={styles.faqItems}>
         {faqItems.map((faqItem, index) => (
-          <div
-            key={index}
-            className={`${styles['faq-item']} ${styles.faqItem} ${
-              openIndex === index ? 'pb-[17px]' : 'pb-0'
-            }`}
-          >
+          <div key={index} className={faqItemClasses(index)}>
             <div
               className={styles.toggleAccordion}
               onClick={() => toggleAccordion(index)}
@@ -66,7 +69,7 @@ export const FAQ: React.FC = () => {
                 <p className={styles.faqItemTitle}>{faqItem.title}</p>
               </div>
               <img
-                src={caretDown}
+                src={caret}
                 alt="caret"
                 style={{
                   transform: openIndex === index ? 'rotate(180deg)' : 'none',

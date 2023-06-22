@@ -3,10 +3,8 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useTranslation } from 'react-i18next'
 import styles from './Countdown.module.css'
 import React from 'react'
-
-const minuteSeconds = 60
-const hourSeconds = 3600
-const daySeconds = 86400
+import classNames from 'classnames'
+import { daySeconds, hourSeconds, minuteSeconds } from './countdown'
 
 export const CountDown: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -28,8 +26,10 @@ export const CountDown: React.FC = () => {
   const getTimeHours = (time: number) => ((time % daySeconds) / hourSeconds) | 0
   const getTimeDays = (time: number) => (time / daySeconds) | 0
 
+  const timerClasses = classNames(styles.timer)
+
   return (
-    <div className={styles.timer}>
+    <div className={timerClasses}>
       <CountdownCircleTimer
         isPlaying
         duration={daysDuration}

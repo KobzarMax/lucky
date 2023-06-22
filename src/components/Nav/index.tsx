@@ -1,45 +1,41 @@
 import { NavLink } from 'react-router-dom'
-
-import liquidity from '@/asset/CurrencyCircleDollar.svg'
-import win from '@/asset/Trophy.svg'
-import dots from '@/asset/DotsThreeOutline.svg'
-import signOut from '@/asset/SignOut.svg'
-import gear from '@/asset/gear.svg'
-import play from '@/asset/Play.svg'
 import { useTranslation } from 'react-i18next'
+import classNames from 'classnames'
 import styles from './Nav.module.css'
 import React from 'react'
-
-interface NavProps {
-  isMobile?: boolean
-  visible?: boolean
-}
+import { NavProps } from './nav'
+import { gear, playNav, trophy } from '@/images'
 
 export const Nav: React.FC<NavProps> = ({ isMobile, visible }) => {
   const { t } = useTranslation(['translations'])
 
+  const navClass = classNames(
+    visible ? styles.active : '',
+    styles.nav,
+    styles.navMain
+  )
+  const modalClass = styles.modal
+  const playClass = classNames(styles.play, isMobile ? '' : styles.playHidden)
+  const navLinkClass = styles.navLink
+
   return (
-    <div
-      className={`${visible ? styles.active : ''} ${styles.nav} ${
-        styles.navMain
-      }`}
-    >
+    <div className={navClass}>
       <div className={styles.navInner}>
         <div
           data-modal-target="popup-modal"
           data-modal-toggle="popup-modal"
-          className={styles.modal}
+          className={modalClass}
         >
-          <img src={win} alt="Win" /> {t('win')}
+          <img src={trophy} alt="Win" /> {t('win')}
         </div>
         <div
           data-modal-target="popup-modal"
           data-modal-toggle="popup-modal"
-          className={`${styles.play} ${isMobile ? '' : styles.playHidden}`}
+          className={playClass}
         >
-          <img className="relative z-20" src={play} alt="play" />
+          <img className="relative z-20" src={playNav} alt="play" />
         </div>
-        <NavLink className={styles.navLink} to={'/'}>
+        <NavLink className={navLinkClass} to={'/'}>
           <img src={gear} alt="Instructions" /> {t('documentation')}
         </NavLink>
         {/* <NavLink

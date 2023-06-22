@@ -3,16 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
-import caret from '@/asset/CaretDown.svg'
+import classNames from 'classnames'
 import styles from './GameFooter.module.css'
-
-interface GameFooterProps {
-  increaseHeight: () => void
-  widgetHeight: string
-  decreaseHeight: () => void
-  isWidgetVisible: boolean
-  setWidgetVisible: (isVisible: boolean) => void
-}
+import { GameFooterProps } from './gameFooter'
+import { caret } from '@/images'
 
 export const GameFooter: React.FC<GameFooterProps> = ({
   increaseHeight,
@@ -26,12 +20,27 @@ export const GameFooter: React.FC<GameFooterProps> = ({
   const chartRef = useRef<HTMLDivElement>(null)
   const desktopFooterRef = useRef<HTMLDivElement>(null)
 
+  const containerClass = classNames(styles['game-footer'], styles.gameFooter)
+  const activeContainerClass = classNames(
+    styles.active,
+    styles.gameFooterActive
+  )
+  const widgetButtonClass = styles.widgetButton
+  const widgetButtonRotateClass = classNames('transition-all duration-300', {
+    'rotate-0': isWidgetVisible,
+    'rotate-180': !isWidgetVisible
+  })
+  const widgetContainerClass = classNames(styles.widgetContainer, {
+    [styles.widgetContainerActive]: isWidgetVisible,
+    active: isWidgetVisible
+  })
+
   return (
     <div
       ref={desktopFooterRef}
-      className={`${styles['game-footer']} ${styles.gameFooter} ${
-        isWidgetVisible ? `${styles.active} ${styles.gameFooterActive}` : ''
-      } `}
+      className={classNames(containerClass, {
+        [activeContainerClass]: isWidgetVisible
+      })}
       style={{ height: widgetHeight, overflow: 'hidden' }}
     >
       {!isMobile && (
@@ -42,7 +51,7 @@ export const GameFooter: React.FC<GameFooterProps> = ({
             </button>
           )}
           <span
-            className={styles.widgetButton}
+            className={widgetButtonClass}
             onClick={(e) => {
               e.stopPropagation()
               setWidgetVisible(!isWidgetVisible)
@@ -50,9 +59,7 @@ export const GameFooter: React.FC<GameFooterProps> = ({
           >
             {t('TradingView')}{' '}
             <img
-              className={`transition-all duration-300 ${
-                isWidgetVisible ? 'rotate-0' : 'rotate-180'
-              }`}
+              className={widgetButtonRotateClass}
               src={caret}
               alt="caret down"
             />
@@ -65,12 +72,7 @@ export const GameFooter: React.FC<GameFooterProps> = ({
         </div>
       )}
 
-      <div
-        ref={chartRef}
-        className={` ${styles.widgetContainer} ${
-          isWidgetVisible ? `${styles.widgetContainerActive} active` : ''
-        }`}
-      >
+      <div ref={chartRef} className={widgetContainerClass}>
         <TradingViewWidget />
       </div>
     </div>

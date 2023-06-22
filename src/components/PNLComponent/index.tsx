@@ -1,63 +1,82 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
+import classNames from 'classnames'
 import styles from './PNLComponent.module.css'
 
 export const PNLComponent: React.FC = () => {
   const { t } = useTranslation(['translations'])
+
+  const pnlClass = classNames(styles.pnl)
+  const pnlHeadClass = classNames(styles.pnlHead)
+  const circleClass = classNames(styles.circle)
+  const circleInnerClass = classNames(styles.circleInner)
+  const wonClass = classNames(styles.won)
+  const wonNumberClass = classNames(styles.wonNumber)
+  const smallTextClass = classNames(styles.smallText)
+  const midTextClass = classNames(styles.midText)
+  const baseTextPrimaryClass = classNames(styles.baseTextPrimary)
+  const textWrapClass = classNames(styles.textWrap)
+  const wonTextClass = classNames(styles.wonText)
+  const wonItemClass = classNames(styles.wonItem)
+  const roundsNumberClass = classNames(styles.roundsNumber)
+  const plusTokenClass = classNames(styles.plusToken)
+  const secondRoundsNumberClass = classNames(styles.secondRoundsNumber)
+  const secondPlusTokenClass = classNames(styles.secondPlusToken)
+
   return (
-    <div className={styles.pnl}>
-      <div className={styles.pnlHead}>
-        <div className={styles.circle}>
-          <div className={styles.circleInner}>
-            <p className={styles.won}>{t('won')}</p>
-            <p className={styles.wonNumber}>74/150</p>
-            <p className={styles.smallText}>49.33%</p>
+    <div className={pnlClass}>
+      <div className={pnlHeadClass}>
+        <div className={circleClass}>
+          <div className={circleInnerClass}>
+            <p className={wonClass}>{t('won')}</p>
+            <p className={wonNumberClass}>74/150</p>
+            <p className={smallTextClass}>49.33%</p>
           </div>
         </div>
         <div>
-          <p className={styles.midText}>{t('notResults')}</p>
-          <p className={styles.baseTextPrimary}>-0.1270 BNB</p>
-          <p className={styles.smallText}>-$38.75</p>
+          <p className={midTextClass}>{t('notResults')}</p>
+          <p className={baseTextPrimaryClass}>-0.1270 BNB</p>
+          <p className={smallTextClass}>-$38.75</p>
         </div>
       </div>
       <div className="mb-2.5 mt-[30px]">
-        <p className={styles.midText}>{t('averageReturnRound')}</p>
-        <p className={styles.baseTextPrimary}>-0.0008 BNB</p>
-        <p className={styles.smallText}>-0.26</p>
+        <p className={midTextClass}>{t('averageReturnRound')}</p>
+        <p className={baseTextPrimaryClass}>-0.0008 BNB</p>
+        <p className={smallTextClass}>-0.26</p>
       </div>
       <div className="mb-2.5">
-        <p className={styles.midText}>{t('bestRound')}: #166178</p>
-        <p className={styles.baseTextGreen}>
-          +0.0191 BNB <span className={styles.smallText}>(3.49x)</span>
+        <p className={midTextClass}>{t('bestRound')}: #166178</p>
+        <p className={classNames(baseTextPrimaryClass, styles.baseTextGreen)}>
+          +0.0191 BNB <span className={smallTextClass}>(3.49x)</span>
         </p>
-        <p className={styles.smallText}>$5.83</p>
+        <p className={smallTextClass}>$5.83</p>
       </div>
-      <div className={styles.textWrap}>
-        <p className={styles.midText}>{t('averagePositionEnteredRound')}</p>
-        <p className={styles.wonNumber}>0.00053 BNB</p>
-        <p className={styles.smallText}>1.62</p>
+      <div className={textWrapClass}>
+        <p className={midTextClass}>{t('averagePositionEnteredRound')}</p>
+        <p className={wonNumberClass}>0.00053 BNB</p>
+        <p className={smallTextClass}>1.62</p>
       </div>
       <div>
-        <p className={styles.wonText}>{t('won')}</p>
-        <div className={styles.wonItem}>
+        <p className={wonTextClass}>{t('won')}</p>
+        <div className={wonItemClass}>
           <div>
-            <p className={styles.roundsNumber}>74 {t('rounds')}</p>
-            <p className={styles.smallText}>49.33%</p>
+            <p className={roundsNumberClass}>74 {t('rounds')}</p>
+            <p className={smallTextClass}>49.33%</p>
           </div>
           <div>
-            <p className={styles.plusToken}>+0.3220 BNB</p>
-            <p className={styles.smallText}>$98.30</p>
+            <p className={plusTokenClass}>+0.3220 BNB</p>
+            <p className={smallTextClass}>$98.30</p>
           </div>
         </div>
-        <p className={styles.wonText}>{t('lost')}</p>
+        <p className={wonTextClass}>{t('lost')}</p>
         <div className={styles.wonSecondItem}>
           <div>
-            <p className={styles.secondRoundsNumber}>76 {t('rounds')}</p>
-            <p className={styles.smallText}>49.33%</p>
+            <p className={secondRoundsNumberClass}>76 {t('rounds')}</p>
+            <p className={smallTextClass}>49.33%</p>
           </div>
           <div>
-            <p className={styles.secondPlusToken}>-0.4490 BNB</p>
-            <p className={styles.smallText}>$98.30</p>
+            <p className={secondPlusTokenClass}>-0.4490 BNB</p>
+            <p className={smallTextClass}>$98.30</p>
           </div>
         </div>
       </div>

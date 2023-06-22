@@ -4,28 +4,24 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Nav } from '@/components/Nav'
 import 'swiper/css/navigation'
 import 'swiper/css'
-import gameCards from '@/asset/game-cards.svg'
-import arrow from '@/asset/arrowup.svg'
-import questionMark from '@/asset/Question.svg'
-import trophy from '@/asset/Trophy.svg'
-import chartBar from '@/asset/ChartBar.svg'
-import clockCounter from '@/asset/ClockCounterClockwise.svg'
 import { Link } from 'react-router-dom'
 import { GameTimer } from '@/components/GameTimer'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import React, { useRef } from 'react'
-import { games } from '@/consts'
-import { GameData } from '@/interfaces'
 import styles from './GameContent.module.css'
-
-interface GameContentProps {
-  toggleWidget: () => void
-  toggleAside: () => void
-  isWidgetVisible: boolean
-  toggleShow: () => void
-  setWidgetVisible: (visible: boolean) => void
-}
+import { GameData } from '../GameCard/gameCard'
+import { GameContentProps } from './gameContent'
+import { games } from './gameContentConsts'
+import {
+  arrow,
+  gameCards,
+  questionMark,
+  trophy,
+  clockCounter,
+  chartBar
+} from '@/images'
+import classNames from 'classnames'
 
 export const GameContent: React.FC<GameContentProps> = ({
   toggleWidget,
@@ -50,7 +46,11 @@ export const GameContent: React.FC<GameContentProps> = ({
         {!isMobile && (
           <div className={styles.gameMainArrows}>
             <div
-              className={`${styles['swiper-button-prev']} swiper-button-prev swiper-button`}
+              className={classNames(
+                styles['swiper-button-prev'],
+                'swiper-button-prev',
+                'swiper-button'
+              )}
             >
               <img className={styles.arrowRotated} src={arrow} alt="prev" />
             </div>
@@ -61,7 +61,11 @@ export const GameContent: React.FC<GameContentProps> = ({
               alt="game cards"
             />
             <div
-              className={`${styles['swiper-button-next']} swiper-button-next swiper-button`}
+              className={classNames(
+                styles['swiper-button-next'],
+                'swiper-button-next',
+                'swiper-button'
+              )}
             >
               <img className={styles.arrow} src={arrow} alt="next" />
             </div>
@@ -113,7 +117,7 @@ export const GameContent: React.FC<GameContentProps> = ({
           }}
         >
           {games.map((game: GameData, index: number) => (
-            <SwiperSlide className={styles.SwiperSlide} key={index}>
+            <SwiperSlide className={classNames(styles.SwiperSlide)} key={index}>
               <GameCard toggleShow={toggleShow} key={index} cardData={game} />
             </SwiperSlide>
           ))}
@@ -143,7 +147,10 @@ export const GameContent: React.FC<GameContentProps> = ({
           }}
         >
           {games.map((game: GameData, index: number) => (
-            <SwiperSlide className={styles.SwiperSlideDesktop} key={index}>
+            <SwiperSlide
+              className={classNames(styles.SwiperSlideDesktop)}
+              key={index}
+            >
               <GameCard toggleShow={toggleShow} key={index} cardData={game} />
             </SwiperSlide>
           ))}
@@ -154,30 +161,36 @@ export const GameContent: React.FC<GameContentProps> = ({
         <div className={styles.bottomActionsWrap}>
           <div className={styles.bottomActionsInner}>
             <div
-              className={`${styles['swiper-button-prev']} swiper-button-prev swiper-button`}
+              className={classNames(
+                styles['swiper-button-prev'],
+                'swiper-button-prev',
+                'swiper-button'
+              )}
             >
               <img className={styles.arrowRotated} src={arrow} alt="prev" />
             </div>
             <div className={styles.bottomActions}>
               <div
-                className={`${!isWidgetVisible ? 'bg-widget_bg' : ''} ${
+                className={classNames(
+                  !isWidgetVisible ? 'bg-widget_bg' : '',
                   styles.chartBar
-                }`}
+                )}
               >
                 <img
                   className={styles.arrow}
                   onClick={() => {
                     setWidgetVisible(false)
-                    navigateToActiveSlide
+                    navigateToActiveSlide()
                   }}
                   src={gameCards}
                   alt="game cards"
                 />
               </div>
               <div
-                className={` ${isWidgetVisible ? 'bg-widget_bg' : ''} ${
+                className={classNames(
+                  isWidgetVisible ? 'bg-widget_bg' : '',
                   styles.chartBar
-                }`}
+                )}
                 onClick={toggleWidget}
               >
                 <img
@@ -201,7 +214,11 @@ export const GameContent: React.FC<GameContentProps> = ({
               </div>
             </div>
             <div
-              className={`${styles['swiper-button-next']} swiper-button-next swiper-button`}
+              className={classNames(
+                styles['swiper-button-next'],
+                'swiper-button-next',
+                'swiper-button'
+              )}
             >
               <img className={styles.arrow} src={arrow} alt="next" />
             </div>

@@ -3,17 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { TranslateControls } from '@/components/TranslateControl'
 import { Nav } from '@/components/Nav'
-import logo from '@/asset/logo.svg'
-import coin from '@/asset/coin.svg'
 import mobileLogo from '@/asset/mobile-logo.svg'
 import ConnectIt from '@/web3/Provider'
 import styles from './Header.module.css'
 import { useAppSelector } from '@/redux/hooks'
 import { selectPlatform } from '@/features/global/globalSlice'
-
-interface HeaderProps {
-  howVisible: boolean
-}
+import { HeaderProps } from './header'
+import { logo } from '@/images'
+import classNames from 'classnames'
 
 const Header: React.FC<HeaderProps> = ({ howVisible }) => {
   const { t, i18n } = useTranslation(['translations'])
@@ -62,24 +59,30 @@ const Header: React.FC<HeaderProps> = ({ howVisible }) => {
     }
   }, [t, i18n])
 
+  const headerClass = classNames({
+    [styles.sticky]: howVisible,
+    unStiky: !howVisible,
+    [styles['header']]: true
+  })
+
+  const logoClass = 'logo-wrapper'
+  const headerImageClass = styles.headerImage
+  const headerActionsClass = styles.headerActions
+
   return (
-    <header
-      className={`${howVisible ? styles.sticky : 'unStiky'} ${
-        styles['header']
-      }`}
-    >
+    <header className={headerClass}>
       <div className={styles.headerInner}>
         <div className={styles.headerImageWrap}>
-          <Link to="/" className="logo-wrapper">
+          <Link to="/" className={logoClass}>
             <img
-              className={styles.headerImage}
+              className={headerImageClass}
               src={isMobile ? mobileLogo : logo}
               alt="lucky hamster logo"
             />
           </Link>
           {!isMobile && <Nav />}
         </div>
-        <div className={styles.headerActions}>
+        <div className={headerActionsClass}>
           {/* {!isMobile && (
             <div className="mr-[19xp] flex items-center justify-start rounded-[30px] bg-header_bg_opacity40 px-[30px]">
               <img className="mr-[5px]" src={coin} alt="coin" />

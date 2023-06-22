@@ -1,26 +1,9 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import caret from '@/asset/CaretDown.svg'
-import play from '@/asset/PlayCircle.svg'
-import trophy from '@/asset/Trophy.svg'
-import arrow from '@/asset/arrowup.svg'
-import info from '@/asset/Info.svg'
+import classNames from 'classnames'
 import styles from './AsideRound.module.css'
-
-interface Round {
-  roundID: string
-  status: string
-  history: string
-  choice: string
-  yourPosition: string
-  yourWin: string
-  sum: string
-  lastPrice: string
-  price: string
-  priseFond: string
-  up: string
-  down: string
-}
+import { Round } from './asideRound'
+import { arrow, caret, info, play, trophy } from '@/images'
 
 export const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
   const { t } = useTranslation(['translations'])
@@ -30,14 +13,26 @@ export const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
     setIsExpanded((prevState) => !prevState)
   }
 
+  const roundHeaderClasses = classNames(styles.roundHeader, {
+    [styles.roundHeaderNotEx]: !isExpanded
+  })
+
+  const caretClasses = classNames(styles.caret, {
+    [styles.rotatedCaret]: isExpanded
+  })
+
+  const roundContentClasses = classNames(styles.roundContent, {
+    [styles.expandedContent]: isExpanded,
+    [styles.hiddenContent]: !isExpanded
+  })
+
+  const directionArrowClasses = classNames(styles.directionText, {
+    ['rotate-180']: true // Add any condition here if needed
+  })
+
   return (
     <div className={styles.container}>
-      <button
-        className={` ${styles.roundHeader} ${
-          isExpanded ? '' : styles.roundHeaderNotEx
-        }`}
-        onClick={toggleAccordion}
-      >
+      <button className={roundHeaderClasses} onClick={toggleAccordion}>
         <div className={styles.roundHeaderContent}>
           <div className={styles.roundHeaderRoundWrapper}>
             <p className={styles.roundHeaderRound}>{t('round')}</p>
@@ -50,17 +45,9 @@ export const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
             </div>
           )}
         </div>
-        <img
-          src={caret}
-          alt="caret"
-          className={`${isExpanded ? styles.rotatedCaret : ''} ${styles.caret}`}
-        />
+        <img src={caret} alt="caret" className={caretClasses} />
       </button>
-      <div
-        className={`${
-          isExpanded ? styles.expandedContent : styles.hiddenContent
-        } ${styles.roundContent}`}
-      >
+      <div className={roundContentClasses}>
         <div className={styles.roundContentWrapper}>
           <div className={styles.roundInfo}>
             <p className={styles.infoText}>{t('history')}</p>
@@ -72,7 +59,7 @@ export const AsideRound: React.FC<{ round: Round }> = ({ round }) => {
           <div className={styles.choiceText}>
             <p className={styles.roundHeaderRound}>{t('yourChoice')}</p>
             <p className={styles.yourChoiseStatus}>
-              <img className={`rotate-180`} src={arrow} alt="arrow" />
+              <img className={directionArrowClasses} src={arrow} alt="arrow" />
               {t('down')}
             </p>
           </div>

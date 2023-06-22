@@ -1,18 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
+import classNames from 'classnames'
 import styles from './Footer.module.css'
-import logo from '@/asset/logo.svg'
-import twitter from '@/asset/TwitterLogo.svg'
-import telegram from '@/asset/TelegramLogo.svg'
-import discord from '@/asset/DiscordLogo.svg'
-import mobileLogo from '@/asset/mobile-logo.svg'
 import React from 'react'
-
-interface FooterProps {
-  isMobile: boolean
-  visible: boolean
-}
+import { FooterProps } from './footer'
+import { mobileLogo, logo, twitter, telegram, discord } from '@/images'
 
 const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
   const { t } = useTranslation(['translations'])
@@ -21,23 +14,29 @@ const Footer: React.FC<FooterProps> = ({ isMobile, visible }) => {
   const isGameRoute = location.pathname === '/game'
   const isRulesRoute = location.pathname === '/rules'
 
+  const footerClasses = classNames(styles.footer, {
+    hidden: isGameRoute || (isRulesRoute && isMobile)
+  })
+
+  const footerNavClasses = classNames(styles.footerNav, styles['footer-nav'], {
+    'lg:ml-0': !isGameRoute,
+    'lg:ml-[205px]': isGameRoute
+  })
+
+  const footerNavWrapperClasses = classNames(
+    styles['footer-nav-wrapper'],
+    styles.footerNavWrapper,
+    {
+      'pb-[13px]': !visible,
+      'pb-[100px]': visible
+    }
+  )
+
   return (
-    <footer
-      className={`${isGameRoute ? 'hidden' : ''} ${
-        isRulesRoute && isMobile ? 'hidden' : ''
-      } ${styles['footer']}`}
-    >
+    <footer className={footerClasses}>
       {!isGameRoute && (
-        <div
-          className={`${styles.footerNav} ${styles['footer-nav']} ${
-            !isGameRoute ? 'lg:ml-0' : 'lg:ml-[205px]'
-          }`}
-        >
-          <div
-            className={`${styles['footer-nav-wrapper']} ${
-              styles.footerNavWrapper
-            }  ${!visible ? 'pb-[13px]' : 'pb-[100px]'} `}
-          >
+        <div className={footerNavClasses}>
+          <div className={footerNavWrapperClasses}>
             <Link className={styles.logo} to={'/'}>
               <img
                 className="max-w-[95px]"

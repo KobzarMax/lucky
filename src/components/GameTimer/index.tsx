@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { durations } from '@/consts'
 import clock from '@/asset/Clock.svg'
 import caret from '@/asset/CaretDown.svg'
+import classNames from 'classnames'
 import styles from './GameTimer.module.css'
+import { durations } from './gameTimerConsts'
 
 export const GameTimer: React.FC = () => {
   const { t } = useTranslation(['translations'])
@@ -14,30 +15,32 @@ export const GameTimer: React.FC = () => {
     setDuration(durations[index])
   }
 
+  const gameDurationsClass = styles['game-durations']
+  const durationPickerClass = styles.durationPicker
+  const durationPickedClass = styles.durationPicked
+  const caretClass = classNames(styles.caret, 'duration-300')
+  const durationsClass = `${styles['durations']} w-full p-4`
+  const durationsInnerClass = styles['durations-inner']
+
   return (
-    <div className={styles['game-durations']}>
-      <div className={styles.durationPicker}>
-        <p className={styles.durationPicked}>
+    <div className={gameDurationsClass}>
+      <div className={durationPickerClass}>
+        <p className={durationPickedClass}>
           <img src={clock} alt="clock" />
           {t(duration)}
         </p>
-        <img
-          className={`${styles.caret} duration-300`}
-          src={caret}
-          alt="caret"
-        />
+        <img className={caretClass} src={caret} alt="caret" />
       </div>
-      <div className={`${styles['durations']} w-full p-4`}>
-        <div className={styles['durations-inner']}>
+      <div className={durationsClass}>
+        <div className={durationsInnerClass}>
           {durations.map((dur: string, index: number) => (
             <p
               onClick={() => toggleDuration(index)}
               key={index}
-              className={`${styles['duration-item']} ${
-                duration === dur
-                  ? styles.durationSelected
-                  : styles.durationDefault
-              }`}
+              className={classNames(styles['duration-item'], {
+                [styles.durationSelected]: duration === dur,
+                [styles.durationDefault]: duration !== dur
+              })}
             >
               {t(dur)}
             </p>

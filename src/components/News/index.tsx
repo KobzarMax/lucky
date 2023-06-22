@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import classNames from 'classnames'
 import arrow from '@/asset/arrowup.svg'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
@@ -7,8 +8,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
-import { news } from '@/consts'
 import styles from './News.module.css'
+import { news } from './newsConsts'
 
 SwiperCore.use([Navigation])
 
@@ -20,32 +21,46 @@ export const News: React.FC = () => {
   const swiperRef = React.useRef<React.RefObject<SwiperRef> | null | undefined>(
     null
   )
+
+  const newsTitleClass = classNames(
+    'mb-[31px]',
+    language === 'ru' ? 'text-left' : 'text-center',
+    styles.newsTitle
+  )
+
+  const slideButtonsClass = classNames(
+    styles.slideButtons,
+    isMobile ? '' : styles.hiddenButtons
+  )
+
+  const prevButtonClass = classNames(
+    styles['swiper-button'],
+    'news-swiper-button-prev',
+    styles['news-swiper-button-prev'],
+    styles.newsButton
+  )
+
+  const nextButtonClass = classNames(
+    styles['swiper-button'],
+    'news-swiper-button-next',
+    styles['news-swiper-button-next'],
+    styles.newsButton
+  )
+
+  const articleClass = classNames(styles.newsArticle, styles['news-article'])
+
   return (
     <div className={styles.news}>
-      <h2
-        className={`mb-[31px] ${
-          language === 'ru' ? 'text-left' : 'text-center'
-        } ${styles.newsTitle}`}
-      >
-        {t('news')}
-      </h2>
-      <div
-        className={`${styles.slideButtons} ${
-          isMobile ? '' : styles.hiddenButtons
-        }`}
-      >
-        <div
-          className={`${styles['swiper-button']} news-swiper-button-prev ${styles['news-swiper-button-prev']} ${styles.newsButton}`}
-        >
+      <h2 className={newsTitleClass}>{t('news')}</h2>
+      <div className={slideButtonsClass}>
+        <div className={prevButtonClass}>
           <img
             src={arrow}
             alt="slide arrow"
             className="h-[183px] w-6 -rotate-90 lg:w-full"
           />
         </div>
-        <div
-          className={`${styles['swiper-button']} news-swiper-button-next ${styles['news-swiper-button-next']} ${styles.newsButton}`}
-        >
+        <div className={nextButtonClass}>
           <img
             src={arrow}
             alt="slide arrow"
@@ -75,10 +90,7 @@ export const News: React.FC = () => {
         }}
       >
         {news.map((article, index) => (
-          <SwiperSlide
-            className={`${styles.newsArticle} ${styles['news-article']}`}
-            key={index}
-          >
+          <SwiperSlide className={articleClass} key={index}>
             <div className={styles.newsArticleItem}>
               <img
                 className={styles.newsArticleImage}

@@ -1,14 +1,12 @@
-import globe from '@/asset/globe.svg'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { RootState } from '@/redux/store'
 import { setLanguage } from '@/features/global/globalSlice'
+import classNames from 'classnames'
 import styles from './TranslateControl.module.css'
-
-type TranslateControlsProps = {
-  isMobile: boolean
-}
+import { TranslateControlsProps } from './translateControl'
+import { globe } from '@/images'
 
 export const TranslateControls: React.FC<TranslateControlsProps> = ({
   isMobile
@@ -40,20 +38,34 @@ export const TranslateControls: React.FC<TranslateControlsProps> = ({
     }
   }, [])
 
+  const languagesWrapperClasses = classNames(styles.languagesWrapper)
+
+  const globeIconClasses = classNames(styles.globeIcon)
+
+  const languageTextClasses = classNames(styles.languageText)
+
+  const languagesClasses = classNames(styles.languages)
+
+  const languagesInnerClasses = classNames(styles.languagesInner)
+
+  const languageOptionClassesEn = classNames(styles.languageOption, styles.en)
+
+  const languageOptionClassesRu = classNames(styles.languageOption, styles.ru)
+
   return (
-    <div className={styles.languagesWrapper}>
-      <img className={styles.globeIcon} src={globe} alt="globe" />
-      {!isMobile && <p className={styles.languageText}>{language}</p>}
-      <div className={styles.languages}>
-        <div className={`${styles.languagesInner} ${styles.languagesInner}`}>
+    <div className={languagesWrapperClasses}>
+      <img className={globeIconClasses} src={globe} alt="globe" />
+      {!isMobile && <p className={languageTextClasses}>{language}</p>}
+      <div className={languagesClasses}>
+        <div className={`${languagesInnerClasses} ${styles.languagesInner}`}>
           <p
-            className={`${styles.languageOption} ${styles.en}`}
+            className={`${languageOptionClassesEn}`}
             onClick={() => updateLanguage('en')}
           >
             English
           </p>
           <p
-            className={`${styles.languageOption} ${styles.ru}`}
+            className={`${languageOptionClassesRu}`}
             onClick={() => updateLanguage('ru')}
           >
             Русский

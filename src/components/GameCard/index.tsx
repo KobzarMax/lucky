@@ -1,23 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import prohibit from '@/asset/Prohibit.svg'
-import arrow from '@/asset/arrowup.svg'
-import play from '@/asset/PlayCircle.svg'
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import bnb from '@/asset/BNB.svg'
-import clock from '@/asset/Clock.svg'
-import { GameData } from '@/interfaces'
+import cx from 'classnames'
 import styles from './GameCard.module.css'
-
-interface GameCardProps {
-  cardData: GameData
-  toggleShow: () => void
-}
-
-interface TimeLeft {
-  hours: number
-  minutes: number
-  seconds: number
-}
+import { GameCardProps, TimeLeft } from './gameCard'
+import { prohibit, arrow, play, bnb, clock } from '@/images'
 
 export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
   const { t } = useTranslation(['translations'])
@@ -110,9 +96,12 @@ export const GameCard: React.FC<GameCardProps> = ({ cardData, toggleShow }) => {
 
   return (
     <div
-      className={`${starting ? '' : styles[cardData.status]} ${
-        styles['game-card-wrapper']
-      } ${styles[`card-${cardRotation}`]} ${styles.gameCardWrapper}`}
+      className={cx(
+        starting ? '' : styles[cardData.status],
+        styles['game-card-wrapper'],
+        styles[`card-${cardRotation}`],
+        styles.gameCardWrapper
+      )}
     >
       <div className={styles.gameCardHeader}>
         {!positionInput && (

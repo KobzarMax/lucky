@@ -1,43 +1,66 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import chartup from '@/asset/chartup.svg'
-import chartdown from '@/asset/chartdown.svg'
-import arrowup from '@/asset/arrowup.svg'
-import avatar from '@/asset/hamster.png'
-import down from '@/asset/down.svg'
-import border from '@/asset/latest-games-border.svg'
+import classNames from 'classnames'
 import styles from './LatestGames.module.css'
-import { latestGames } from '@/consts'
+import { down, hamster, chartup, chartdown, border, arrow } from '@/images'
+import { latestGames } from './latestFamesConsts'
 
 const LatestGames: React.FC = () => {
   const { t } = useTranslation(['translations'])
 
+  const latestgamesClasses = classNames(styles.latestgames)
+
+  const latestgamesTextClasses = classNames(styles.latestgamesText)
+
+  const tickerWrapClasses = classNames(styles.tickerWrap)
+
+  const tickerClasses = classNames(styles.ticker, styles.tickerWrapInner)
+
+  const tickerItemClasses = (status: string) =>
+    classNames(
+      status,
+      styles['ticker__item'],
+      styles.hexagon,
+      styles.latestGameItem
+    )
+
+  const latestgameInnerClasses = classNames(styles.latestgameInner)
+
+  const latestgameAvatarClasses = classNames(styles.latestgameAvatar)
+
+  const statusArrowClasses = classNames(styles['status-arrow'])
+
+  const latestGameFlexClasses = classNames(styles.latestGameFlex)
+
+  const latestGameFundsClasses = classNames(styles.latestGameFunds)
+
+  const latestGamePercentsClasses = classNames(styles.latestGamePercents)
+
+  const latestGameBorderClasses = classNames(styles.latestGameBorder)
+
   return (
-    <div className={styles.latestgames}>
-      <p className={styles.latestgamesText}>
+    <div className={latestgamesClasses}>
+      <p className={latestgamesTextClasses}>
         <img className="inline-block" src={down} alt="down" /> {t('latest')}{' '}
-        <span className="lowercase text-primary">{t('games')}</span>
+        <span className="text-primary lowercase">{t('games')}</span>
       </p>
-      <div className={styles.tickerWrap}>
-        <div className={`${styles.ticker} ${styles.tickerWrapInner}`}>
+      <div className={tickerWrapClasses}>
+        <div className={tickerClasses}>
           {latestGames.map((latestGame, index) => (
-            <div
-              key={index}
-              className={`${latestGame.status} ${styles['ticker__item']} ${styles.hexagon} ${styles.latestGameItem}`}
-            >
-              <div className={styles.latestgameInner}>
-                <div className={styles.latestgameAvatar}>
-                  <img width={25} src={avatar} alt="Lucky Hamster icon" />
+            <div key={index} className={tickerItemClasses(latestGame.status)}>
+              <div className={latestgameInnerClasses}>
+                <div className={latestgameAvatarClasses}>
+                  <img width={25} src={hamster} alt="Lucky Hamster icon" />
                   <span className={styles.latestgameID}>{latestGame.id}</span>
                 </div>
-                <div className={styles['status-arrow']}>
-                  <img src={arrowup} alt="status arrow " />
+                <div className={statusArrowClasses}>
+                  <img src={arrow} alt="status arrow " />
                 </div>
               </div>
-              <div className={styles.latestGameFlex}>
+              <div className={latestGameFlexClasses}>
                 <div>
-                  <p className={styles.latestGameFunds}>{latestGame.funds}</p>
-                  <p className={styles.latestGamePercents}>
+                  <p className={latestGameFundsClasses}>{latestGame.funds}</p>
+                  <p className={latestGamePercentsClasses}>
                     {latestGame.percents}
                   </p>
                 </div>
@@ -49,7 +72,7 @@ const LatestGames: React.FC = () => {
                 )}
               </div>
               <img
-                className={styles.latestGameBorder}
+                className={latestGameBorderClasses}
                 src={border}
                 alt="border"
               />

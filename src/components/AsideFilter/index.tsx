@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './AsideFilter.module.css'
-
-type FilterOption = 'all' | 'winned' | 'losed'
-
-type FilterComponentProps = {
-  onFilterChange: (filter: FilterOption) => void
-}
+import { FilterComponentProps, FilterOption } from './asideFilter'
+import classNames from 'classnames'
 
 const FilterComponent: React.FC<FilterComponentProps> = ({
   onFilterChange
@@ -23,25 +19,25 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
     <div className={styles.asideFilter}>
       <button
         onClick={() => handleFilterChange('all')}
-        className={` ${styles.asideFilterButton} ${
-          activeFilter === 'all' ? 'bg-primary' : ''
-        }`}
+        className={classNames(styles.asideFilterButton, {
+          [styles.bgPrimary]: activeFilter === 'all'
+        })}
       >
         {t('all')}
       </button>
       <button
         onClick={() => handleFilterChange('winned')}
-        className={`${styles.asideFilterButton} ${
-          activeFilter === 'winned' ? 'bg-primary' : ''
-        }`}
+        className={classNames(styles.asideFilterButton, {
+          [styles.bgPrimary]: activeFilter === 'winned'
+        })}
       >
         {t('winned')}
       </button>
       <button
         onClick={() => handleFilterChange('losed')}
-        className={`${styles.asideFilterButton} ${
-          activeFilter === 'losed' ? 'bg-primary' : ''
-        }`}
+        className={classNames(styles.asideFilterButton, {
+          [styles.bgPrimary]: activeFilter === 'losed'
+        })}
       >
         {t('losed')}
       </button>
